@@ -28,7 +28,7 @@
 
 | Day | Date | Project / Feature | Learning / Note | Commit |
 | --- | --- | --- | --- | --- |
-| 001 | 01/01 | 100日おみくじアプリ | チャレンジの旗揚げ。Next.js + Tailwind | [View(作成中)]() |
+| 001 | 01/01 | 100日おみくじアプリ | チャレンジの旗揚げ。Next.js + Tailwind | [dd132d6](https://github.com/ruu2023/100-days-of-code-2026/commit/dd132d667b4515593d2dbf95e22ef8dc5cceb112) |
 | ... | ... | ... | ... | ... |
 
 ## 📬 Links
