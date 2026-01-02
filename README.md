@@ -25,6 +25,18 @@
 - **Languages/Frameworks:** Next.js, TypeScript, Laravel, Rust, C++
 - **Focus:** Web Architecture, Browser Internals, AI Integration, UI/UX for Life-logging
 
+## 💻 How to Run
+
+### Web Application (Next.js)
+
+```bash
+cd web
+npm install
+npm run dev
+```
+
+Access: http://localhost:3000
+
 ## 📊 Challenge Log
 
 | Day | Date  | Project / Feature    | Learning / Note                        | file                       |
