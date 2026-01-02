@@ -1,0 +1,22 @@
+{
+  // 共通設定
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // Next.js (JS/TS) 用の設定
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Rust 用の設定
+  "[rust]": {
+    "editor.tabSize": 4 // Rustは公式推奨が4なことが多いですが、ここを2に変えれば2になります
+  }
+}
