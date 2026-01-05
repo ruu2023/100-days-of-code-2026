@@ -65,6 +65,7 @@ go run .
 | 002 | 01/02 | ライフゲーム         | Rust UI (eframe/egui)                  | [View](./rust/day002)                                    |
 | 003 | 01/03 | Docker Quiz          | Go (net/http)                          | [View](./web/app/days/003/page.tsx) [View](./go/day003/) |
 | 004 | 01/04 | CLI Pomodoro Timer   | Rust (indicatif)                       | [View](./rust/day004)                                    |
+| 005 | 01/05 | 簡易習慣記録 App     | Data Persistence (serde/json)          | [View](./rust/day005)                                    |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
