@@ -1,0 +1,5 @@
+<%# Append/Prepend the new memo to the list %>
+<%= turbo_stream.prepend "memos", partial: "memos/memo", locals: { memo: @memo } %>
+
+<%# Reset the form %>
+<%= turbo_stream.update "new_memo_form", partial: "memos/form", locals: { memo: Memo.new } %>

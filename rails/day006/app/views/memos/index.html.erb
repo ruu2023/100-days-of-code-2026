@@ -1,0 +1,22 @@
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="font-bold text-3xl text-gray-900">Keep Rails</h1>
+  </div>
+  
+  <div class="mb-10 max-w-2xl mx-auto">
+    <div id="new_memo_form" class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+      <%= render "form", memo: Memo.new %>
+    </div>
+  </div>
+
+  <div id="memos" class="columns-1 md:columns-2 lg:columns-4 gap-4 space-y-4">
+    <%= render @memos %>
+  </div>
+  
+  <% if @memos.empty? %>
+    <div class="text-center py-20 text-gray-500">
+      <p class="text-xl">No notes yet.</p>
+      <p class="mt-2 text-sm">Create one to get started!</p>
+    </div>
+  <% end %>
+</div>

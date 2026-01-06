@@ -1,0 +1,16 @@
+<%= turbo_frame_tag memo do %>
+  <div id="<%= dom_id memo %>" class="break-inside-avoid-column mb-4 rounded-lg border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
+    <div class="p-4 space-y-2">
+      <% if memo.title.present? %>
+        <h3 class="font-semibold text-lg text-gray-900"><%= memo.title %></h3>
+      <% end %>
+      
+      <div class="text-gray-700 whitespace-pre-wrap break-words"><%= memo.body %></div>
+      
+      <div class="pt-4 flex justify-end space-x-2 items-center opacity-0 hover:opacity-100 transition-opacity duration-200">
+        <%= link_to "Edit", edit_memo_path(memo), class: "text-sm text-blue-600 hover:text-blue-800" %>
+        <%= link_to "Delete", memo, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-sm text-red-600 hover:text-red-800" %>
+      </div>
+    </div>
+  </div>
+<% end %>
