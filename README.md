@@ -68,6 +68,7 @@ go run .
 | 005 | 01/05 | 簡易習慣記録 App     | Data Persistence (serde/json)          | [View](./rust/day005)                                    |
 | 006 | 01/06 | Rails Keep App       | Rails 8 / Turbo / Tailwind             | [View](./rails/day006)                                   |
 | 007 | 01/07 | Pacman Game          | Java Swing                             | [View](./java/day007)                                    |
+| 008 | 01/08 | Calendar App         | React / Material UI                    | [View](./react/day008)                                   |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
