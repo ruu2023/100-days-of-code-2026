@@ -69,6 +69,7 @@ go run .
 | 006 | 01/06 | Rails Keep App       | Rails 8 / Turbo / Tailwind             | [View](./rails/day006)                                   |
 | 007 | 01/07 | Pacman Game          | Java Swing                             | [View](./java/day007)                                    |
 | 008 | 01/08 | Calendar App         | React / Material UI                    | [View](./react/day008)                                   |
+| 009 | 01/09 | Digital Clock        | React / Vite                           | [View](./react/day009)                                   |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
