@@ -70,6 +70,7 @@ go run .
 | 007 | 01/07 | Pacman Game          | Java Swing                             | [View](./java/day007)                                    |
 | 008 | 01/08 | Calendar App         | React / Material UI                    | [View](./react/day008)                                   |
 | 009 | 01/09 | Digital Clock        | React / Vite                           | [View](./react/day009)                                   |
+| 010 | 01/10 | Stopwatch            | React / Vite                           | [View](./react/day010)                                   |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
