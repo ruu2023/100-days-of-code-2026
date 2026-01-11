@@ -1,0 +1,282 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--chat-bg);
+  box-shadow: 0 0 50px rgba(89, 192, 120, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+}
+
+.headerIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--zunda-green);
+  padding: 2px;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerTitle {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--zunda-dark-green);
+}
+
+.headerStatus {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.chatWindow {
+  flex: 1;
+  overflow-y: auto;
+  padding: 90px 1rem 100px 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  scroll-behavior: smooth;
+  background-image: radial-gradient(#e6f7ec 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.messageRow {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-end;
+  animation: slideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.messageRow.user {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.bubble {
+  padding: 0.8rem 1.1rem;
+  border-radius: 20px;
+  max-width: 85%;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  white-space: pre-wrap;
+}
+
+.bubble.zundamon {
+  background: white;
+  color: var(--zunda-text);
+  border-bottom-left-radius: 4px;
+  border: 1px solid #eefae8;
+}
+
+.bubble.user {
+  background: var(--zunda-green);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.bubble.error {
+  background: #ffeeee;
+  color: #e63946;
+  border: 1px solid #ffcccc;
+}
+
+.inputArea {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1rem 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 20;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  border-radius: 28px;
+  border: 2px solid transparent;
+  background: #f5f5f5;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  background: white;
+  border-color: var(--zunda-green);
+  box-shadow: 0 0 0 4px rgba(89, 192, 120, 0.1);
+}
+
+.sendButton {
+  background: var(--zunda-green);
+  color: white;
+  border: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 10px rgba(89, 192, 120, 0.3);
+}
+
+.sendButton:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: var(--zunda-dark-green);
+}
+
+.sendButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.sendButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Settings Modal */
+.modalOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalCard {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--zunda-dark-green);
+  margin: 0;
+}
+
+.modalInput {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.modalButton {
+  background: var(--zunda-green);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modalButton:hover {
+  background: var(--zunda-dark-green);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.typingDot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  margin-right: 3px;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+
+.typingDot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.typingDot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}

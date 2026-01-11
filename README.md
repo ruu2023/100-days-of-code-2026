@@ -71,6 +71,7 @@ go run .
 | 008 | 01/08 | Calendar App         | React / Material UI                    | [View](./react/day008)                                   |
 | 009 | 01/09 | Digital Clock        | React / Vite                           | [View](./react/day009)                                   |
 | 010 | 01/10 | Stopwatch            | React / Vite                           | [View](./react/day010)                                   |
+| 011 | 01/11 | Zundamon Chat App    | Next.js / Gemini API / VOICEVOX        | [View](./react/day011-zundamon-chat)                     |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links

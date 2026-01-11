@@ -1,0 +1,27 @@
+:root {
+  --zunda-green: #59c078; /* Edamame Green */
+  --zunda-dark-green: #2e7d43;
+  --zunda-light: #e6f7ec;
+  --zunda-text: #2c3e50;
+  --bg-color: #f0fdf4;
+  --chat-bg: #ffffff;
+  --accent: #ff6b6b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--zunda-text);
+  background: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* Prevent body scroll, handle in app */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
