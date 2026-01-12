@@ -4,6 +4,7 @@ const Dashboard = () => {
   const links = [
     { day: "001", link: "/days/001", text: "本日のおみくじ" },
     { day: "003", link: "/days/003", text: "Docker Quiz" },
+    { day: "012", link: "/days/012", text: "Notion BI tool Demo" },
   ];
   return (
     <div>

@@ -72,6 +72,7 @@ go run .
 | 009 | 01/09 | Digital Clock        | React / Vite                           | [View](./react/day009)                                   |
 | 010 | 01/10 | Stopwatch            | React / Vite                           | [View](./react/day010)                                   |
 | 011 | 01/11 | Zundamon Chat App    | Next.js / Gemini API / VOICEVOX        | [View](./react/day011-zundamon-chat)                     |
+| 012 | 01/12 | Notion BI App        | Notion API / MUI                       | [View](./web/app/days/012)                               |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links

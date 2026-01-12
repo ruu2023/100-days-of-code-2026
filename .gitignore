@@ -1,4 +1,2 @@
 ignore.md
-web/node_modules
-web/.next
 rust/target
