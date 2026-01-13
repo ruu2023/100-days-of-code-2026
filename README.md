@@ -73,6 +73,7 @@ go run .
 | 010 | 01/10 | Stopwatch            | React / Vite                           | [View](./react/day010)                                   |
 | 011 | 01/11 | Zundamon Chat App    | Next.js / Gemini API / VOICEVOX        | [View](./react/day011-zundamon-chat)                     |
 | 012 | 01/12 | Notion BI App        | Notion API / MUI                       | [View](./web/app/days/012)                               |
+| 013 | 01/13 | Zen Breathing App    | Next.js / Tailwind / Vanilla JS        | [View](./web/app/days/013)                               |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
