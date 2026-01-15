@@ -74,7 +74,8 @@ go run .
 | 011 | 01/11 | Zundamon Chat App    | Next.js / Gemini API / VOICEVOX        | [View](./react/day011-zundamon-chat)                     |
 | 012 | 01/12 | Notion BI App        | Notion API / MUI                       | [View](./web/app/days/012)                               |
 | 013 | 01/13 | Zen Breathing App    | Next.js / Tailwind / Vanilla JS        | [View](./web/app/days/013)                               |
-| 014 | 01/14 | Password Manager     | React Query / TanStack Query | [View](./react/day014)                               |
+| 014 | 01/14 | Password Manager     | React Query / TanStack Query           | [View](./react/day014)                                   |
+| 015 | 01/15 | Collaborative Canvas | Go (WebSocket) / React (Canvas)        | [View](./react/day015)                                   |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
