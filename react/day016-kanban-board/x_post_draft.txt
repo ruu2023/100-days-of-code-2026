@@ -1,0 +1,7 @@
+【Day 016/100】 Kanban Board (Trello-style) 完成！📋
+
+🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Glassmorphic Kanban
+dnd-kitを使って、ドラッグ&ドロップでタスク管理できるアプリを作成。グラスモーフィズムデザインでPremiumな使い心地を目指しました✨
+
+#100DaysOfCode #React #dndkit #Vite #TypeScript
+https://github.com/ruu2023/100-days-of-code-2026

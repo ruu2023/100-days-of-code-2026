@@ -76,6 +76,7 @@ go run .
 | 013 | 01/13 | Zen Breathing App    | Next.js / Tailwind / Vanilla JS        | [View](./web/app/days/013)                               |
 | 014 | 01/14 | Password Manager     | React Query / TanStack Query           | [View](./react/day014)                                   |
 | 015 | 01/15 | Collaborative Canvas | Go (WebSocket) / React (Canvas)        | [View](./react/day015)                                   |
+| 016 | 01/16 | Kanban Board         | React / Vite / dnd-kit                 | [View](./react/day016-kanban-board)                      |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
