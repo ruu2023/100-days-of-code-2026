@@ -77,7 +77,7 @@ go run .
 | 014 | 01/14 | Password Manager     | React Query / TanStack Query           | [View](./react/day014)                                   |
 | 015 | 01/15 | Collaborative Canvas | Go (WebSocket) / React (Canvas)        | [View](./react/day015)                                   |
 | 016 | 01/16 | Kanban Board         | React / Vite / dnd-kit                 | [View](./react/day016-kanban-board)                      |
-| 017 | 01/17 | Tetris               | React / Vite / dnd-kit                 | [View](./react/day017-tetris)                            |
+| 017 | 01/17 | Tetris               | React / Vite / dnd-kit                 | [View](./react/day017)                            |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
