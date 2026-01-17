@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f0f13; /* Very dark background */
+  font-family: 'Outfit', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Wrapper to handle focus and centering */
+.tetris-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#1a1a2e, #0f0f13);
+  background-size: cover;
+  overflow: hidden;
+  outline: none; /* remove focus outline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tetris-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/* Stage: The Grid */
+.stage {
+  display: grid;
+  grid-template-rows: repeat(20, calc(35vh / 10)); /* roughly fit screen */
+  grid-template-columns: repeat(12, calc(35vh / 10));
+  grid-gap: 1px;
+  border: 1px solid #333;
+  width: 100%;
+  max-width: 50vw;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Cells */
+.cell {
+  width: auto;
+  border-radius: 4px; /* subtle rounded corners */
+  transition: all 0.1s ease-in-out;
+}
+
+.cell.filled {
+  border: none !important; /* Managed by inline style, but reset here if needed */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 100%;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+}
+
+/* Display (Score, etc) */
+.display {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  border-radius: 20px;
+  color: #999;
+  background: #1a1a2e; /* Darker box */
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  border: 4px solid #333;
+  min-height: 30px;
+  width: 100%;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.display.game-over { /* Red text for game over */
+  color: red;
+  border-color: red;
+  background: rgba(255, 0, 0, 0.1);
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Start Button */
+.start-button {
+  box-sizing: border-box;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  min-height: 30px;
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  color: white;
+  background: linear-gradient(90deg, #ff00cc, #333399);
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+}
+
+.start-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 0, 204, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tetris-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .sidebar {
+    padding-left: 0;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+  
+  .display {
+      width: 48%;
+      margin-bottom: 10px;
+  }
+  
+  .start-button {
+      width: 100%;
+  }
+
+  .stage {
+    grid-template-rows: repeat(20, calc(65vh / 20));
+    grid-template-columns: repeat(12, calc(65vh / 20));
+  }
+}
