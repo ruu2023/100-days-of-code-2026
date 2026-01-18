@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Log | Premium UI</title>
+    <style>
+        :root {
+            --primary: #bb86fc;
+            --bg: #121212;
+            --surface: #1e1e1e;
+            --on-surface: #e0e0e0;
+            --secondary: #a0a0a0;
+            --border: #333;
+            --input-bg: #2d2d2d;
+            --font: 'Inter', -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background 0.2s, transform 0.2s, border-color 0.2s;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--on-surface);
+            font-family: var(--font);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem 1rem;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin: 0;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+        }
+
+        #main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 5rem;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Buttons */
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.6rem;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 4px 12px rgba(187, 134, 252, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--on-surface);
+        }
+
+        .btn-outline:hover {
+            background: var(--surface);
+            border-color: var(--secondary);
+        }
+
+        /* Initial Screen */
+        #openFile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        /* List View */
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        #list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.25rem;
+            color: #fff;
+        }
+
+        .card-date {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .tag-pill {
+            display: inline-block;
+            background: rgba(187, 134, 252, 0.1);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            border: 1px solid rgba(187, 134, 252, 0.2);
+        }
+
+        /* Editor View */
+        #edit {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        label {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #333;
+        }
+
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        /* Toast */
+        #toastMessage {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            z-index: 2000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page {
+            animation: slideUp 0.4s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Json Log</h1>
+        <div id="toastMessage" class="hidden"></div>
+    </header>
+
+    <main id="main">
+        <!-- ページ：ファイル選択 -->
+        <div id="openFile" class="page">
+            <button id="openFileButton" class="btn-primary">📁 ファイルを選択して接続</button>
+        </div>
+
+        <!-- ページ：一覧 -->
+        <div id="index" class="page hidden">
+            <div class="list-header">
+                <h2 style="font-weight: 300;">Logs</h2>
+                <button id="newButton" class="btn-primary">＋ New Log</button>
+            </div>
+            <div id="list"></div>
+        </div>
+
+        <!-- ページ：編集・作成 -->
+        <div id="edit" class="page hidden">
+            <div class="list-header">
+                <h2 id="editHeader" style="font-weight: 300;">Edit</h2>
+                <button id="backButton" class="btn-outline">Cancel</button>
+            </div>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" id="title" placeholder="ログのタイトル...">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="date">
+                </div>
+                <div class="form-group">
+                    <label>Tags (カンマ区切り)</label>
+                    <input type="text" id="tags" placeholder="work, tech, travel...">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Content</label>
+                <textarea id="content" placeholder="内容を自由に入力..."></textarea>
+            </div>
+            <button id="saveButton" class="btn-primary">💾 保存して更新</button>
+        </div>
+    </main>
+
+    <script>
+        // --- 状態管理 ---
+        let fileHandle;
+        let currentEditingId = null;
+        let entries = [];
+
+        // --- 部品取得 ---
+        const pages = {
+            openFile: document.getElementById('openFile'),
+            index: document.getElementById('index'),
+            edit: document.getElementById('edit')
+        };
+        const listDiv = document.getElementById('list');
+        const titleInput = document.getElementById('title');
+        const dateInput = document.getElementById('date');
+        const tagsInput = document.getElementById('tags');
+        const contentInput = document.getElementById('content');
+
+        // --- ロジック ---
+        const showPage = (id) => {
+            Object.values(pages).forEach(p => p.classList.add('hidden'));
+            pages[id].classList.remove('hidden');
+        };
+
+        const showToast = (msg) => {
+            const toast = document.getElementById('toastMessage');
+            toast.textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        };
+
+        const parseTags = (str) => str ? str.split(',').map(t => t.trim()).filter(t => t) : [];
+
+        const renderList = () => {
+            listDiv.innerHTML = '';
+            entries.forEach(entry => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                const tagHtml = (entry.tags || []).map(t => `<span class="tag-pill">${t}</span>`).join('');
+
+                card.innerHTML = `
+                    <div class="card-date">${entry.date || ''}</div>
+                    <h3>${entry.title || '(No Title)'}</h3>
+                    <div>${tagHtml}</div>
+                `;
+
+                card.addEventListener('click', () => startEdit(entry.id));
+                listDiv.appendChild(card);
+            });
+        };
+
+        const startEdit = (id = null) => {
+            currentEditingId = id;
+            if (id) {
+                const entry = entries.find(e => e.id === id);
+                titleInput.value = entry.title || '';
+                dateInput.value = entry.date || '';
+                tagsInput.value = (entry.tags || []).join(', ');
+                contentInput.value = entry.content || '';
+                document.getElementById('editHeader').textContent = 'Edit Log';
+            } else {
+                titleInput.value = '';
+                dateInput.value = new Date().toISOString().split('T')[0];
+                tagsInput.value = '';
+                contentInput.value = '';
+                document.getElementById('editHeader').textContent = 'New Log';
+            }
+            showPage('edit');
+        };
+
+        // --- イベント ---
+        document.getElementById('openFileButton').addEventListener('click', async () => {
+            try {
+                [fileHandle] = await window.showOpenFilePicker({
+                    types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }]
+                });
+                const file = await fileHandle.getFile();
+                entries = JSON.parse(await file.text() || '[]');
+                renderList();
+                showPage('index');
+                showToast('接続完了');
+            } catch (e) {
+                console.error(e);
+            }
+        });
+
+        document.getElementById('newButton').addEventListener('click', () => startEdit());
+        document.getElementById('backButton').addEventListener('click', () => showPage('index'));
+
+        document.getElementById('saveButton').addEventListener('click', async () => {
+            const data = {
+                title: titleInput.value,
+                date: dateInput.value,
+                tags: parseTags(tagsInput.value),
+                content: contentInput.value
+            };
+
+            if (currentEditingId) {
+                const idx = entries.findIndex(e => e.id === currentEditingId);
+                entries[idx] = { ...entries[idx], ...data };
+            } else {
+                entries.push({ id: crypto.randomUUID(), ...data });
+            }
+
+            try {
+                const writable = await fileHandle.createWritable();
+                await writable.write(JSON.stringify(entries, null, 2));
+                await writable.close();
+                showToast('保存しました');
+                renderList();
+                showPage('index');
+            } catch (e) {
+                showToast('保存に失敗しました');
+            }
+        });
+    </script>
+</body>
+
+</html>
