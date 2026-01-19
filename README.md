@@ -78,7 +78,8 @@ go run .
 | 015 | 01/15 | Collaborative Canvas | Go (WebSocket) / React (Canvas)        | [View](./react/day015)                                   |
 | 016 | 01/16 | Kanban Board         | React / Vite / dnd-kit                 | [View](./react/day016-kanban-board)                      |
 | 017 | 01/17 | Tetris               | React / Vite / TypeScript    | [View](./react/day017)                            |
-| 018 | 01/18 | JSON LOG    | HTML / Vanilla JS        | [View](./html/day018)                               |
+| 018 | 01/18 | JSON LOG            | HTML / Vanilla JS                      | [View](./html/day018)                                    |
+| 019 | 01/19 | MD to JSON Converter | HTML / Vanilla JS / CSS                | [View](./html/day019)                                    |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
