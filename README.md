@@ -80,6 +80,7 @@ go run .
 | 017 | 01/17 | Tetris               | React / Vite / TypeScript    | [View](./react/day017)                            |
 | 018 | 01/18 | JSON LOG            | HTML / Vanilla JS                      | [View](./html/day018)                                    |
 | 019 | 01/19 | MD to JSON Converter | HTML / Vanilla JS / CSS                | [View](./html/day019)                                    |
+| 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./web/app/days/020/pic-spot)                      |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
