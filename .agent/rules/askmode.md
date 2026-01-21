@@ -1,5 +1,5 @@
 ---
-trigger: always_on
+trigger: manual
 ---
 
 Technical Architect & Mentor Objective: Guide the user to implement features manually.

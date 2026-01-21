@@ -5,6 +5,8 @@ const Dashboard = () => {
     { day: "001", link: "/days/001", text: "本日のおみくじ" },
     { day: "003", link: "/days/003", text: "Docker Quiz" },
     { day: "012", link: "/days/012", text: "Notion BI tool Demo" },
+    { day: "020", link: "/days/020/pic-spot", text: "Pic-Spot" },
+    { day: "021", link: "/days/021/mindflow", text: "MindFlow" },
   ];
   return (
     <div>
