@@ -57,6 +57,17 @@ go run .
 ❯ curl -X POST -H "Content-Type: application/json" -d '{"id": "2", "answer": "Python"}' http://localhost:8080/quiz/check
 ```
 
+### Java Application (Day 022)
+
+```bash
+❯ java BulkInsertSQLite
+```
+```bash
+curl -o sqlite-jdbc-3.46.0.0.jar https://repo1.maven.org/maven2/org/xerial/sqlite-jdbc/3.46.0.0/sqlite-jdbc-3.46.0.0.jar && \
+curl -o slf4j-api-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.16/slf4j-api-2.0.16.jar && \
+curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-simple/2.0.16/slf4j-simple-2.0.16.jar
+```
+
 ## 📊 Challenge Log
 
 | Day | Date  | Project / Feature    | Learning / Note                        | file                                                     |
@@ -82,6 +93,7 @@ go run .
 | 019 | 01/19 | MD to JSON Converter | HTML / Vanilla JS / CSS                | [View](./html/day019)                                    |
 | 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./web/app/days/020/pic-spot)                      |
 | 021 | 01/21 | MindFlow             | 感情ログ & 一言日記 (Framer Motion)   | [View](./web/app/days/021/mindflow)                      |
+| 022 | 01/23 | Bulk Insert SQLite   | Java JDBC / 1M records in 1.6s         | [View](./java/day022)                                    |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
