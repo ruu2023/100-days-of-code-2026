@@ -94,6 +94,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./web/app/days/020/pic-spot)                      |
 | 021 | 01/21 | MindFlow             | 感情ログ & 一言日記 (Framer Motion)   | [View](./web/app/days/021/mindflow)                      |
 | 022 | 01/23 | Bulk Insert SQLite   | Java JDBC / 1M records in 1.6s         | [View](./java/day022)                                    |
+| 023 | 01/23 | SQL Drill            | Browser-side SQLite (sql.js) / PWA    | [View](./web/app/days/023/sql-drill)                      |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
