@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dockerfile Typing</title>
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes blink { 50% { border-color: transparent; } }
+        .cursor-blink { animation: blink 1s step-end infinite; }
+        .match { color: #4ade80; }
+        .unmatch { background-color: #ef4444; color: white; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center font-mono p-4">
+
+    <!-- Header -->
+    <header class="mb-10 text-center">
+        <h1 class="text-4xl font-bold mb-2 text-blue-400">Dockerfile Typing</h1>
+        <p class="text-gray-400">Time: <span id="time" class="text-white font-bold">0</span>s | Line: <span id="current-index" class="text-white font-bold">0</span>/<span id="total-index" class="text-white font-bold">0</span></p>
+    </header>
+
+    <!-- Game Container -->
+    <div class="w-full max-w-4xl bg-slate-800 p-8 rounded-xl shadow-2xl border border-slate-700 relative">
+        
+        <!-- Course Selection -->
+        <div id="course-selector" class="mb-8 flex gap-4 justify-center">
+            <button onclick="startGame('apache')" class="px-6 py-3 bg-red-600 rounded-lg font-bold hover:bg-red-500 transition-all transform hover:scale-105 shadow-lg">Apache Course</button>
+            <button onclick="startGame('mysql')" class="px-6 py-3 bg-blue-600 rounded-lg font-bold hover:bg-blue-500 transition-all transform hover:scale-105 shadow-lg">MySQL Course</button>
+        </div>
+
+        <div id="game-area" class="hidden">
+            <!-- Display Current Line -->
+            <div class="mb-6 bg-slate-900 p-6 rounded-lg border border-slate-600">
+                <p class="text-gray-500 text-xs mb-3 uppercase tracking-widest">Type this line:</p>
+                <div id="word-display" class="text-xl md:text-2xl font-bold break-all leading-relaxed tracking-wider min-h-[3rem]">
+                    <!-- JS will insert text here -->
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="relative">
+                <input type="text" id="word-input" 
+                    class="w-full p-5 text-xl bg-slate-700 border-2 border-slate-600 rounded-lg focus:outline-none focus:border-blue-500 text-white placeholder-slate-500 transition-colors" 
+                    placeholder="Start typing..." autofocus autocomplete="off">
+            </div>
+            
+            <!-- Message / Feedback -->
+            <p id="message" class="mt-4 text-center text-yellow-500 font-semibold h-6"></p>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="hidden text-center">
+            <h2 class="text-3xl font-bold text-green-400 mb-4">Course Clear!</h2>
+            <p class="text-xl mb-6">Total Time: <span id="final-time" class="font-bold text-white"></span> seconds</p>
+            <button onclick="location.reload()" class="px-8 py-3 bg-slate-600 rounded-lg hover:bg-slate-500 transition">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <footer class="mt-12 text-gray-500 text-sm">
+        <p>Press <kbd class="bg-gray-700 px-2 py-1 rounded text-gray-300">Enter</kbd> to refresh if needed.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
