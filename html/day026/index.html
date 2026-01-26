@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit Log</title>
+    <style>
+        :root {
+            --primary: #00ff9d; /* Matrix/Cyberpunk Green */
+            --bg: #0d1117; /* GitHub Dark Dimmed */
+            --surface: #161b22;
+            --border: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent: #1f6feb;
+            --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 700px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Connection Section */
+        #connection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+            transition: border-color 0.2s;
+        }
+
+        #connection:hover {
+            border-color: var(--primary);
+        }
+
+        button.btn-connect {
+            background: var(--primary);
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.1s;
+        }
+
+        button.btn-connect:hover {
+            transform: scale(1.05);
+        }
+
+        /* Workspace */
+        #workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        button.btn-send {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--primary);
+            padding: 0 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button.btn-send:hover {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .log-entry {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 4px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .log-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .log-duration {
+            background: rgba(31, 111, 235, 0.2);
+            color: #58a6ff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .log-message {
+            font-size: 1rem;
+            white-space: pre-wrap;
+        }
+
+        .hidden { display: none !important; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Toast */
+        #toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--surface);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+        #toast.visible {
+            opacity: 1;
+        }
+        
+        .status-bar {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <header>
+        <h1>Commit Log</h1>
+    </header>
+
+    <!-- Connect Screen -->
+    <div id="connection">
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">作業フォルダを選択してください</p>
+        <button type="button" id="btnConnect" class="btn-connect">📁 Open Workspace</button>
+    </div>
+
+    <!-- Workspace Screen -->
+    <div id="workspace" class="hidden">
+        <div class="status-bar" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>Connected: <span id="dirName">...</span></span>
+            <button id="btnCopy" style="background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">📋 Copy MD</button>
+        </div>
+
+        <form id="logForm" class="input-group">
+            <input type="text" id="logInput" placeholder="Message or 30_Message..." autocomplete="off">
+            <button type="submit" id="btnSend" class="btn-send">Commit</button>
+        </form>
+
+        <div id="logList" class="timeline"></div>
+    </div>
+</div>
+
+<div id="toast">Saved!</div>
+
+<script>
+    // --- State ---
+    let dirHandle;
+    let jsonHandle;
+    let mdHandle;
+    let todayLogs = [];
+
+    // --- DOM ---
+    const connectionDiv = document.getElementById('connection');
+    const workspaceDiv = document.getElementById('workspace');
+    const btnConnect = document.getElementById('btnConnect');
+    const logForm = document.getElementById('logForm');
+    const logInput = document.getElementById('logInput');
+    const logList = document.getElementById('logList');
+    const dirNameSpan = document.getElementById('dirName');
+    const toast = document.getElementById('toast');
+
+    async function handleCopy() {
+        if (todayLogs.length === 0) {
+            showToast('No logs to copy');
+            return;
+        }
+
+        const text = todayLogs.map(log => {
+            let line = `- [${log.time}] `;
+            if (log.duration) {
+                line += `(${log.duration}min) `;
+            }
+            line += `${log.message}`;
+            return line;
+        }).join('\n');
+
+        try {
+            await navigator.clipboard.writeText(text);
+            showToast('Copied to clipboard!');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+            showToast('Failed to copy');
+        }
+    }
+
+    // --- Events ---
+    btnConnect.addEventListener('click', handleConnect);
+    
+    // Use form submit to handle both Button Click and Enter Key
+    logForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Stop form submission reload
+        handleSend();
+    });
+    
+    document.getElementById('btnCopy').addEventListener('click', handleCopy);
+
+    // --- Helpers ---
+    const pad = (n) => n.toString().padStart(2, '0');
+    
+    const getTodayStr = () => {
+        const d = new Date();
+        return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`; 
+    };
+
+    const getTimeStr = () => {
+        const d = new Date();
+        return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    };
+
+    const showToast = (msg) => {
+        toast.textContent = msg;
+        toast.classList.add('visible');
+        setTimeout(() => toast.classList.remove('visible'), 2000);
+    };
+
+    // --- File Operations ---
+    async function getFile(name, create = true) {
+        return await dirHandle.getFileHandle(name, { create });
+    }
+
+    async function appendText(handle, text) {
+        const writable = await handle.createWritable({ keepExistingData: true });
+        // File System Access API's createWritable clears file by default unless we seek to end
+        // However, 'keepExistingData' isn't a standard option in some implementations. 
+        // Standard way: get file, read size, write at offset.
+        
+        const file = await handle.getFile();
+        const size = file.size;
+        
+        // Simple append approach
+        // Note: For createWritable(), we might need to write the whole content if offset isn't supported well in all browsers,
+        // but typically writable.write({ type: 'write', position: size, data: text }) works.
+        // Let's try simple text append first.
+        
+        // The safest way for small files is read-modify-write, but strictly appending is better for logs.
+        // Let's try append mode.
+        const stream = await handle.createWritable({ keepExistingData: true }); 
+        // Note: keepExistingData is not standard.
+        // Correct way:
+        // const stream = await handle.createWritable();
+        // stream.seek(size); // This is what we need
+        // stream.write(text);
+        
+        // But let's check if seek is supported. Chrome supports it.
+        // If the file is new (size 0), no seek needed.
+        if (size > 0) {
+            await stream.seek(size);
+        }
+        await stream.write(text);
+        await stream.close();
+    }
+
+    async function loadJsonLogs() {
+        try {
+            const file = await jsonHandle.getFile();
+            const text = await file.text();
+            const allLogs = text ? JSON.parse(text) : [];
+            // Filter for UI (show today's logs? or last N?)
+            // Let's show today's logs + last 5.
+            const today = getTodayStr();
+            todayLogs = allLogs.filter(l => l.date === today);
+            
+            // If empty today, maybe show last few of previous days?
+            // For now just render todayLogs.
+            if (todayLogs.length === 0 && allLogs.length > 0) {
+                // optional: show recent history.
+            }
+            renderLogs();
+            return allLogs;
+        } catch (e) {
+            console.error("Error reading JSON", e);
+            return [];
+        }
+    }
+    
+    async function saveJsonLog(newEntry) {
+        // Read all, append, write all (JSON constraint)
+        const file = await jsonHandle.getFile();
+        const text = await file.text();
+        let allLogs = [];
+        try {
+            allLogs = text ? JSON.parse(text) : [];
+        } catch (e) { console.warn("JSON parse error, resetting", e); }
+        
+        allLogs.push(newEntry);
+        
+        const writable = await jsonHandle.createWritable(); // Truncates by default
+        await writable.write(JSON.stringify(allLogs, null, 2));
+        await writable.close();
+        
+        todayLogs.push(newEntry);
+        renderLogs();
+    }
+
+    // --- Core Logic ---
+    async function handleConnect() {
+        try {
+            dirHandle = await window.showDirectoryPicker({
+                mode: 'readwrite'
+            });
+            dirNameSpan.textContent = dirHandle.name;
+            
+            // Get Handles
+            jsonHandle = await getFile('commit-log.json');
+            mdHandle = await getFile('memo.md');
+            
+            // UI Switch
+            connectionDiv.classList.add('hidden');
+            workspaceDiv.classList.remove('hidden');
+            
+            // Init
+            await loadJsonLogs();
+            logInput.focus();
+            
+        } catch (e) {
+            console.error(e);
+            // Show detailed error on screen
+            const errorDiv = document.createElement('div');
+            errorDiv.style.color = '#ff6b6b';
+            errorDiv.style.background = 'rgba(255, 107, 107, 0.1)';
+            errorDiv.style.border = '1px solid #ff6b6b';
+            errorDiv.style.padding = '1rem';
+            errorDiv.style.marginTop = '1rem';
+            errorDiv.style.borderRadius = '8px';
+            errorDiv.innerHTML = `<strong>Error:</strong> ${e.name}: ${e.message}<br><small>If you are not using Chrome or Edge, please try those browsers.</small>`;
+            
+            // Remove previous errors
+            const prev = connectionDiv.querySelector('.error-msg');
+            if(prev) prev.remove();
+            
+            errorDiv.classList.add('error-msg');
+            connectionDiv.appendChild(errorDiv);
+        }
+    }
+
+    // Check support on load
+    if (!('showDirectoryPicker' in window)) {
+        const errorDiv = document.createElement('div');
+        errorDiv.style.color = '#ff6b6b';
+        errorDiv.style.padding = '1rem';
+        errorDiv.innerHTML = '⚠️ Your browser does not support the <b>File System Access API</b>.<br>Please use <b>Google Chrome</b> or <b>Microsoft Edge</b>.';
+        connectionDiv.appendChild(errorDiv);
+        btnConnect.disabled = true;
+        btnConnect.style.opacity = '0.5';
+    }
+    
+    async function handleSend() {
+        const rawInput = logInput.value.trim();
+        if (!rawInput) {
+            cancelEdit(); // Empty input cancels edit
+            return;
+        }
+        
+        // Parse "30_message"
+        let duration = null;
+        let message = rawInput;
+        
+        const match = rawInput.match(/^(\d+)_(.+)$/);
+        if (match) {
+            duration = parseInt(match[1], 10);
+            message = match[2].trim();
+        }
+        
+        try {
+            if (editingId) {
+                // Update existing
+                const oldLog = todayLogs.find(l => l.id === editingId);
+                if (oldLog) {
+                    const updatedEntry = {
+                        ...oldLog,
+                        message: message,
+                        duration: duration,
+                        // Keep original timestamp/time
+                    };
+                    await updateJsonLog(updatedEntry);
+                    showToast('Updated!');
+                }
+                cancelEdit();
+            } else {
+                // Create new
+                const now = new Date();
+                const dateStr = getTodayStr();
+                const timeStr = getTimeStr(); // HH:MM
+                
+                const newEntry = {
+                    id: crypto.randomUUID(),
+                    timestamp: now.toISOString(),
+                    date: dateStr,
+                    time: timeStr,
+                    message: message,
+                    duration: duration
+                };
+                
+                await saveJsonLog(newEntry);
+                
+                // Only append to MD on new entries
+                let mdLine = `\n- [${timeStr}] `;
+                if (duration) mdLine += `(${duration}min) `;
+                mdLine += `${message}`;
+                await appendText(mdHandle, mdLine);
+                
+                logInput.value = '';
+                showToast('Committed!');
+            }
+        } catch (e) {
+            console.error(e);
+            alert('Error: ' + e.message);
+        }
+    }
+
+    // --- UI Render ---
+    function renderLogs() {
+        logList.innerHTML = '';
+        // Sort distinct (newest top)
+        const sorted = [...todayLogs].reverse();
+        
+        sorted.forEach(log => {
+            const div = document.createElement('div');
+            div.className = 'log-entry';
+            
+            const durHtml = log.duration ? `<span class="log-duration">${log.duration} min</span>` : '';
+            
+            div.innerHTML = `
+                <div class="log-meta">
+                    <span>${log.time}</span>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        ${durHtml}
+                        <button class="btn-edit" data-id="${log.id}" style="background:none; border:none; cursor:pointer; font-size:1rem;">✏️</button>
+                        <button class="btn-delete" data-id="${log.id}" style="background:none; border:none; cursor:pointer; font-size:1rem;">🗑️</button>
+                    </div>
+                </div>
+                <div class="log-message">${escapeHtml(log.message)}</div>
+            `;
+            
+            div.querySelector('.btn-edit').addEventListener('click', () => startEdit(log));
+            div.querySelector('.btn-delete').addEventListener('click', () => deleteLog(log.id));
+            logList.appendChild(div);
+        });
+    }
+
+    // --- Delete Logic ---
+    async function deleteLog(id) {
+        if (!confirm('Are you sure you want to delete this log?')) return;
+
+        try {
+            const file = await jsonHandle.getFile();
+            const text = await file.text();
+            let allLogs = text ? JSON.parse(text) : [];
+            
+            const newLogs = allLogs.filter(l => l.id !== id);
+            
+            const writable = await jsonHandle.createWritable();
+            await writable.write(JSON.stringify(newLogs, null, 2));
+            await writable.close();
+            
+            // Update local state
+            todayLogs = todayLogs.filter(l => l.id !== id);
+            renderLogs();
+            showToast('Deleted');
+        } catch (e) {
+            console.error(e);
+            alert('Failed to delete: ' + e.message);
+        }
+    }
+
+    // --- Edit Logic ---
+    let editingId = null;
+
+    function startEdit(log) {
+        editingId = log.id;
+        let text = log.message;
+        if (log.duration) {
+            text = `${log.duration}_${text}`;
+        }
+        logInput.value = text;
+        logInput.focus();
+        btnSend.textContent = 'Update';
+        btnSend.style.color = '#ffd700'; // Gold color to indicate edit mode
+    }
+
+    function cancelEdit() {
+        editingId = null;
+        logInput.value = '';
+        btnSend.textContent = 'Commit';
+        btnSend.style.color = '';
+    }
+
+    async function updateJsonLog(updatedEntry) {
+        const file = await jsonHandle.getFile();
+        const text = await file.text();
+        let allLogs = text ? JSON.parse(text) : [];
+        
+        const idx = allLogs.findIndex(l => l.id === updatedEntry.id);
+        if (idx !== -1) {
+            allLogs[idx] = updatedEntry;
+            
+            const writable = await jsonHandle.createWritable();
+            await writable.write(JSON.stringify(allLogs, null, 2));
+            await writable.close();
+            
+            // Update local state
+            const localIdx = todayLogs.findIndex(l => l.id === updatedEntry.id);
+            if (localIdx !== -1) todayLogs[localIdx] = updatedEntry;
+            
+            renderLogs();
+        }
+    }
+
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, (m) => map[m]);
+    }
+
+    // --- Events ---
+
+
+</script>
+</body>
+</html>

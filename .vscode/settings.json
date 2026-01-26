@@ -1,5 +1,9 @@
 {
   // 共通設定
+  "liveServer.settings.ignoreFiles": [
+    "**/*.json",
+    "**/*.md"
+  ],
   "editor.formatOnSave": true,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
