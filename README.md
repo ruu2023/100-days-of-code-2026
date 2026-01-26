@@ -97,6 +97,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 023 | 01/23 | SQL Drill            | Browser-side SQLite (sql.js) / PWA    | [View](./web/app/days/023/sql-drill)                      |
 | 024 | 01/24 | Gomoku Game          | React / Game Logic / CSS Grid          | [View](./react/day024)                                   |
 | 025 | 01/25 | Dockerfile Typing    | HTML / Tailwind (CDN) / Vanilla JS     | [View](./html/day025)                                    |
+| 026 | 01/26 | Commit Log App       | File System Access API / HTML          | [View](./html/day026)                                    |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
