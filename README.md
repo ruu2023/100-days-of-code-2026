@@ -100,6 +100,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 026 | 01/26 | Commit Log App       | File System Access API / HTML          | [View](./html/day026)                                    |
 | 027 | 01/27 | TUI Pomodoro Timer   | Go (bubbletea) / TUI                   | [View](./go/day027-pomodoro-timer)                       |
 | 028 | 01/28 | Glassmorphism Gen    | React / Tailwind / Clipboard API       | [View](./web/app/days/028)                               |
+| 029 | 01/29 | YouTube Timestamp    | Chrome Extension (Manifest V3) / JS    | [View](./html/day029-chrome-yt)                          |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
