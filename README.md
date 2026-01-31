@@ -102,6 +102,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 028 | 01/28 | Glassmorphism Gen    | React / Tailwind / Clipboard API       | [View](./web/app/days/028)                               |
 | 029 | 01/29 | YouTube Timestamp    | Chrome Extension (Manifest V3) / JS    | [View](./html/day029-chrome-yt)                          |
 | 030 | 01/30 | Gravity Dash         | React (Canvas API) / Game Loop         | [View](./web/app/days/030)                               |
+| 031 | 01/31 | YT_LOG.exe           | React / YouTube IFrame API / LocalStorage | [View](./web/app/days/031)                               |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
