@@ -107,6 +107,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 033 | 02/02 | Debugging Tavern     | RPG風クイズ / Framer Motion / Game Dev | [View](./web/app/days/033)                               |
 | 034 | 02/03 | MyBatis Tutor        | React / e-learning UI / LocalStorage   | [View](./web/app/days/034)                               |
 | 035 | 02/04 | Quick Markdown       | React / Live Preview / Auto-save       | [View](./web/app/days/035)                               |
+| 036 | 02/05 | Lyric Studio         | React / iTunes API / YouTube Music Link| [View](./web/app/days/036)                               |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
