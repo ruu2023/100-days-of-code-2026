@@ -91,7 +91,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 017 | 01/17 | Tetris               | React / Vite / TypeScript    | [View](./react/day017)                            |
 | 018 | 01/18 | JSON LOG            | HTML / Vanilla JS                      | [View](./html/day018)                                    |
 | 019 | 01/19 | MD to JSON Converter | HTML / Vanilla JS / CSS                | [View](./html/day019)                                    |
-| 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./web/app/days/020/pic-spot)                      |
+| 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./html/day020)                      |
 | 021 | 01/21 | MindFlow             | 感情ログ & 一言日記 (Framer Motion)   | [View](./web/app/days/021/mindflow)                      |
 | 022 | 01/23 | Bulk Insert SQLite   | Java JDBC / 1M records in 1.6s         | [View](./java/day022)                                    |
 | 023 | 01/23 | SQL Drill            | Browser-side SQLite (sql.js) / PWA    | [View](./web/app/days/023/sql-drill)                      |
@@ -109,6 +109,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 035 | 02/04 | Quick Markdown       | React / Live Preview / Auto-save       | [View](./web/app/days/035)                               |
 | 036 | 02/05 | Lyric Studio         | React / iTunes API / YouTube Music Link| [View](./web/app/days/036)                               |
 | 037 | 02/06 | Simple Tango         | React / Flashcard UI / LocalStorage    | [View](./web/app/days/037)                               |
+| 038 | 02/07 | Pic-Spot v2          | HTML / Dexie.js / Categories           | [View](./html/day038-fork-020)                           |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
