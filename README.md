@@ -110,6 +110,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 036 | 02/05 | Lyric Studio         | React / iTunes API / YouTube Music Link| [View](./web/app/days/036)                               |
 | 037 | 02/06 | Simple Tango         | React / Flashcard UI / LocalStorage    | [View](./web/app/days/037)                               |
 | 038 | 02/07 | Pic-Spot v2          | HTML / Dexie.js / Categories           | [View](./html/day038-fork-020)                           |
+| 039 | 02/08 | Reflection Log       | React / PWA / Firebase Hosting / 5行日記 | [View](./web/app/days/039)                               |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
