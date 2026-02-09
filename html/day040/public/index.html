@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Finish Line Dash</title>
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+        // サービスワーカーの登録
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .runner {
+            transition: left 0.5s linear;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0) scaleX(-1);
+            }
+
+            /* scaleX(-1)を維持して跳ねる */
+            50% {
+                transform: translateY(-5px) scaleX(-1);
+            }
+        }
+
+        .animate-dash {
+            animation: bounce 0.2s infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-slate-800 p-8 rounded-2xl shadow-2xl">
+        <h1 class="text-2xl font-bold text-center mb-6 text-blue-400">寝るまで走り抜け！</h1>
+
+        <div class="relative w-full h-12 relative">
+            <div class="bg-slate-700 w-full h-12  absolute rounded-full mb-4 overflow-hidden border-4 border-slate-600">
+                <div id="progressBar"
+                    class="h-full bg-gradient-to-r from-blue-600 to-cyan-400 w-0 transition-all duration-500"></div>
+            </div>
+
+            <div id="runner" class="absolute top-1 text-5xl runner animate-dash"
+                style="left: 0%; transform: scaleX(-1);">🏃‍♂️</div>
+        </div>
+
+        <div class="text-center">
+            <input type="time" id="goalTime" value="22:00"
+                class="bg-transparent text-xl font-mono mb-4 text-center border-b border-slate-500 focus:outline-none [color-scheme:dark]">
+            <p id="timeLeft" class="text-4xl font-black mb-2 font-mono text-yellow-400">00:00:00</p>
+            <p id="statusMsg" class="text-sm text-slate-400">ゴールまで全力疾走中...</p>
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById('progressBar');
+        const runner = document.getElementById('runner');
+        const timeLeftDisplay = document.getElementById('timeLeft');
+        const goalInput = document.getElementById('goalTime');
+
+        function update() {
+            const now = new Date();
+            const [h, m] = goalInput.value.split(':');
+            const goal = new Date();
+            goal.setHours(h, m, 0);
+
+            const start = new Date();
+            start.setHours(0, 0, 0); // 00:00を開始点とする
+
+            const total = goal - start;
+            const elapsed = now - start;
+            const remaining = goal - now;
+
+            // 進捗を 0-100% に収める
+            let pct = Math.min(100, Math.max(0, (elapsed / total) * 100));
+
+            progressBar.style.width = pct + "%";
+            runner.style.left = `calc(${pct}% - 35px)`; // キャラがはみ出さないよう調整
+
+            if (remaining > 0) {
+                const diffH = Math.floor(remaining / 3600000);
+                const diffM = Math.floor((remaining % 3600000) / 60000);
+                const diffS = Math.floor((remaining % 60000) / 1000);
+                timeLeftDisplay.innerText = `${diffH}:${String(diffM).padStart(2, '0')}:${String(diffS).padStart(2, '0')}`;
+            } else {
+                timeLeftDisplay.innerText = "GOAL!!";
+                runner.innerText = "💤";
+                runner.style.transform = "scaleX(1)";
+                runner.classList.remove('animate-dash');
+            }
+        }
+
+        setInterval(update, 1000);
+        update();
+    </script>
+</body>
+
+</html>
