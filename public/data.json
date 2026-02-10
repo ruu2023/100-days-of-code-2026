@@ -1,0 +1,20 @@
+[
+  {
+    "id": "hatebu-it-2-rld-outages/",
+    "title": "Google SRE が Gemini CLI を使用して実際の障害を解決している方法 | Google Cloud 公式ブログ",
+    "url": "https://cloud.google.com/blog/ja/topics/developers-practitioners/how-google-sres-use-gemini-cli-to-solve-real-world-outages/",
+    "source": "Hatena:it",
+    "bookmarkCount": 265,
+    "summary": "1.  SREはMTTM短縮を重視 (13字)\n2.  Gemini CLIが障害対応に貢献 (14字)\n3.  AIは人間参加型の副操縦士 (15字)\n4.  多層的安全機構を実装 (12字)\n5.  ポストモーテムでAIが自己改善 (17字)\n\n要するに：Google SREはGemini CLIを人間参加型で安全に活用し、障害対応MTTMを大幅短縮、AI自己改善を促進する。",
+    "category": "AI"
+  },
+  {
+    "id": "hatebu-it-4-re-migration",
+    "title": "Next.jsをVercelからCloudflareへ移行し、90%のコスト削減を実現した話 - Hello Tech",
+    "url": "https://tech.hello.ai/entry/vercel-cloudflare-migration",
+    "source": "Hatena:it",
+    "bookmarkCount": 125,
+    "summary": "1. 要点を5つの箇条書きで\n*   Next.js大規模アプリVercel高コスト\n*   コストはSSR起因のCompute/帯域\n*   OpenNext+CF Workersへ移行\n*   Workers制約（互換性/バンドル）対応\n*   インフラコスト90%削減、性能維持\n\n2. 要するに：\n大規模Next.jsアプリのVercel高コストを、OpenNextとCloudflare Workersへの移行で90%削減し、性能を維持した。",
+    "category": "Security"
+  }
+]
