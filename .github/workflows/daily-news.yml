@@ -44,15 +44,26 @@ jobs:
           test -f public/data.json && (echo "data.json exists"; head -c 500 public/data.json; echo) || echo "data.json NOT found"
           echo "---- git status ----"
           git status --porcelain
-
+          
       - name: Commit and push if changed
         run: |
-          if git diff --quiet; then
-            echo "No changes."
-            exit 0
-          fi
+          echo "---- git status (before add) ----"
+          git status --porcelain
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data.json
+
+          # 未追跡ファイルも含めて全部ステージ
+          git add -A
+
+          echo "---- git status (after add) ----"
+          git status --porcelain
+
+          # ステージされた差分がなければ終了
+          if git diff --cached --quiet; then
+            echo "No staged changes."
+            exit 0
+          fi
+
           git commit -m "chore: update daily news"
           git push
