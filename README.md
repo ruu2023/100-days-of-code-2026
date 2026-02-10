@@ -112,6 +112,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 038 | 02/07 | Pic-Spot v2          | HTML / Dexie.js / Categories           | [View](./html/day038-fork-020)                           |
 | 039 | 02/08 | Reflection Log       | React / PWA / Firebase Hosting / 5行日記 | [View](./web/app/days/039)                               |
 | 040 | 02/09 | Real-time Board      | Next.js / Pusher / Canvas API          | [View](./web/app/days/040)                               |
+| 041 | 02/10 | AI Tech Pulse        | Gemini API / GitHub Actions / RSS      | [View](./html/day041)                                    |
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
