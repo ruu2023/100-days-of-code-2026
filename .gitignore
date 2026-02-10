@@ -2,3 +2,7 @@ ignore.md
 rust/target
 x_post_draft.md
 node_modules
+
+# もし public/ が無視されているなら、data.json だけ追跡する
+!public/
+!public/data.json

@@ -36,6 +36,15 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run news
 
+      - name: Debug files
+        run: |
+          echo "PWD=$(pwd)"
+          ls -la
+          ls -la public || true
+          test -f public/data.json && (echo "data.json exists"; head -c 500 public/data.json; echo) || echo "data.json NOT found"
+          echo "---- git status ----"
+          git status --porcelain
+
       - name: Commit and push if changed
         run: |
           if git diff --quiet; then
