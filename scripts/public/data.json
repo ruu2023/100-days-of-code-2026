@@ -1,0 +1,22 @@
+[
+  {
+    "id": "reddit-1r0eo44",
+    "title": "MechaEpstein-8000",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1r0eo44/mechaepstein8000/",
+    "source": "Reddit:r/LocalLLaMA",
+    "score": 597,
+    "num_comments": 132,
+    "summary": "日本語タイトル:\nエプスタインのメールを学習したAIモデル「MechaEpstein-8000」\n\n【評価ポイント】\n- 公開されたジェフリー・エプスタイン関連のメールをデータセットとして学習\n- データ生成から学習まで、RTX 5000 ADA (16GB) を用いた完全ローカル環境で構築\n- 一般的なLLMでは拒否される不適切なデータセット生成を独自に克服\n- Qwen3 8B（原文のまま）をベースとし、軽量なGGUF形式でも提供\n- オンラインデモが公開されており、誰でも試用が可能\n\n【懸念・限界】\n- 学習元のメールリスト自体が、公開時点で大幅に検閲・改ざんされている可能性\n- モデルがタイポを謝罪するなど、実際の人物像と出力内容に乖離があるとの指摘\n- 実用性よりも、ディストピア的で風刺的なジョークとしての側面が強い\n\n要するに：\n流出したエプスタインのメールをローカル学習させた、ブラックユーモア漂う実験的LLM。\n\nジャンル: AI",
+    "category": "AI"
+  },
+  {
+    "id": "reddit-1r0q6oq",
+    "title": "Andrew Morris finds iOS AdGuard is written by Russians and injects 20K lines into your browser",
+    "url": "https://www.reddit.com/r/cybersecurity/comments/1r0q6oq/andrew_morris_finds_ios_adguard_is_written_by/",
+    "source": "Reddit:r/cybersecurity",
+    "score": 528,
+    "num_comments": 52,
+    "summary": "日本語タイトル:\niOS版AdGuardはロシア製で、ブラウザに2万行のコードを注入しているとの指摘\n\n【評価ポイント】\n- 広告の空白を消すためにSafariのDOM（ウェブページの構造）を直接書き換えている。\n- 開発者のタイムゾーン（UTC+0300）や.ruドメインから、ロシアのモスクワを拠点とするチームによる開発と特定。\n- DNS判定を行う主要なライブラリがクローズドソース（非公開）であることが判明。\n- 読み込む全ページに対して2万行以上のJavaScriptが実行されている。\n- GitHub上の公開コードが4ヶ月間更新されておらず、大規模アプリとしては不自然。\n\n【懸念・限界】\n- 投稿者自身「悪事を働いている証拠はない」と認めており、現時点では推測の域を出ない。\n- 実行バイナリの簡易解析では、明確に不審な挙動は見つかっていない。\n- 2万行のコードが静的なものか、実行時に動的に取得されるものかなどの詳細な仕様は不明。\n\n要するに：\n広告ブロックのためにロシア製の大規模なコードが全ページに注入されており、信頼性の観点からリスクになり得ると専門家が懸念を呈している。\n\nジャンル: Security",
+    "category": "Security"
+  }
+]
