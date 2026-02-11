@@ -1,20 +1,20 @@
 [
   {
-    "id": "hatebu-it-20-n-spec-first",
-    "title": "Claude16台で10万行のCコンパイラを作った論文を読んで、「いや答えあるじゃん」と思った話",
-    "url": "https://zenn.dev/shio_shoppaize/articles/shogun-spec-first",
+    "id": "hatebu-it-6-06b4a0865acb",
+    "title": "Gemini × NotebookLM 連携で「自分専用エージェント」を量産する：蓄積した履歴を血肉化する究極の活用術",
+    "url": "https://zenn.dev/minipoisson/articles/2806b4a0865acb",
     "source": "Hatena:it",
-    "bookmarkCount": 379,
-    "summary": "Anthropicのエンジニアリングブログで発表された論文は、AIの驚異的な能力を示しました。16台のClaudeを並列稼働させ、わずか2週間と2万ドルの費用で、10万行規模のRust製Cコンパイラを開発したのです。このコンパイラはLinux 6.9の起動に成功し、GCCのテストスイートで99%のパス率を達成、DoomやFFmpeg、PostgreSQLなどの主要なソフトウェアもコンパイル可能である点が特筆されます。その開発プロセスは、タスク完了後にAIが自律的に次のタスクを拾う「自律ループ」で動き、Gitのファイルロックのみで同期を取り、人間の介入なしにテストを仕様書として開発を進めるという、極めて効率的で革新的なものでした。\n\nしかし筆者は、この成果の裏にはCコンパイラという問題の「決定的な特徴」があると指摘します。それは、GCCという「正解」が既に存在し、入力に対する正しい出力が完全に定義されているため、「答え合わせができる世界」であったことです。これにより、AIはテストを完璧な仕様書として扱い、間違った実装を特定するオラクルとしてGCCを利用できました。一方で、現実世界の多くの課題、例えばSaaSのAPI設計や業務フローの自動化、レガシーコードのリファクタリングといった「答えがない問題」では、何が正解かを人間が定義する必要があり、AIに「何を作るか」を任せることはできません。筆者は、自身のAI部下運用経験から、AIには「どう作るか」を任せ、人間が「何を作るか」という仕様を定義する分業こそが、AI駆動開発で最も重要であり効率的であると結論付けています。\n\n要するに：Anthropicの論文はAIによる自律的な大規模開発の可能性を示すが、その成功は「答えがある問題」に限定され、現実の「答えがない問題」では人間による仕様定義が不可欠だ。",
+    "bookmarkCount": 280,
+    "summary": "これまでのAIチャットでは、過去の履歴に基づく対話が可能なNotebookLMと連携しても、特定の目的に応じた指示や資料の指定を毎回手動で行う必要があり、膨大な知識が蓄積されてもその都度手間がかかるという課題がありました。しかし、Geminiの「Gems」機能とNotebookLM連携を組み合わせることで、この状況は一変します。NotebookLMで過去のチャット履歴を長期記憶として格納し、Gemsで特定の役割や指示（人格）を与えることで、指示文を短く保ちながら、数百万トークン規模の背景知識を持つ「自分を熟知した専属エージェント」をワンクリックで起動できるようになりました。これにより、AIを単なる検索ツールではなく、文脈を理解し、個人の蓄積された知見を最大限に活用できるパーソナルな存在へと進化させることが可能になります。\n\nこの革新的な連携は、例えばZenn記事の執筆支援やnote.com向け記事の提案など、特定の目的に特化した形で最大限の効果を発揮します。蓄積された履歴から自動的に記事の構成案を抽出したり、専門用語を分かりやすく説明したり、あるいは個人の開発秘話や想いを引き出してストーリー性豊かな文章を作成したりと、これまでのAIでは難しかったきめ細やかなサポートが、手間なく得られるようになります。データの量だけでなく、それを上手に活用する仕組みがAIの真価を引き出す鍵であり、この連携はAIを個人の「ツール」から「共生するパートナー」へと昇華させる究極の活用術と言えます。\n\n要するに：GeminiとNotebookLMの連携により、自分の全履歴を血肉化した「自分専用エージェント」がワンクリックで量産でき、AIを個人の強力なパートナーとして活用できる。",
     "category": "AI"
   },
   {
-    "id": "hatebu-it-18-%BA%E7%A4%8E",
-    "title": "AWSにおけるアウトバウンドセキュリティの基礎 - 電通総研 テックブログ",
-    "url": "https://tech.dentsusoken.com/entry/2026/02/10/AWS%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%82%A2%E3%82%A6%E3%83%88%E3%83%90%E3%82%A6%E3%83%B3%E3%83%89%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%AE%E5%9F%BA%E7%A4%8E",
+    "id": "hatebu-it-0-s/20260210a/",
+    "title": "ログ設計ガイドラインを公開しました | フューチャー技術ブログ",
+    "url": "https://future-architect.github.io/articles/20260210a/",
     "source": "Hatena:it",
-    "bookmarkCount": 24,
-    "summary": "Webアプリケーション開発においてインバウンド通信のセキュリティが重視されがちな一方で、本記事はアウトバウンド通信のセキュリティの重要性が近年ますます高まっていることを強調しています。マルウェアに感染したサーバーからの悪意ある通信の防止や、サプライチェーンにおける不適切な参照先の制御といった「防御」の観点、さらには設定ミスや異常な通信パターンの検知・分析ログの充実という「可視性」の観点から、これまであまり意識されてこなかったアウトバウンドセキュリティの確立が、企業のリスク管理において不可欠であると指摘しています。\n\nこの課題に対し、AWSはRoute 53 Resolver DNS Firewall、Network Firewall、そしてパブリックプレビュー中のNetwork Firewall Proxyといったマネージドサービスを提供し、多層的なアウトバウンドセキュリティの実現を可能にしている点が画期的です。特にNetwork Firewallは、TCP通信の状態を追跡するステートフルなフィルタリングや、Gateway Load Balancerとの連携により、構築・運用負荷を大幅に低減しつつ高度な通信制御を実現します。これらのサービスを組み合わせることで、DNSベースからL3-L7パケットヘッダベース、さらには特定プロトコルに特化したプロキシベースまで、きめ細やかなフィルタリングが可能となり、低コストで効果の高い対策から段階的に導入し継続的に改善していく、現実的なセキュリティ強化の道筋を提示しています。\n\n要するに：これまで見過ごされがちだったアウトバウンドセキュリティに対し、AWSはマネージドサービス群で多層防御を可能にし、運用負荷を抑えつつ高度なセキュリティを実現します。",
+    "bookmarkCount": 187,
+    "summary": "要約失敗: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 17.133874915s. [{\"@type\":\"type.googleapis.com/google.rpc.Help\",\"links\":[{\"description\":\"Learn more about Gemini API quotas\",\"url\":\"https://ai.google.dev/gemini-api/docs/rate-limits\"}]},{\"@type\":\"type.googleapis.com/google.rpc.QuotaFailure\",\"violations\":[{\"quotaMetric\":\"generativelanguage.googleapis.com/generate_content_free_tier_requests\",\"quotaId\":\"GenerateRequestsPerDayPerProjectPerModel-FreeTier\",\"quotaDimensions\":{\"model\":\"gemini-2.5-flash\",\"location\":\"global\"},\"quotaValue\":\"20\"}]},{\"@type\":\"type.googleapis.com/google.rpc.RetryInfo\",\"retryDelay\":\"17s\"}]",
     "category": "Security"
   }
 ]
