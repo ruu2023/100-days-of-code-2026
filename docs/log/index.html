@@ -1,64 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Log</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>振り返りログ</title>
+  <link rel="manifest" href="manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>/* モバイルでの文字化け・操作感防止 */ body { font-family: sans-serif; -webkit-tap-highlight-color: transparent; }</style>
 </head>
-<body>
-  <h1>Daily Log</h1>
+<body class="bg-gray-50 min-h-screen pb-10 font-sans">
 
-  <button id="login">Googleでログイン</button>
-  <button id="logout" style="display:none;">ログアウト</button>
+  <!-- auth view -->
+  <div id="authView" class="hidden min-h-screen flex flex-col items-center justify-center p-4">
+    <h1 class="text-2xl font-bold mb-4">Daily Log Login</h1>
+    <button id="loginBtn" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:bg-blue-700 transition">
+      Googleでログイン
+    </button>
+  </div>
 
-  <div id="status"></div>
+  <!-- app view -->
+  <div id="appView" class="hidden max-w-md mx-auto p-4">
+    <header class="mb-6 flex justify-between items-start">
+      <div>
+        <h1 class="text-xl font-bold text-gray-800">振り返りログ</h1>
+        <input type="date" id="datePicker" class="text-sm bg-transparent border-none">
+        <div id="weekendMessage" class="hidden mt-2 p-2 bg-yellow-100 text-yellow-800 text-xs rounded border border-yellow-200">
+          ✨ 週末です！JSONを出力して振り返りましょう
+        </div>
+      </div>
+      <button id="logoutBtn" class="text-xs text-gray-500 underline">ログアウト</button>
+    </header>
 
-  <hr />
+    <div id="loadingIndicator" class="hidden text-center text-sm text-gray-500 my-2">Loading...</div>
 
-  <label>date: <input id="date" value="2026-02-11" /></label>
-  <br /><br />
-  <textarea id="payload" style="width:100%;height:160px;">
-{
-  "logs": ["[18:00] (20min) eee"],
-  "diary": { "事実": "e", "発見": "a", "教訓": "d", "宣言": "a", "悩み": "c" }
-}
-  </textarea>
-  <br />
-  <button id="upsert">保存（同日上書き）</button>
+    <section class="mb-8">
+      <div class="flex gap-2 mb-2">
+        <input type="text" id="logInput" placeholder="30_読書 or 内容のみ" 
+          class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm">
+        <button onclick="window.app.addLog()" class="bg-blue-600 text-white px-4 rounded-lg text-sm font-bold">追加</button>
+      </div>
+      <p class="text-[10px] text-gray-400 ml-1">例: 30_タスク名 (分数を自動解釈)</p>
+      <div id="logList" class="space-y-1 mt-4"></div>
+    </section>
 
-  <pre id="out"></pre>
+    <section class="space-y-4">
+      <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest">Daily 5-Line</h2>
+      <div id="diarySection" class="space-y-4"></div>
+    </section>
 
-  <!-- supabase-js を CDN で（手軽） -->
+    <footer class="mt-10 pb-10">
+      <button onclick="window.app.copyForAI()" class="w-full py-3 bg-gray-800 text-white rounded-xl font-bold shadow-lg hover:bg-black transition-all">
+        JSON + プロンプトをコピー
+      </button>
+    </footer>
+  </div>
+
   <script type="module">
     import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
     const SUPABASE_URL = "https://yzlqxmmocxckcugrpgmu.supabase.co";
     const SUPABASE_ANON_KEY = "sb_publishable_MKW83pfEsTv0kQSA1BCI9A_eSHA-AUi";
-
+    
     const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-    const statusEl = document.getElementById("status");
-    const outEl = document.getElementById("out");
-    const loginBtn = document.getElementById("login");
-    const logoutBtn = document.getElementById("logout");
+    // Globals
+    const keys = ["事実", "発見", "教訓", "宣言", "悩み"];
+    let state = { logs: [], diary: {} };
+    let user = null;
 
-    const setOut = (v) => outEl.textContent = (typeof v === "string") ? v : JSON.stringify(v, null, 2);
+    const authView = document.getElementById('authView');
+    const appView = document.getElementById('appView');
+    const dateEl = document.getElementById('datePicker');
+    const loadingEl = document.getElementById('loadingIndicator');
 
-    async function refreshUI() {
+    // Init Date
+    const today = new Date();
+    dateEl.value = today.toISOString().split('T')[0];
+
+    // --- Auth Logic ---
+    async function initAuth() {
       const { data: { session } } = await supabase.auth.getSession();
+      handleSession(session);
+
+      supabase.auth.onAuthStateChange((_event, session) => {
+        handleSession(session);
+      });
+    }
+
+    function handleSession(session) {
       if (session) {
-        statusEl.textContent = `ログイン中: ${session.user.email}`;
-        loginBtn.style.display = "none";
-        logoutBtn.style.display = "";
+        user = session.user;
+        authView.classList.add('hidden');
+        appView.classList.remove('hidden');
+        load(); // Load data for current date
       } else {
-        statusEl.textContent = "未ログイン";
-        loginBtn.style.display = "";
-        logoutBtn.style.display = "none";
+        user = null;
+        authView.classList.remove('hidden');
+        appView.classList.add('hidden');
       }
     }
 
-    loginBtn.onclick = async () => {
-      // ★ここが大事：GitHub PagesのURLに戻す
+    document.getElementById('loginBtn').onclick = async () => {
       await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
@@ -67,36 +109,176 @@
       });
     };
 
-    logoutBtn.onclick = async () => {
+    document.getElementById('logoutBtn').onclick = async () => {
       await supabase.auth.signOut();
-      await refreshUI();
     };
 
-    document.getElementById("upsert").onclick = async () => {
-      try {
-        setOut("saving...");
-        const date = document.getElementById("date").value.trim();
-        const payload = JSON.parse(document.getElementById("payload").value);
+    // --- App Logic ---
+    
+    // Check Weekend
+    function checkWeekend() {
+        const d = new Date();
+        const day = d.getDay();
+        const msg = document.getElementById('weekendMessage');
+        if (day === 0 || day === 6) {
+            msg.classList.remove('hidden');
+        } else {
+            msg.classList.add('hidden');
+        }
+    }
 
-        // user_id は RLS & default(auth.uid()) で自動で入る想定
-        const { data, error } = await supabase
-          .from("daily_logs")
-          .upsert({ date, payload }, { onConflict: "user_id,date" }) // ユニークに合わせる
-          .select();
+    // Load Data from Supabase
+    async function load() {
+      if (!user) return;
+      loadingEl.classList.remove('hidden');
+      
+      const dateStr = dateEl.value;
+      const { data, error } = await supabase
+        .from('daily_logs')
+        .select('payload')
+        .eq('date', dateStr)
+        .maybeSingle();
 
-        if (error) throw error;
-        setOut(data);
-      } catch (e) {
-        setOut(String(e?.message || e));
+      loadingEl.classList.add('hidden');
+
+      if (data && data.payload) {
+        state = data.payload;
+      } else {
+        state = { logs: [], diary: {} };
       }
-    };
+      render();
+    }
 
-    // OAuthで戻ってきた直後のセッション反映
-    supabase.auth.onAuthStateChange((_event, _session) => {
-      refreshUI();
+    // Save Data to Supabase (Upsert)
+    async function save() {
+      if (!user) return;
+      const dateStr = dateEl.value;
+      
+      // Optimistic update
+      render();
+
+      const { error } = await supabase
+        .from('daily_logs')
+        .upsert({ 
+          date: dateStr, 
+          payload: state,
+          // user_id is handled by RLS/Auth default usually, but if needed we rely on RLS
+        }, { onConflict: 'user_id,date' });
+
+      if (error) {
+        console.error("Save failed:", error);
+        alert("保存に失敗しました: " + error.message);
+      }
+    }
+
+    function addLog() {
+      const input = document.getElementById('logInput');
+      if (!input.value) return;
+      
+      const now = new Date();
+      const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+      
+      const match = input.value.match(/^(\d+)_/);
+      const text = match ? `[${time}] (${match[1]}min) ${input.value.replace(match[0], "")}` : `[${time}] ${input.value}`;
+      state.logs.push(text);
+      input.value = ""; 
+      save();
+    }
+
+    function deleteLog(i) {
+      state.logs.splice(i, 1);
+      save();
+    }
+
+    function updateDiary(k, v) {
+      state.diary[k] = v;
+      save(); // Ideally debounce this for textareas
+    }
+
+    // Window expose for onclick handlers (since module scope is private)
+    window.app = {
+      addLog,
+      copyForAI,
+      // helpers needed for inline HTML onclicks 
+    };
+    // Expose specific functions individually to window for the inline onclicks in render()
+    window.deleteLog = deleteLog;
+    window.updateDiary = updateDiary;
+
+
+    function render() {
+      const list = document.getElementById('logList');
+      list.innerHTML = state.logs.map((l, i) => `
+        <div class="text-sm bg-white p-2 rounded border-l-4 border-blue-400 shadow-sm flex justify-between group">
+          <span>${l}</span>
+          <button onclick="window.deleteLog(${i})" class="text-gray-300 hover:text-red-400">×</button>
+        </div>`).join('');
+
+      const diaryHtml = keys.map(k => `
+        <div>
+          <label class="text-xs text-gray-400 ml-1">${k}</label>
+          <textarea onchange="window.updateDiary('${k}', this.value)" rows="1"
+            class="w-full p-2 text-sm rounded border-gray-200 border resize-none focus:border-blue-300 outline-none">${state.diary[k] || ""}</textarea>
+        </div>`).join('');
+      document.getElementById('diarySection').innerHTML = diaryHtml;
+    }
+
+    async function copyForAI() {
+      if (!user) return;
+      
+      const today = new Date(dateEl.value);
+      const endDateStr = today.toISOString().split('T')[0];
+      
+      const starDateObj = new Date(today);
+      starDateObj.setDate(today.getDate() - 6); // 7 days inclusive
+      const startDateStr = starDateObj.toISOString().split('T')[0];
+
+      loadingEl.classList.remove('hidden');
+      loadingEl.textContent = "Fetching 7 days data...";
+
+      // Fetch range
+      const { data, error } = await supabase
+        .from('daily_logs')
+        .select('date, payload')
+        .gte('date', startDateStr)
+        .lte('date', endDateStr);
+      
+      loadingEl.classList.add('hidden');
+      loadingEl.textContent = "Loading...";
+
+      if (error) {
+        alert("データ取得失敗: " + error.message);
+        return;
+      }
+
+      const weeklyData = {};
+      data.forEach(row => {
+        weeklyData[row.date] = row.payload;
+      });
+
+      const prompt = `以下のログを元に、今週の振り返りを手伝ってください。\n1.良かったこと3つ\n2.悩みへの対策\n3.来週の1つのテーマ\n\nデータ: ${JSON.stringify(weeklyData, null, 2)}`;
+      navigator.clipboard.writeText(prompt);
+      alert("一週間分のデータをコピーしました！");
+    }
+
+    // --- Event Listeners ---
+    dateEl.addEventListener('change', load);
+
+    // Enter for log
+    document.getElementById('logInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.isComposing) {
+        e.preventDefault();
+        addLog();
+      }
     });
 
-    await refreshUI();
+    // PWA (Optional, keeping from day039 if needed, but docs/log might not have sw.js at root properly configured yet. Commenting out to avoid errors unless user moves sw.js too)
+    // if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+
+    // Start
+    checkWeekend();
+    initAuth();
+
   </script>
 </body>
 </html>
