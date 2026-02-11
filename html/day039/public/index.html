@@ -8,12 +8,15 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>/* モバイルでの文字化け・操作感防止 */ body { font-family: sans-serif; -webkit-tap-highlight-color: transparent; }</style>
 </head>
-<body class="bg-gray-50 min-h-screen pb-10">
+<body class="bg-gray-50 min-h-screen pb-10 font-sans">
 
   <div class="max-w-md mx-auto p-4">
     <header class="mb-6">
-      <h1 class="text-xl font-bold">振り返りログ</h1>
+      <h1 class="text-xl font-bold text-gray-800">振り返りログ</h1>
       <input type="date" id="datePicker" class="text-sm bg-transparent border-none">
+      <div id="weekendMessage" class="hidden mt-2 p-2 bg-yellow-100 text-yellow-800 text-xs rounded border border-yellow-200">
+        ✨ 週末です！JSONを出力して振り返りましょう
+      </div>
     </header>
 
     <section class="mb-8">
@@ -22,21 +25,42 @@
           class="flex-1 p-3 rounded-lg border focus:ring-2 focus:ring-blue-400 outline-none text-sm">
         <button onclick="addLog()" class="bg-blue-600 text-white px-4 rounded-lg text-sm font-bold">追加</button>
       </div>
-      <div id="logList" class="space-y-2 mt-4"></div>
+      <p class="text-[10px] text-gray-400 ml-1">例: 30_タスク名 (分数を自動解釈)</p>
+      <div id="logList" class="space-y-1 mt-4"></div>
     </section>
 
-    <section id="diarySection" class="space-y-4"></section>
+    <section class="space-y-4">
+      <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest">Daily 5-Line</h2>
+      <div id="diarySection" class="space-y-4"></div>
+    </section>
 
-    <button onclick="copyForAI()" class="w-full mt-10 py-3 bg-gray-800 text-white rounded-xl font-bold shadow-lg">
-      JSON + プロンプトをコピー
-    </button>
+    <footer class="mt-10 pb-10">
+      <button onclick="copyForAI()" class="w-full py-3 bg-gray-800 text-white rounded-xl font-bold shadow-lg hover:bg-black transition-all">
+        JSON + プロンプトをコピー
+      </button>
+    </footer>
   </div>
 
   <script>
     const keys = ["事実", "発見", "教訓", "宣言", "悩み"];
     let state = { logs: [], diary: {} };
     const dateEl = document.getElementById('datePicker');
-    dateEl.value = new Date().toISOString().split('T')[0];
+    
+    // 初期化: 今日の日付をセット
+    const today = new Date();
+    dateEl.value = today.toISOString().split('T')[0];
+
+    // 週末判定（今日が週末かどうか）
+    function checkWeekend() {
+        const d = new Date();
+        const day = d.getDay();
+        const msg = document.getElementById('weekendMessage');
+        if (day === 0 || day === 6) {
+            msg.classList.remove('hidden');
+        } else {
+            msg.classList.add('hidden');
+        }
+    }
 
     // 保存と読み込み
     const load = () => {
@@ -51,7 +75,11 @@
     function addLog() {
       const input = document.getElementById('logInput');
       if (!input.value) return;
-      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      
+      const now = new Date();
+      // 時間のフォーマットを page.tsx に合わせる (H:mm)
+      const time = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+      
       const match = input.value.match(/^(\d+)_/);
       const text = match ? `[${time}] (${match[1]}min) ${input.value.replace(match[0], "")}` : `[${time}] ${input.value}`;
       state.logs.push(text);
@@ -62,15 +90,16 @@
     function render() {
       const list = document.getElementById('logList');
       list.innerHTML = state.logs.map((l, i) => `
-        <div class="text-sm bg-white p-2 rounded border-l-4 border-blue-400 shadow-sm flex justify-between">
+        <div class="text-sm bg-white p-2 rounded border-l-4 border-blue-400 shadow-sm flex justify-between group">
           <span>${l}</span>
-          <button onclick="deleteLog(${i})" class="text-gray-300 px-2">×</button>
+          <button onclick="deleteLog(${i})" class="text-gray-300 hover:text-red-400">×</button>
         </div>`).join('');
 
       const diaryHtml = keys.map(k => `
         <div>
-          <label class="text-xs text-gray-400">${k}</label>
-          <textarea onchange="updateDiary('${k}', this.value)" class="w-full p-2 text-sm rounded border border-gray-200 resize-none outline-none">${state.diary[k] || ""}</textarea>
+          <label class="text-xs text-gray-400 ml-1">${k}</label>
+          <textarea onchange="updateDiary('${k}', this.value)" rows="1"
+            class="w-full p-2 text-sm rounded border-gray-200 border resize-none focus:border-blue-300 outline-none">${state.diary[k] || ""}</textarea>
         </div>`).join('');
       document.getElementById('diarySection').innerHTML = diaryHtml;
     }
@@ -79,9 +108,22 @@
     const updateDiary = (k, v) => { state.diary[k] = v; save(); };
 
     function copyForAI() {
-      const prompt = `今週の振り返りをお願いします。\nデータ: ${JSON.stringify(state)}`;
+      const today = new Date(dateEl.value);
+      const weeklyData = {};
+
+      for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() - i);
+        const dateString = date.toISOString().split('T')[0];
+        const data = localStorage.getItem(`data_${dateString}`);
+        if (data) {
+          weeklyData[dateString] = JSON.parse(data);
+        }
+      }
+
+      const prompt = `以下のログを元に、今週の振り返りを手伝ってください。\n1.良かったこと3つ\n2.悩みへの対策\n3.来週の1つのテーマ\n\nデータ: ${JSON.stringify(weeklyData, null, 2)}`;
       navigator.clipboard.writeText(prompt);
-      alert("コピーしました！");
+      alert("一週間分のデータをコピーしました！");
     }
 
     // PWA: Service Worker登録
@@ -89,6 +131,16 @@
       navigator.serviceWorker.register('sw.js');
     }
     dateEl.addEventListener('change', load);
+    
+    // Enterで送信（日本語変換中は送信しない）
+    document.getElementById('logInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.isComposing) {
+        e.preventDefault();
+        addLog();
+      }
+    });
+
+    checkWeekend();
     load();
   </script>
 </body>
