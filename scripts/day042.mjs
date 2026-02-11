@@ -15,7 +15,7 @@ if (!process.env.REQUESTY_API_KEY) {
 import OpenAI from "openai";
 
 const openai = new OpenAI({
-  apiKey: process.env.RE_API_KEY,
+  apiKey: process.env.REQUESTY_API_KEY,
   baseURL: "https://router.requesty.ai/v1",
 });
 
