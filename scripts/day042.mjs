@@ -4,8 +4,12 @@ import { JSDOM } from "jsdom";
 import { Readability } from "@mozilla/readability";
 import he from "he";
 import Parser from "rss-parser";
+import { existsSync } from 'node:fs';
 
-process.loadEnvFile();
+// .envファイルがある場合（ローカルなど）のみ読み込む
+if (existsSync('.env')) {
+  process.loadEnvFile();
+}
 
 if (!process.env.REQUESTY_API_KEY) {
   console.error("REQUESTY_API_KEY is missing. Set it in .env or GitHub Secrets.");
