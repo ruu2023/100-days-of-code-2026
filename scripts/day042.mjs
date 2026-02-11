@@ -63,6 +63,7 @@ function smartTrim(text, limit = 3000) {
 
 async function getSummaryWithRetry(title, url, retries = 3) {
   const content = await fetchArticleText(url);
+  // return content; // gemini 開発中はコメントアウト
 
   for (let i = 0; i < retries; i++) {
     try {
@@ -131,20 +132,19 @@ function categorizeHatena(title) {
   return "Other";
 }
 
-async function pickHatenaAIAndSecurity() {
-  const items = await fetchHatenaHotIT(30);
+async function pickHatenaAIAndSecurity(existingTitles) {
+  // はてブ：テクノロジー人気エントリー RSS から取得
+  const allItems = await fetchHatenaHotIT(30);
+  const items = allItems.filter(it => !existingTitles.includes(it.title));
 
   const aiCandidates = [];
   const secCandidates = [];
 
   for (const it of items) {
     const cat = categorizeHatena(it.title);
-    if (cat === "AI" || cat === "Both") aiCandidates.push(it);
-    if (cat === "Security" || cat === "Both") secCandidates.push(it);
+    if (cat === "AI") aiCandidates.push(it);
+    if (cat === "Security") secCandidates.push(it);
   }
-
-  const aiPool = aiCandidates.length ? aiCandidates : items;
-  const secPool = secCandidates.length ? secCandidates : items;
 
   async function rankByBookmarks(pool) {
     const sliced = pool.slice(0, 10);
@@ -158,16 +158,35 @@ async function pickHatenaAIAndSecurity() {
     return scored[0] || null;
   }
 
-  const aiPick = await rankByBookmarks(aiPool);
-  const secPick = await rankByBookmarks(secPool);
+  // 選ばれたURLは「使用済み」に登録
+  const usedUrls = new Set();
+
+  async function pickUniqueBest(specificPool, generalItems) {
+    const pool = (specificPool.length ? specificPool : generalItems)
+                  .filter(it => !usedUrls.has(it.url));
+
+    const best = await rankByBookmarks(pool);
+
+    if (best) {
+      usedUrls.add(best.url);
+    }
+    return best;
+  }
+  const aiPick = await pickUniqueBest(aiCandidates, items);
+  const secPick = await pickUniqueBest(secCandidates, items);
 
   return { aiPick, secPick };
 }
 
 async function main() {
   console.log("🚀 Hatena AI + Security (1 each) started...");
+  
+  let existingTitles = [];
+  if (fs.existsSync("./docs/api/data.json")) {
+    existingTitles = JSON.parse(fs.readFileSync("./docs/api/data.json", "utf-8")).map(it => it.title);
+  }
 
-  const { aiPick, secPick } = await pickHatenaAIAndSecurity();
+  const { aiPick, secPick } = await pickHatenaAIAndSecurity(existingTitles);
 
   const results = [];
 
