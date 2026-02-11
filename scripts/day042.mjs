@@ -5,13 +5,19 @@ import { Readability } from "@mozilla/readability";
 import he from "he";
 import Parser from "rss-parser";
 
-if (!process.env.GEMINI_API_KEY) {
-  console.error("GEMINI_API_KEY is missing. Set it in GitHub Secrets.");
+process.loadEnvFile();
+
+if (!process.env.REQUESTY_API_KEY) {
+  console.error("REQUESTY_API_KEY is missing. Set it in .env or GitHub Secrets.");
   process.exit(1);
 }
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.RE_API_KEY,
+  baseURL: "https://router.requesty.ai/v1",
+});
 
 const rss = new Parser({ headers: { "User-Agent": "my-news-app/1.0" } });
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -81,8 +87,18 @@ async function getSummaryWithRetry(title, url, retries = 3) {
 本文: ${content}
 言語: 日本語`;
 
-      const result = await model.generateContent(prompt);
-      return result.response.text();
+      // const result = await model.generateContent(prompt);
+      const completion = await openai.chat.completions.create({
+        model: "google/gemini-2.5-flash", // 使いたいモデルを指定
+        messages: [
+          { role: "system", content: "あなたは優秀なエンジニアです。" },
+          { role: "user", content: prompt },
+        ],
+      });
+
+      const result = completion.choices[0].message.content;
+      return result;
+      // return result.response.text();
     } catch (error) {
       if (String(error?.message || "").includes("429") && i < retries - 1) {
         console.log("429 Error, retrying...");
@@ -194,7 +210,7 @@ async function main() {
     console.log(`🧠 AI pick: ${aiPick.title} (bkm ${aiPick.bookmarkCount ?? "?"})`);
     await sleep(2000);
     const summary = await getSummaryWithRetry(aiPick.title, aiPick.url);
-    results.push({ ...aiPick, summary, category: "AI" });
+    results.push({ ...aiPick, summary, category: "AI", date: new Date().toISOString() });
   } else {
     console.log("🧠 AI pick: none");
   }
@@ -203,7 +219,7 @@ async function main() {
     console.log(`🛡 Security pick: ${secPick.title} (bkm ${secPick.bookmarkCount ?? "?"})`);
     await sleep(2000);
     const summary = await getSummaryWithRetry(secPick.title, secPick.url);
-    results.push({ ...secPick, summary, category: "Security" });
+    results.push({ ...secPick, summary, category: "Security", date: new Date().toISOString() });
   } else {
     console.log("🛡 Security pick: none");
   }
