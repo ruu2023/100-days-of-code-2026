@@ -3,8 +3,8 @@ name: Daily AI+Security News
 on:
   workflow_dispatch:
   schedule:
-    # 毎日 09:10 JST = 00:10 UTC
-    - cron: "10 0 * * *"
+    # 毎日 09:17 JST = 00:17 UTC
+    - cron: "17 0 * * *"
 
 permissions:
   contents: write
@@ -54,7 +54,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # 未追跡ファイルも含めて全部ステージ
-          git add -A
+          git add docs/
 
           echo "---- git status (after add) ----"
           git status --porcelain

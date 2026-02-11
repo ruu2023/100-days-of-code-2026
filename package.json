@@ -10,6 +10,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "news": "node scripts/day041.mjs"
+    "news": "node scripts/day042.mjs"
   }
 }
