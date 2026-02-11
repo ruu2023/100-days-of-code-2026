@@ -7,6 +7,10 @@
     <title>AI Tech Pulse Reader</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#4a00e0">
+    <link rel="apple-touch-icon" href="./icon-192.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 
 <body class="bg-slate-50 text-slate-900 min-h-screen pb-12">
@@ -114,6 +118,16 @@
         }
 
         window.onload = loadNews;
+
+        // サービスワーカーの登録
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js', { scope: './' })
+                .then(reg => console.log('SW registered!', reg))
+                .catch(err => console.error('SW registration failed:', err));
+            });
+        }
+
     </script>
 </body>
 

@@ -1,5 +1,5 @@
 import fs from "fs";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+
 import { JSDOM } from "jsdom";
 import { Readability } from "@mozilla/readability";
 import he from "he";

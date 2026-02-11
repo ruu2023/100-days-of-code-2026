@@ -116,6 +116,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | ... | ...   | ...                  | ...                                    | ...                                                      |
 
 ## 📬 Links
+- **day041 ai news** https://ruu2023.github.io/100-days-of-code-2026/
 
 - **Blog:** [ruucode.com](https://ruucode.com/)
 - **X (Twitter):** [@ruu_web](https://x.com/ruu_web)
