@@ -113,9 +113,10 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 039 | 02/08 | Reflection Log       | React / PWA / Firebase Hosting / 5行日記 | [View](./web/app/days/039)                               |
 | 040 | 02/09 | Real-time Board      | Next.js / Pusher / Canvas API          | [View](./web/app/days/040)                               |
 | 041 | 02/10 | AI Tech Pulse        | Gemini API / GitHub Actions / RSS      | [View](./html/day041)                                    |
-| ... | ...   | ...                  | ...                                    | ...                                                      |
+| 042 | 02/11 | Reflection Log v2    | Supabase / Google Auth / PWA           | [View](./docs/log)                                       |
 
 ## 📬 Links
+- **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/
 - **day041 ai news** https://ruu2023.github.io/100-days-of-code-2026/
 
 - **Blog:** [ruucode.com](https://ruucode.com/)
