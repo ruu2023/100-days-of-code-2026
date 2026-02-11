@@ -1,0 +1,1 @@
+self.addEventListener('fetch', () => {}); // 最小限のサービスワーカー

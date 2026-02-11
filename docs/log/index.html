@@ -272,8 +272,8 @@
       }
     });
 
-    // PWA (Optional, keeping from day039 if needed, but docs/log might not have sw.js at root properly configured yet. Commenting out to avoid errors unless user moves sw.js too)
-    // if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+    // PWA
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 
     // Start
     checkWeekend();
