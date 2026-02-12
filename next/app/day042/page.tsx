@@ -33,7 +33,7 @@ export default function GrassEditor() {
 
   return (
     <div className="min-h-screen bg-black text-white p-8 flex flex-col items-center font-sans">
-      <h1 className="text-2xl font-bold mb-8 text-emerald-400">GitHub Grass Designer</h1>
+      <h1 className="text-2xl font-bold mb-8 text-emerald-400">Grass Designer</h1>
 
       {/* メインのグリッドエリア */}
       <div 
