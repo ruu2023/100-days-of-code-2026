@@ -27,14 +27,15 @@ function NoteList() {
   if (loading) return <div>読み込み中...</div>;
   if (error) return <div>エラー: {error}</div>;
 
+  const noteList = notes.notes;
+
   return (
     <div>
       <h2>ノート一覧</h2>
       <ul>
-        {notes.map((note, index) => (
+        {noteList.map((note, index) => (
           <li key={index}>
-            {/* APIのレスポンス形式に合わせて調整してください */}
-            {typeof note === 'string' ? note : JSON.stringify(note)}
+            {note.body}
           </li>
         ))}
       </ul>
