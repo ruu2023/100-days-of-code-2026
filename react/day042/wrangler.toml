@@ -1,0 +1,7 @@
+name = "day042"
+compatibility_date = "2026-02-12"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "day042-db"
+database_id = "c1343d0c-7bb0-4a1f-8194-a8e44e27bb94"
