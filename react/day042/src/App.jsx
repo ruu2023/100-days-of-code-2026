@@ -1,97 +1,88 @@
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider, GoogleLogin, googleLogout } from '@react-oauth/google';
 import { jwtDecode } from "jwt-decode";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 function App() {
-  const [body, setBody] = useState(''); // サーバーの「body」に合わせました
-  const [notes, setNotes] = useState([]); 
-  const [user, setUser] = useState(null); 
+  const [body, setBody] = useState('');
+  const [notes, setNotes] = useState([]);
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('google_token')); // 初期値に保存済みトークンを入れる
 
-  // ノート取得
-  const fetchNotes = async (userId) => {
-    try {
-      const response = await fetch('/api/notes', { // エンドポイント名は適宜合わせてください
-        headers: { 'X-User-Id': userId }
-      });
-      const data = await response.json();
-      if (data.ok) {
-        setNotes(data.notes); // data.notes の中に配列が入っている構成に合わせました
-      }
-    } catch (err) {
-      console.error("Fetch error:", err);
-    }
+  // ログイン成功時の共通処理
+  const handleLoginSuccess = (credential) => {
+    localStorage.setItem('google_token', credential); // ローカルに保存
+    setToken(credential);
+    const decoded = jwtDecode(credential);
+    setUser(decoded);
+    fetchNotes(credential); // トークンを渡して取得
   };
 
-  // ノート保存
-  const saveNote = async () => {
-    if (!user) return alert("ログインしてください");
-    if (!body.trim()) return alert("内容を入力してください");
+  // 起動時にトークンがあれば自動でデータを取る
+  useEffect(() => {
+    if (token) {
+      const decoded = jwtDecode(token);
+      // 有効期限切れチェック（簡易版）
+      if (decoded.exp * 1000 > Date.now()) {
+        setUser(decoded);
+        fetchNotes(token);
+      } else {
+        handleLogout();
+      }
+    }
+  }, []);
 
-    const response = await fetch('/api/notes', { // POST先
+  const handleLogout = () => {
+    googleLogout();
+    localStorage.removeItem('google_token');
+    setUser(null);
+    setToken(null);
+    setNotes([]);
+  };
+
+  const fetchNotes = async (activeToken) => {
+    const response = await fetch('/api/notes', {
+      headers: { 'Authorization': `Bearer ${activeToken}` } // IDではなくトークンを送る
+    });
+    const data = await response.json();
+    if (data.ok) setNotes(data.notes);
+  };
+
+  const saveNote = async () => {
+    if (!token) return;
+    const response = await fetch('/api/notes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-User-Id': user.sub
+        'Authorization': `Bearer ${token}`
       },
-      body: JSON.stringify({ body: body }) // サーバーが待っているのは { body: "..." }
+      body: JSON.stringify({ body })
     });
-
     if (response.ok) {
-      setBody(''); // 入力欄をクリア
-      fetchNotes(user.sub); // 再読み込み
+      setBody('');
+      fetchNotes(token);
     }
-  };
-  
-  const onSuccess = async (credentialResponse) => {
-    const decoded = jwtDecode(credentialResponse.credential);
-    setUser(decoded);
-    fetchNotes(decoded.sub);
   };
 
   return (
     <GoogleOAuthProvider clientId={clientId}>
-      <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-        <h2>My Simple Notes</h2>
-        
+      <div style={{ padding: '20px' }}>
         {!user ? (
-          <GoogleLogin
-            onSuccess={onSuccess}
-            onError={() => console.log('Login Failed')}
-            useOneTap
+          <GoogleLogin 
+            onSuccess={(res) => handleLoginSuccess(res.credential)} 
+            useOneTap 
           />
         ) : (
           <div>
-            <p>ログイン中: {user.name} ({user.email})</p>
-            
-            <div style={{ marginBottom: '20px', display: 'flex', gap: '10px' }}>
-              <input 
-                style={{ flex: 1, padding: '8px' }}
-                placeholder="なにか書き残す..." 
-                value={body}
-                onChange={(e) => setBody(e.target.value)} 
-              />
-              <button onClick={saveNote} style={{ padding: '8px 16px' }}>保存</button>
-            </div>
-
-            <hr />
-
-            <h3>過去のメモ</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              {notes.length === 0 && <p>メモがありません。</p>}
-              {notes.map((note) => (
-                <div key={note.id} style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '4px' }}>
-                  <div style={{ whiteSpace: 'pre-wrap' }}>{note.body}</div>
-                  <small style={{ color: '#666' }}>{new Date(note.created_at).toLocaleString()}</small>
-                </div>
-              ))}
-            </div>
+            <button onClick={handleLogout}>ログアウト</button>
+            <p>こんにちは、{user.name}さん</p>
+            <input value={body} onChange={(e) => setBody(e.target.value)} />
+            <button onClick={saveNote}>保存</button>
+            {/* ...ノート一覧の表示... */}
           </div>
         )}
       </div>
     </GoogleOAuthProvider>
   );
 }
-
-export default App;
