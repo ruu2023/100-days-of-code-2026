@@ -53,7 +53,7 @@ function NoteList() {
   if (loading) return <div>読み込み中...</div>;
   if (error) return <div>エラー: {error}</div>;
 
-  const noteList = notes.notes;
+  const noteList = notes?.notes || [];
 
   return (
     <div>
