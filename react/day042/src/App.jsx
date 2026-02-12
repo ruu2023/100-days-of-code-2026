@@ -1,78 +1,88 @@
-import React, { useState, useEffect } from 'react';
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+import { useState } from 'react';
 
-function NoteList() {
-  const [notes, setNotes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
+function App() {
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [notes, setNotes] = useState([]); // ノート一覧を管理
+  const [user, setUser] = useState(null); // ログインユーザー情報を管理
 
-  const [isPosting, setIsPosting] = useState(false);
-
-  const handlePost = async () => {
-    setIsPosting(true);
-    try {
-      const response = await fetch('/api/notes', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ body: "hello from react!" }),
-      });
-
-      if (response.ok) {
-        // 投稿成功したら、最新のリストを再取得（またはリロード）
-        alert("投稿成功！");
-        window.location.reload(); 
-      }
-    } catch (err) {
-      alert("投稿失敗...");
-    } finally {
-      setIsPosting(false);
-    }
+  const fetchNotes = async (userId) => {
+    const response = await fetch('/api/get-notes', {
+      headers: { 'X-User-Id': userId }
+    });
+    const data = await response.json();
+    setNotes(data);
   };
 
-  useEffect(() => {
-    // 同じドメインなので相対パスでOKです
-    fetch('/api/notes')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('データの取得に失敗しました');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setNotes(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+  const saveNote = async () => {
+    if (!user) return alert("ログインしてください");
 
-  if (loading) return <div>読み込み中...</div>;
-  if (error) return <div>エラー: {error}</div>;
+    const response = await fetch('/api/create-note', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-User-Id': user.sub
+      },
+      body: JSON.stringify({ title, content })
+    });
 
-  const noteList = notes?.notes || [];
+    if (response.ok) {
+      alert("ノートを保存しました！");
+      fetchNotes(user.sub); // 保存後に一覧を更新
+    }
+  };
+  
+  const onSuccess = async (credentialResponse) => {
+    const decoded = jwtDecode(credentialResponse.credential);
+    setUser(decoded); // ここでユーザー情報を state に保存！
+    fetchNotes(decoded.sub); // ログイン成功時にノートを取得
+  };
 
   return (
-    <div>
-      <h2>ノート一覧</h2>
-      <div>
-        <button onClick={handlePost} disabled={isPosting}>
-          {isPosting ? '送信中...' : 'テスト投稿する'}
-        </button>
-        {/* ... 既存のリスト表示 ... */}
+    <GoogleOAuthProvider clientId={clientId}>
+      <div style={{ padding: '20px' }}>
+        <h2>Googleログインテスト</h2>
+        <GoogleLogin
+          onSuccess={onSuccess}
+          onError={() => console.log('Login Failed')}
+          useOneTap
+        />
+
+        {user && (
+          <div style={{ marginTop: '20px' }}>
+            <p>こんにちは、{user.name}さん</p>
+            
+            <div style={{ marginBottom: '20px' }}>
+              <input 
+                placeholder="タイトル" 
+                value={title}
+                onChange={(e) => setTitle(e.target.value)} 
+              />
+              <input 
+                placeholder="内容" 
+                value={content}
+                onChange={(e) => setContent(e.target.value)} 
+              />
+              <button onClick={saveNote}>Save Note</button>
+            </div>
+
+            <h3>あなたのノート一覧</h3>
+            <ul>
+              {notes.map((note, index) => (
+                <li key={index}>
+                  <strong>{note.title}</strong>: {note.content}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      <ul>
-        {noteList.map((note, index) => (
-          <li key={index}>
-            {note.body}
-          </li>
-        ))}
-      </ul>
-    </div>
+    </GoogleOAuthProvider>
   );
 }
 
-export default NoteList;
+export default App;
