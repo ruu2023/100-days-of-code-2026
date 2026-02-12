@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-function App() {
+export default function App() {
   const [body, setBody] = useState('');
   const [notes, setNotes] = useState([]);
   const [user, setUser] = useState(null);
