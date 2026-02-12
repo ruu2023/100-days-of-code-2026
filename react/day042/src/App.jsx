@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+function NoteList() {
+  const [notes, setNotes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    // 同じドメインなので相対パスでOKです
+    fetch('/api/notes')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('データの取得に失敗しました');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setNotes(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>読み込み中...</div>;
+  if (error) return <div>エラー: {error}</div>;
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h2>ノート一覧</h2>
+      <ul>
+        {notes.map((note, index) => (
+          <li key={index}>
+            {/* APIのレスポンス形式に合わせて調整してください */}
+            {typeof note === 'string' ? note : JSON.stringify(note)}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
-export default App
+export default NoteList;
