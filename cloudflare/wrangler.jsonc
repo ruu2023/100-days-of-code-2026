@@ -6,8 +6,7 @@
     "nodejs_compat",
     "global_fetch_strictly_public"
   ],
-  // 【重要】Pagesの出力先を指定します（OpenNextを使用している場合）
-  "pages_build_output_dir": ".open-next/assets",
+  "pages_build_output_dir": ".open-next",
   "observability": {
     "enabled": true
   },
