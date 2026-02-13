@@ -1,6 +1,5 @@
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
-export const runtime = 'edge'; // Cloudflare で動かすために必須です
 
 export async function GET() {
   // getRequestContext() を使って環境変数（bindings）を取得
