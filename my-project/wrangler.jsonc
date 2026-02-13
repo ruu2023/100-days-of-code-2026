@@ -8,7 +8,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cloudflare",
+	"name": "my-project",
 	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-12-01",
 	"compatibility_flags": [
@@ -29,19 +29,12 @@
 			// Self-reference service binding, the service name must match the worker name
 			// see https://opennext.js.org/cloudflare/caching
 			"binding": "WORKER_SELF_REFERENCE",
-			"service": "cloudflare"
+			"service": "my-project"
 		}
 	],
 	"observability": {
 		"enabled": true
-	},
-	"d1_databases": [
-		{
-			"binding": "DB",
-			"database_name": "cloudflare",
-			"database_id": "a901cf12-fa23-450a-b93d-1a54fe33f8ee"
-		}
-	]
+	}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
