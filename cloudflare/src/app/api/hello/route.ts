@@ -1,15 +1,23 @@
-import { getRequestContext } from '@cloudflare/next-on-pages';
 
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+import { NextResponse } from "next/server";
 
 export async function GET() {
-  // getRequestContext() を使って環境変数（bindings）を取得
-  const { env } = getRequestContext();
-  
+  const { env } = getCloudflareContext();
+  const db = env.DB;
+
   try {
-    // wrangler.jsonc で設定した名前 "DB" でアクセス
-    const results = await env.DB.prepare("SELECT * FROM users").all();
-    return Response.json(results);
-  } catch (e) {
-    return Response.json({ error: "DB への接続に失敗しました" }, { status: 500 });
+    // DBからデータを取得してみる
+    const { results } = await db.prepare("SELECT * FROM users LIMIT 1").all();
+    
+    return NextResponse.json({ 
+      message: "Hello from D1!", 
+      data: results 
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Database connection failed" }, 
+      { status: 500 }
+    );
   }
 }
