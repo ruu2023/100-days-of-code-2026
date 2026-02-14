@@ -162,3 +162,92 @@ npm install -D @opennextjs/cloudflare wrangler
 
 
 npx opennextjs-cloudflare build
+
+
+### 本番
+```bash
+npm create cloudflare@latest -- cloudflare-app --framework=next
+
+cd cloudflare-app
+
+npx wrangler d1 create cloudflare_sql
+# ずっとenter
+
+npm run cf-typegen
+```
+
+schema.sql の例:
+```sql
+DROP TABLE IF EXISTS Customers;
+CREATE TABLE IF NOT EXISTS Customers (
+    CustomerId INTEGER PRIMARY KEY, 
+    CompanyName TEXT, 
+    ContactName TEXT
+);
+INSERT INTO Customers (CustomerID, CompanyName, ContactName) VALUES (1, 'Alfreds Futterkiste', 'Maria Anders');
+```
+
+```bash
+npx wrangler d1 execute cloudflare_sql --local --file=./schema.sql
+npx wrangler d1 execute cloudflare_sql --local --command="select * from customers"
+
+npx wrangler d1 execute cloudflare_sql --remote --file=./schema.sql
+npx wrangler d1 execute cloudflare_sql --remote --command="select * from customers"
+```
+
+cloudflare-app/src/services/customers.ts
+```ts
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
+export async function createCustomer(company: string, contact: string) {
+  const { env } = await getCloudflareContext({async: true});
+  const db = env.cloudflare_sql;
+  const stmt = db.prepare("insert into customers (CompanyName, ContactName) values (?, ?)");
+  const result = await stmt.bind(company, contact).run();
+  return result;
+}
+
+export async function getCustomers() {
+  const { env } = await getCloudflareContext({async: true});  
+  const db = env.cloudflare_sql;
+  const result = await db.prepare("select * from customers").all();
+  return result;
+}
+```
+
+cloudflare-app/src/app/page.tsx
+```tsx
+import { getCustomers } from "@/services/customers";
+
+import Client from "./client";
+
+export default async function Home() {
+	const customers = await getCustomers();
+	return (
+		<div>
+			<Client />
+			{JSON.stringify(customers)}
+		</div>
+	);
+}
+```
+
+cloudflare-app/src/app/client.tsx
+```tsx
+'use client';
+import { createCustomerActions } from '@/actions/customers';
+
+const Client = () => {
+  return (
+    <div>
+      <form action={createCustomerActions}>
+        <input type="text" name="company" />
+        <input type="text" name="contact" />
+        <button type="submit">Create</button>
+      </form>
+    </div>
+  )
+}
+
+export default Client
+```
