@@ -142,3 +142,23 @@ export async function GET() {
 ---
 
 これで準備完了です！次はこの「店員さん」が持ってきたデータを、画面（ページ）におしゃれに表示する方法を一緒に考えましょうか？
+
+
+
+### 2026年2月14日
+https://zenn.dev/fire_arlo/articles/cloudflare-workers-nextjs-deploy
+
+https://opennext.js.org/cloudflare/get-started
+
+https://developers.cloudflare.com/d1/get-started/
+
+### こちらで全て解決 - notebook lm に貼り付けた
+https://zenn.dev/masa5714/articles/fbc046a556a892
+
+npx create-next-app@latest my-next-worker --typescript --tailwind --eslint
+cd my-next-worker
+
+npm install -D @opennextjs/cloudflare wrangler
+
+
+npx opennextjs-cloudflare build
