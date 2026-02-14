@@ -116,6 +116,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 042 | 02/11 | Grass Designer       | Next.js / Tailwind / Grid Operation    | [View](./next/app/day042)                                |
 | 043 | 02/12 | Reflection Log v2    | Supabase / Google Auth / PWA           | [View](./docs/log)                                       |
 | 044 | 02/13 | GCP Docker Architect | Dockerfile Gen / Cloud Run             | [View](./next/app/day044)                                |
+| 045 | 02/14 | Anonymous Board      | Cloudflare D1 / Next.js / Server Actions | [View](./cloudflare-app/src/app/day045)                  |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

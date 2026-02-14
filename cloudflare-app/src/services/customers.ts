@@ -1,5 +1,4 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
-import { revalidatePath } from "next/cache";
 
 export async function createCustomer(company: string, contact: string) {
   const { env } = await getCloudflareContext({async: true});
@@ -12,6 +11,13 @@ export async function createCustomer(company: string, contact: string) {
 export async function getCustomers() {
   const { env } = await getCloudflareContext({async: true});  
   const db = env.cloudflare_sql;
-  const result = await db.prepare("select * from customers").all();
+  const result = await db.prepare("select * from customers order by CustomerId desc").all();
+  return result;
+}
+
+export async function deleteCustomers() {
+  const { env } = await getCloudflareContext({async: true});
+  const db = env.cloudflare_sql;
+  const result = await db.prepare("delete from customers").run();
   return result;
 }
