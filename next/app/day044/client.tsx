@@ -42,39 +42,55 @@ export default function DockerPromptMaker() {
       setIsFinished(true);
     }
   };
-
-  // Dockerfileのテンプレート生成
+// Dockerfileのテンプレート生成（マルチステージ版）
   const generateDockerfile = () => {
     const { node, pkg, port } = answers;
     
-    // npm ci は lockファイルが必須で厳格すぎるため、install に変更して安定性を向上
+    // パッケージマネージャーごとのコマンド
     const installCmd = pkg === "npm" ? "npm install" : pkg === "yarn" ? "yarn install" : "pnpm install";
     const buildCmd = pkg === "npm" ? "npm run build" : pkg === "yarn" ? "yarn build" : "pnpm build";
-    
-    // CMD を ["npm", "start"] のような正しい配列形式にするための準備
-    const startCmdArray = pkg === "npm" ? '"npm", "start"' : pkg === "yarn" ? '"yarn", "start"' : '"pnpm", "start"';
+    const lockFile = pkg === "pnpm" ? "pnpm-lock.yaml" : pkg === "yarn" ? "yarn.lock" : "package-lock.json";
+    const pnpmInstall = pkg === "pnpm" ? "RUN npm i -g pnpm\n" : "";
 
     return `FROM node:${node} AS base
 
-# 1. 依存関係のインストール
+# --- Stage 1: Dependencies ---
+FROM base AS deps
 WORKDIR /app
-# package-lock.json がなくてもエラーにならないようワイルドカードを使用
-COPY package*.json ${pkg === "pnpm" ? "pnpm-lock.yaml" : pkg === "yarn" ? "yarn.lock" : ""} ./
-RUN ${pkg === "pnpm" ? "npm i -g pnpm && " : ""}${installCmd}
+COPY package*.json ${lockFile === "package-lock.json" ? "" : lockFile} ./
+${pnpmInstall}RUN ${installCmd}
 
-# 2. ビルド
+# --- Stage 2: Builder ---
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN ${buildCmd}
+# next.config.js で output: 'standalone' を設定している前提
+RUN ${pnpmInstall}${buildCmd}
 
-# 3. 実行用
+# --- Stage 3: Runner ---
+FROM base AS runner
+WORKDIR /app
+
 ENV NODE_ENV production
-# Cloud Run は PORT 環境変数を見ているため明示的に設定
+# Cloud Run 用のポート設定
 ENV PORT ${port}
 EXPOSE ${port}
 
-CMD [${startCmdArray}]`;
-  };
+# ユーザー権限の設定（セキュリティ向上）
+RUN groupadd --system --gid 1001 nodejs
+RUN useradd --system --uid 1001 nextjs
 
+# 必要最小限のファイルだけを builder からコピー
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+USER nextjs
+
+# standaloneモードでは node server.js で起動
+CMD ["node", "server.js"]`;
+  };
   return (
     <div className="min-h-screen bg-slate-50 p-8 font-sans text-slate-900">
       <div className="mx-auto max-w-2xl">
@@ -115,6 +131,85 @@ CMD [${startCmdArray}]`;
                 <code>{generateDockerfile()}</code>
               </pre>
             </section>
+
+            <section className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold text-sm">
+                  1
+                </div>
+                <h3 className="font-bold text-slate-800">Next.js 設定の最適化</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-sm text-slate-600">
+                  マルチステージビルドを有効にするため、<code className="bg-slate-100 px-1 rounded text-pink-600">next.config.js</code> に以下の設定を追記してください。これにより、実行に必要な最小限のファイルのみが抽出されます。
+                </p>
+
+                <div className="relative">
+                  <div className="absolute top-0 right-4 rounded-b-md bg-slate-700 px-2 py-1 text-[10px] font-mono text-slate-300 uppercase">
+                    next.config.js
+                  </div>
+                  <pre className="overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-blue-300 leading-relaxed">
+                    <code>{`
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // 実行ファイルを最小化してイメージサイズを削減
+  output: 'standalone', 
+};
+
+module.exports = nextConfig;`}</code>
+                  </pre>
+                </div>
+                
+                <div className="rounded-md bg-amber-50 p-3 border-l-4 border-amber-400">
+                  <p className="text-xs text-amber-800 flex items-center gap-1">
+                    <span className="font-bold">⚠️ 注意:</span>
+                    App Routerを利用している場合、この設定がないとビルドが成功しても起動に失敗します。
+                  </p>
+                </div>
+              </div>
+            </section>
+
+
+            <section className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100 text-blue-600 font-bold text-sm">
+                  2
+                </div>
+                <h3 className="font-bold text-slate-800">.dockerignore の最適化</h3>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-sm text-slate-600">
+                  <code className="bg-slate-100 px-1 rounded text-pink-600">プロジェクトルート/.dockerignore</code> に以下の設定を追記してください。ローカルの巨大な <code className="bg-slate-100 px-1 rounded text-pink-600">node_modules</code> やビルド済みのキャッシュを除外します。これにより、<span className="font-semibold text-slate-800">GCPへのアップロード時間が大幅に短縮</span>されます。
+                </p>
+
+                <div className="relative">
+                  <div className="absolute top-0 right-4 rounded-b-md bg-slate-700 px-2 py-1 text-[10px] font-mono text-slate-300 uppercase">
+                    .dockerignore
+                  </div>
+                  <pre className="overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-blue-300 leading-relaxed">
+                    <code>{`
+node_modules
+.next
+.git.next
+.git
+.env*.local
+.vscode
+README.md
+Dockerfile
+.dockerignore`}</code>
+                  </pre>
+                </div>
+                
+                <div className="rounded-md bg-amber-50 p-3 border-l-4 border-amber-400">
+                  <p className="text-xs text-amber-800 flex items-center gap-1">
+                    これを設定しないと、数千個のファイルをクラウドに送信しようとしてデプロイが非常に遅くなります。
+                  </p>
+                </div>
+              </div>
+            </section>
+
 
             <section className="rounded-xl bg-white p-6 shadow-sm border border-slate-200">
               <h3 className="mb-3 font-bold text-slate-700">2. GCP デプロイ手順</h3>
