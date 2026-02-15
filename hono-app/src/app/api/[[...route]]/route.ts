@@ -1,38 +1,28 @@
 // app/api/[[...route]]/route.ts
-import { Hono } from 'hono'
-import { getCloudflareContext } from '@opennextjs/cloudflare'
+import { getAuth } from '@/lib/auth';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
+import { Hono } from 'hono';
 
 const app = new Hono<{ Bindings: CloudflareEnv }>().basePath('/api')
 
-app.get('/check', async (c) => {
-  const { env } = getCloudflareContext();
-  const db = env.hono_db;
+app.on(["POST", "GET"], "/auth/**", async (ctx) => {
+  const auth = getAuth(ctx.env);
+  return auth.handler(ctx.req.raw);
+});
 
-  if (!db) {
-    return c.json({ 
-      error: 'D1 binding (hono_db) not found',
-      availableEnv: Object.keys(env)
-    }, 500)
-  }
+app.get('/me', async (ctx) => {
+  const auth = getAuth(ctx.env);
+  const session = await auth.api.getSession({ headers: ctx.req.raw.headers });
 
-  try {
-    const { success } = await db.prepare('SELECT 1').run()
-    return c.json({ 
-      status: 'Hono is running!', 
-      database: 'hono_db is connected!',
-      success 
-    })
-  } catch (e) {
-    return c.json({ error: String(e) }, 500)
-  }
-})
+  return ctx.json(session?.user ?? { message: "Not logged in" });
+});
 
-export const GET = async (req: Request) => {
-  const { env } = getCloudflareContext();
+// api 以下のすべてのリクエストを Hono アプリケーションに転送する
+const toHono = async (req: Request) => {
+  const { env } = await getCloudflareContext();
   return app.fetch(req, env)
 }
 
-export const POST = async (req: Request) => {
-  const { env } = getCloudflareContext();
-  return app.fetch(req, env)
-}
+// Next.js が認識できるように名前付きで export する
+export const GET = toHono
+export const POST = toHono
