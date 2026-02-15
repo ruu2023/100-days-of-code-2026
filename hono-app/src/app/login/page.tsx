@@ -1,15 +1,16 @@
-import { getServerAuth } from "@/lib/auth";
-import { headers } from "next/headers";
 import Client from "./client";
-import { redirect } from "next/navigation";
 
 export default async function Home() {
-	const auth = await getServerAuth();
-	const session = await auth.api.getSession({
-		headers: await headers(),
-	});
-
-	if (!session) return <div><h1>ログインしてください</h1><Client /></div>;
-
-	return redirect("/dashboard");
+	return (
+		<div className="flex h-screen items-center justify-center">
+			<div className="text-center">
+				<h1>Home</h1>
+				<p>こちらの投稿は<br/>ログインが必要なアプリを集めています。</p>
+				<p>Google アカウントにてログインしてください。</p>
+				<div className="mt-4">
+					<Client />
+				</div>
+			</div>
+		</div>
+	)
 }

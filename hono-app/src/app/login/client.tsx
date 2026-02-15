@@ -3,7 +3,7 @@ import { createAuthClient } from "better-auth/react"
 
 // baseURL は /api/auth に向くように設定
 const authClient = createAuthClient({
-    baseURL: "http://localhost:3000"
+    baseURL: process.env.NEXT_PUBLIC_AUTH_URL
 })
 
 export default function Client() {
