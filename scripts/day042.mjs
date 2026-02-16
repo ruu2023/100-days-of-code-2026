@@ -6,6 +6,8 @@ import he from "he";
 import Parser from "rss-parser";
 import { existsSync } from 'node:fs';
 
+import { spawnSync } from 'child_process';
+
 // .envファイルがある場合（ローカルなど）のみ読み込む
 if (existsSync('.env')) {
   process.loadEnvFile();
@@ -229,6 +231,26 @@ async function main() {
   }
 
   if (!fs.existsSync("./docs/api")) fs.mkdirSync("./docs/api");
+
+  // 現状のJSON保存の直前、または代わりにBeads処理を入れる
+  results.forEach(item => {
+    // AIが読みやすいように、タイトルや本文をbd createに渡す
+    // item.title, item.summary (AI要約結果) などを利用
+    const result = spawnSync('bd', [
+      'create',
+      '--title', item.title,
+      '--description', `${item.summary}\n\nSource: ${item.url}`
+    ], { encoding: 'utf-8' });
+
+    if (result.error) {
+      console.error(`Failed to create issue for: ${item.title}`, result.error);
+    }
+  });
+
+  // すべてのIssueを作成した後に同期を実行
+  console.log("Syncing with Beads...");
+  spawnSync('bd', ['sync'], { stdio: 'inherit' });
+
   fs.writeFileSync("./docs/api/data.json", JSON.stringify(results, null, 2));
   console.log("✅ data.json updated (max 2 summaries)");
 }
