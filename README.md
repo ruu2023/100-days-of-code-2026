@@ -118,6 +118,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 044 | 02/13 | GCP Docker Architect | Dockerfile Gen / Cloud Run             | [View](./next/app/day044)                                |
 | 045 | 02/14 | Anonymous Board      | Cloudflare D1 / Next.js / Server Actions | [View](./cloudflare-app/src/app/day045)                  |
 | 046 | 02/15 | Drizzle CRUD Typist  | Drizzle ORM / Typing Game UI           | [View](./hono-app/src/app/day046)                        |
+| 047 | 02/16 | Chat Room            | WS / Hono / Durable Objects / Next.js  | [View](./hono-app/src/app/day047)                        |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

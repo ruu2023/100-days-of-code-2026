@@ -232,10 +232,7 @@ async function main() {
 
   if (!fs.existsSync("./docs/api")) fs.mkdirSync("./docs/api");
 
-  // 現状のJSON保存の直前、または代わりにBeads処理を入れる
   results.forEach(item => {
-    // AIが読みやすいように、タイトルや本文をbd createに渡す
-    // item.title, item.summary (AI要約結果) などを利用
     const result = spawnSync('bd', [
       'create',
       '--title', item.title,
