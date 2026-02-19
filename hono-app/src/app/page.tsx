@@ -16,7 +16,7 @@ export default function WelcomePage() {
             <Link href="/dashboard">ダッシュボードを見る</Link>
           </Button>
           <Button variant="outline" size="lg">
-            GitHub
+            <a href="https://github.com/ruu2023/100-days-of-code-2026/">GitHub</a>
           </Button>
         </div>
       </main>
