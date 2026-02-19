@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export interface Post {
   day: number;
   date: string;
@@ -47,3 +50,12 @@ export const parseXPosts = (rawText: string): Post[] => {
   .filter(post => post.day > 0) // RTなどを除外
   .sort((a, b) => b.day - a.day); // 降順
 };
+
+const mdPath = path.join(process.cwd(), 'src/data', 'posts.md');
+const jsonPath = path.join(process.cwd(), 'src/data', 'posts.json');
+
+const rawData = fs.readFileSync(mdPath, 'utf8');
+const posts = parseXPosts(rawData);
+
+fs.writeFileSync(jsonPath, JSON.stringify(posts, null, 2));
+console.log('✅ posts.json generated!');
