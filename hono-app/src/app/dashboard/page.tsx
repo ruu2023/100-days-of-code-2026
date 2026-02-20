@@ -28,6 +28,12 @@ const projects = [
     link: "/day049",
     day: "Day 49",
   },
+  {
+    title: "GoF Design Patterns",
+    description: "GoFのデザインパターン（生成・構造・振る舞い）を図解やコード、出力結果と共に学べる学習アプリを作成しました。",
+    link: "/day051",
+    day: "Day 51",
+  },
 ]
 
 export default function DashboardPage() {
