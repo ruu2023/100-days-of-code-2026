@@ -55,7 +55,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # 未追跡ファイルも含めて全部ステージ
-          git add docs/
+          git add docs/ .beads/
 
           echo "---- git status (after add) ----"
           git status --porcelain
