@@ -1,3 +1,18 @@
+## 2026-02-20 19:00
+
+【Day 051/100】GoF Design Patterns 🧩
+「デザインパターンをインタラクティブに学ぶ」
+Claudeさんに依頼
+
+✅ カテゴリ別のパターン選択 (Singleton, Builder, Facadeなど)　
+✅ クラス図とJavaコードのハイライト表示
+
+#100DaysOfCode #Nextjs #DesignPatterns #GoF #React
+https://hono-app.ruu2023.workers.dev/day051
+
+[Original Post](https://x.com/ruu_web/status/2024782933056479278)
+
+---
 
 ## 2026-02-19 20:30
 【Day 050/100】100 Days Roadmap 🗺️🚀

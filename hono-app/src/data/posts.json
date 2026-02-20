@@ -1,5 +1,23 @@
 [
   {
+    "day": 51,
+    "date": "2026-02-20 19:00",
+    "title": "GoF Design Patterns 🧩",
+    "description": "【Day 051/100】GoF Design Patterns 🧩",
+    "features": [
+      "カテゴリ別のパターン選択 (Singleton, Builder, Facadeなど)",
+      "クラス図とJavaコードのハイライト表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#DesignPatterns",
+      "#GoF",
+      "#React"
+    ],
+    "url": "https://x.com/ruu_web/status/2024448032180490524"
+  },
+  {
     "day": 50,
     "date": "2026-02-19 20:30",
     "title": "100 Days Roadmap 🗺️🚀",

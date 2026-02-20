@@ -26,6 +26,6 @@
 			"node"
 		]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "src/app/day048/page.jsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "src/app/day048/page.jsx", "src/app/day051/page.jsx"],
 	"exclude": ["node_modules"]
 }
