@@ -2,6 +2,7 @@
 import { getAuth } from '@/lib/auth';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { Hono } from 'hono';
+import { kanbanApp } from './kanban';
 
 const app = new Hono<{ Bindings: CloudflareEnv }>().basePath('/api')
 
@@ -17,6 +18,8 @@ app.get('/me', async (ctx) => {
   return ctx.json(session?.user ?? { message: "Not logged in" });
 });
 
+app.route('/kanban', kanbanApp);
+
 // api 以下のすべてのリクエストを Hono アプリケーションに転送する
 const toHono = async (req: Request) => {
   const { env } = await getCloudflareContext();
@@ -26,3 +29,5 @@ const toHono = async (req: Request) => {
 // Next.js が認識できるように名前付きで export する
 export const GET = toHono
 export const POST = toHono
+export const PATCH = toHono
+export const DELETE = toHono

@@ -1,5 +1,21 @@
 [
   {
+    "day": 52,
+    "date": "2026-02-21 21:00",
+    "title": "Clipboard Manager 📋✨",
+    "description": "【Day 052/100】Clipboard Manager 📋✨",
+    "features": [
+      "アカウント紐付けでデータを管理",
+      "一覧のクリップボードボタンを押すだけで全文コピー"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#App"
+    ],
+    "url": "https://x.com/ruu_web/status/2025175697061544074"
+  },
+  {
     "day": 51,
     "date": "2026-02-20 19:00",
     "title": "GoF Design Patterns 🧩",

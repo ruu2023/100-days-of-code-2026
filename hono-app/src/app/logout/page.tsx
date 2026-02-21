@@ -1,17 +1,33 @@
-export const dynamic = "force-dynamic";
+"use client";
 
+import { createAuthClient } from "better-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-import { createAuthClient } from "better-auth/react"; // React用の場合
-import { redirect } from 'next/navigation';
-
-export const authClient = createAuthClient({
-    baseURL: process.env.NEXT_PUBLIC_AUTH_URL
+const authClient = createAuthClient({
+  baseURL: process.env.NEXT_PUBLIC_AUTH_URL,
 });
 
-const Page = async () => {
-    await authClient.signOut();
-    return redirect("/");
+export default function LogoutPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    authClient.signOut().then(() => {
+      router.replace("/");
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div style={{
+      minHeight: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: "#0f172a",
+      color: "rgba(248,250,252,0.5)",
+      fontSize: "0.9rem",
+    }}>
+      ログアウト中...
+    </div>
+  );
 }
-
-export default Page
-

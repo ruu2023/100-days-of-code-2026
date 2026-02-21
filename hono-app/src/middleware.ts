@@ -3,29 +3,20 @@ import { NextResponse, type NextRequest } from "next/server";
 import { getServerAuth } from "@/lib/auth";
 
 export async function middleware(request: NextRequest) {
-
   const { pathname, origin } = request.nextUrl;
 
-  // 1. ガードしたいパスの判定（matcherに合わせる）
-  const isProtected = pathname.includes("dashboard")
+  // /dayXXX/dashboard にマッチするパスを保護
+  const isProtected = /\/day\d+\/dashboard/.test(pathname);
 
   if (isProtected) {
-
     const auth = await getServerAuth();
     const session = await auth.api.getSession({ headers: request.headers });
 
     if (!session) {
-      // 2. リファラを取得
-      const referer = request.headers.get("referer");
-
-      // 3. 【重要】リファラが自分自身（無限ループ）になるのを防ぐ
-      // リファラがない、またはリファラが今アクセスしようとしている場所と同じなら、トップへ帰す
-      if (!referer || referer.includes(pathname)) {
-        return NextResponse.redirect(new URL("/", origin));
-      }
-
-      // 4. それ以外（例：Homeから来た）なら、その元いた場所へ帰す
-      return NextResponse.redirect(referer);
+      // 未認証の場合は /login?redirect=<元のURL> へリダイレクト
+      const loginUrl = new URL("/login", origin);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
     }
   }
 
@@ -34,7 +25,8 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/dashboard',
-    '/day(\\d+)/:path'
+    // /day052/dashboard, /day123/dashboard ... にマッチ
+    '/:day*/dashboard',
+    '/:day*/dashboard/:path*',
   ],
 };

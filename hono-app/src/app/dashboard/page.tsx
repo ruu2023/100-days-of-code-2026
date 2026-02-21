@@ -34,6 +34,12 @@ const projects = [
     link: "/day051",
     day: "Day 51",
   },
+  {
+    title: "Kanban Board",
+    description: "Kanban Boardアプリ。コンテンツの作成、編集、削除、並び替えやコピーが可能。",
+    link: "/day052",
+    day: "Day 52",
+  },
 ]
 
 export default function DashboardPage() {

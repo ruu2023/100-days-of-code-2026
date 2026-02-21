@@ -123,6 +123,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 049 | 02/18 | Universal Draft App  | React / Custom Limits / LocalStorage   | [View](./hono-app/src/app/day049)                        |
 | 050 | 02/19 | 100 Days Roadmap     | Tech Stack Visualization / Dashboard   | [View](./hono-app/src/app/roadmap) [View](./hono-app/src/app/dashboard) |
 | 051 | 02/20 | GoF Design Patterns  | React / Interactive Learning / UI / UX | [View](./hono-app/src/app/day051)                        |
+| 052 | 02/21 | Clipboard Manager      | アカウント連携 / 定型文1タップ全コピ   | [View](./hono-app/src/app/day052)                        |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

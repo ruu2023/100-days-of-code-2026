@@ -48,3 +48,21 @@ export const verification = sqliteTable("verification", {
 });
 
 export const schema = { user, session, account, verification };
+
+// ── Day052 Kanban ──────────────────────────────────────────
+export const kanbanColumns = sqliteTable("kanban_columns", {
+  id: text("id").primaryKey(),
+  userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  title: text("title").notNull(),
+  position: integer("position").notNull().default(0),
+  createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
+});
+
+export const kanbanItems = sqliteTable("kanban_items", {
+  id: text("id").primaryKey(),
+  columnId: text("columnId").notNull().references(() => kanbanColumns.id, { onDelete: "cascade" }),
+  userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  content: text("content").notNull(),
+  position: integer("position").notNull().default(0),
+  createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
+});
