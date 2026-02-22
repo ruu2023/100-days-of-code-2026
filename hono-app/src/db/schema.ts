@@ -49,6 +49,15 @@ export const verification = sqliteTable("verification", {
 
 export const schema = { user, session, account, verification };
 
+// ── Day053 Tango Cards ─────────────────────────────────────
+export const tangoCards = sqliteTable("tango_cards", {
+  id:        text("id").primaryKey(),
+  userId:    text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  front:     text("front").notNull(),
+  back:      text("back").notNull(),
+  createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
+});
+
 // ── Day052 Kanban ──────────────────────────────────────────
 export const kanbanColumns = sqliteTable("kanban_columns", {
   id: text("id").primaryKey(),

@@ -9,7 +9,7 @@ export default function WelcomePage() {
           100 Days of Code
         </h1>
         <p className="text-xl text-muted-foreground">
-          エンジニアリングの軌跡を記録する。ホワイトボードアプリや各種ツールなど、日々の成果をここで公開しています。
+          エンジニアリングの軌跡を記録する。各種ツールなど、日々の成果をここで公開しています。
         </p>
         <div className="flex gap-4 justify-center">
           <Button asChild size="lg">

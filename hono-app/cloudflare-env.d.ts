@@ -10,7 +10,10 @@ declare namespace Cloudflare {
 		WORKER_SELF_REFERENCE: Fetcher /* hono-app */;
 	}
 }
-interface CloudflareEnv extends Cloudflare.Env {}
+interface CloudflareEnv extends Cloudflare.Env {
+  REQUESTY_API_KEY: string;
+}
+
 type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };

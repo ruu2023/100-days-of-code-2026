@@ -40,6 +40,12 @@ const projects = [
     link: "/day052",
     day: "Day 52",
   },
+  {
+    title: "SmartTango",
+    description: "単語帳。裏面はAIが自動生成。アカウント紐付けでデータを管理。",
+    link: "/day053",
+    day: "Day 53",
+  },
 ]
 
 export default function DashboardPage() {

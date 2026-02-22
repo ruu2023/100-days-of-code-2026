@@ -3,6 +3,7 @@ import { getAuth } from '@/lib/auth';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { Hono } from 'hono';
 import { kanbanApp } from './kanban';
+import { tangoApp } from './tango';
 
 const app = new Hono<{ Bindings: CloudflareEnv }>().basePath('/api')
 
@@ -19,6 +20,8 @@ app.get('/me', async (ctx) => {
 });
 
 app.route('/kanban', kanbanApp);
+app.route('/tango', tangoApp);
+
 
 // api 以下のすべてのリクエストを Hono アプリケーションに転送する
 const toHono = async (req: Request) => {
