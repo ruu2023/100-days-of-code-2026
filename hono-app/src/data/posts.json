@@ -1,9 +1,28 @@
 [
   {
+    "day": 53,
+    "date": "2026-02-22 20:46",
+    "title": "Smart Tango ✨",
+    "description": "【Day 053/100】Smart Tango 🧠✨",
+    "features": [
+      "Hono + D1 + Workers Cron でバックエンド構築",
+      "Gemini で未記入の裏面を定時で自動補完",
+      "アカウント紐付けによるデータ管理"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Cloudflare",
+      "#Hono",
+      "#GeminiAPI"
+    ],
+    "url": "https://x.com/ruu_web/status/2025540581070618844"
+  },
+  {
     "day": 52,
-    "date": "2026-02-21 21:00",
-    "title": "Clipboard Manager 📋✨",
-    "description": "【Day 052/100】Clipboard Manager 📋✨",
+    "date": "2026-02-21 21:00【Day 052/100】Clipboard Manager 📋✨",
+    "title": "00【Day 052/100】Clipboard Manager 📋✨",
+    "description": "",
     "features": [
       "アカウント紐付けでデータを管理",
       "一覧のクリップボードボタンを押すだけで全文コピー"
