@@ -35,8 +35,8 @@ const projects = [
     day: "Day 51",
   },
   {
-    title: "Kanban Board",
-    description: "Kanban Boardアプリ。コンテンツの作成、編集、削除、並び替えやコピーが可能。",
+    title: "Clipboard Manager",
+    description: "よく使うプロンプトや定型文をクリップボード感覚で管理！アカウント紐付けでデータを管理。",
     link: "/day052",
     day: "Day 52",
   },
