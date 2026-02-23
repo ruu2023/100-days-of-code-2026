@@ -46,6 +46,12 @@ const projects = [
     link: "/day053",
     day: "Day 53",
   },
+  {
+    title: "SQL Index Simulator",
+    description: "インデックスの効果をブラウザで体感。",
+    link: "/day054",
+    day: "Day 54",
+  },
 ]
 
 export default function DashboardPage() {
