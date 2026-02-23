@@ -1,3 +1,19 @@
+## 2026-02-23 16:30
+
+【Day 054/100】SQL Index Simulator ⚡️
+「インデックスの効果をブラウザで体感」
+Day023 の スマホでSQL筋トレ！を拡張しました。
+
+✅ 100万件ローカルデータ即時生成
+✅ Indexed vs Non-Indexed 速度比較
+
+#100DaysOfCode #Nextjs #SQLite #sqljs
+https://hono-app.ruu2023.workers.dev/day054
+
+[Original Post](https://x.com/ruu_web/status/2025838998430818369)
+
+---
+
 ## 2026-02-22 20:46
 
 【Day 053/100】Smart Tango 🧠✨

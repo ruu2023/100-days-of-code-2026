@@ -125,6 +125,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 051 | 02/20 | GoF Design Patterns  | React / Interactive Learning / UI / UX | [View](./hono-app/src/app/day051)                        |
 | 052 | 02/21 | Clipboard Manager      | アカウント連携 / 定型文1タップ全コピ   | [View](./hono-app/src/app/day052)                        |
 | 053 | 02/22 | Smart Tango            | AI Flashcard / Cron / Requesty / Hono    | [View](./hono-app/src/app/day053/dashboard)                 |
+| 054 | 02/23 | SQL Index Simulator    | 1M Rows Browser DB / sql.js Speed Test | [View](./hono-app/src/app/day054)                           |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

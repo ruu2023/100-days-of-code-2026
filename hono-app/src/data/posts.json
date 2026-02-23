@@ -1,5 +1,22 @@
 [
   {
+    "day": 54,
+    "date": "2026-02-23 16:30",
+    "title": "SQL Index Simulator",
+    "description": "【Day 054/100】SQL Index Simulator ⚡️",
+    "features": [
+      "100万件ローカルデータ即時生成",
+      "Indexed vs Non-Indexed 速度比較"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#SQLite",
+      "#sqljs"
+    ],
+    "url": "https://x.com/ruu_web/status/2025838998430818369"
+  },
+  {
     "day": 53,
     "date": "2026-02-22 20:46",
     "title": "Smart Tango ✨",

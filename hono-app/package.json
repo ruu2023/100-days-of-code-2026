@@ -21,6 +21,7 @@
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"drizzle-orm": "^0.45.1",
+		"framer-motion": "^12.34.3",
 		"hono": "^4.11.9",
 		"lucide-react": "^0.564.0",
 		"next": "16.1.5",
@@ -28,6 +29,7 @@
 		"react": "^19.1.5",
 		"react-dom": "19.1.5",
 		"recharts": "^3.7.0",
+		"sql.js": "^1.14.0",
 		"tailwind-merge": "^3.5.0"
 	},
 	"devDependencies": {
@@ -36,6 +38,7 @@
 		"@types/node": "^20.19.33",
 		"@types/react": "^19.1.5",
 		"@types/react-dom": "^19.1.5",
+		"@types/sql.js": "^1.4.9",
 		"drizzle-kit": "^0.31.9",
 		"eslint": "^9",
 		"eslint-config-next": "15.4.6",
