@@ -1,5 +1,23 @@
 [
   {
+    "day": 55,
+    "date": "2026-02-24 20:30",
+    "title": "JWT Decoder Playground 🔓🔍",
+    "description": "【Day 055/100】JWT Decoder Playground 🔓🔍",
+    "features": [
+      "Hono + Next.js Server Actions で JWT 生成",
+      "JWT解説 , JSON結果解説つき"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#JWT",
+      "#ServerActions"
+    ],
+    "url": "https://x.com/ruu_web/status/2026260095735300267"
+  },
+  {
     "day": 54,
     "date": "2026-02-23 16:30",
     "title": "SQL Index Simulator",

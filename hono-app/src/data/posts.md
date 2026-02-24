@@ -1,3 +1,19 @@
+## 2026-02-24 20:30
+
+【Day 055/100】JWT Decoder Playground 🔓🔍
+
+ChatGPTにアプリのアイデアを相談したら、JWTの仕組みを学ぶPlaygroundを提案されました。
+
+✅ Hono + Next.js Server Actions で JWT 生成
+✅ JWT解説 , JSON結果解説つき
+
+#100DaysOfCode #Nextjs #Hono #JWT #ServerActions
+https://hono-app.ruu2023.workers.dev/day055
+
+[Original Post](https://x.com/ruu_web/status/2026260095735300267)
+
+---
+
 ## 2026-02-23 16:30
 
 【Day 054/100】SQL Index Simulator ⚡️

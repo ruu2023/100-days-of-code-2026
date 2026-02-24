@@ -52,6 +52,12 @@ const projects = [
     link: "/day054",
     day: "Day 54",
   },
+  {
+    title: "JWT Decoder Playground",
+    description: "JWTの生成・デコード・有効期限カウントダウンで仕組みを体験学習。",
+    link: "/day055",
+    day: "Day 55",
+  },
 ]
 
 export default function DashboardPage() {
