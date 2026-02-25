@@ -15,15 +15,15 @@ jobs:
 
     services:
       voicevox:
-        image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+        image: voicevox/voicevox_engine:cpu-latest
         ports:
           - 50021:50021
         options: >-
           --health-cmd "curl -f http://localhost:50021/version || exit 1"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 10
-          --health-start-period 30s
+          --health-interval 15s
+          --health-timeout 10s
+          --health-retries 12
+          --health-start-period 60s
 
     steps:
       - name: Checkout
