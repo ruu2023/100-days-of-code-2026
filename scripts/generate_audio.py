@@ -51,9 +51,9 @@ def build_speech_text(item: dict) -> str:
         parts.append(f"{category}のニュースなのだ。")
     parts.append(f"{title}。")
     if summary:
-        # サマリーが長すぎる場合は最初の300文字に制限
-        if len(summary) > 300:
-            summary = summary[:300] + "。以上なのだ"
+        # サマリーが長すぎる場合は最初の400文字に制限
+        if len(summary) > 400:
+            summary = summary[:400] + "。以上なのだ"
         parts.append(summary)
 
     return "".join(parts)
