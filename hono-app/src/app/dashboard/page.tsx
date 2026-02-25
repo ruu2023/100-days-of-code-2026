@@ -58,6 +58,12 @@ const projects = [
     link: "/day055",
     day: "Day 55",
   },
+  {
+    title: "ずんだもんNEWS",
+    description: "はてブ話題のニュースをずんだもんの声で聴けるオーディオプレイヤー。",
+    link: "/day056",
+    day: "Day 56",
+  },
 ]
 
 export default function DashboardPage() {

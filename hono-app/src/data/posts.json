@@ -1,5 +1,20 @@
 [
   {
+    "day": 56,
+    "date": "2026-02-25 23:30",
+    "title": "ずんだもんNEWS 🎙️",
+    "description": "【Day 056/100】ずんだもんNEWS 🎙️",
+    "features": [
+      "VOICEVOX音声でニュース読み上げ"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#VOICEVOX"
+    ],
+    "url": "https://x.com/ruu_web/status/2026669350770577659"
+  },
+  {
     "day": 55,
     "date": "2026-02-24 20:30",
     "title": "JWT Decoder Playground 🔓🔍",

@@ -1,3 +1,24 @@
+## 2026-02-25 23:30
+
+【Day 056/100】ずんだもんNEWS 🎙️
+
+GitHubActionsで
+VOICEVOXのWavを
+定期生成しています。
+
+NoteBookLMで
+読み上げても
+いいのでしょうが...
+
+✅ VOICEVOX音声でニュース読み上げ
+
+#100DaysOfCode #Nextjs #VOICEVOX #はてなブックマーク
+https://hono-app.ruu2023.workers.dev/day056
+
+[Original Post](https://x.com/ruu_web/status/2026669350770577659)
+
+---
+
 ## 2026-02-24 20:30
 
 【Day 055/100】JWT Decoder Playground 🔓🔍
