@@ -140,7 +140,7 @@ def main():
             "date": item.get("date", ""),
             "summary": item.get("summary", ""),
             "bookmarkCount": item.get("bookmarkCount", 0),
-            "audioFile": f"audio/{safe_id}.wav"
+            "audioFile": f"../audio/{safe_id}.wav"
         })
 
     # manifest.json を出力（GitHub Pages のプレイヤーが読み込む）
