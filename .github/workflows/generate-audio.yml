@@ -1,0 +1,63 @@
+name: Generate Zundamon Audio
+
+on:
+  workflow_run:
+    workflows: ["Daily AI+Security News"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  generate-audio:
+    runs-on: ubuntu-latest
+    # news.json生成ワークフローが成功した時だけ実行（workflow_run使用時）
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    services:
+      voicevox:
+        image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+        ports:
+          - 50021:50021
+        options: >-
+          --health-cmd "curl -f http://localhost:50021/version || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+          --health-start-period 30s
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Wait for VOICEVOX to be ready
+        run: |
+          echo "Waiting for VOICEVOX engine..."
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:50021/version > /dev/null; then
+              echo "VOICEVOX is ready!"
+              break
+            fi
+            echo "Attempt $i/30..."
+            sleep 5
+          done
+
+      - name: Generate audio files
+        run: python scripts/generate_audio.py
+
+      - name: Commit and push audio files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/audio/ docs/index.html
+          git diff --staged --quiet || git commit -m "🔊 Update zundamon audio [skip ci]"
+          git push

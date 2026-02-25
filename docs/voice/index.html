@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ずんだもんニュース</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700;900&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #0d0d0d;
+            --surface: #161616;
+            --surface2: #1e1e1e;
+            --border: #2a2a2a;
+            --zunda-green: #6fcf3f;
+            --zunda-dark: #3a7a1e;
+            --zunda-glow: rgba(111, 207, 63, 0.15);
+            --text: #e8e8e8;
+            --text-muted: #666;
+            --text-dim: #444;
+            --playing-bg: #111e0d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ── Grid background ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(111, 207, 63, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(111, 207, 63, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Header ── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--zunda-green);
+            border-radius: 8px;
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        header h1 {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+
+        header h1 span {
+            color: var(--zunda-green);
+        }
+
+        .header-meta {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* ── Main layout ── */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 32px 16px 80px;
+        }
+
+        /* ── Loading ── */
+        #loading {
+            text-align: center;
+            padding: 80px 0;
+            color: var(--text-muted);
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--border);
+            border-top-color: var(--zunda-green);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── News card ── */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .news-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .news-card:hover {
+            border-color: #3a3a3a;
+        }
+
+        .news-card.is-playing {
+            border-color: var(--zunda-dark);
+            background: var(--playing-bg);
+            box-shadow: 0 0 24px var(--zunda-glow);
+        }
+
+        .card-top {
+            padding: 16px 16px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .play-btn {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            font-size: 16px;
+            transition: all 0.15s;
+        }
+
+        .play-btn:hover {
+            background: var(--zunda-green);
+            border-color: var(--zunda-green);
+            color: #000;
+        }
+
+        .is-playing .play-btn {
+            background: var(--zunda-green);
+            border-color: var(--zunda-green);
+            color: #000;
+        }
+
+        .card-meta {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .meta-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .badge-category {
+            background: rgba(111, 207, 63, 0.12);
+            color: var(--zunda-green);
+            border: 1px solid rgba(111, 207, 63, 0.25);
+        }
+
+        .badge-count {
+            background: var(--surface2);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+
+        .card-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-dim);
+            margin-left: auto;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .card-title a:hover {
+            color: var(--zunda-green);
+        }
+
+        /* ── Summary ── */
+        .card-summary {
+            padding: 10px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-summary.expanded {
+            -webkit-line-clamp: unset;
+            display: block;
+        }
+
+        /* ── Progress bar ── */
+        .card-player {
+            padding: 10px 16px 14px;
+            display: none;
+        }
+
+        .is-playing .card-player {
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 3px;
+            background: var(--border);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 6px;
+            cursor: pointer;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--zunda-green);
+            width: 0%;
+            transition: width 0.1s linear;
+            border-radius: 2px;
+        }
+
+        .time-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--text-dim);
+        }
+
+        /* ── Now playing bar ── */
+        #now-playing-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: rgba(22, 22, 22, 0.96);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid var(--border);
+            padding: 12px 20px;
+            display: none;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #now-playing-bar.visible {
+            display: flex;
+        }
+
+        .np-zunda {
+            font-size: 22px;
+        }
+
+        .np-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .np-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: var(--zunda-green);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 2px;
+        }
+
+        .np-title {
+            font-size: 12px;
+            font-weight: 700;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .np-stop-btn {
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            transition: all 0.15s;
+        }
+
+        .np-stop-btn:hover {
+            border-color: #ff4444;
+            color: #ff4444;
+        }
+
+        /* ── Empty state ── */
+        #empty {
+            display: none;
+            text-align: center;
+            padding: 80px 0;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-mark">🌿</div>
+        <h1>ずんだもん<span>NEWS</span></h1>
+        <div class="header-meta" id="header-meta">loading...</div>
+    </header>
+
+    <main>
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>ニュースを読み込み中なのだ…</p>
+        </div>
+        <div id="empty">
+            <p>ニュースがないのだ 😢</p>
+        </div>
+        <div class="news-list" id="news-list"></div>
+    </main>
+
+    <!-- Now Playing Bar -->
+    <div id="now-playing-bar">
+        <div class="np-zunda">🟢</div>
+        <div class="np-info">
+            <div class="np-label">▶ Now Playing</div>
+            <div class="np-title" id="np-title">—</div>
+        </div>
+        <button class="np-stop-btn" id="np-stop">■ Stop</button>
+    </div>
+
+    <script>
+        const MANIFEST_URL = '../audio/manifest.json';
+
+        let currentAudio = null;
+        let currentCard = null;
+        let animFrame = null;
+
+        // ── ユーティリティ ──
+        function formatDate(iso) {
+            if (!iso) return '';
+            const d = new Date(iso);
+            return `${d.getMonth() + 1}/${d.getDate()}`;
+        }
+
+        function formatTime(sec) {
+            if (!isFinite(sec)) return '0:00';
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+
+        // ── プログレスバー更新 ──
+        function updateProgress(card, audio) {
+            const fill = card.querySelector('.progress-fill');
+            const current = card.querySelector('.time-current');
+            const duration = card.querySelector('.time-duration');
+            if (!fill) return;
+
+            if (audio.duration) {
+                fill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+            }
+            if (current) current.textContent = formatTime(audio.currentTime);
+            if (duration) duration.textContent = formatTime(audio.duration);
+
+            if (!audio.paused) {
+                animFrame = requestAnimationFrame(() => updateProgress(card, audio));
+            }
+        }
+
+        // ── 再生停止 ──
+        function stopAll() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio = null;
+            }
+            if (animFrame) cancelAnimationFrame(animFrame);
+            if (currentCard) {
+                currentCard.classList.remove('is-playing');
+                currentCard.querySelector('.play-btn').textContent = '▶';
+                const fill = currentCard.querySelector('.progress-fill');
+                if (fill) fill.style.width = '0%';
+                currentCard = null;
+            }
+            document.getElementById('now-playing-bar').classList.remove('visible');
+        }
+
+        // ── カード再生 ──
+        function playCard(card, item) {
+            if (currentCard === card) {
+                // 同じカードなら停止
+                stopAll();
+                return;
+            }
+            stopAll();
+
+            const audio = new Audio(item.audioFile);
+            currentAudio = audio;
+            currentCard = card;
+
+            card.classList.add('is-playing');
+            card.querySelector('.play-btn').textContent = '⏹';
+
+            document.getElementById('np-title').textContent = item.title;
+            document.getElementById('now-playing-bar').classList.add('visible');
+
+            audio.play().catch(e => {
+                console.error('Audio play failed:', e);
+                stopAll();
+            });
+
+            audio.addEventListener('timeupdate', () => updateProgress(card, audio));
+            audio.addEventListener('ended', stopAll);
+            audio.addEventListener('loadedmetadata', () => updateProgress(card, audio));
+        }
+
+        // ── カード生成 ──
+        function createCard(item) {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+
+            const date = formatDate(item.date);
+            const bmk = item.bookmarkCount ? `⭐ ${item.bookmarkCount}` : '';
+
+            card.innerHTML = `
+      <div class="card-top">
+        <button class="play-btn" title="ずんだもんで読み上げ">▶</button>
+        <div class="card-meta">
+          <div class="meta-row">
+            ${item.category ? `<span class="badge badge-category">${item.category}</span>` : ''}
+            ${bmk ? `<span class="badge badge-count">${bmk}</span>` : ''}
+            <span class="card-date">${date}</span>
+          </div>
+          <div class="card-title">
+            <a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+          </div>
+        </div>
+      </div>
+      ${item.summary ? `<div class="card-summary">${item.summary}</div>` : ''}
+      <div class="card-player">
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="time-row">
+          <span class="time-current">0:00</span>
+          <span class="time-duration">0:00</span>
+        </div>
+      </div>
+    `;
+
+            card.querySelector('.play-btn').addEventListener('click', () => playCard(card, item));
+
+            // プログレスバークリックでシーク
+            card.querySelector('.progress-bar').addEventListener('click', (e) => {
+                if (!currentAudio || currentCard !== card) return;
+                const rect = e.currentTarget.getBoundingClientRect();
+                const ratio = (e.clientX - rect.left) / rect.width;
+                currentAudio.currentTime = ratio * currentAudio.duration;
+            });
+
+            // サマリー展開
+            const summary = card.querySelector('.card-summary');
+            if (summary) {
+                summary.addEventListener('click', () => summary.classList.toggle('expanded'));
+                summary.style.cursor = 'pointer';
+            }
+
+            return card;
+        }
+
+        // ── 初期化 ──
+        async function init() {
+            const list = document.getElementById('news-list');
+            const loading = document.getElementById('loading');
+            const empty = document.getElementById('empty');
+            const headerMeta = document.getElementById('header-meta');
+
+            try {
+                const res = await fetch(MANIFEST_URL + '?t=' + Date.now());
+                if (!res.ok) throw new Error('manifest not found');
+                const items = await res.json();
+
+                loading.style.display = 'none';
+
+                if (!items.length) {
+                    empty.style.display = 'block';
+                    return;
+                }
+
+                headerMeta.textContent = `${items.length} stories`;
+
+                items.forEach(item => {
+                    list.appendChild(createCard(item));
+                });
+
+            } catch (e) {
+                loading.innerHTML = `<p style="color:#666">データを読み込めなかったのだ 😢<br><small>${e.message}</small></p>`;
+            }
+        }
+
+        document.getElementById('np-stop').addEventListener('click', stopAll);
+
+        init();
+    </script>
+</body>
+
+</html>
