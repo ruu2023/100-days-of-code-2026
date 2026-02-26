@@ -128,6 +128,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 054 | 02/23 | SQL Index Simulator    | 1M Rows Browser DB / sql.js Speed Test | [View](./hono-app/src/app/day054)                           |
 | 055 | 02/24 | JWT Decoder Playground | Hono JWT / Server Actions / Base64     | [View](./hono-app/src/app/day055)                           |
 | 056 | 02/25 | ずんだもんNEWS       | VOICEVOX / はてブ音声ニュース           | [View](./hono-app/src/app/day056)                           |
+| 057 | 02/26 | Draw App             | Canvas / レイヤー / shadcn/ui          | [View](./hono-app/src/app/day057)                           |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

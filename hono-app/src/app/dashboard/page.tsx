@@ -64,6 +64,12 @@ const projects = [
     link: "/day056",
     day: "Day 56",
   },
+  {
+    title: "Draw App",
+    description: "shadcn/uiを使用したライトテーマのお絵描きアプリ。レイヤー機能やUndo/Redo等の本格的な描画機能を搭載。",
+    link: "/day057",
+    day: "Day 57",
+  },
 ]
 
 export default function DashboardPage() {
