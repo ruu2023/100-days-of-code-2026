@@ -91,6 +91,7 @@ interface CanvasStore {
   mergeLayers: () => void;
   duplicateLayer: () => void;
   reorderLayers: (from: number, to: number) => void;
+  importImage: (imageElement: HTMLImageElement) => void;
 
   // History
   saveSnapshot: () => void;
@@ -218,6 +219,39 @@ export const useCanvasStore = create<CanvasStore>((set, get) => ({
     const [moved] = newLayers.splice(from, 1);
     newLayers.splice(to, 0, moved);
     set({ layers: newLayers, activeLayerIndex: to });
+  },
+
+  importImage: (imageElement) => {
+    const { layers, activeLayerIndex } = get();
+    const newLayer = createLayerCanvas(`Imported Image`);
+    const ctx = newLayer.canvas.getContext("2d")!;
+    
+    // Scale image to fit within canvas dimensions while preserving aspect ratio
+    const scale = Math.min(
+      CANVAS_W / imageElement.width,
+      CANVAS_H / imageElement.height,
+    );
+    // don't scale up small images
+    const finalScale = scale < 1 ? scale : 1;
+
+    const scaledWidth = imageElement.width * finalScale;
+    const scaledHeight = imageElement.height * finalScale;
+    const x = (CANVAS_W - scaledWidth) / 2;
+    const y = (CANVAS_H - scaledHeight) / 2;
+
+    ctx.drawImage(imageElement, x, y, scaledWidth, scaledHeight);
+
+    const newLayers = [...layers];
+    newLayers.splice(activeLayerIndex + 1, 0, newLayer);
+    
+    const newIndex = Math.min(activeLayerIndex + 1, newLayers.length - 1);
+    set({
+      layers: newLayers,
+      activeLayerIndex: newIndex,
+    });
+    
+    // Auto save state after import
+    get().saveSnapshot();
   },
 
   // ── History ────────────────────────────────────────

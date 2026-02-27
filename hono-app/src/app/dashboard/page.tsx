@@ -70,6 +70,12 @@ const projects = [
     link: "/day057",
     day: "Day 57",
   },
+  {
+    title: "AI Canvas App",
+    description: "Antigravityで作成！Google AI StudioのAPIでアプリが一気に花咲くお絵描き＆画像生成アプリ。2枚目の画像追加で背景指定やポーズ変更が容易に。",
+    link: "/day058",
+    day: "Day 58",
+  },
 ]
 
 export default function DashboardPage() {

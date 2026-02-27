@@ -8,6 +8,7 @@ day058App.post("/generate", async (ctx) => {
     const body = await ctx.req.json();
     const prompt = body.prompt;
     const sketch = body.sketch; // Base64 image from canvas
+    const additionalImage = body.additionalImage; // Optional Base64 uploaded image
 
     // Use process.env.GEMINI_API_KEY for standard Next.js environment
     // Note: If using Cloudflare pages, ctx.env.GEMINI_API_KEY might be accessed, relying on process.env fallback.
@@ -15,6 +16,8 @@ day058App.post("/generate", async (ctx) => {
     const ai = new GoogleGenAI({ apiKey });
 
     const contents: any[] = [];
+    let hasImage = false;
+
     if (sketch) {
       // Assuming sketch is a Base64 string starting with "data:image/png;base64,"
       const base64Data = sketch.includes(',') ? sketch.split(',')[1] : sketch;
@@ -24,7 +27,22 @@ day058App.post("/generate", async (ctx) => {
           mimeType: "image/png",
         }
       });
-      contents.push({ text: `このラフ画を元にして、次の指示に従って高品質な画像を生成してください: ${prompt}` });
+      hasImage = true;
+    }
+    
+    if (additionalImage) {
+      const base64Data = additionalImage.includes(',') ? additionalImage.split(',')[1] : additionalImage;
+      contents.push({
+        inlineData: {
+          data: base64Data,
+          mimeType: "image/png",
+        }
+      });
+      hasImage = true;
+    }
+    
+    if (hasImage) {
+      contents.push({ text: `これらの画像を元にして、次の指示に従って高品質な画像を生成してください: ${prompt}` });
     } else {
       contents.push({ text: prompt });
     }

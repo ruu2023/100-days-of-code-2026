@@ -1,5 +1,23 @@
 [
   {
+    "day": 58,
+    "date": "2026-02-27 23:20",
+    "title": "AI Canvas App 🎨🤖",
+    "description": "【Day 058/100】AI Canvas App 🎨🤖",
+    "features": [
+      "レイヤーに画像を取り込み機能",
+      "AI生成で2枚の画像で背景の指定OK"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#GeminiAPI",
+      "#Antigravity"
+    ],
+    "url": "https://x.com/ruu_web/status/2027396676118581500"
+  },
+  {
     "day": 57,
     "date": "2026-02-26 21:00",
     "title": "Draw",

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useCanvasStore } from "@/app/day058/store/useCanvasStore";
 import type { Layer } from "@/app/day058/types";
 import { Button } from "@/components/ui/button";
-import { Plus, Minus, Copy, Layers } from "lucide-react";
+import { Plus, Minus, Copy, Layers, Upload } from "lucide-react";
 
 export function LayersPanel() {
   const {
@@ -17,7 +17,28 @@ export function LayersPanel() {
     deleteLayer,
     mergeLayers,
     duplicateLayer,
+    importImage,
   } = useCanvasStore();
+
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => {
+      importImage(img);
+      URL.revokeObjectURL(url);
+    };
+    img.src = url;
+    
+    // Reset input
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   return (
     <div>
@@ -43,11 +64,21 @@ export function LayersPanel() {
       </div>
 
       {/* Layer actions */}
-      <div className="grid grid-cols-2 gap-1">
+      <div className="grid grid-cols-2 gap-1 mb-1">
         <SmallBtn onClick={addLayer} icon={<Plus className="size-3" />}>Add</SmallBtn>
         <SmallBtn onClick={deleteLayer} disabled={layers.length <= 1} icon={<Minus className="size-3" />}>Del</SmallBtn>
         <SmallBtn onClick={duplicateLayer} icon={<Copy className="size-3" />}>Dup</SmallBtn>
         <SmallBtn onClick={mergeLayers} disabled={activeLayerIndex === 0} icon={<Layers className="size-3" />}>Merge</SmallBtn>
+      </div>
+      <div className="grid grid-cols-1">
+        <SmallBtn onClick={() => fileInputRef.current?.click()} icon={<Upload className="size-3" />}>Import Image...</SmallBtn>
+        <input 
+          type="file" 
+          accept="image/*" 
+          ref={fileInputRef} 
+          style={{ display: 'none' }}
+          onChange={handleImport}
+        />
       </div>
     </div>
   );

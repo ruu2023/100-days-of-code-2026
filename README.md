@@ -129,6 +129,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 055 | 02/24 | JWT Decoder Playground | Hono JWT / Server Actions / Base64     | [View](./hono-app/src/app/day055)                           |
 | 056 | 02/25 | ずんだもんNEWS       | VOICEVOX / はてブ音声ニュース           | [View](./hono-app/src/app/day056)                           |
 | 057 | 02/26 | Draw App             | Canvas / レイヤー / shadcn/ui          | [View](./hono-app/src/app/day057)                           |
+| 058 | 02/27 | AI Canvas App        | Antigravity / Gemini API / Hono API      | [View](./hono-app/src/app/day058)                           |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

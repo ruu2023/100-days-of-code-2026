@@ -1,3 +1,20 @@
+## 2026-02-27 23:20
+
+【Day 058/100】AI Canvas App 🎨🤖
+
+お絵描きアプリにNano Banana 2を搭載。
+アプリが一気に花咲きます🌸
+
+✅ レイヤーに画像を取り込み機能
+✅ AI生成で2枚の画像で背景の指定OK
+
+#100DaysOfCode #Nextjs #Hono #GeminiAPI #Antigravity
+https://hono-app.ruu2023.workers.dev/day058
+
+[Original Post](https://x.com/ruu_web/status/2027396676118581500)
+
+---
+
 ## 2026-02-26 21:00
 
 【Day 057/100】Draw 🎨✨
