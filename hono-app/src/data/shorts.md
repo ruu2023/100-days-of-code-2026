@@ -4,13 +4,9 @@ Nano Banana 2
 
 API使わない手はない
 
-
-
 アプリが急に化けるのよね
 
-今回作ったお絵描きアプリも
-
-Antigravityを使ってサクッと作ったんだけど
+Antigravityを使って作ったお絵描きアプリも
 
 Google AI StudioのAPIキーを入れた瞬間
 
