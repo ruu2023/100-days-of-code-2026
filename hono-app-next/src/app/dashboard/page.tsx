@@ -76,6 +76,12 @@ const projects = [
     link: "/day058",
     day: "Day 58",
   },
+  {
+    title: "OAuth Troubleshooting",
+    description: "Next.jsとHono(Workers)間のOAuth連携トラブルまとめ。CORS、stateエラー、さらにドメイン越えクッキーを実現するセッションブリッジの実装記録。",
+    link: "/day059",
+    day: "Day 59",
+  },
 ]
 
 export default function DashboardPage() {

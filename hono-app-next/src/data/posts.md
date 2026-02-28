@@ -1,3 +1,21 @@
+## 2026-02-28 23:30
+
+【Day 059/100】OAuth Troubleshooting Slide
+
+Cloud Run と Cloudflare Workers 間の認証連携中です
+
+Antigravityとの会話履歴で
+ハマったポイントのスライドページ化しました
+
+✅ ドメイン越えクッキーを実現するセッションブリッジ
+
+#100DaysOfCode #Nextjs #Hono #OAuth
+https://hono-next-app-455056438426.asia-northeast1.run.app/day059
+
+[Original Post](https://x.com/ruu_web/status/2027750621009547563)
+
+---
+
 ## 2026-02-27 23:20
 
 【Day 058/100】AI Canvas App 🎨🤖
