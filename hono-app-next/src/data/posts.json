@@ -1,5 +1,40 @@
 [
   {
+    "day": 60,
+    "date": "2026-03-01 22:30",
+    "title": "Mini X Clone 🐦📹",
+    "description": "【Day 060/100】Mini X Clone 🐦📹",
+    "features": [
+      "テキスト＋動画/画像 の投稿",
+      "Next.js + Hono API + Cloudflare D1 & R2",
+      "ローカルと本番環境でのストレージ切り替え対応"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#Cloudflare",
+      "#R2"
+    ],
+    "url": "https://x.com/ruu_web/status/2028124225517850918"
+  },
+  {
+    "day": 59,
+    "date": "2026-02-28 23:30",
+    "title": "OAuth Troubleshooting 🔐",
+    "description": "【Day 059/100】OAuth Troubleshooting 🔐",
+    "features": [
+      "ドメイン越えクッキーを実現するセッションブリッジ"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#OAuth"
+    ],
+    "url": "https://x.com/ruu_web/status/2027750621009547563"
+  },
+  {
     "day": 58,
     "date": "2026-02-27 23:20",
     "title": "AI Canvas App 🎨🤖",
