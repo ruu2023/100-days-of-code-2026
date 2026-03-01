@@ -2,17 +2,17 @@
 import { useState } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://hono-api.ruu2023.workers.dev";
-const FRONTEND_URL = process.env.NEXT_PUBLIC_FRONTEND_URL || "https://hono-next-app-455056438426.asia-northeast1.run.app";
 
 export default function Client({ callbackUrl = "/dashboard" }: { callbackUrl?: string }) {
   const [loading, setLoading] = useState(false);
 
   const handleGoogleLogin = () => {
     setLoading(true);
-    // Navigate browser DIRECTLY to Workers GET endpoint (not via fetch).
-    // This sets the state cookie as first-party on the Workers domain,
-    // so the callback from Google will include it correctly → no state_mismatch.
-    const redirectAfterAuth = `${FRONTEND_URL}${callbackUrl}`;
+    // dynamically get the real origin of the frontend (e.g. running on Cloud Run)
+    const currentOrigin = typeof window !== "undefined" ? window.location.origin : "https://hono-next-app-455056438426.asia-northeast1.run.app";
+    const redirectAfterAuth = `${currentOrigin}${callbackUrl}`;
+    
+    // Navigate browser DIRECTLY to Workers GET endpoint.
     window.location.href = `${API_URL}/api/auth/oauth/google?callbackURL=${encodeURIComponent(redirectAfterAuth)}`;
   };
 
