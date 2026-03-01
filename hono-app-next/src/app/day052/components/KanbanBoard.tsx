@@ -19,9 +19,24 @@ import TaskCard from "./TaskCard";
 import type { Column as ColumnType, Id, Task } from "../types";
 import "../index.css";
 import ConfirmModal from "./ConfirmModal";
-import { apiFetch } from "@/lib/api-client";
-
 // ── API helpers ──────────────────────────────────────────────
+// Use local proxy route to forward cookies to Workers
+const API_BASE = "/api/kanban";
+
+async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
+  // Convert /api/kanban/columns -> columns for proxy route
+  const proxyPath = path.replace("/api/kanban/", "");
+  const url = `${API_BASE}/${proxyPath}`;
+  return fetch(url, {
+    credentials: "include",
+    ...init,
+    headers: {
+      "Content-Type": "application/json",
+      ...init?.headers,
+    },
+  });
+}
+
 const api = {
   async getAll(): Promise<{ columns: ColumnType[]; items: Task[] }> {
     const res = await apiFetch("/api/kanban/columns");

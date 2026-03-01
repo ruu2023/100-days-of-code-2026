@@ -1,7 +1,6 @@
 // src/lib/api-client.ts
-// Shared fetch helper that prepends the hono-api base URL.
+// Shared fetch helper that calls Workers API directly with credentials
 // NEXT_PUBLIC_API_URL is baked in at build time via Dockerfile ARG + ENV.
-// API_URL is a server-side runtime env var (Cloud Run) used as fallback in SSR/Edge.
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
@@ -13,7 +12,7 @@ const BASE_URL =
  * Usage: apiFetch('/api/kanban/columns')
  */
 export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
-  // If already absolute URL, use as-is
+  // Always use absolute URL to call Workers API directly
   const url = path.startsWith("http") ? path : `${BASE_URL}${path}`;
   return fetch(url, {
     credentials: "include",

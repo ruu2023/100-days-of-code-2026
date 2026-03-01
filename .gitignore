@@ -7,3 +7,5 @@ node_modules
 # もし public/ が無視されているなら、data.json だけ追跡する
 !public/
 !public/data.json
+
+.claude

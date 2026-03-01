@@ -3,7 +3,6 @@
 // Handles: REST API (auth, kanban, tango, day058) + Cron trigger (tango auto-fill)
 
 import { Hono } from "hono";
-import { cors } from "hono/cors";
 import { drizzle } from "drizzle-orm/d1";
 import { eq } from "drizzle-orm";
 import { tangoCards } from "@/db/schema";
@@ -11,6 +10,7 @@ import { getAuth, type Env } from "@/lib/auth";
 import { kanbanApp } from "@/api/kanban";
 import { tangoApp } from "@/api/tango";
 import { day058App } from "@/api/day058";
+// import { day060App } from "@/api/day060";
 
 // -----------------------------------------------------------------------------
 // Hono App
@@ -26,14 +26,22 @@ const ALLOWED_ORIGINS = [
 ];
 
 app.use("*", async (ctx, next) => {
-  return cors({
-    origin: ALLOWED_ORIGINS,
-    allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowHeaders: ["Content-Type", "Authorization"],
-    exposeHeaders: ["Content-Length"],
-    maxAge: 600,
-    credentials: true,
-  })(ctx, next);
+  const origin = ctx.req.header("origin") || "";
+  const isAllowedOrigin = ALLOWED_ORIGINS.includes(origin);
+
+  // Set CORS headers manually
+  ctx.res.headers.set("Access-Control-Allow-Origin", isAllowedOrigin ? origin : ALLOWED_ORIGINS[0]);
+  ctx.res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+  ctx.res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  ctx.res.headers.set("Access-Control-Allow-Credentials", "true");
+  ctx.res.headers.set("Access-Control-Max-Age", "600");
+
+  // Handle preflight
+  if (ctx.req.method === "OPTIONS") {
+    return ctx.body(null, 204);
+  }
+
+  return next();
 });
 
 // ① GET-based OAuth initiation — must be BEFORE the wildcard /auth/* route.
@@ -96,29 +104,42 @@ app.on(["GET", "POST"], "/auth/callback/:provider", async (ctx) => {
   // on its own domain. The middleware can then forward it to Workers for auth checks.
   if (status === 302 && location) {
     let sessionTokenValue: string | null = null;
+    let secureSessionTokenValue: string | null = null;
+
     response.headers.forEach((value, key) => {
-      if (key.toLowerCase() === "set-cookie" && value.includes("session_token")) {
-        // Extract the cookie value (everything between = and first ;)
-        const match = value.match(/session_token=([^;]+)/);
-        if (match) sessionTokenValue = match[1];
+      if (key.toLowerCase() === "set-cookie") {
+        if (value.includes("better-auth.session_token=")) {
+          const match = value.match(/better-auth\.session_token=([^;]+)/);
+          if (match) sessionTokenValue = match[1];
+        }
+        if (value.includes("__Secure-better-auth.session_token=")) {
+          const match = value.match(/__Secure-better-auth\.session_token=([^;]+)/);
+          if (match) secureSessionTokenValue = match[1];
+        }
       }
     });
 
-    if (sessionTokenValue) {
+    // Use the __Secure- prefixed token if available (more secure)
+    const tokenToUse = secureSessionTokenValue || sessionTokenValue;
+
+    if (tokenToUse) {
       const targetUrl = new URL(location);
       const bridgeUrl =
         `${targetUrl.origin}/api/auth/session` +
-        `?token=${encodeURIComponent(sessionTokenValue)}` +
+        `?token=${encodeURIComponent(tokenToUse)}` +
         `&redirect=${encodeURIComponent(targetUrl.pathname + targetUrl.search)}`;
 
       const bridgeRes = new Response(null, {
         status: 302,
         headers: { Location: bridgeUrl },
       });
-      // Also keep the Workers-domain session cookie so direct API calls work
-      response.headers.forEach((v, k) => {
-        if (k.toLowerCase() === "set-cookie") bridgeRes.headers.append("set-cookie", v);
-      });
+      // Only set the secure version of session token with SameSite=None for cross-origin
+      if (secureSessionTokenValue) {
+        bridgeRes.headers.append(
+          "Set-Cookie",
+          `__Secure-better-auth.session_token=${secureSessionTokenValue}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=604800`
+        );
+      }
       return bridgeRes;
     }
   }
@@ -143,6 +164,7 @@ app.get("/me", async (ctx) => {
 app.route("/kanban", kanbanApp);
 app.route("/tango", tangoApp);
 app.route("/day058", day058App);
+// app.route("/day060", day060App);
 
 // -----------------------------------------------------------------------------
 // Cron Handler: 毎時0分 — tango カード裏面を Gemini(Requesty経由) で自動補完

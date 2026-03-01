@@ -8,6 +8,8 @@ import * as schema from "@/db/schema";
 
 export type Env = {
   hono_db: D1Database;
+  ANIME_STORAGE: R2Bucket;
+  anime_storage: R2Bucket;
   GOOGLE_CLIENT_ID: string;
   GOOGLE_CLIENT_SECRET: string;
   BETTER_AUTH_SECRET: string;

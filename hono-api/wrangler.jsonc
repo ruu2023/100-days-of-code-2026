@@ -1,29 +1,41 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "hono-api",
-  "main": "src/index.ts",
-  "compatibility_date": "2025-12-01",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "observability": {
-    "enabled": true
-  },
-  "d1_databases": [
-    {
-      "binding": "hono_db",
-      "database_name": "hono-db",
-      "database_id": "04387a12-a4f7-44bf-bba6-0edb4f8fd3cd"
-    }
-  ],
-  // Cron Trigger: 毎時0分に scheduled ハンドラ（Tango 裏面自動補完）を実行
-  "triggers": {
-    "crons": ["0 * * * *"]
-  }
-  // Secrets (set with `wrangler secret put <NAME>`):
-  //   REQUESTY_API_KEY
-  //   GOOGLE_CLIENT_ID
-  //   GOOGLE_CLIENT_SECRET
-  //   BETTER_AUTH_SECRET
-  //   GEMINI_API_KEY
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "hono-api",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-12-01",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "hono_db",
+			"database_name": "hono-db",
+			"database_id": "04387a12-a4f7-44bf-bba6-0edb4f8fd3cd"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "ANIME_STORAGE",
+			"bucket_name": "anime-storage"
+		},
+		{
+			"bucket_name": "anime-storage",
+			"binding": "anime_storage"
+		}
+	],
+	// Cron Trigger: 毎時0分に scheduled ハンドラ（Tango 裏面自動補完）を実行
+	"triggers": {
+		"crons": [
+			"0 * * * *"
+		]
+	}
+	// Secrets (set with `wrangler secret put <NAME>`):
+	//   REQUESTY_API_KEY
+	//   GOOGLE_CLIENT_ID
+	//   GOOGLE_CLIENT_SECRET
+	//   BETTER_AUTH_SECRET
+	//   GEMINI_API_KEY
 }

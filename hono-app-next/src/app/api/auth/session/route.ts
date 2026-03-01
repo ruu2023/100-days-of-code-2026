@@ -18,14 +18,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/login", baseUrl));
   }
 
+  // Don't set cookie on Next.js domain - just redirect.
+  // The cookie is already set on Workers domain with SameSite=None.
   const response = NextResponse.redirect(new URL(redirect, baseUrl));
-
-  // Set the session cookie on this domain (Next.js / Cloud Run).
-  // Use the same name as better-auth so the middleware can forward it directly.
-  response.headers.set(
-    "Set-Cookie",
-    `__Secure-better-auth.session_token=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=604800`
-  );
 
   return response;
 }

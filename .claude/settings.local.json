@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install zustand perfect-freehand)"
+      "Bash(npm install zustand perfect-freehand)",
+      "Bash(npx drizzle-kit:*)",
+      "Bash(gcloud builds:*)",
+      "Bash(gcloud run:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(curl:*)",
+      "Bash(npx esbuild:*)"
     ]
   }
 }

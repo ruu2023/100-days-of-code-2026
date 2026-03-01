@@ -47,8 +47,6 @@ export const verification = sqliteTable("verification", {
   updatedAt: integer("updatedAt", { mode: "timestamp" }),
 });
 
-export const schema = { user, session, account, verification };
-
 // ── Day053 Tango Cards ─────────────────────────────────────
 export const tangoCards = sqliteTable("tango_cards", {
   id:        text("id").primaryKey(),
@@ -75,3 +73,16 @@ export const kanbanItems = sqliteTable("kanban_items", {
   position: integer("position").notNull().default(0),
   createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
 });
+
+// ── Day060 Twitter ─────────────────────────────────────────────
+export const tweets = sqliteTable("tweets", {
+  id: text("id").primaryKey(),
+  userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
+  content: text("content").notNull(), // 140文字以内のテキスト
+  videoUrl: text("videoUrl"), // R2にアップロードした動画URL
+  thumbnailUrl: text("thumbnailUrl"), // サムネイル画像URL
+  createdAt: integer("createdAt", { mode: "timestamp" }).notNull(),
+});
+
+// Schema export (must be after all table definitions)
+export const schema = { user, session, account, verification, tangoCards, kanbanColumns, kanbanItems, tweets };

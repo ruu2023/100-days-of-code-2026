@@ -3,8 +3,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 // Use server-only env var (API_URL) so it can be set as a Cloud Run runtime env var.
-// NEXT_PUBLIC_* vars are baked in at build time and can't be overridden at runtime.
-// Set this in Cloud Run: gcloud run services update hono-next-app --update-env-vars API_URL=https://...
 const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8787";
 
 export async function middleware(request: NextRequest) {
