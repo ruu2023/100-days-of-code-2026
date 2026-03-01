@@ -9,3 +9,5 @@ node_modules
 !public/data.json
 
 .claude
+
+hono-api/remote-dump.sql

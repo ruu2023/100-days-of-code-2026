@@ -7,7 +7,8 @@
       "Bash(gcloud run:*)",
       "Bash(npx wrangler:*)",
       "Bash(curl:*)",
-      "Bash(npx esbuild:*)"
+      "Bash(npx esbuild:*)",
+      "Bash(bun run db:generate)"
     ]
   }
 }

@@ -11,7 +11,7 @@ import { getAuth, type Env } from "@/lib/auth";
 import { kanbanApp } from "@/api/kanban";
 import { tangoApp } from "@/api/tango";
 import { day058App } from "@/api/day058";
-// import { day060App } from "@/api/day060";
+import { day060App } from "@/api/day060";
 
 // -----------------------------------------------------------------------------
 // Hono App
@@ -150,7 +150,7 @@ app.get("/me", async (ctx) => {
 app.route("/kanban", kanbanApp);
 app.route("/tango", tangoApp);
 app.route("/day058", day058App);
-// app.route("/day060", day060App);
+app.route("/day060", day060App);
 
 // -----------------------------------------------------------------------------
 // Cron Handler: 毎時0分 — tango カード裏面を Gemini(Requesty経由) で自動補完
