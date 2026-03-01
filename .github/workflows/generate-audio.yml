@@ -1,17 +1,14 @@
 name: Generate Zundamon Audio
 
 on:
-  workflow_run:
-    workflows: ["Daily AI+Security News"]
-    types:
-      - completed
+  schedule:
+    # 毎日 09:30 JST = 00:30 UTC (daily-news.yml の後)
+    - cron: "37 0 * * *"
   workflow_dispatch:
 
 jobs:
   generate-audio:
     runs-on: ubuntu-latest
-    # news.json生成ワークフローが成功した時だけ実行（workflow_run使用時）
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     services:
       voicevox:
