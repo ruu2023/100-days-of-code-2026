@@ -82,6 +82,12 @@ const projects = [
     link: "/day059",
     day: "Day 59",
   },
+  {
+    title: "Mini X Clone",
+    description: "動画や画像もアップできる、X風のミニポストアプリ。Cloudflare R2を使用したメディアアップロードの実装。",
+    link: "/day060",
+    day: "Day 60",
+  },
 ]
 
 export default function DashboardPage() {

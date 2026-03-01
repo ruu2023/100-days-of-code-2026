@@ -19,11 +19,13 @@
 	"r2_buckets": [
 		{
 			"binding": "ANIME_STORAGE",
-			"bucket_name": "anime-storage"
+			"bucket_name": "anime-storage",
+			"preview_bucket_name": "anime-storage"
 		},
 		{
 			"bucket_name": "anime-storage",
-			"binding": "anime_storage"
+			"binding": "anime_storage",
+			"preview_bucket_name": "anime-storage"
 		}
 	],
 	// Cron Trigger: 毎時0分に scheduled ハンドラ（Tango 裏面自動補完）を実行

@@ -14,12 +14,15 @@ const BASE_URL =
 export function apiFetch(path: string, init?: RequestInit): Promise<Response> {
   // Always use absolute URL to call Workers API directly
   const url = path.startsWith("http") ? path : `${BASE_URL}${path}`;
+  
+  const headers = new Headers(init?.headers);
+  if (!headers.has("Content-Type") && typeof init?.body === "string") {
+    headers.set("Content-Type", "application/json");
+  }
+
   return fetch(url, {
     credentials: "include",
     ...init,
-    headers: {
-      "Content-Type": "application/json",
-      ...init?.headers,
-    },
+    headers,
   });
 }

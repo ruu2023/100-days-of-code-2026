@@ -125,6 +125,12 @@ app.on(["GET", "POST"], "/auth/callback/:provider", async (ctx) => {
           "Set-Cookie",
           `__Secure-better-auth.session_token=${secureSessionTokenValue}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=604800`
         );
+      } else if (sessionTokenValue) {
+        // ローカル開発用 (http://localhost) のフォールバック
+        bridgeRes.headers.append(
+          "Set-Cookie",
+          `better-auth.session_token=${sessionTokenValue}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800`
+        );
       }
       return bridgeRes;
     }

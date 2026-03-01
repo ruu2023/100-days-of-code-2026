@@ -1,3 +1,22 @@
+
+## 2026-03-01 22:30
+
+【Day 060/100】Mini X Clone 🐦📹
+
+動画や画像もアップできる、X風のミニポストアプリを作りました！
+Cloudflare R2 を使ってメディアストレージを実装しています。
+
+✅ テキスト＋動画/画像 の投稿
+✅ Next.js + Hono API + Cloudflare D1 & R2
+✅ ローカルと本番環境でのストレージ切り替え対応
+
+#100DaysOfCode #Nextjs #Hono #Cloudflare #R2
+https://hono-next-app-455056438426.asia-northeast1.run.app/day060
+
+[Original Post](https://x.com/ruu_web/status/2028124225517850918)
+
+---
+
 ## 2026-02-28 23:30
 
 【Day 059/100】OAuth Troubleshooting Slide

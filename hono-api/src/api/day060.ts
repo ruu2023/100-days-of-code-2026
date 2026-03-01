@@ -11,9 +11,16 @@ const day060App = new Hono<{ Bindings: Env }>();
 // ---------------------------------------------------------------------------
 // Helper: Generate R2 public URL
 // ---------------------------------------------------------------------------
-function getPublicUrl(key: string): string {
-  // R2のpublic URLフォーマット
-  // 実際のドメインはデプロイ後に設定してください
+function getPublicUrl(key: string, req: Request): string {
+  const url = new URL(req.url);
+  // ローカル開発環境の場合はlocalhostにフォールバック（ポートはwrangler devのもの）
+  if (url.hostname === "localhost" || url.hostname === "127.0.0.1") {
+    // ローカルの場合、Next.js側から表示するにはひとまずこのAPIサーバー自体経由などでバイパスする必要があるか、
+    // wrangler local環境の場合はデフォルトで直接アクセスできるURLがありません。
+    // ※ 簡便のため、ここではlocalhost:8787の特定パスをリソースURLとして返す構成にするか、
+    // ダミーURLを返す形にします。ここではAPIに配信用エンドポイント `/api/day060/r2` を作ってプロキシする前提のURLにします。
+    return `${url.protocol}//${url.host}/api/day060/r2/${key}`;
+  }
   return `https://pub-9592d65a5ae84a76bea4d7c469e8cc79.r2.dev/${key}`;
 }
 
@@ -59,6 +66,27 @@ day060App.get("/tweets", async (ctx) => {
 });
 
 // ---------------------------------------------------------------------------
+// GET /api/day060/r2/* - 開発用のローカルR2配信用エンドポイント
+// ---------------------------------------------------------------------------
+day060App.get("/r2/*", async (ctx) => {
+  // e.g. /api/day060/r2/videos/uuid/file.mp4 -> videos/uuid/file.mp4
+  const key = ctx.req.path.replace("/api/day060/r2/", "");
+  const object = await ctx.env.ANIME_STORAGE.get(key);
+
+  if (!object) {
+    return ctx.text("Not found", 404);
+  }
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set("etag", object.httpEtag);
+  
+  return new Response(object.body, {
+    headers,
+  });
+});
+
+// ---------------------------------------------------------------------------
 // POST /api/day060/tweets - 新規投稿（テキストのみ、または動画付き）
 // ---------------------------------------------------------------------------
 day060App.post("/tweets", async (ctx) => {
@@ -69,7 +97,7 @@ day060App.post("/tweets", async (ctx) => {
     return ctx.json({ error: "Unauthorized" }, 401);
   }
 
-  const formData = await ctx.req.parseBody();
+  const formData = await ctx.req.parseBody({ all: true });
   const content = formData["content"] as string;
   const videoFile = formData["video"] as File | undefined;
   const thumbnailFile = formData["thumbnail"] as File | undefined;
@@ -90,7 +118,7 @@ day060App.post("/tweets", async (ctx) => {
         contentType: videoFile.type || "video/mp4",
       },
     });
-    videoUrl = getPublicUrl(videoKey);
+    videoUrl = getPublicUrl(videoKey, ctx.req.raw);
   }
 
   // Upload thumbnail to R2
@@ -101,7 +129,7 @@ day060App.post("/tweets", async (ctx) => {
         contentType: thumbnailFile.type || "image/jpeg",
       },
     });
-    thumbnailUrl = getPublicUrl(thumbKey);
+    thumbnailUrl = getPublicUrl(thumbKey, ctx.req.raw);
   }
 
   const db = drizzle(ctx.env.hono_db);

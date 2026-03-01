@@ -65,7 +65,6 @@ export default function TwitterPage() {
 
     const res = await apiFetch('/api/day060/tweets', {
       method: 'POST',
-      // Note: Don't set Content-Type header for FormData
       body: formData,
     });
 

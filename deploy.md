@@ -1,5 +1,5 @@
 ```bash
-gcloud run deploy hono-next-app --source .　--region asia-northeast1
+gcloud run deploy hono-next-app --source . --region asia-northeast1
 ```
 
 ```bash
