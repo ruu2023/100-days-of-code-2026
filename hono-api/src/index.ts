@@ -3,6 +3,7 @@
 // Handles: REST API (auth, kanban, tango, day058) + Cron trigger (tango auto-fill)
 
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { drizzle } from "drizzle-orm/d1";
 import { eq } from "drizzle-orm";
 import { tangoCards } from "@/db/schema";
@@ -19,30 +20,15 @@ import { day058App } from "@/api/day058";
 const app = new Hono<{ Bindings: Env }>().basePath("/api");
 
 // CORS: allow requests from the Next.js frontend
-// NOTE: credentials:true + origin:"*" is invalid, so always list origins explicitly.
 const ALLOWED_ORIGINS = [
   "http://localhost:3000",
   "https://hono-next-app-455056438426.asia-northeast1.run.app",
 ];
 
-app.use("*", async (ctx, next) => {
-  const origin = ctx.req.header("origin") || "";
-  const isAllowedOrigin = ALLOWED_ORIGINS.includes(origin);
-
-  // Set CORS headers manually
-  ctx.res.headers.set("Access-Control-Allow-Origin", isAllowedOrigin ? origin : ALLOWED_ORIGINS[0]);
-  ctx.res.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
-  ctx.res.headers.set("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  ctx.res.headers.set("Access-Control-Allow-Credentials", "true");
-  ctx.res.headers.set("Access-Control-Max-Age", "600");
-
-  // Handle preflight
-  if (ctx.req.method === "OPTIONS") {
-    return ctx.body(null, 204);
-  }
-
-  return next();
-});
+app.use("*", cors({
+  origin: (origin) => ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+  credentials: true,
+}));
 
 // ① GET-based OAuth initiation — must be BEFORE the wildcard /auth/* route.
 // Navigating the browser directly here avoids cross-origin cookie issues.
