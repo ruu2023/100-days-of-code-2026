@@ -18,9 +18,24 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(new URL("/login", baseUrl));
   }
 
-  // Don't set cookie on Next.js domain - just redirect.
-  // The cookie is already set on Workers domain with SameSite=None.
   const response = NextResponse.redirect(new URL(redirect, baseUrl));
+
+  // Set the cookie on Next.js domain so middleware and server components
+  // can read it and forward it to Workers.
+  const isHttps = protocol === "https" || baseUrl.startsWith("https://");
+  const cookieName = isHttps
+    ? "__Secure-better-auth.session_token"
+    : "better-auth.session_token";
+
+  response.cookies.set({
+    name: cookieName,
+    value: token,
+    httpOnly: true,
+    secure: isHttps,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7, // 7 days
+  });
 
   return response;
 }

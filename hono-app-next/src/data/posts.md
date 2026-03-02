@@ -1,4 +1,20 @@
 
+## 2026-03-02 22:30
+
+【Day 061/100】VS Code Shortcuts ⌨️
+
+VS Codeのショートカットをまとめたチートシートアプリを作りました！
+
+✅ カテゴリ別フィルター
+✅ キーボードショートカットの表示
+✅ 検索機能
+
+#100DaysOfCode #VSCode #Nextjs #Hono
+
+[Original Post](https://x.com/ruu_web/status/2028482332672573776)
+
+
+---
 ## 2026-03-01 22:30
 
 【Day 060/100】Mini X Clone 🐦📹

@@ -3,7 +3,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 // Use server-only env var (API_URL) so it can be set as a Cloud Run runtime env var.
-const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:8787";
+const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL;
 
 export async function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;
@@ -13,9 +13,15 @@ export async function middleware(request: NextRequest) {
 
   if (isProtected) {
     // セッションを hono-api に問い合わせて確認
-    const res = await fetch(`${API_URL}/api/me`, {
+    const externalOrigin = request.headers.get("x-forwarded-host") 
+      ? `https://${request.headers.get("x-forwarded-host")}` 
+      : request.nextUrl.origin;
+    const baseUrl = API_URL || externalOrigin;
+    const protocol = request.nextUrl.protocol === "https:" || baseUrl.startsWith("https") ? "https" : "http";
+    const res = await fetch(`${baseUrl}/api/me`, {
       headers: {
         cookie: request.headers.get("cookie") ?? "",
+        "x-forwarded-proto": protocol,
       },
     });
 

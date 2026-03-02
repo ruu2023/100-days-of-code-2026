@@ -15,7 +15,8 @@ COPY . .
 
 # Hardcode the hono-api URL so Next.js bakes it into the bundle at build time.
 # NEXT_PUBLIC_* vars must be set BEFORE `npm run build` to be embedded in client/edge bundles.
-ENV NEXT_PUBLIC_API_URL=https://hono-api.ruu2023.workers.dev
+ARG NEXT_PUBLIC_API_URL=""
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
 RUN npm run build
 

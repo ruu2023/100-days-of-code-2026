@@ -31,10 +31,12 @@ export const getAuth = (env: Env) => {
       },
     },
     secret: env.BETTER_AUTH_SECRET,
-    baseURL: env.BETTER_AUTH_URL ?? "http://localhost:8787",
+    baseURL: env.BETTER_AUTH_URL ?? "https://ruu-dev.com",
+    trustHost: true,
     trustedOrigins: [
       "http://localhost:3000",
       "https://hono-next-app-455056438426.asia-northeast1.run.app",
+      "https://ruu-dev.com",
     ],
   });
 };

@@ -1,7 +1,7 @@
 // API proxy: forwards client requests to Workers with the session cookie
 import { NextRequest, NextResponse } from "next/server";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://hono-api.ruu2023.workers.dev";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export async function GET(
   request: NextRequest,

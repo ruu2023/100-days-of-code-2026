@@ -5,7 +5,7 @@
 const BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
   process.env.API_URL ||
-  "http://localhost:8787";
+  "";
 
 /**
  * Fetch wrapper that automatically prepends the hono-api base URL.

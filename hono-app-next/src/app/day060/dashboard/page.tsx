@@ -7,7 +7,7 @@ import TweetList from '../components/TweetList';
 import type { Tweet as TweetType, User } from '../types';
 import { apiFetch } from '@/lib/api-client';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8787';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function TwitterPage() {
   const [tweets, setTweets] = useState<TweetType[]>([]);
@@ -90,6 +90,7 @@ export default function TwitterPage() {
   }, []);
 
   const handleLogin = () => {
+    // Navigate browser DIRECTLY to Workers GET endpoint (or relative backend).
     window.location.href = `${API_BASE}/api/auth/oauth/google?callbackURL=${encodeURIComponent(window.location.href)}`;
   };
 

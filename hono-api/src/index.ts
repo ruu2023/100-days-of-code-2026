@@ -8,21 +8,19 @@ import { drizzle } from "drizzle-orm/d1";
 import { eq } from "drizzle-orm";
 import { tangoCards } from "@/db/schema";
 import { getAuth, type Env } from "@/lib/auth";
-import { kanbanApp } from "@/api/kanban";
-import { tangoApp } from "@/api/tango";
-import { day058App } from "@/api/day058";
-import { day060App } from "@/api/day060";
+import { apiApp } from "@/api/index";
 
 // -----------------------------------------------------------------------------
 // Hono App
 // -----------------------------------------------------------------------------
 
-const app = new Hono<{ Bindings: Env }>().basePath("/api");
+const app = new Hono<{ Bindings: Env }>();
 
 // CORS: allow requests from the Next.js frontend
 const ALLOWED_ORIGINS = [
   "http://localhost:3000",
   "https://hono-next-app-455056438426.asia-northeast1.run.app",
+  "https://ruu-dev.com",
 ];
 
 app.use("*", cors({
@@ -30,133 +28,33 @@ app.use("*", cors({
   credentials: true,
 }));
 
-// ① GET-based OAuth initiation — must be BEFORE the wildcard /auth/* route.
-// Navigating the browser directly here avoids cross-origin cookie issues.
-// better-auth returns JSON { url }, so we convert it to a 302 + copy Set-Cookie.
-app.get("/auth/oauth/:provider", async (ctx) => {
-  const provider = ctx.req.param("provider");
-  const callbackURL = ctx.req.query("callbackURL") || "/";
-  const auth = getAuth(ctx.env);
+// Mount API routes
+app.route("/api", apiApp);
 
-  const workerBase = ctx.env.BETTER_AUTH_URL ?? "http://localhost:8787";
-  const syntheticReq = new Request(`${workerBase}/api/auth/sign-in/social`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ provider, callbackURL }),
-  });
+app.all('*', async (c) => {
+  const url = new URL(c.req.url)
+  
+  // Cloud Run のオリジンURL
+  const CLOUD_RUN_ORIGIN = "hono-next-app-455056438426.asia-northeast1.run.app" 
+  const targetUrl = new URL(url.pathname + url.search, `https://${CLOUD_RUN_ORIGIN}`)
 
-  const authRes = await auth.handler(syntheticReq);
+  // ヘッダーの移し替えと書き換え
+  const headers = new Headers(c.req.raw.headers)
+  
+  // 重要：Cloud Runがリクエストを受け付けるために Host を書き換える
+  headers.set('Host', CLOUD_RUN_ORIGIN)
+  
+  // 重要：Next.js(Auth.js)が本来のドメインを認識するために X-Forwarded を設定
+  headers.set('X-Forwarded-Host', url.hostname) // ruu-dev.com
+  headers.set('X-Forwarded-Proto', 'https')
 
-  // If already a redirect (302), pass through as-is
-  if (authRes.status === 302 || authRes.status === 301) {
-    return authRes;
-  }
-
-  // better-auth returns 200 JSON { url: "https://accounts.google.com/..." }
-  const contentType = authRes.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    const data = await authRes.json<{ url?: string; redirect?: string }>();
-    const googleUrl = data.url ?? data.redirect;
-    if (googleUrl) {
-      const redirectRes = new Response(null, {
-        status: 302,
-        headers: { Location: googleUrl },
-      });
-      authRes.headers.forEach((value, key) => {
-        if (key.toLowerCase() === "set-cookie") {
-          redirectRes.headers.append("set-cookie", value);
-        }
-      });
-      return redirectRes;
-    }
-  }
-
-  return authRes;
-});
-
-// ② Explicit callback route with logging (diagnose state validation)
-app.on(["GET", "POST"], "/auth/callback/:provider", async (ctx) => {
-  const cookies = ctx.req.header("cookie") || "(no cookies)";
-  console.log("[oauth-callback] cookies:", cookies.substring(0, 300));
-  const auth = getAuth(ctx.env);
-  const response = await auth.handler(ctx.req.raw);
-  const status = response.status;
-  const location = response.headers.get("location");
-  console.log("[oauth-callback] status:", status, "loc:", location);
-
-  // When auth succeeds, better-auth returns 302 → Next.js dashboard.
-  // But the session cookie is scoped to Workers domain, not Next.js domain.
-  // Redirect through a Next.js "session-bridge" so Next.js can set the cookie
-  // on its own domain. The middleware can then forward it to Workers for auth checks.
-  if (status === 302 && location) {
-    let sessionTokenValue: string | null = null;
-    let secureSessionTokenValue: string | null = null;
-
-    response.headers.forEach((value, key) => {
-      if (key.toLowerCase() === "set-cookie") {
-        if (value.includes("better-auth.session_token=")) {
-          const match = value.match(/better-auth\.session_token=([^;]+)/);
-          if (match) sessionTokenValue = match[1];
-        }
-        if (value.includes("__Secure-better-auth.session_token=")) {
-          const match = value.match(/__Secure-better-auth\.session_token=([^;]+)/);
-          if (match) secureSessionTokenValue = match[1];
-        }
-      }
-    });
-
-    // Use the __Secure- prefixed token if available (more secure)
-    const tokenToUse = secureSessionTokenValue || sessionTokenValue;
-
-    if (tokenToUse) {
-      const targetUrl = new URL(location);
-      const bridgeUrl =
-        `${targetUrl.origin}/api/auth/session` +
-        `?token=${encodeURIComponent(tokenToUse)}` +
-        `&redirect=${encodeURIComponent(targetUrl.pathname + targetUrl.search)}`;
-
-      const bridgeRes = new Response(null, {
-        status: 302,
-        headers: { Location: bridgeUrl },
-      });
-      // Only set the secure version of session token with SameSite=None for cross-origin
-      if (secureSessionTokenValue) {
-        bridgeRes.headers.append(
-          "Set-Cookie",
-          `__Secure-better-auth.session_token=${secureSessionTokenValue}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=604800`
-        );
-      } else if (sessionTokenValue) {
-        // ローカル開発用 (http://localhost) のフォールバック
-        bridgeRes.headers.append(
-          "Set-Cookie",
-          `better-auth.session_token=${sessionTokenValue}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800`
-        );
-      }
-      return bridgeRes;
-    }
-  }
-
-  return response;
-});
-
-// ③ All other auth endpoints — wildcard catch-all (must be last)
-app.on(["POST", "GET"], "/auth/*", async (ctx) => {
-  const auth = getAuth(ctx.env);
-  return auth.handler(ctx.req.raw);
-});
-
-// Current user endpoint
-app.get("/me", async (ctx) => {
-  const auth = getAuth(ctx.env);
-  const session = await auth.api.getSession({ headers: ctx.req.raw.headers });
-  return ctx.json(session?.user ?? { message: "Not logged in" });
-});
-
-// Sub-routes
-app.route("/kanban", kanbanApp);
-app.route("/tango", tangoApp);
-app.route("/day058", day058App);
-app.route("/day060", day060App);
+  return fetch(targetUrl.toString(), {
+    method: c.req.method,
+    headers: headers,
+    body: c.req.raw.body,
+    redirect: 'manual' // リダイレクトはブラウザ側に任せる
+  })
+})
 
 // -----------------------------------------------------------------------------
 // Cron Handler: 毎時0分 — tango カード裏面を Gemini(Requesty経由) で自動補完

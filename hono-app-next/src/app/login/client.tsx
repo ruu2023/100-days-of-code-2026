@@ -1,18 +1,18 @@
 'use client'
 import { useState } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://hono-api.ruu2023.workers.dev";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
 
 export default function Client({ callbackUrl = "/dashboard" }: { callbackUrl?: string }) {
   const [loading, setLoading] = useState(false);
 
   const handleGoogleLogin = () => {
     setLoading(true);
-    // dynamically get the real origin of the frontend (e.g. running on Cloud Run)
-    const currentOrigin = typeof window !== "undefined" ? window.location.origin : "https://hono-next-app-455056438426.asia-northeast1.run.app";
+    // dynamically get the real origin of the frontend (e.g. running on Cloud Run or ruu-dev.com)
+    const currentOrigin = typeof window !== "undefined" ? window.location.origin : "https://ruu-dev.com";
     const redirectAfterAuth = `${currentOrigin}${callbackUrl}`;
     
-    // Navigate browser DIRECTLY to Workers GET endpoint.
+    // Navigate browser to the API endpoint (which may be a relative path if proxied, or an absolute API_URL)
     window.location.href = `${API_URL}/api/auth/oauth/google?callbackURL=${encodeURIComponent(redirectAfterAuth)}`;
   };
 

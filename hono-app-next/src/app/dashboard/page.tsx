@@ -88,6 +88,12 @@ const projects = [
     link: "/day060",
     day: "Day 60",
   },
+  {
+    title: "VS Code Shortcuts",
+    description: "VS Codeのショートカットキーをまとめたアプリ。",
+    link: "/day061",
+    day: "Day 61",
+  },
 ]
 
 export default function DashboardPage() {
