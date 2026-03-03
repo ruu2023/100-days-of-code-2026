@@ -3,7 +3,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 // Use server-only env var (API_URL) so it can be set as a Cloud Run runtime env var.
-const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function middleware(request: NextRequest) {
   const { pathname, origin } = request.nextUrl;

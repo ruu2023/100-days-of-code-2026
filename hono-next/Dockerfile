@@ -1,6 +1,6 @@
 # Cloud Run Deployment
-# Build: docker build -t hono-app-next .
-# Run:   docker run -p 8080:8080 hono-app-next
+# Build: docker build -t hono-next .
+# Run:   docker run -p 8080:8080 hono-next
 
 FROM node:22-alpine AS base
 

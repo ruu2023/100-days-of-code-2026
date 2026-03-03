@@ -58,20 +58,17 @@ apiApp.get("/auth/oauth/:provider", async (ctx) => {
   return authRes;
 });
 
-// ② Explicit callback route with logging (diagnose state validation)
+// ② OAuth callback - directly set cookie and redirect to target
 apiApp.on(["GET", "POST"], "/auth/callback/:provider", async (ctx) => {
-  const cookies = ctx.req.header("cookie") || "(no cookies)";
-  console.log("[oauth-callback] cookies:", cookies.substring(0, 300));
   const auth = getAuth(ctx.env);
   const response = await auth.handler(ctx.req.raw);
   const status = response.status;
   const location = response.headers.get("location");
-  console.log("[oauth-callback] status:", status, "loc:", location);
 
   // When auth succeeds, better-auth returns 302 → Next.js dashboard.
   if (status === 302 && location) {
+    // Extract session token from better-auth's response cookies
     let sessionTokenValue: string | null = null;
-    let secureSessionTokenValue: string | null = null;
 
     response.headers.forEach((value, key) => {
       if (key.toLowerCase() === "set-cookie") {
@@ -79,46 +76,45 @@ apiApp.on(["GET", "POST"], "/auth/callback/:provider", async (ctx) => {
           const match = value.match(/better-auth\.session_token=([^;]+)/);
           if (match) sessionTokenValue = match[1];
         }
+      }
+    });
+
+    // Prefer __Secure- prefix token if available
+    let secureTokenValue: string | null = null;
+    response.headers.forEach((value, key) => {
+      if (key.toLowerCase() === "set-cookie") {
         if (value.includes("__Secure-better-auth.session_token=")) {
           const match = value.match(/__Secure-better-auth\.session_token=([^;]+)/);
-          if (match) secureSessionTokenValue = match[1];
+          if (match) secureTokenValue = match[1];
         }
       }
     });
 
-    const tokenToUse = secureSessionTokenValue || sessionTokenValue;
+    const tokenToUse = secureTokenValue || sessionTokenValue;
+    const useSecure = !!secureTokenValue;
 
     if (tokenToUse) {
-      const targetUrl = new URL(location);
-      const bridgeUrl =
-        `${targetUrl.origin}/api/auth/session` +
-        `?token=${encodeURIComponent(tokenToUse)}` +
-        `&redirect=${encodeURIComponent(targetUrl.pathname + targetUrl.search)}`;
+      // Use secure cookie if __Secure- token was available
+      const cookieName = useSecure ? "__Secure-better-auth.session_token" : "better-auth.session_token";
+      const cookieAttrs = useSecure
+        ? "Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=604800"
+        : "Path=/; HttpOnly; SameSite=Lax; Max-Age=604800";
 
-      const bridgeRes = new Response(null, {
+      const redirectRes = new Response(null, {
         status: 302,
-        headers: { Location: bridgeUrl },
+        headers: {
+          Location: location,
+          "Set-Cookie": `${cookieName}=${tokenToUse}; ${cookieAttrs}`,
+        },
       });
-      
-      if (secureSessionTokenValue) {
-        bridgeRes.headers.append(
-          "Set-Cookie",
-          `__Secure-better-auth.session_token=${secureSessionTokenValue}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=604800`
-        );
-      } else if (sessionTokenValue) {
-        bridgeRes.headers.append(
-          "Set-Cookie",
-          `better-auth.session_token=${sessionTokenValue}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800`
-        );
-      }
-      return bridgeRes;
+      return redirectRes;
     }
   }
 
   return response;
 });
 
-// ③ All other auth endpoints — wildcard catch-all (must be last)
+// ③ All other auth endpoints — wildcard catch-all
 apiApp.on(["POST", "GET"], "/auth/*", async (ctx) => {
   const auth = getAuth(ctx.env);
   return auth.handler(ctx.req.raw);

@@ -14,5 +14,5 @@ images:
 substitutions:
   _SERVICE_NAME: hono-next-app
   _AR_HOSTNAME: asia-northeast1-docker.pkg.dev
-  _NEXT_PUBLIC_API_URL: ""
+  _NEXT_PUBLIC_API_URL: "https://ruu-dev.com"
   _PROJECT_ID: common-development-472012

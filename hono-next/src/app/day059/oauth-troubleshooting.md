@@ -78,7 +78,7 @@ Workersが直接Next.js画面へリダイレクトするのをやめ、**Next.js
    コールバックが成功し、better-authが `302` (ダッシュボードへ) と `Set-Cookie(session_token)` を返したら、
    そのResponseに介入して `session_token` クッキーの値を文字列としてパース。
    リダイレクト先を Next.js の `/api/auth/session`（パラメータとして token を付与）に変更する。
-2. **[Next.js側 (hono-app-next)]**
+2. **[Next.js側 (hono-next)]**
    `/api/auth/session?token=...` エンドポイント（Route Handler）を作成。
    受け取ったトークンを元に、**Next.js のドメインに対して**改めて `Set-Cookie` を行う。
    その後、目的のダッシュボードへリダイレクト。
