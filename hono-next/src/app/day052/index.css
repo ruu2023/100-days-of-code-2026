@@ -1,4 +1,5 @@
-:root {
+/* Kanban Layout: 左パネル + 右カンバン */
+.kanban-layout {
   --bg-color: #0f172a;
   --text-color: #f8fafc;
   --column-bg: rgba(30, 41, 59, 0.5);
@@ -9,46 +10,35 @@
   --border-radius: 12px;
   --glass-border: 1px solid rgba(255, 255, 255, 0.1);
   --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background-color: var(--bg-color);
-  background-image: 
+  background-image:
     radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
     radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
   color: var(--text-color);
   min-height: 100vh;
   overflow-x: auto;
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
 }
 
-button {
+.kanban-layout button {
   cursor: pointer;
   border: none;
   font-family: inherit;
   transition: all 0.2s;
 }
 
-input, textarea {
+.kanban-layout input,
+.kanban-layout textarea {
   font-family: inherit;
   background: transparent;
   border: none;
   color: inherit;
   outline: none;
   resize: none;
-}
-
-/* Kanban Layout: 左パネル + 右カンバン */
-.kanban-layout {
-  display: flex;
-  min-height: 100vh;
-  width: 100%;
 }
 
 /* 左: エディタパネル */
