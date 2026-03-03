@@ -72,9 +72,9 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 
 | Day | Date  | Project / Feature    | Learning / Note                        | file                                                     |
 | --- | ----- | -------------------- | -------------------------------------- | -------------------------------------------------------- |
-| 001 | 01/01 | 100 日おみくじアプリ | チャレンジの旗揚げ。Next.js + Tailwind | [View](./web/app/days/001)                               |
+| 001 | 01/01 | 100 日おみくじアプリ | チャレンジの旗揚げ。Next.js + Tailwind | [View](./hono-next/src/app/day001)                               |
 | 002 | 01/02 | ライフゲーム         | Rust UI (eframe/egui)                  | [View](./rust/day002)                                    |
-| 003 | 01/03 | Docker Quiz          | Go (net/http)                          | [View](./web/app/days/003/page.tsx) [View](./go/day003/) |
+| 003 | 01/03 | Docker Quiz          | Go (net/http)                          | [View](./hono-next/src/app/day003) [View](./go/day003/) |
 | 004 | 01/04 | CLI Pomodoro Timer   | Rust (indicatif)                       | [View](./rust/day004)                                    |
 | 005 | 01/05 | 簡易習慣記録 App     | Data Persistence (serde/json)          | [View](./rust/day005)                                    |
 | 006 | 01/06 | Rails Keep App       | Rails 8 / Turbo / Tailwind             | [View](./rails/day006)                                   |
@@ -83,7 +83,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 009 | 01/09 | Digital Clock        | React / Vite                           | [View](./react/day009)                                   |
 | 010 | 01/10 | Stopwatch            | React / Vite                           | [View](./react/day010)                                   |
 | 011 | 01/11 | Zundamon Chat App    | Next.js / Gemini API / VOICEVOX        | [View](./react/day011-zundamon-chat)                     |
-| 012 | 01/12 | Notion BI App        | Notion API / MUI                       | [View](./web/app/days/012)                               |
+| 012 | 01/12 | Notion BI App        | Notion API / MUI                       | [View](./hono-next/src/app/day012)                               |
 | 013 | 01/13 | Zen Breathing App    | Next.js / Tailwind / Vanilla JS        | [View](./day013-zen-breathing)                               |
 | 014 | 01/14 | Password Manager     | React Query / TanStack Query           | [View](./react/day014)                                   |
 | 015 | 01/15 | Collaborative Canvas | Go (WebSocket) / React (Canvas)        | [View](./react/day015)                                   |
@@ -91,37 +91,37 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 017 | 01/17 | Tetris               | React / Vite / TypeScript    | [View](./react/day017)                            |
 | 018 | 01/18 | JSON LOG            | HTML / Vanilla JS                      | [View](./html/day018)                                    |
 | 019 | 01/19 | MD to JSON Converter | HTML / Vanilla JS / CSS                | [View](./html/day019)                                    |
-| 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./html/day020)                      |
-| 021 | 01/21 | MindFlow             | 感情ログ & 一言日記 (Framer Motion)   | [View](./web/app/days/021/mindflow)                      |
+| 020 | 01/20 | Pic-Spot             | Image Drop & Gallery (Dexie / Canvas) | [View](./hono-next/src/app/day020)                      |
+| 021 | 01/21 | MindFlow             | 感情ログ & 一言日記 (Framer Motion)   | [View](./hono-next/src/app/day021)                      |
 | 022 | 01/23 | Bulk Insert SQLite   | Java JDBC / 1M records in 1.6s         | [View](./java/day022)                                    |
-| 023 | 01/23 | SQL Drill            | Browser-side SQLite (sql.js) / PWA    | [View](./web/app/days/023/sql-drill)                      |
+| 023 | 01/23 | SQL Drill            | Browser-side SQLite (sql.js) / PWA    | [View](./hono-next/src/app/day023)                      |
 | 024 | 01/24 | Gomoku Game          | React / Game Logic / CSS Grid          | [View](./react/day024)                                   |
 | 025 | 01/25 | Dockerfile Typing    | HTML / Tailwind (CDN) / Vanilla JS     | [View](./html/day025)                                    |
 | 026 | 01/26 | Commit Log App       | File System Access API / HTML          | [View](./html/day026)                                    |
 | 027 | 01/27 | TUI Pomodoro Timer   | Go (bubbletea) / TUI                   | [View](./go/day027-pomodoro-timer)                       |
-| 028 | 01/28 | Glassmorphism Gen    | React / Tailwind / Clipboard API       | [View](./web/app/days/028)                               |
+| 028 | 01/28 | Glassmorphism Gen    | React / Tailwind / Clipboard API       | [View](./hono-next/src/app/day028)                               |
 | 029 | 01/29 | YouTube Timestamp    | Chrome Extension (Manifest V3) / JS    | [View](./html/day029-chrome-yt)                          |
-| 030 | 01/30 | Gravity Dash         | React (Canvas API) / Game Loop         | [View](./web/app/days/030)                               |
-| 031 | 01/31 | YT_LOG.exe           | React / YouTube IFrame API / LocalStorage | [View](./web/app/days/031)                               |
-| 032 | 02/01 | Text Stats App       | React / useMemo / リアルタイム計算     | [View](./web/app/days/032)                               |
-| 033 | 02/02 | Debugging Tavern     | RPG風クイズ / Framer Motion / Game Dev | [View](./web/app/days/033)                               |
-| 034 | 02/03 | MyBatis Tutor        | React / e-learning UI / LocalStorage   | [View](./web/app/days/034)                               |
-| 035 | 02/04 | Quick Markdown       | React / Live Preview / Auto-save       | [View](./web/app/days/035)                               |
-| 036 | 02/05 | Lyric Studio         | React / iTunes API / YouTube Music Link| [View](./web/app/days/036)                               |
-| 037 | 02/06 | Simple Tango         | React / Flashcard UI / LocalStorage    | [View](./web/app/days/037)                               |
+| 030 | 01/30 | Gravity Dash         | React (Canvas API) / Game Loop         | [View](./hono-next/src/app/day030)                               |
+| 031 | 01/31 | YT_LOG.exe           | React / YouTube IFrame API / LocalStorage | [View](./hono-next/src/app/day031)                               |
+| 032 | 02/01 | Text Stats App       | React / useMemo / リアルタイム計算     | [View](./hono-next/src/app/day032)                               |
+| 033 | 02/02 | Debugging Tavern     | RPG風クイズ / Framer Motion / Game Dev | [View](./hono-next/src/app/day033)                               |
+| 034 | 02/03 | MyBatis Tutor        | React / e-learning UI / LocalStorage   | [View](./hono-next/src/app/day034)                               |
+| 035 | 02/04 | Quick Markdown       | React / Live Preview / Auto-save       | [View](./hono-next/src/app/day035)                               |
+| 036 | 02/05 | Lyric Studio         | React / iTunes API / YouTube Music Link| [View](./hono-next/src/app/day036)                               |
+| 037 | 02/06 | Simple Tango         | React / Flashcard UI / LocalStorage    | [View](./hono-next/src/app/day037)                               |
 | 038 | 02/07 | Pic-Spot v2          | HTML / Dexie.js / Categories           | [View](./html/day038-fork-020)                           |
-| 039 | 02/08 | Reflection Log       | React / PWA / Firebase Hosting / 5行日記 | [View](./web/app/days/039)                               |
-| 040 | 02/09 | Real-time Board      | Next.js / Pusher / Canvas API          | [View](./web/app/days/040)                               |
-| 041 | 02/10 | AI Tech Pulse        | Gemini API / GitHub Actions / RSS      | [View](./html/day041)                                    |
-| 042 | 02/11 | Grass Designer       | Next.js / Tailwind / Grid Operation    | [View](./next/app/day042)                                |
+| 039 | 02/08 | Reflection Log       | React / PWA / Firebase Hosting / 5行日記 | [View](./hono-next/src/app/day039)                               |
+| 040 | 02/09 | Real-time Board      | Next.js / Pusher / Canvas API          | [View](./hono-next/src/app/day040)                               |
+| 041 | 02/10 | AI Tech Pulse        | Gemini API / GitHub Actions / RSS      | [View](./hono-next/src/app/day041)                                    |
+| 042 | 02/11 | Grass Designer       | Next.js / Tailwind / Grid Operation    | [View](./hono-next/src/app/day042)                                |
 | 043 | 02/12 | Reflection Log v2    | Supabase / Google Auth / PWA           | [View](./docs/log)                                       |
-| 044 | 02/13 | GCP Docker Architect | Dockerfile Gen / Cloud Run             | [View](./next/app/day044)                                |
-| 045 | 02/14 | Anonymous Board      | Cloudflare D1 / Next.js / Server Actions | [View](./cloudflare-app/src/app/day045)                  |
+| 044 | 02/13 | GCP Docker Architect | Dockerfile Gen / Cloud Run             | [View](./hono-next/src/app/day044)                                |
+| 045 | 02/14 | Anonymous Board      | Cloudflare D1 / Next.js / Server Actions | [View](./hono-next/src/app/day045)                  |
 | 046 | 02/15 | Drizzle CRUD Typist  | Drizzle ORM / Typing Game UI           | [View](./hono-app/src/app/day046)                        |
 | 047 | 02/16 | Chat Room            | WS / Hono / Durable Objects / Next.js  | [View](./hono-app/src/app/day047)                        |
 | 048 | 02/17 | VPN Defender         | "Fragile by Design" Game / Canvas      | [View](./hono-app/src/app/day048)                        |
 | 049 | 02/18 | Universal Draft App  | React / Custom Limits / LocalStorage   | [View](./hono-app/src/app/day049)                        |
-| 050 | 02/19 | 100 Days Roadmap     | Tech Stack Visualization / Dashboard   | [View](./hono-app/src/app/roadmap) [View](./hono-app/src/app/dashboard) |
+| 050 | 02/19 | 100 Days Roadmap     | Tech Stack Visualization / Dashboard   | [View](./hono-next/src/app/roadmap) [View](./hono-next/src/app/dashboard) |
 | 051 | 02/20 | GoF Design Patterns  | React / Interactive Learning / UI / UX | [View](./hono-app/src/app/day051)                        |
 | 052 | 02/21 | Clipboard Manager      | アカウント連携 / 定型文1タップ全コピ   | [View](./hono-app/src/app/day052)                        |
 | 053 | 02/22 | Smart Tango            | AI Flashcard / Cron / Requesty / Hono    | [View](./hono-app/src/app/day053/dashboard)                 |

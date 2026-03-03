@@ -4,6 +4,128 @@ import Link from "next/link"
 
 // 実装済みのプロジェクト例
 const projects = [
+  // web/app から migration
+  {
+    title: "Tech Omikuji",
+    description: "本日のおみくじ for 100-day challenge.",
+    link: "/day001",
+    day: "Day 1",
+  },
+  {
+    title: "Docker Quiz",
+    description: "Go Quiz API Client",
+    link: "/day003",
+    day: "Day 3",
+  },
+  {
+    title: "Notion BI tool",
+    description: "Notion Database Viewer",
+    link: "/day012",
+    day: "Day 12",
+  },
+  {
+    title: "Pic-Spot",
+    description: "外部サイトから画像をドラッグ＆ドロップしてコレクション",
+    link: "/day020",
+    day: "Day 20",
+  },
+  {
+    title: "MindFlow",
+    description: "気分記録アプリ",
+    link: "/day021",
+    day: "Day 21",
+  },
+  {
+    title: "SQL Drill",
+    description: "SQL練習アプリ",
+    link: "/day023",
+    day: "Day 23",
+  },
+  {
+    title: "Glassmorphism Gen",
+    description: "Glassmorphism CSSジェネレーター",
+    link: "/day028",
+    day: "Day 28",
+  },
+  {
+    title: "Gravity Dash",
+    description: "障害物を避けるゲーム",
+    link: "/day030",
+    day: "Day 30",
+  },
+  {
+    title: "YT_LOG.exe",
+    description: "YouTubeメモアプリ",
+    link: "/day031",
+    day: "Day 31",
+  },
+  {
+    title: "Text Stats App",
+    description: "テキスト統計アプリ",
+    link: "/day032",
+    day: "Day 32",
+  },
+  {
+    title: "Debugging Tavern",
+    description: "_debuggingクイズゲーム",
+    link: "/day033",
+    day: "Day 33",
+  },
+  {
+    title: "MyBatis Tutor",
+    description: "MyBatis学習アプリ",
+    link: "/day034",
+    day: "Day 34",
+  },
+  {
+    title: "Quick Markdown",
+    description: "マークダウンエディタ",
+    link: "/day035",
+    day: "Day 35",
+  },
+  {
+    title: "Lyric Studio",
+    description: "歌詞管理アプリ",
+    link: "/day036",
+    day: "Day 36",
+  },
+  {
+    title: "Simple Tango",
+    description: "単語帳アプリ",
+    link: "/day037",
+    day: "Day 37",
+  },
+  {
+    title: "Whiteboard",
+    description: "リアルタイムホワイトボード",
+    link: "/day039",
+    day: "Day 39",
+  },
+  {
+    title: "Reflection App",
+    description: "振り返りログアプリ",
+    link: "/day040",
+    day: "Day 40",
+  },
+  {
+    title: "TechPulse",
+    description: "ニュースアグリゲーター",
+    link: "/day041",
+    day: "Day 41",
+  },
+  // 元のhono-nextプロジェクト
+  {
+    title: "Grass Editor",
+    description: "GitHub風の草を生やすことができるエディタ。",
+    link: "/day042",
+    day: "Day 42",
+  },
+  {
+    title: "Docker Prompt Maker",
+    description: "Dockerのプロンプトを生成するアプリ。",
+    link: "/day044",
+    day: "Day 44",
+  },
   {
     title: "Drizzle Stable Typist",
     description: "Drizzle ORMのタイピング練習アプリ。正確な構文入力をトレーニング。",
