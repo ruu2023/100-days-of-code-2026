@@ -94,6 +94,12 @@ const projects = [
     link: "/day061",
     day: "Day 61",
   },
+  {
+    title: "Animated Cash Book",
+    description: "JSONデータとキャラクターの読み上げアニメーション付きで出納帳をプレビューし、Excel形式でダウンロードできるアプリ。",
+    link: "/day062",
+    day: "Day 62",
+  },
 ]
 
 export default function DashboardPage() {

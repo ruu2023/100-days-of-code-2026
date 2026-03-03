@@ -1,4 +1,19 @@
 
+## 2026-03-03 23:55
+
+【Day 062/100】Animated Cash Book 📊💸
+
+JSONデータからアニメーションキャラクターが取引内容を読み上げてくれる出納帳アプリを作りました！
+Excelファイルとしてダウンロード可能です。
+
+✅ 取引をキャラクターが1件ずつ通知するアニメーション
+
+#100DaysOfCode #Nextjs #React #TypeScript #XLSX
+
+[Original Post](https://x.com/ruu_web/status/2028849512186581247)
+
+---
+
 ## 2026-03-02 22:30
 
 【Day 061/100】VS Code Shortcuts ⌨️

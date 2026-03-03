@@ -1,5 +1,40 @@
 [
   {
+    "day": 62,
+    "date": "2026-03-03 23:55",
+    "title": "Animated Cash Book 📊💸",
+    "description": "【Day 062/100】Animated Cash Book 📊💸",
+    "features": [
+      "取引をキャラクターが1件ずつ通知するアニメーション"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#React",
+      "#TypeScript",
+      "#XLSX"
+    ],
+    "url": "https://x.com/ruu_web/status/2028849512186581247"
+  },
+  {
+    "day": 61,
+    "date": "2026-03-02 22:30",
+    "title": "VS Code Shortcuts ⌨️",
+    "description": "【Day 061/100】VS Code Shortcuts ⌨️",
+    "features": [
+      "カテゴリ別フィルター",
+      "キーボードショートカットの表示",
+      "検索機能"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#VSCode",
+      "#Nextjs",
+      "#Hono"
+    ],
+    "url": "https://x.com/ruu_web/status/2028482332672573776"
+  },
+  {
     "day": 60,
     "date": "2026-03-01 22:30",
     "title": "Mini X Clone 🐦📹",

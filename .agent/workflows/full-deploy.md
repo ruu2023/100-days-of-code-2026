@@ -9,6 +9,9 @@ description: Full Stack Deployment
 
 ## Steps
 
+0. ** tweetの更新 **:
+   - hono-next/src/types/parse-x-posts.ts を実行してください。
+
 1. **Hono (Cloudflare) のデプロイ**:
    - `hono-api` ディレクトリへ移動する。
    - `npm run deploy` を実行し、Cloudflare Workers/Pages へのデプロイを完了させる。
