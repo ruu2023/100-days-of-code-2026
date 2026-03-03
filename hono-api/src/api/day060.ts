@@ -2,7 +2,7 @@
 // Twitter-like app API: tweets with video/image upload to R2
 import { Hono } from "hono";
 import { drizzle } from "drizzle-orm/d1";
-import { eq, desc, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { getAuth, type Env } from "@/lib/auth";
 import { tweets } from "@/db/schema";
 
@@ -24,46 +24,6 @@ function getPublicUrl(key: string, req: Request): string {
   return `https://pub-9592d65a5ae84a76bea4d7c469e8cc79.r2.dev/${key}`;
 }
 
-// ---------------------------------------------------------------------------
-// GET /api/day060/tweets - 全ユーザーの投稿を取得（ユーザー情報付き）
-// ---------------------------------------------------------------------------
-day060App.get("/tweets", async (ctx) => {
-  const db = drizzle(ctx.env.hono_db);
-
-  // Use raw SQL for LEFT JOIN with user table
-  const result = await db.all(
-    sql`
-      SELECT
-        t.id,
-        t.content,
-        t."videoUrl",
-        t."thumbnailUrl",
-        t."createdAt",
-        t."userId",
-        u.name as "userName",
-        u.image as "userImage"
-      FROM tweets t
-      LEFT JOIN user u ON t."userId" = u.id
-      ORDER BY t."createdAt" DESC
-      LIMIT 100
-    `
-  );
-
-  const tweetsWithUser = result.map((row: any) => ({
-    id: row.id,
-    content: row.content,
-    videoUrl: row.videoUrl,
-    thumbnailUrl: row.thumbnailUrl,
-    createdAt: row.createdAt,
-    userId: row.userId,
-    user: {
-      name: row.userName || 'Anonymous',
-      image: row.userImage || null,
-    },
-  }));
-
-  return ctx.json({ tweets: tweetsWithUser });
-});
 
 // ---------------------------------------------------------------------------
 // GET /api/day060/r2/* - 開発用のローカルR2配信用エンドポイント
@@ -200,9 +160,9 @@ day060App.delete("/tweets/:id", async (ctx) => {
 });
 
 // ---------------------------------------------------------------------------
-// GET /api/day060/tweets/me - 自分の投稿を取得
+// GET /api/day060/tweets - 自分の投稿を取得（ユーザー情報付き）
 // ---------------------------------------------------------------------------
-day060App.get("/tweets/me", async (ctx) => {
+day060App.get("/tweets", async (ctx) => {
   const auth = getAuth(ctx.env);
   const session = await auth.api.getSession({ headers: ctx.req.raw.headers });
 
@@ -211,13 +171,41 @@ day060App.get("/tweets/me", async (ctx) => {
   }
 
   const db = drizzle(ctx.env.hono_db);
-  const result = await db
-    .select()
-    .from(tweets)
-    .where(eq(tweets.userId, session.user.id))
-    .orderBy(desc(tweets.createdAt));
 
-  return ctx.json({ tweets: result });
+  // Use raw SQL for LEFT JOIN with user table
+  const result = await db.all(
+    sql`
+      SELECT
+        t.id,
+        t.content,
+        t."videoUrl",
+        t."thumbnailUrl",
+        t."createdAt",
+        t."userId",
+        u.name as "userName",
+        u.image as "userImage"
+      FROM tweets t
+      LEFT JOIN user u ON t."userId" = u.id
+      WHERE t."userId" = ${session.user.id}
+      ORDER BY t."createdAt" DESC
+      LIMIT 100
+    `
+  );
+
+  const tweetsWithUser = result.map((row: any) => ({
+    id: row.id,
+    content: row.content,
+    videoUrl: row.videoUrl,
+    thumbnailUrl: row.thumbnailUrl,
+    createdAt: row.createdAt,
+    userId: row.userId,
+    user: {
+      name: row.userName || 'Anonymous',
+      image: row.userImage || null,
+    },
+  }));
+
+  return ctx.json({ tweets: tweetsWithUser });
 });
 
 export { day060App };
