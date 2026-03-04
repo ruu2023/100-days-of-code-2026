@@ -222,6 +222,12 @@ const projects = [
     link: "/day062",
     day: "Day 62",
   },
+  {
+    title: "Strategy Pattern - 会計帳票",
+    description: "ストラテジーパターンを使った帳票出力デモ。CSV、XML、Markdown形式で出力可能。",
+    link: "/day063",
+    day: "Day 63",
+  },
 ]
 
 export default function DashboardPage() {
