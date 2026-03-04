@@ -1,8 +1,0 @@
-{
-  "name": "daily-news",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "news": "node scripts/day042.mjs"
-  }
-}

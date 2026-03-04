@@ -19,7 +19,7 @@
   {
     "day": 61,
     "date": "2026-03-02 22:30",
-    "title": "VS Code Shortcuts ⌨️",
+    "title": "VS Code Shortcuts",
     "description": "【Day 061/100】VS Code Shortcuts ⌨️",
     "features": [
       "カテゴリ別フィルター",
@@ -56,8 +56,8 @@
   {
     "day": 59,
     "date": "2026-02-28 23:30",
-    "title": "OAuth Troubleshooting 🔐",
-    "description": "【Day 059/100】OAuth Troubleshooting 🔐",
+    "title": "OAuth Troubleshooting Slide",
+    "description": "【Day 059/100】OAuth Troubleshooting Slide",
     "features": [
       "ドメイン越えクッキーを実現するセッションブリッジ"
     ],

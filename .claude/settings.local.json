@@ -9,7 +9,9 @@
       "Bash(curl:*)",
       "Bash(npx esbuild:*)",
       "Bash(bun run db:generate)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(./node_modules/.bin/next dev:*)",
+      "Bash(lsof:*)"
     ]
   }
 }

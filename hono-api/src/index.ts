@@ -2,13 +2,13 @@
 // Cloudflare Workers entry point for hono-api
 // Handles: REST API (auth, kanban, tango, day058) + Cron trigger (tango auto-fill)
 
+import { apiApp } from "@/api/index";
+import { tangoCards } from "@/db/schema";
+import { type Env } from "@/lib/auth";
+import { eq } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/d1";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { drizzle } from "drizzle-orm/d1";
-import { eq } from "drizzle-orm";
-import { tangoCards } from "@/db/schema";
-import { getAuth, type Env } from "@/lib/auth";
-import { apiApp } from "@/api/index";
 
 // -----------------------------------------------------------------------------
 // Hono App

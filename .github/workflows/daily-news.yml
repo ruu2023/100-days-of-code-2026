@@ -27,15 +27,17 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+          cache-dependency-path: "scripts/package-lock.json"
 
       - name: Install dependencies
+        working-directory: scripts
         run: npm ci
 
       - name: Run script
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REQUESTY_API_KEY: ${{ secrets.REQUESTY_API_KEY }}
-        run: npm run news
+        run: node scripts/day042.mjs
 
       - name: Debug files
         run: |

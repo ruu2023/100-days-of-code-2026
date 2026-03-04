@@ -1,4 +1,19 @@
 
+## 2026-03-04 23:30
+
+【Day 063/100】Accounting App with Strategy Pattern 📊📁
+
+Strategy Patternの学習に帳票出力切り替えアプリ。
+バックエンドは Hono です。
+
+✅ Hono API + 共通の BookData インターフェース
+
+#100DaysOfCode #Nextjs #Hono #TypeScript #DesignPatterns
+
+[Original Post](https://x.com/ruu_web/status/2029216369468948631)
+
+---
+
 ## 2026-03-03 23:55
 
 【Day 062/100】Animated Cash Book 📊💸
