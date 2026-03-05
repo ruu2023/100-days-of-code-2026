@@ -1,17 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install zustand perfect-freehand)",
-      "Bash(npx drizzle-kit:*)",
-      "Bash(gcloud builds:*)",
-      "Bash(gcloud run:*)",
-      "Bash(npx wrangler:*)",
-      "Bash(curl:*)",
-      "Bash(npx esbuild:*)",
-      "Bash(bun run db:generate)",
-      "Bash(npm run:*)",
-      "Bash(./node_modules/.bin/next dev:*)",
-      "Bash(lsof:*)"
+      "read",
+      "search",
+      "write",
+      "edit",
+      "git"
+    ],
+    "deny": [
+      "delete",
+      "rm",
+      "sudo"
     ]
   }
 }

@@ -135,6 +135,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 061 | 03/02 | VS Code Shortcuts    | VS Code Commands / Cheat Sheet           | [View](./hono-next/src/app/day061)                      |
 | 062 | 03/03 | Animated Cash Book   | JSON to Excel / Animation / xlsx         | [View](./hono-next/src/app/day062)                      |
 | 063 | 03/04 | Accounting App       | Strategy Pattern / CSV, XML, MD Report   | [View](./hono-next/src/app/day063)                      |
+| 064 | 03/05 | NDL OCR API          | Python (FastAPI) / ndlocr-lite / Cloud Run | [View](./hono-next/src/app/day064)                      |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

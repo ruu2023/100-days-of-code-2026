@@ -1,4 +1,20 @@
 
+## 2026-03-05 23:55
+
+【Day 064/100】NDL OCR API 📜🔍
+
+国会図書館のOCRライブラリ「ndlocr-lite」を利用したOCR APIサーバーを構築しました！
+FastAPIでラップし、Cloud Runへデプロイしています。
+
+✅ 画像からテキストを高精度に抽出
+✅ Bounding Box や信頼度（Confidence）の取得
+
+#100DaysOfCode #Python #FastAPI #CloudRun #OCR
+
+[Original Post](https://x.com/ruu_web/status/2029574951490199857)
+
+---
+
 ## 2026-03-04 23:30
 
 【Day 063/100】Accounting App with Strategy Pattern 📊📁

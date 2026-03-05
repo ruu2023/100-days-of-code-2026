@@ -1,5 +1,41 @@
 [
   {
+    "day": 64,
+    "date": "2026-03-05 23:55",
+    "title": "NDL OCR API 📜🔍",
+    "description": "【Day 064/100】NDL OCR API 📜🔍",
+    "features": [
+      "画像からテキストを高精度に抽出",
+      "Bounding Box や信頼度（Confidence）の取得",
+      "Docker / Cloud Run 対応API"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Python",
+      "#FastAPI",
+      "#CloudRun",
+      "#OCR"
+    ],
+    "url": "https://x.com/ruu_web/status/xxx"
+  },
+  {
+    "day": 63,
+    "date": "2026-03-04 23:30",
+    "title": "Accounting App with Strategy Pattern 📊📁",
+    "description": "【Day 063/100】Accounting App with Strategy Pattern 📊📁",
+    "features": [
+      "Hono API + 共通の BookData インターフェース"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#TypeScript",
+      "#DesignPatterns"
+    ],
+    "url": "https://x.com/ruu_web/status/2029216369468948631"
+  },
+  {
     "day": 62,
     "date": "2026-03-03 23:55",
     "title": "Animated Cash Book 📊💸",

@@ -228,6 +228,12 @@ const projects = [
     link: "/day063",
     day: "Day 63",
   },
+  {
+    title: "NDL OCR API",
+    description: "Cloud Runで動かすOCR APIサーバー。国会図書館のOCRライブラリ「ndlocr-lite」を使用。",
+    link: "/day064",
+    day: "Day 64",
+  },
 ]
 
 export default function DashboardPage() {
