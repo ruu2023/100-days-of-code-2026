@@ -1,16 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "read",
-      "search",
-      "write",
-      "edit",
-      "git"
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)"
     ],
-    "deny": [
-      "delete",
-      "rm",
-      "sudo"
-    ]
+    "deny": []
   }
 }
