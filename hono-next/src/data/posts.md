@@ -1,4 +1,20 @@
 
+## 2026-03-06 20:30
+
+【Day 065/100】LFM 2.5 Chat 🤖💬
+
+ローカルAIアシスタントのチャットアプリを作りました！
+Ollama を CloudRun にデプロイしています。
+
+✅ Markdown レンダリング対応
+✅ Ollama APIからの逐次ストリーム表示
+
+#100DaysOfCode #Nextjs #Ollama #AI #LLM
+
+[Original Post](https://x.com/ruu_web/status/2029881919421435967)
+
+---
+
 ## 2026-03-05 23:55
 
 【Day 064/100】NDL OCR API 📜🔍

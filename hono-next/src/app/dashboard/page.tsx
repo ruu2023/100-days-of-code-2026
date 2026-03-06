@@ -234,6 +234,12 @@ const projects = [
     link: "/day064",
     day: "Day 64",
   },
+  {
+    title: "LFM 2.5 Chat",
+    description: "Ollamaを利用したローカルAIチャットアプリ。ストリーミング応答とMarkdownレンダリングに対応。",
+    link: "/day065",
+    day: "Day 65",
+  },
 ]
 
 export default function DashboardPage() {

@@ -1,13 +1,30 @@
 [
   {
+    "day": 65,
+    "date": "2026-03-06 20:30",
+    "title": "LFM 2.5 Chat 🤖💬",
+    "description": "【Day 065/100】LFM 2.5 Chat 🤖💬",
+    "features": [
+      "Markdown レンダリング対応",
+      "Ollama APIからの逐次ストリーム表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Ollama",
+      "#AI",
+      "#LLM"
+    ],
+    "url": "https://x.com/ruu_web"
+  },
+  {
     "day": 64,
     "date": "2026-03-05 23:55",
     "title": "NDL OCR API 📜🔍",
     "description": "【Day 064/100】NDL OCR API 📜🔍",
     "features": [
       "画像からテキストを高精度に抽出",
-      "Bounding Box や信頼度（Confidence）の取得",
-      "Docker / Cloud Run 対応API"
+      "Bounding Box や信頼度（Confidence）の取得"
     ],
     "tags": [
       "#100DaysOfCode",
@@ -16,7 +33,7 @@
       "#CloudRun",
       "#OCR"
     ],
-    "url": "https://x.com/ruu_web/status/xxx"
+    "url": "https://x.com/ruu_web/status/2029574951490199857"
   },
   {
     "day": 63,
