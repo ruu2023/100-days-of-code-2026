@@ -1,0 +1,68 @@
+name: Ollama Test
+
+on:
+  push:
+    branches:
+      - main
+      - ollama-test
+  pull_request:
+  workflow_dispatch:      # 手動実行用
+
+jobs:
+  ollama-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          echo "OLLAMA_VERSION=$(ollama --version)" >> $GITHUB_ENV
+
+      - name: Start Ollama service
+        run: |
+          ollama serve &
+          echo "Waiting for Ollama to start..."
+          sleep 10
+          # サービス起動確認
+          curl -s http://localhost:11434/api/tags || echo "Ollama starting..."
+
+      - name: Pull model
+        run: |
+          ollama pull hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M
+          ollama list
+
+      - name: Run simple test
+        run: |
+          echo "=== Ollama 動作テスト ==="
+          RESPONSE=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "What is 2 + 2? Answer in Japanese.")
+          echo "$RESPONSE"
+          echo "RESPONSE=$RESPONSE" >> $GITHUB_ENV
+
+      - name: Run custom prompt test
+        run: |
+          echo "=== カスタムプロンプトテスト ==="
+          TEXT=" artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by humans or animals."
+
+          echo "入力テキスト: $TEXT"
+          echo ""
+          echo "AIによる要約:"
+          SUMMARY=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "Summarize this in one sentence: $TEXT")
+          echo "$SUMMARY"
+
+      - name: Show model info
+        run: |
+          echo "=== モデル情報 ==="
+          ollama list
+          ollama ps
+
+      - name: Output summary
+        run: |
+          echo ""
+          echo "========================================"
+          echo "🎉 Ollama GitHub Actions テスト完了！"
+          echo "========================================"
+          echo " modelos: $(ollama list | wc -l)"
+          echo " running: $(ollama ps | grep -c LFM2.5)"
