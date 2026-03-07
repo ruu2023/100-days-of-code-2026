@@ -35,21 +35,15 @@ jobs:
           ollama pull hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M
           ollama list
 
-      - name: Run simple test
-        run: |
-          echo "=== Ollama 動作テスト ==="
-          RESPONSE=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "What is 2 + 2? Answer in Japanese.")
-          echo "$RESPONSE"
-
       - name: Run custom prompt test
         run: |
           echo "=== カスタムプロンプトテスト ==="
-          TEXT=" artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by humans or animals."
+          TEXT="日本の大手携帯キャリアが販売する一部のAndroidスマートフォンには、「AppCloud」や「App Selector」といったシステムアプリが密かに混入し、通知をきっかけに利用者の意図しないアプリを勝手にインストールする事例が多数報告され、問題視されています。これらのアプリはOS動作に必要そうな名称で巧妙に偽装され、利用者はアドウェアと認識しづらく、通常の方法では削除が困難な上、無効化してもアップデート後に復活する可能性も指摘されています。海外では「削除不能なスパイウェア」と批判され、生体情報などの機密情報を扱う可能性まで指摘されており、極めて悪質です。キャリアやメーカーは、製品の信頼性を著しく毀損するこの行為を厳に慎むべきでしょう。"
 
           echo "入力テキスト: $TEXT"
           echo ""
           echo "AIによる要約:"
-          SUMMARY=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "Summarize this in one sentence: $TEXT")
+          SUMMARY=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "次の文章を3行程度で要約してください: $TEXT")
           echo "$SUMMARY"
 
       - name: Show model info
