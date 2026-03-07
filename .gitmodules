@@ -1,0 +1,3 @@
+[submodule "ndlocr-api/ndlocr-lite"]
+	path = ndlocr-api/ndlocr-lite
+	url = https://github.com/ndl-lab/ndlocr-lite.git
