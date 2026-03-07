@@ -1,24 +1,17 @@
 "use server";
 
 export async function ocrImage(
-  arrayBuffer: ArrayBuffer,
-  fileName: string,
-  contentType: string
+  formData: FormData
 ): Promise<{
   lines: Array<{ id: number; text: string; confidence: number }>;
   text: string;
   image_info?: { width: number; height: number };
 }> {
-  const blob = new Blob([arrayBuffer], { type: contentType });
-
-  const externalFormData = new FormData();
-  externalFormData.append('file', blob, fileName);
-
   const apiUrl = process.env.NDLOCR_URL || 'http://localhost:8080';
 
   const response = await fetch(`${apiUrl}/ocr`, {
     method: 'POST',
-    body: externalFormData,
+    body: formData,
   });
 
   if (!response.ok) {

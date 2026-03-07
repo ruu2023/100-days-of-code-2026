@@ -68,6 +68,47 @@ const OcrParserPage = () => {
     e.preventDefault();
   };
 
+  // 画像をJPEGに変換する関数
+  const convertToJpeg = async (file: File): Promise<Blob> => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        const ctx = canvas.getContext('2d');
+        if (!ctx) {
+          reject(new Error('Canvas context not available'));
+          return;
+        }
+
+        // 白背景を描画（透明部分を白に）
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0);
+
+        canvas.toBlob((blob) => {
+          URL.revokeObjectURL(url);
+          if (blob) {
+            resolve(blob);
+          } else {
+            reject(new Error('Failed to convert to JPEG'));
+          }
+        }, 'image/jpeg', 0.95);
+      };
+
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Failed to load image'));
+      };
+
+      img.src = url;
+    });
+  };
+
   const handleOcrApi = async () => {
     if (!selectedFile) {
       setError("画像を選択してください");
@@ -78,8 +119,12 @@ const OcrParserPage = () => {
     setError(null);
 
     try {
-      const arrayBuffer = await selectedFile.arrayBuffer();
-      const data = await ocrImage(arrayBuffer, selectedFile.name, selectedFile.type);
+      // JPEGに変換してから送信
+      const jpegBlob = await convertToJpeg(selectedFile);
+      const formData = new FormData();
+      formData.append('file', jpegBlob, 'image.jpg');
+
+      const data = await ocrImage(formData);
       setParsedData(data);
 
       // ルールベース解析を実行（高速）
