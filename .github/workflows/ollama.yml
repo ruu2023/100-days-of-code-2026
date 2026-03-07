@@ -15,11 +15,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: false
 
       - name: Install Ollama
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
-          echo "OLLAMA_VERSION=$(ollama --version)" >> $GITHUB_ENV
 
       - name: Start Ollama service
         run: |
@@ -39,7 +40,6 @@ jobs:
           echo "=== Ollama 動作テスト ==="
           RESPONSE=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "What is 2 + 2? Answer in Japanese.")
           echo "$RESPONSE"
-          echo "RESPONSE=$RESPONSE" >> $GITHUB_ENV
 
       - name: Run custom prompt test
         run: |
