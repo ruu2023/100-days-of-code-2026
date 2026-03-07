@@ -32,7 +32,7 @@ jobs:
 
       - name: Pull model
         run: |
-          ollama pull hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M
+          ollama pull hf.co/LiquidAI/LFM2.5-1.2B-JP-GGUF:Q8_0
           ollama list
 
       - name: Run custom prompt test
@@ -43,8 +43,11 @@ jobs:
           echo "入力テキスト: $TEXT"
           echo ""
           echo "AIによる要約:"
-          SUMMARY=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-Instruct-GGUF:Q4_K_M "次の文章を3行程度で要約してください: $TEXT")
+          SUMMARY=$(ollama run hf.co/LiquidAI/LFM2.5-1.2B-JP-GGUF:Q8_0 "次の文章を3行程度で要約してください: $TEXT")
           echo "$SUMMARY"
+          
+          mkdir -p docs/api
+          jq -n --arg summary "$SUMMARY" '{summary: $summary}' > docs/api/summary.json
 
       - name: Show model info
         run: |
