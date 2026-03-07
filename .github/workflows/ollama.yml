@@ -20,6 +20,14 @@ jobs:
         with:
           submodules: false
 
+      - name: Cache Ollama models
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ${{ runner.os }}-ollama-${{ hashFiles('.github/workflows/ollama.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-ollama-
+
       - name: Install Ollama
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
@@ -51,20 +59,6 @@ jobs:
           mkdir -p docs/api
           jq -n --arg summary "$SUMMARY" '{summary: $summary}' > docs/api/summary.json
 
-      - name: Show model info
-        run: |
-          echo "=== モデル情報 ==="
-          ollama list
-          ollama ps
-
-      - name: Output summary
-        run: |
-          echo ""
-          echo "========================================"
-          echo "🎉 Ollama GitHub Actions テスト完了！"
-          echo "========================================"
-          echo " modelos: $(ollama list | wc -l)"
-          echo " running: $(ollama ps | grep -c LFM2.5)"
 
       - name: Commit and push summary.json
         run: |
