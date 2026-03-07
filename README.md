@@ -137,6 +137,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 063 | 03/04 | Accounting App       | Strategy Pattern / CSV, XML, MD Report   | [View](./hono-next/src/app/day063)                      |
 | 064 | 03/05 | NDL OCR API          | Python (FastAPI) / ndlocr-lite / Cloud Run | [View](./hono-next/src/app/day064)                      |
 | 065 | 03/06 | LFM 2.5 Chat         | Local AI Chat / Ollama / React Markdown    | [View](./hono-next/src/app/day065)                      |
+| 066 | 03/07 | NDL OCR Parser       | NDL OCR API / React / AI                   | [View](./hono-next/src/app/day066)                      |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

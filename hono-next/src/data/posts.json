@@ -1,5 +1,23 @@
 [
   {
+    "day": 66,
+    "date": "2026-03-07 20:44",
+    "title": "NDL OCR Parser 📜🔍",
+    "description": "【Day 066/100】NDL OCR Parser 📜🔍",
+    "features": [
+      "画像アップロード＆OCR実行",
+      "レシート解析＆AIを用いた内容解釈機能",
+      "信頼度によるフィルタリング"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#OCR",
+      "#AI"
+    ],
+    "url": ""
+  },
+  {
     "day": 65,
     "date": "2026-03-06 20:30",
     "title": "LFM 2.5 Chat 🤖💬",
@@ -15,7 +33,7 @@
       "#AI",
       "#LLM"
     ],
-    "url": "https://x.com/ruu_web"
+    "url": "https://x.com/ruu_web/status/2029881919421435967"
   },
   {
     "day": 64,

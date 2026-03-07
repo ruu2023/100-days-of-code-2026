@@ -240,6 +240,12 @@ const projects = [
     link: "/day065",
     day: "Day 65",
   },
+  {
+    title: "NDL OCR Parser",
+    description: "画像からOCRを実行し、レシート解析やAIでの内容解釈を行うアプリ。",
+    link: "/day066",
+    day: "Day 66",
+  },
 ]
 
 export default function DashboardPage() {

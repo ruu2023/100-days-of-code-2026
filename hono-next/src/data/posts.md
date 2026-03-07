@@ -1,4 +1,20 @@
 
+## 2026-03-07 20:44
+
+【Day 066/100】NDL OCR Parser 📜🔍
+
+レシート解析アプリを作りました！
+国会図書館のOCRライブラリと、ローカルモデルのLFM2.5を使います。
+
+✅ 画像アップロード＆OCR実行
+✅ レシート解析＆AIを用いた内容解釈機能
+
+#100DaysOfCode #Nextjs #OCR #AI
+
+[Original Post](https://x.com/ruu_web/status/2030249337448812722)
+
+---
+
 ## 2026-03-06 20:30
 
 【Day 065/100】LFM 2.5 Chat 🤖💬
