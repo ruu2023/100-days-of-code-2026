@@ -1,13 +1,31 @@
 [
   {
+    "day": 67,
+    "date": "2026-03-08 21:00",
+    "title": "Rails VPS Deploy 🚀🔒",
+    "description": "【Day 067/100】Rails VPS Deploy 🚀🔒",
+    "features": [
+      "Kamal によるデプロイの自動化",
+      "Hetzner VPS (IP: 65.108.219.151) へのデプロイ",
+      "GitHub Actions からのデプロイ自動化"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails",
+      "#Kamal",
+      "#VPS",
+      "#Hetzner"
+    ],
+    "url": "https://x.com/ruu_web/status/2030616757132845056"
+  },
+  {
     "day": 66,
     "date": "2026-03-07 20:44",
     "title": "NDL OCR Parser 📜🔍",
     "description": "【Day 066/100】NDL OCR Parser 📜🔍",
     "features": [
       "画像アップロード＆OCR実行",
-      "レシート解析＆AIを用いた内容解釈機能",
-      "信頼度によるフィルタリング"
+      "レシート解析＆AIを用いた内容解釈機能"
     ],
     "tags": [
       "#100DaysOfCode",
@@ -15,7 +33,7 @@
       "#OCR",
       "#AI"
     ],
-    "url": ""
+    "url": "https://x.com/ruu_web/status/2030249337448812722"
   },
   {
     "day": 65,

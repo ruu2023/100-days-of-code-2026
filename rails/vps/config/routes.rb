@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  scope :day067 do
+    get "" => "day067/dashboard#index"
+    resources :posts, only: [:index, :show, :new, :create], controller: "day067/posts"
+  end
+
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

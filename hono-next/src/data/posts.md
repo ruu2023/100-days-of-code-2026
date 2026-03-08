@@ -1,4 +1,21 @@
 
+## 2026-03-08 21:00
+
+【Day 067/100】Rails VPS Deploy 🚀🔒
+
+Rails 8 のブログアプリを作りました。
+VPS (Hetzner) にデプロイし、
+Hono をリバースプロキシとして利用してます。
+
+✅ Kamal によるデプロイの自動化
+✅ Hetzner VPS へのデプロイ
+
+#100DaysOfCode #Rails #Kamal #VPS #Hetzner
+
+[Original Post](https://x.com/ruu_web/status/2030700275582075084)
+
+---
+
 ## 2026-03-07 20:44
 
 【Day 066/100】NDL OCR Parser 📜🔍

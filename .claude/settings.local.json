@@ -4,7 +4,11 @@
       "Bash(npm install:*)",
       "Bash(USE_OLLAMA=true node:*)",
       "Bash(grep:*)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(bin/rails db:migrate:*)",
+      "Bash(bin/rails db:seed:*)",
+      "Bash(bin/rails routes:*)",
+      "Bash(bin/rails runner:*)"
     ]
   },
   "autoApprove": {

@@ -1,0 +1,14 @@
+<h1>Demo Blog</h1>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <article>
+      <h2><%= link_to post.title, post_path(post) %></h2>
+      <p><%= post.body.truncate(200) %></p>
+      <small><%= post.created_at.strftime("%Y-%m-%d") %></small>
+    </article>
+    <hr>
+  <% end %>
+<% else %>
+  <p>No posts yet.</p>
+<% end %>

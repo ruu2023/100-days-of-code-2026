@@ -246,6 +246,12 @@ const projects = [
     link: "/day066",
     day: "Day 66",
   },
+  {
+    title: "Rails VPS Deploy",
+    description: "Rails 8 アプリを VPS にデプロイ。Kamal を使用したデプロイ自動化。",
+    link: "/vps",
+    day: "Day 67",
+  },
 ]
 
 export default function DashboardPage() {
