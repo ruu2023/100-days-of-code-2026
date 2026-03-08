@@ -5,8 +5,6 @@ import { Readability } from "@mozilla/readability";
 import he from "he";
 import Parser from "rss-parser";
 import { existsSync } from 'node:fs';
-import OpenAI from "openai";
-
 import { spawnSync } from 'child_process';
 
 // .envファイルがある場合（ローカルなど）のみ読み込む
@@ -25,7 +23,7 @@ if (!USE_OLLAMA && !process.env.REQUESTY_API_KEY) {
 
 let openai;
 if (!USE_OLLAMA) {
-
+  const OpenAI = (await import('openai')).default;
   openai = new OpenAI({
     apiKey: process.env.REQUESTY_API_KEY,
     baseURL: "https://router.requesty.ai/v1",

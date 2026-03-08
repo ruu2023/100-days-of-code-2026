@@ -1,4 +1,11 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(USE_OLLAMA=true node:*)",
+      "Bash(grep:*)"
+    ]
+  },
   "autoApprove": {
     "readFiles": true,
     "writeFiles": true,
