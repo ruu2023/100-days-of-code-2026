@@ -3,7 +3,8 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(USE_OLLAMA=true node:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "WebFetch(domain:github.com)"
     ]
   },
   "autoApprove": {

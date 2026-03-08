@@ -282,10 +282,6 @@ async function main() {
     }
   });
 
-  // すべてのIssueを作成した後に同期を実行
-  console.log("Syncing with Beads...");
-  spawnSync('bd', ['sync'], { stdio: 'inherit' });
-
   fs.writeFileSync("./docs/api/data.json", JSON.stringify(results, null, 2));
   console.log("✅ data.json updated (max 2 summaries)");
 }
