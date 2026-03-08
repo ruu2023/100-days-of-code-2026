@@ -31,6 +31,35 @@ app.use("*", cors({
 // Mount API routes
 app.route("/api", apiApp);
 
+// -----------------------------------------------------------------------------
+// VPS (Kamal / Rails 8) へのプロキシ設定
+// -----------------------------------------------------------------------------
+app.all('/vps/*', async (c) => {
+  const url = new URL(c.req.url)
+  
+  // VPSのドメインまたはIP（Kamalで設定したもの）
+  const VPS_ORIGIN = "65.108.219.151"
+  
+  const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
+  const targetUrl = new URL(cleanPath + url.search, `https://${VPS_ORIGIN}`)
+
+  const headers = new Headers(c.req.raw.headers)
+  headers.set('Host', VPS_ORIGIN)
+  headers.set('X-Forwarded-Host', url.hostname)
+  headers.set('X-Forwarded-Proto', 'https')
+  
+  // クライアントのIPを伝える（Kamal/Rails側でのログや制限に利用）
+  const clientIp = c.req.header('CF-Connecting-IP')
+  if (clientIp) headers.set('X-Forwarded-For', clientIp)
+
+  return fetch(targetUrl.toString(), {
+    method: c.req.method,
+    headers: headers,
+    body: c.req.raw.body,
+    redirect: 'manual'
+  })
+})
+
 app.all('*', async (c) => {
   const url = new URL(c.req.url)
   
