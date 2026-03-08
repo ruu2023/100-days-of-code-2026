@@ -15,7 +15,6 @@ servers:
 
 proxy:
   app_port: 3000
-  host: 65.108.219.151
   healthcheck:
     timeout: 60
 

@@ -41,7 +41,7 @@ app.all('/vps/*', async (c) => {
   const VPS_ORIGIN = "65.108.219.151"
   
   const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
-  const targetUrl = new URL(cleanPath + url.search, `https://${VPS_ORIGIN}`)
+  const targetUrl = new URL(cleanPath + url.search, `http://${VPS_ORIGIN}.nip.io`)
 
   const headers = new Headers(c.req.raw.headers)
   headers.set('Host', VPS_ORIGIN)
