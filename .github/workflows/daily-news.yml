@@ -1,4 +1,4 @@
-name: Daily AI+Security News
+name: Daily AI+Security News with Ollama
 
 on:
   workflow_dispatch:
@@ -16,13 +16,38 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           submodules: false
+
+      - name: Cache Ollama models
+        uses: actions/cache@v4
+        with:
+          path: ~/.ollama/models
+          key: ${{ runner.os }}-ollama-${{ hashFiles('.github/workflows/daily-news.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-ollama-
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+
+      - name: Start Ollama service
+        run: |
+          ollama serve &
+          echo "Waiting for Ollama to start..."
+          sleep 10
+
+      - name: Pull model
+        run: |
+          ollama pull hf.co/LiquidAI/LFM2.5-1.2B-JP-GGUF:Q8_0
+          ollama list
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -35,40 +60,29 @@ jobs:
         working-directory: scripts
         run: npm ci
 
-      - name: Run script
+      - name: Run script with Ollama
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          REQUESTY_API_KEY: ${{ secrets.REQUESTY_API_KEY }}
+          USE_OLLAMA: "true"
         run: node scripts/day042.mjs
 
       - name: Debug files
         run: |
           echo "PWD=$(pwd)"
           ls -la
-          ls -la public || true
-          test -f public/data.json && (echo "data.json exists"; head -c 500 public/data.json; echo) || echo "data.json NOT found"
-          echo "---- git status ----"
-          git status --porcelain
-          
+          ls -la docs/api/ || true
+          test -f docs/api/data.json && (echo "data.json exists"; cat docs/api/data.json) || echo "data.json NOT found"
+
       - name: Commit and push if changed
         run: |
-          echo "---- git status (before add) ----"
-          git status --porcelain
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # 未追跡ファイルも含めて全部ステージ
           git add docs/ .beads/
 
-          echo "---- git status (after add) ----"
-          git status --porcelain
-
-          # ステージされた差分がなければ終了
           if git diff --cached --quiet; then
             echo "No staged changes."
             exit 0
           fi
 
-          git commit -m "chore: update daily news"
+          git commit -m "chore: update daily news with ollama"
           git push

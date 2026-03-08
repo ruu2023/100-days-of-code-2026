@@ -5,6 +5,7 @@ import { Readability } from "@mozilla/readability";
 import he from "he";
 import Parser from "rss-parser";
 import { existsSync } from 'node:fs';
+import OpenAI from "openai";
 
 import { spawnSync } from 'child_process';
 
@@ -13,17 +14,23 @@ if (existsSync('.env')) {
   process.loadEnvFile();
 }
 
-if (!process.env.REQUESTY_API_KEY) {
+// Ollamaを使うか、Requestyを使うか
+const USE_OLLAMA = process.env.USE_OLLAMA === 'true';
+
+if (!USE_OLLAMA && !process.env.REQUESTY_API_KEY) {
   console.error("REQUESTY_API_KEY is missing. Set it in .env or GitHub Secrets.");
+  console.log("または USE_OLLAMA=true を設定してください");
   process.exit(1);
 }
 
-import OpenAI from "openai";
+let openai;
+if (!USE_OLLAMA) {
 
-const openai = new OpenAI({
-  apiKey: process.env.REQUESTY_API_KEY,
-  baseURL: "https://router.requesty.ai/v1",
-});
+  openai = new OpenAI({
+    apiKey: process.env.REQUESTY_API_KEY,
+    baseURL: "https://router.requesty.ai/v1",
+  });
+}
 
 const rss = new Parser({ headers: { "User-Agent": "my-news-app/1.0" } });
 const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -77,9 +84,7 @@ async function getSummaryWithRetry(title, url, retries = 3) {
   const content = await fetchArticleText(url);
   // return content; // gemini 開発中はコメントアウト
 
-  for (let i = 0; i < retries; i++) {
-    try {
-      const prompt = `以下の内容を日本語で要約してください。
+  const prompt = `以下の内容を日本語で要約してください。
 
 条件:
 - 箇条書きは禁止
@@ -93,9 +98,39 @@ async function getSummaryWithRetry(title, url, retries = 3) {
 本文: ${content}
 言語: 日本語`;
 
-      // const result = await model.generateContent(prompt);
+  // Ollamaを使う場合
+  if (USE_OLLAMA) {
+    for (let i = 0; i < retries; i++) {
+      try {
+        console.log("Ollamaで要約中...");
+        const result = spawnSync('ollama', [
+          'run',
+          'hf.co/LiquidAI/LFM2.5-1.2B-JP-GGUF:Q8_0',
+          prompt
+        ], {
+          encoding: 'utf-8',
+          timeout: 120000,
+        });
+
+        if (result.error) {
+          throw new Error(result.error.message);
+        }
+
+        return result.stdout?.trim() || "要約失敗";
+      } catch (error) {
+        console.log("Ollamaエラー, retrying...", error.message);
+        await sleep(10000);
+        continue;
+      }
+    }
+    return "要約失敗";
+  }
+
+  // OpenAI/Requestyを使う場合
+  for (let i = 0; i < retries; i++) {
+    try {
       const completion = await openai.chat.completions.create({
-        model: "google/gemini-2.5-flash", // 使いたいモデルを指定
+        model: "google/gemini-2.5-flash",
         messages: [
           { role: "system", content: "あなたは優秀なエンジニアです。" },
           { role: "user", content: prompt },
@@ -104,7 +139,6 @@ async function getSummaryWithRetry(title, url, retries = 3) {
 
       const result = completion.choices[0].message.content;
       return result;
-      // return result.response.text();
     } catch (error) {
       if (String(error?.message || "").includes("429") && i < retries - 1) {
         console.log("429 Error, retrying...");
