@@ -60,6 +60,9 @@ jobs:
         working-directory: scripts
         run: npm ci
 
+      - name: Install Beads CLI
+        run: curl -sSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
+
       - name: Run script with Ollama
         env:
           USE_OLLAMA: "true"
