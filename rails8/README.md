@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+```bash
+rm -rf rails/.git
+
+source .env
+kamal setup
+kamal deploy
+
+# config/routes.rb
+# root "posts#index"
+```
