@@ -1,16 +1,16 @@
 
 ## 2026-03-09 14:42
 
-【Day 068/100】Rails VPS Reverse Proxy 🚧🔧
+【Day 068/100】Go API Web Scraper 🛠️✨
 
-Hono API + Rails のリバースプロキシで assets の 404 エラーを解消しました！
-Rails の URL を `/vps` にマッピングさせてデプロイする設定を追加しました。
+URLを渡すとMarkdown変換や画像リンクの抽出を行うAPIをGoで構築しました！
+軽量な Gin フレームワークと goquery を使い、高速にパース処理を回しています。
 
-✅ Hono API 側でのパスの透過プロキシ
-✅ Kamal/Rails 側の RAILS_RELATIVE_URL_ROOT 設定
-✅ VPS(Hetzner) 環境へのデプロイ
+✅ Gin + goquery による高速なHTML解析
+✅ URLからMarkdownへの一括変換ロジック
+✅ ページ内の全画像URLの抽出・リスト化
 
-#100DaysOfCode #Nextjs #Hono #Rails #Kamal #VPS
+#100DaysOfCode #Golang #Gin #WebDevelopment #Scraping #Backend
 
 [Original Post](https://x.com/ruu_web/status/0)
 

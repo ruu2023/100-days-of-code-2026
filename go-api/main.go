@@ -11,6 +11,10 @@ import (
 func main() {
 	r := gin.Default()
 
+	r.GET("/up", func(c *gin.Context) {
+		c.Status(http.StatusOK)
+	})
+
 	// 1. URLを渡したらMarkdownにパースして返す
 	r.GET("/md", func(c *gin.Context) {
 		targetURL := c.Query("url")
@@ -68,5 +72,5 @@ func main() {
 		})
 	})
 
-	r.Run(":8080") // 8080ポートで起動
+	r.Run("0.0.0.0:8080")
 }
