@@ -1,29 +1,31 @@
-<h1>New Post</h1>
+<div class="max-w-2xl mx-auto p-6">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">New Post</h1>
 
-<%= form_with model: @post, scope: :post, url: day067_posts_path do |form| %>
-  <% if @post.errors.any? %>
-    <div class="errors">
-      <h3><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h3>
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <%= form_with model: @post, scope: :post, url: day067_posts_path, class: "bg-white p-6 rounded-lg shadow-sm border border-gray-200" do |form| %>
+    <% if @post.errors.any? %>
+      <div class="errors bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+        <h3 class="font-semibold"><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h3>
+        <ul class="list-disc list-inside mt-2">
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4">
+      <%= form.label :title, class: "block text-gray-700 font-medium mb-2" %>
+      <%= form.text_field :title, required: true, class: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :body, class: "block text-gray-700 font-medium mb-2" %>
+      <%= form.text_area :body, rows: 5, required: true, class: "w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+    </div>
+
+    <div class="flex gap-3">
+      <%= form.submit "Create Post", class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition cursor-pointer" %>
+      <%= link_to "Cancel", day067_posts_path, class: "px-6 py-2 text-gray-600 hover:text-gray-800 transition" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title, required: true %>
-  </div>
-
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_area :body, rows: 5, required: true %>
-  </div>
-
-  <div>
-    <%= form.submit "Create Post" %>
-    <%= link_to "Cancel", day067_posts_path %>
-  </div>
-<% end %>
+</div>
