@@ -18,12 +18,15 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <%# Tailwind CSS CDN - for day006 Tailwind classes %>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-50 text-gray-900">
     <%= yield %>
   </body>
 </html>
