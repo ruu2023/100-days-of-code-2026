@@ -1,4 +1,4 @@
-<h1>Demo Blog</h1>
+<h1>Blog Posts</h1>
 
 <%= link_to "New Post", new_day067_post_path %>
 
@@ -6,8 +6,10 @@
   <% @posts.each do |post| %>
     <article>
       <h2><%= link_to post.title, day067_post_path(post) %></h2>
-      <p><%= post.body.truncate(200) %></p>
-      <small><%= post.created_at.strftime("%Y-%m-%d") %></small>
+      <p><%= post.body.truncate(200) if post.body %></p>
+      <small><%= post.created_at.strftime("%Y-%m-%d") if post.created_at %></small>
+      <br>
+      <%= button_to "Delete", day067_post_path(post), method: :delete %>
     </article>
     <hr>
   <% end %>

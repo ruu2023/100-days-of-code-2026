@@ -54,6 +54,6 @@ class Day006::MemosController < ApplicationController
     end
 
     def memo_params
-      params.expect(memo: [ :title, :body ])
+      params.fetch(:memo, {}).permit(:title, :body)
     end
 end

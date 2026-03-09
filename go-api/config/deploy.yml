@@ -1,0 +1,23 @@
+service: goapp
+image: kokihiru/goapp
+
+servers:
+  web:
+    - 65.108.219.151
+
+proxy:
+  host: go.ruu-dev.com
+  app_port: 8080
+  ssl: true
+  forward_headers: true
+
+registry:
+  server: index.docker.io
+  username: kokihiru
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+  local: false
+  remote: ssh://root@65.108.219.151

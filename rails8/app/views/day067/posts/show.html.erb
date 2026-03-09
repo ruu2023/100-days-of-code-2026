@@ -6,7 +6,7 @@
 
 <p><%= @post.body %></p>
 
-<small>Posted on <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+<small>Posted on <%= @post.created_at.strftime("%Y-%m-%d %H:%M") if @post.created_at %></small>
 
 <hr>
 

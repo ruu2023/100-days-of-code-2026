@@ -9,7 +9,7 @@
   <div class="stat-card">
     <h3>Latest Post</h3>
     <% if @latest_post %>
-      <p><%= link_to @latest_post.title, day067_post_path(@latest_post) %></p>
+      <p><%= link_to @latest_post.title, [:day067, @latest_post] %></p>
       <small><%= @latest_post.created_at.strftime("%Y-%m-%d") %></small>
     <% else %>
       <p>No posts yet</p>

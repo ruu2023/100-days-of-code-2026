@@ -2,19 +2,19 @@ class Day067::PostsController < ApplicationController
   skip_forgery_protection only: :create
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Day067::Post.all.order(created_at: :desc)
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Day067::Post.find(params[:id])
   end
 
   def new
-    @post = Post.new
+    @post = Day067::Post.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Day067::Post.new(post_params)
     if @post.save
       redirect_to day067_post_path(@post), notice: "Post was successfully created."
     else
@@ -22,9 +22,15 @@ class Day067::PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Day067::Post.find(params[:id])
+    @post.destroy
+    redirect_to day067_posts_path, notice: "Post was successfully destroyed."
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.fetch(:post, {}).permit(:title, :body)
   end
 end
