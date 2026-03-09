@@ -1,22 +1,16 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "permissions": {
     "allow": [
-      "Bash(npm install:*)",
-      "Bash(USE_OLLAMA=true node:*)",
-      "Bash(grep:*)",
+      "Bash(npm install *)",
+      "Bash(USE_OLLAMA=true node *)",
+      "Bash(grep *)",
       "WebFetch(domain:github.com)",
-      "Bash(bin/rails db:migrate:*)",
-      "Bash(bin/rails db:seed:*)",
-      "Bash(bin/rails routes:*)",
-      "Bash(bin/rails runner:*)"
+      "Bash(bin/rails db:migrate *)",
+      "Bash(bin/rails db:seed *)",
+      "Bash(bin/rails routes *)",
+      "Bash(bin/rails runner *)"
     ]
   },
-  "autoApprove": {
-    "readFiles": true,
-    "writeFiles": true,
-    "search": true,
-    "bash": true
-  },
-  "maxIterations": 100,
-  "retryAttempts": 3
+  "defaultMode": "acceptEdits"
 }

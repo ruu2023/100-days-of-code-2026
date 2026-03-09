@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope :day067 do
+  scope "/day067" do
     get "" => "day067/dashboard#index"
     resources :posts, only: [:index, :show, :new, :create], controller: "day067/posts"
   end

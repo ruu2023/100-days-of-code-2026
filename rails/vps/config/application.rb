@@ -23,5 +23,9 @@ module Vps
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Honoリバースプロキシ経由で /vps/* にマウントされるため、
+    # ルートヘルパー(link_to, post_path等)が生成するURLに /vps を付ける
+    config.relative_url_root = ENV.fetch("RAILS_RELATIVE_URL_ROOT", "/vps")
   end
 end

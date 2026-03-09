@@ -46,9 +46,9 @@ env:
   secret:
     - RAILS_MASTER_KEY
   clear:
-    # Set the root to /vps because Hono proxies /vps requests to this server directly
+    # RAILS_RELATIVE_URL_ROOT: Railsが生成するHTML内のリンク・assetsに/vpsプレフィックスを付ける
+    # Hono側で/vpsを削って転送するため、ブラウザからのassetリクエストも/vps/*経由でRailsに届く
     RAILS_RELATIVE_URL_ROOT: "/vps"
-    
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
     SOLID_QUEUE_IN_PUMA: true

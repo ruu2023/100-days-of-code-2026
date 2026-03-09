@@ -22,5 +22,7 @@
   // Rust 用の設定
   "[rust]": {
     "editor.tabSize": 4 // Rustは公式推奨が4なことが多いですが、ここを2に変えれば2になります
-  }
+  },
+
+  "claudeCode.initialPermissionMode": "bypassPermissions"
 }

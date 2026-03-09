@@ -36,28 +36,31 @@ app.route("/api", apiApp);
 // -----------------------------------------------------------------------------
 app.all('/vps/*', async (c) => {
   const url = new URL(c.req.url)
-  
-  // VPSのドメインまたはIP（Kamalで設定したもの）
-  const VPS_ORIGIN = "65.108.219.151"
-  
-  // パスをそのままRailsに渡す（Rails側でRAILS_RELATIVE_URL_ROOT="/vps"を設定する）
-  const targetPath = url.pathname + url.search
-  const targetUrl = new URL(targetPath, `http://${VPS_ORIGIN}.nip.io`)
+  const VPS_HOST = '65.108.219.151.nip.io'
+
+  const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
+  const targetUrl = new URL(cleanPath + url.search, `http://${VPS_HOST}`)
 
   const headers = new Headers(c.req.raw.headers)
-  headers.set('Host', VPS_ORIGIN)
-  headers.set('X-Forwarded-Host', url.hostname)
+
+  // Host は接続先と揃える
+  headers.set('Host', VPS_HOST)
+
+  // 元の公開URL情報をRailsに伝える
+  headers.set('X-Forwarded-Host', url.host)
   headers.set('X-Forwarded-Proto', 'https')
-  
-  // クライアントのIPを伝える（Kamal/Rails側でのログや制限に利用）
+  headers.set('X-Forwarded-Port', '443')
+
   const clientIp = c.req.header('CF-Connecting-IP')
-  if (clientIp) headers.set('X-Forwarded-For', clientIp)
+  if (clientIp) {
+    headers.set('X-Forwarded-For', clientIp)
+  }
 
   return fetch(targetUrl.toString(), {
     method: c.req.method,
-    headers: headers,
-    body: c.req.raw.body,
-    redirect: 'manual'
+    headers,
+    body: ['GET', 'HEAD'].includes(c.req.method) ? undefined : c.req.raw.body,
+    redirect: 'manual',
   })
 })
 
