@@ -1,0 +1,17 @@
+<h1>Memos</h1>
+
+<%= link_to "New memo", new_day006_memo_path %>
+
+<div id="memos">
+  <% @memos.each do |memo| %>
+    <article>
+      <h2><%= link_to memo.title, [:day006, memo] %></h2>
+      <p><%= memo.body %></p>
+      <small><%= memo.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+      <br>
+      <%= link_to "Edit", edit_day006_memo_path(memo) %>
+      <%= button_to "Destroy", day006_memo_path(memo), method: :delete %>
+    </article>
+    <hr>
+  <% end %>
+</div>

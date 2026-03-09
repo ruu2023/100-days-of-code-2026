@@ -1,0 +1,13 @@
+<% if notice %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<small>Posted on <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></small>
+
+<hr>
+
+<%= link_to "← Back", day067_posts_path %>

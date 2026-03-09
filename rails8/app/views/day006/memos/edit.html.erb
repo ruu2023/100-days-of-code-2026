@@ -1,0 +1,17 @@
+<h1>Edit memo</h1>
+
+<%= form_with model: @memo, url: day006_memo_path(@memo), method: :patch, local: true do |form| %>
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "Back to memos", day006_memos_path %>
