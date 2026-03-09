@@ -7,6 +7,12 @@ npx wrangler tail hono-api
 ```
 
 
+```bash
+source .env
+kamal deploy
+```
+
+
 ndlocr テスト
 ```bash
 
