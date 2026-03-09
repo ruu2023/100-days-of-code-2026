@@ -12,5 +12,5 @@
       "Bash(bin/rails runner *)"
     ]
   },
-  "defaultMode": "acceptEdits"
+  "defaultMode": "bypassPermissions"
 }
