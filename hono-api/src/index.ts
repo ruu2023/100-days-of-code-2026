@@ -40,8 +40,9 @@ app.all('/vps/*', async (c) => {
   // VPSのドメインまたはIP（Kamalで設定したもの）
   const VPS_ORIGIN = "65.108.219.151"
   
-  const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
-  const targetUrl = new URL(cleanPath + url.search, `http://${VPS_ORIGIN}.nip.io`)
+  // パスをそのままRailsに渡す（Rails側でRAILS_RELATIVE_URL_ROOT="/vps"を設定する）
+  const targetPath = url.pathname + url.search
+  const targetUrl = new URL(targetPath, `http://${VPS_ORIGIN}.nip.io`)
 
   const headers = new Headers(c.req.raw.headers)
   headers.set('Host', VPS_ORIGIN)

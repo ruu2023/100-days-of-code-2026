@@ -252,6 +252,12 @@ const projects = [
     link: "/vps",
     day: "Day 67",
   },
+  {
+    title: "Rails VPS Reverse Proxy",
+    description: "Hono API + Rails のリバースプロキシで assets の 404 エラーを解消。VPS へのデプロイ。",
+    link: "/vps",
+    day: "Day 68",
+  },
 ]
 
 export default function DashboardPage() {
