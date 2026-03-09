@@ -8,6 +8,8 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o server .
 
 FROM debian:bookworm-slim
+RUN apk --no-cache add ca-certificates
+
 WORKDIR /app
 COPY --from=build /app/server /app/server
 
