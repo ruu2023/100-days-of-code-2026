@@ -1,4 +1,5 @@
 class Day067::PostsController < ApplicationController
+  skip_forgery_protection only: :create
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -19,7 +20,7 @@ class Day067::PostsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-
+  
   private
 
   def post_params

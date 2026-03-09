@@ -27,3 +27,12 @@
     <%= link_to "Cancel", posts_path %>
   </div>
 <% end %>
+
+
+
+<form action="/vps/day067/posts" method="post" data-turbo="false">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" name="post[title]" required>
+  <textarea name="post[body]" required></textarea>
+  <input type="submit" value="Create Post">
+</form>
