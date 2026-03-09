@@ -1,17 +1,10 @@
-<h1>Edit memo</h1>
+<% content_for :title, "Editing memo" %>
 
-<%= form_with model: @memo, url: day006_memo_path(@memo), method: :patch, local: true do |form| %>
-  <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<%= turbo_frame_tag @memo do %>
+  <div class="p-4 bg-white rounded-lg border border-gray-200">
+    <%= render "form", memo: @memo %>
+    <div class="mt-2 text-right">
+      <%= link_to "Cancel", [:day006, @memo], class: "text-sm text-gray-500 hover:text-gray-700" %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <%= form.submit %>
 <% end %>
-
-<%= link_to "Back to memos", day006_memos_path %>

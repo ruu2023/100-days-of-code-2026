@@ -1,0 +1,2 @@
+<%# Replace the updated memo %>
+<%= turbo_stream.replace @memo, partial: "day006/memos/memo", locals: { memo: @memo } %>

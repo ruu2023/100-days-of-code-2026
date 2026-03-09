@@ -1,5 +1,4 @@
 class Day067::PostsController < ApplicationController
-  skip_forgery_protection only: :create
 
   def index
     @posts = Day067::Post.all.order(created_at: :desc)
