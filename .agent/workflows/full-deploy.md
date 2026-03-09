@@ -8,19 +8,6 @@ description: Full Stack Deployment
 バックエンド（Hono/Cloudflare）を先にデプロイし、その完了を待ってからフロントエンド（Next.js/Cloud Run）をデプロイする。
 
 ## Steps
-
-0. ** tweetの更新 **:
-  今回のアプリ(今日作成したアプリ)について、それぞれ以下のファイル内へ追記をお願いします。
-  追記後にhono-next/src/types/parse-x-posts.ts を実行してください。
-
-  - hono-app/src/data/posts.md
-
-  - README.md
-
-  - hono-app/src/app/dashboard/page.tsx
-
-  
-
 1. **Hono (Cloudflare) のデプロイ**:
    - `hono-api` ディレクトリへ移動する。
    - `npm run deploy` を実行し、Cloudflare Workers/Pages へのデプロイを完了させる。
@@ -30,7 +17,11 @@ description: Full Stack Deployment
    - `gcloud run deploy hono-next-app --source . --region asia-northeast1` を実行する。
 
 3. **Ruby (hetzner vps) のデプロイ**
-   - `rails/vps` ディレクトリへ移動する。
+   - `rails8` ディレクトリへ移動する。
+   - `source .env && kamal deploy`を実行する。
+
+3. **GoAPI (hetzner vps) のデプロイ**
+   - `go-api` ディレクトリへ移動する。
    - `source .env && kamal deploy`を実行する。
 
 ## Error Handling

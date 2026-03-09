@@ -1,17 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export interface Post {
-  day: number;
-  date: string;
-  title: string;
-  description: string;
-  features: string[];
-  tags: string[];
-  url: string;
-}
-
-export const parseXPosts = (rawText: string): Post[] => {
+export const parseXPosts = (rawText) => {
   const sections = rawText.split('---').filter(s => s.trim().length > 0);
 
   return sections.map(section => {
@@ -51,8 +41,8 @@ export const parseXPosts = (rawText: string): Post[] => {
   .sort((a, b) => b.day - a.day); // 降順
 };
 
-const mdPath = path.join(process.cwd(), 'src/data', 'posts.md');
-const jsonPath = path.join(process.cwd(), 'src/data', 'posts.json');
+const mdPath = path.join(process.cwd(), 'posts.md');
+const jsonPath = path.join(process.cwd(), 'posts.json');
 
 const rawData = fs.readFileSync(mdPath, 'utf8');
 const posts = parseXPosts(rawData);

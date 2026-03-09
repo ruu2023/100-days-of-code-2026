@@ -1,13 +1,32 @@
 [
   {
+    "day": 68,
+    "date": "2026-03-09 14:42",
+    "title": "Go API Web Scraper 🛠️✨",
+    "description": "【Day 068/100】Go API Web Scraper 🛠️✨",
+    "features": [
+      "Gin + goquery による高速なHTML解析",
+      "URLからMarkdownへの一括変換ロジック",
+      "ページ内の全画像URLの抽出リスト化"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Golang",
+      "#Gin",
+      "#WebDevelopment",
+      "#Scraping",
+      "#Backend"
+    ],
+    "url": "https://x.com/ruu_web/status/2031024838538936641"
+  },
+  {
     "day": 67,
     "date": "2026-03-08 21:00",
     "title": "Rails VPS Deploy 🚀🔒",
     "description": "【Day 067/100】Rails VPS Deploy 🚀🔒",
     "features": [
       "Kamal によるデプロイの自動化",
-      "Hetzner VPS (IP: 65.108.219.151) へのデプロイ",
-      "GitHub Actions からのデプロイ自動化"
+      "Hetzner VPS へのデプロイ"
     ],
     "tags": [
       "#100DaysOfCode",
@@ -16,7 +35,7 @@
       "#VPS",
       "#Hetzner"
     ],
-    "url": "https://x.com/ruu_web/status/2030616757132845056"
+    "url": "https://x.com/ruu_web/status/2030700275582075084"
   },
   {
     "day": 66,
