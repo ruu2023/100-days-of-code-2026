@@ -258,6 +258,18 @@ const projects = [
     link: "/vps",
     day: "Day 68",
   },
+  {
+    title: "Go API Web Scraper",
+    description: "Gin + goquery による高速なHTML解析、URLからMarkdownへの一括変換ロジック、ページ内の全画像URLの抽出リスト化",
+    link: "/day068",
+    day: "Day 68",
+  },
+  {
+    title: "Rails Image Scraper",
+    description: "Ferrum を使った画像抽出、ページ内の全画像URLの抽出リスト化",
+    link: "/day069",
+    day: "Day 69",
+  },
 ]
 
 export default function DashboardPage() {

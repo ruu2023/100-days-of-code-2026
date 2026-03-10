@@ -140,6 +140,8 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 066 | 03/07 | NDL OCR Parser       | NDL OCR API / React / AI                   | [View](./hono-next/src/app/day066)                      |
 | 067 | 03/08 | Rails VPS Deploy     | Rails 8 / Kamal / Hetzner VPS              | [View](./rails/vps)                                      |
 | 068 | 03/09 | Go API VPS Deploy    | Go / Kamal / Hetzner VPS                   | [View](./go-api)                                      |
+| 068 | 03/09 | Go API Web Scraper   | Gin / goquery / Web Scraping               | [View](./go-api)                                      |
+| 069 | 03/10 | Rails Image Scraper  | Ferrum / Scraping / Images                 | [View](./rails/day069/image_viewer)                      |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/
