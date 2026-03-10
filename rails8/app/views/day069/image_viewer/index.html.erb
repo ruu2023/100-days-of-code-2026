@@ -8,22 +8,30 @@
   <% end %>
 
   <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
-    <%= form_with url: day069_scrape_path, method: :post, class: "flex gap-3", data: { turbo: false } do |form| %>
-      <div class="flex-1">
-        <%= form.text_field :url,
-            value: @url,
-            placeholder: "https://example.com",
-            required: true,
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+    <%= form_with url: day069_scrape_path, method: :post, class: "flex flex-col gap-3", data: { turbo: false } do |form| %>
+      <div class="flex gap-3">
+        <div class="flex-1">
+          <%= form.text_field :url,
+              value: @url,
+              placeholder: "https://example.com",
+              required: true,
+              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+        </div>
+        <%= form.submit "Fetch Images",
+            class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition cursor-pointer whitespace-nowrap" %>
       </div>
-      <%= form.submit "Fetch Images",
-          class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition cursor-pointer whitespace-nowrap" %>
+      <div class="flex items-center gap-2">
+        <%= form.check_box :js, { id: "js_rendering", class: "w-4 h-4 text-blue-600 rounded" }, "1", "0" %>
+        <%= form.label :js, "JavaScript rendering (for React, SPA, etc.)", for: "js_rendering", class: "text-sm text-gray-600" %>
+      </div>
     <% end %>
 
     <% if @url.present? && @images.any? %>
       <div class="mt-4 flex gap-3">
         <%= form_with url: day069_download_csv_path, method: :get, class: "inline", data: { turbo: false } do |form| %>
           <%= form.hidden_field :url, value: @url %>
+          <%= form.check_box :js, {}, "1", "0" %>
+          <%= form.label :js, "JS", class: "text-sm text-gray-600 mr-3" %>
           <%= form.submit "Download CSV",
               class: "bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition cursor-pointer" %>
         <% end %>

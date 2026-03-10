@@ -1,4 +1,19 @@
 
+## 2026-03-10
+
+【Day 069/100】Rails Image Scraper 🛠️✨
+
+URLを渡すと画像一覧を表示するアプリを作りました。
+
+✅ Ferrum を使った画像抽出
+✅ ページ内の全画像URLの抽出・リスト化
+
+#100DaysOfCode #Rails #Ferrum #Scraping
+
+[Original Post](https://x.com/ruu_web/status/2031348530280018228)
+
+---
+
 ## 2026-03-09 14:42
 
 【Day 068/100】Go API Web Scraper 🛠️✨

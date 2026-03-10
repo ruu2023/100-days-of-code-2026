@@ -1,5 +1,22 @@
 [
   {
+    "day": 69,
+    "date": "2026-03-10",
+    "title": "Rails Image Scraper 🛠️✨",
+    "description": "【Day 069/100】Rails Image Scraper 🛠️✨",
+    "features": [
+      "Ferrum を使った画像抽出",
+      "ページ内の全画像URLの抽出リスト化"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails",
+      "#Ferrum",
+      "#Scraping"
+    ],
+    "url": "https://x.com/ruu_web/status/2031348530280018228"
+  },
+  {
     "day": 68,
     "date": "2026-03-09 14:42",
     "title": "Go API Web Scraper 🛠️✨",

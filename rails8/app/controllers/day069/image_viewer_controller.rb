@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'csv'
+require 'ferrum'
 
 class Day069::ImageViewerController < ApplicationController
   def index
@@ -12,56 +13,14 @@ class Day069::ImageViewerController < ApplicationController
     @url = params[:url]
     @images = []
 
+    use_js_rendering = params[:js] == '1'
+
     begin
-      html = URI.open(@url, read_timeout: 10) { |io| io.read }
-      doc = Nokogiri::HTML(html)
-
-      # imgタグからsrc属性を取得
-      doc.css('img').each do |img|
-        src = img['src']
-        next if src.blank?
-
-        # 相対URLの場合は絶対URLに変換
-        src = convert_to_absolute_url(@url, src)
-
-        # 無効なURLを除外
-        next unless valid_image_url?(src)
-
-        @images << src
+      if use_js_rendering
+        @images = scrape_with_ferrum(@url)
+      else
+        @images = scrape_with_nokogiri(@url)
       end
-
-      # srcset属性からも画像URLを取得（重複を除外）
-      doc.css('img[srcset]').each do |img|
-        srcset = img['srcset']
-        next if srcset.blank?
-
-        srcset.split(',').each do |src_with_size|
-          src = src_with_size.split.first.strip
-          next if src.blank?
-
-          src = convert_to_absolute_url(@url, src)
-          next unless valid_image_url?(src)
-
-          @images << src unless @images.include?(src)
-        end
-      end
-
-      # style属性のbackground-imageからも取得
-      doc.css('[style*="background-image"]').each do |element|
-        style = element['style']
-        if style =~ /url\(['"]?([^'")\s]+)['"]?\)/
-          src = Regexp.last_match(1)
-          src = convert_to_absolute_url(@url, src)
-          next unless valid_image_url?(src)
-
-          @images << src unless @images.include?(src)
-        end
-      end
-
-      @images.uniq!
-
-    rescue OpenURI::HTTPError => e
-      flash[:error] = "URLにアクセスできませんでした: #{e.message}"
     rescue StandardError => e
       flash[:error] = "エラーが発生しました: #{e.message}"
     end
@@ -69,41 +28,109 @@ class Day069::ImageViewerController < ApplicationController
     render :index
   end
 
-  def download_csv
-    url = params[:url]
+  def scrape_with_ferrum(url)
     images = []
 
+    browser = Ferrum::Browser.new(
+      headless: true,
+      timeout: 30,
+      browser_options: {
+        'no-sandbox': nil,
+        'disable-dev-shm-usage': nil
+      }
+    )
+
     begin
-      html = URI.open(url, read_timeout: 10) { |io| io.read }
+      browser.go_to(url)
+      # ページがロードされるまで待機（Reactなどのフレームワークがレンダリング完了するまで）
+      sleep 5
+
+      # HTMLを取得
+      html = browser.body
       doc = Nokogiri::HTML(html)
 
-      doc.css('img').each do |img|
-        src = img['src']
+      images = extract_images_from_doc(doc, url)
+    ensure
+      browser.quit
+    end
+
+    images
+  end
+
+  def scrape_with_nokogiri(url)
+    html = URI.open(url, read_timeout: 10) { |io| io.read }
+    doc = Nokogiri::HTML(html)
+
+    extract_images_from_doc(doc, url)
+  end
+
+  def extract_images_from_doc(doc, base_url)
+    images = []
+
+    # imgタグからsrc属性を取得
+    doc.css('img').each do |img|
+      # src 属性
+      src = img['src']
+      unless src.blank?
+        src = convert_to_absolute_url(base_url, src)
+        images << src if valid_image_url?(src)
+      end
+
+      # data-src, data-lazy-src (React/遅延読み込み)
+      %w[data-src data-lazy-src data-original srcset].each do |attr|
+        src = img[attr]
+        next if src.blank?
+        src = convert_to_absolute_url(base_url, src)
+        images << src if valid_image_url?(src)
+      end
+    end
+
+    # srcset属性からも画像URLを取得
+    doc.css('img[srcset]').each do |img|
+      srcset = img['srcset']
+      next if srcset.blank?
+
+      srcset.split(',').each do |src_with_size|
+        src = src_with_size.split.first.strip
         next if src.blank?
 
-        src = convert_to_absolute_url(url, src)
-        next unless valid_image_url?(src)
-
-        images << src
+        src = convert_to_absolute_url(base_url, src)
+        images << src if valid_image_url?(src)
       end
+    end
 
-      doc.css('img[srcset]').each do |img|
-        srcset = img['srcset']
-        next if srcset.blank?
-
-        srcset.split(',').each do |src_with_size|
-          src = src_with_size.split.first.strip
-          next if src.blank?
-
-          src = convert_to_absolute_url(url, src)
-          next unless valid_image_url?(src)
-
-          images << src unless images.include?(src)
-        end
+    # style属性のbackground-imageからも取得
+    doc.css('[style*="background-image"]').each do |element|
+      style = element['style']
+      if style =~ /url\(['"]?([^'")\s]+)['"]?\)/
+        src = Regexp.last_match(1)
+        src = convert_to_absolute_url(base_url, src)
+        images << src if valid_image_url?(src)
       end
+    end
 
-      images.uniq!
+    # picture > source タグ
+    doc.css('picture source').each do |source|
+      src = source['srcset'] || source['src']
+      next if src.blank?
 
+      src = convert_to_absolute_url(base_url, src)
+      images << src if valid_image_url?(src)
+    end
+
+    images.uniq
+  end
+
+  def download_csv
+    url = params[:url]
+    use_js_rendering = params[:js] == '1'
+
+    begin
+      images = if use_js_rendering
+                 scrape_with_ferrum(url)
+               else
+                 scrape_with_nokogiri(url)
+               end
     rescue StandardError => e
       flash[:error] = "エラーが発生しました: #{e.message}"
       redirect_to day069_path
