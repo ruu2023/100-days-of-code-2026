@@ -13,6 +13,13 @@ Rails.application.routes.draw do
     resources :posts, controller: "day067/posts"
   end
 
+  # Day069 - Image Viewer
+  scope "/day069", as: :day069 do
+    get "/" => "day069/image_viewer#index"
+    post "/scrape" => "day069/image_viewer#scrape"
+    get "/download_csv" => "day069/image_viewer#download_csv"
+  end
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check

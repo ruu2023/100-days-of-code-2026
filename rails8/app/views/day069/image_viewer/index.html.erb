@@ -1,0 +1,57 @@
+<div class="max-w-6xl mx-auto p-6">
+  <h1 class="text-3xl font-bold text-gray-800 mb-6">Image Viewer</h1>
+
+  <% if flash[:error] %>
+    <div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
+    <%= form_with url: day069_image_viewer_scrape_path, method: :post, class: "flex gap-3" do |form| %>
+      <div class="flex-1">
+        <%= form.text_field :url,
+            value: @url,
+            placeholder: "https://example.com",
+            required: true,
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" %>
+      </div>
+      <%= form.submit "Fetch Images",
+          class: "bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition cursor-pointer whitespace-nowrap" %>
+    <% end %>
+
+    <% if @url.present? && @images.any? %>
+      <div class="mt-4 flex gap-3">
+        <%= form_with url: day069_image_viewer_download_csv_path, method: :get, class: "inline" do |form| %>
+          <%= form.hidden_field :url, value: @url %>
+          <%= form.submit "Download CSV",
+              class: "bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition cursor-pointer" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if @images.any? %>
+    <div class="mb-4">
+      <p class="text-gray-600"><%= @images.count %> images found</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+      <% @images.each do |image_url| %>
+        <div class="aspect-square bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
+          <a href="<%= image_url %>" target="_blank" rel="noopener noreferrer" class="block w-full h-full">
+            <img src="<%= image_url %>"
+                 alt="Image"
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                 loading="lazy"
+                 onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-gray-400 text-sm p-2 text-center\'>Image not available</div>'">
+          </a>
+        </div>
+      <% end %>
+    </div>
+  <% elsif @url.present? %>
+    <div class="text-center py-12 text-gray-500">
+      <p>No images found on this page.</p>
+    </div>
+  <% end %>
+</div>
