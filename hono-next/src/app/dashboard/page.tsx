@@ -249,25 +249,19 @@ const projects = [
   {
     title: "Rails VPS Deploy",
     description: "Rails 8 アプリを VPS にデプロイ。Kamal を使用したデプロイ自動化。",
-    link: "/vps",
+    link: "https://rails.ruu-dev.com/day067/posts",
     day: "Day 67",
-  },
-  {
-    title: "Rails VPS Reverse Proxy",
-    description: "Hono API + Rails のリバースプロキシで assets の 404 エラーを解消。VPS へのデプロイ。",
-    link: "/vps",
-    day: "Day 68",
   },
   {
     title: "Go API Web Scraper",
     description: "Gin + goquery による高速なHTML解析、URLからMarkdownへの一括変換ロジック、ページ内の全画像URLの抽出リスト化",
-    link: "/day068",
+    link: "https://go.ruu-dev.com/day068/md?url=https://b.hatena.ne.jp/hotentry/it",
     day: "Day 68",
   },
   {
     title: "Rails Image Scraper",
     description: "Ferrum を使った画像抽出、ページ内の全画像URLの抽出リスト化",
-    link: "/day069",
+    link: "https://rails.ruu-dev.com/day069",
     day: "Day 69",
   },
 ]
@@ -297,7 +291,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent>
               <Button variant="secondary" className="w-full" asChild>
-                <Link href={project.link}>ページを開く</Link>
+                <a href={project.link}>ページを開く</a>
               </Button>
             </CardContent>
           </Card>
