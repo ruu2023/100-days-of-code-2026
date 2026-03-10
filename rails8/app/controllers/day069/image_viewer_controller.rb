@@ -1,10 +1,11 @@
 require 'open-uri'
 require 'nokogiri'
+require 'csv'
 
 class Day069::ImageViewerController < ApplicationController
   def index
+    @url = params[:url] || ""
     @images = []
-    @url = ""
   end
 
   def scrape
@@ -105,7 +106,7 @@ class Day069::ImageViewerController < ApplicationController
 
     rescue StandardError => e
       flash[:error] = "エラーが発生しました: #{e.message}"
-      redirect_to day069_image_viewer_index_path
+      redirect_to day069_path
       return
     end
 
@@ -136,8 +137,6 @@ class Day069::ImageViewerController < ApplicationController
   end
 
   def generate_csv(images)
-    require 'csv'
-
     CSV.generate do |csv|
       csv << ['No', 'Image URL']
       images.each_with_index do |image, index|

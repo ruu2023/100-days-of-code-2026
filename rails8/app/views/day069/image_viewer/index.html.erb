@@ -8,7 +8,7 @@
   <% end %>
 
   <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 mb-8">
-    <%= form_with url: day069_image_viewer_scrape_path, method: :post, class: "flex gap-3" do |form| %>
+    <%= form_with url: day069_scrape_path, method: :post, class: "flex gap-3", data: { turbo: false } do |form| %>
       <div class="flex-1">
         <%= form.text_field :url,
             value: @url,
@@ -22,7 +22,7 @@
 
     <% if @url.present? && @images.any? %>
       <div class="mt-4 flex gap-3">
-        <%= form_with url: day069_image_viewer_download_csv_path, method: :get, class: "inline" do |form| %>
+        <%= form_with url: day069_download_csv_path, method: :get, class: "inline", data: { turbo: false } do |form| %>
           <%= form.hidden_field :url, value: @url %>
           <%= form.submit "Download CSV",
               class: "bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition cursor-pointer" %>
