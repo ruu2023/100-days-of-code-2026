@@ -16,7 +16,7 @@ func main() {
 	})
 
 	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "go is running")
+		c.String(http.StatusOK, "go is runnning")
 	})
 
 	// 1. URLを渡したらMarkdownにパースして返す
