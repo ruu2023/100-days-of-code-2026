@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-36b18b002010",
-    "title": "ChatGPT5.4Proに小説を書かせたら「AIが書いたにしては面白い」というレベルをはるかに超えてて、仰天した｜ふろむだ",
-    "url": "https://note.com/fromdusktildawn/n/n36b18b002010",
+    "id": "hatebu-it-0-/code-review",
+    "title": "Code Review for Claude Code | Claude",
+    "url": "https://claude.com/blog/code-review",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-07T13:51:36.126Z",
-    "summary": "ChatGPT5.4Proがたった5行のプロンプトから、AIのレベルをはるかに超えるSF小説『まだ起きるな』を生成し、読者を驚かせた。交通事故から始まり、東京の会社員生活、月面都市、宇宙船、最終的には人類滅亡後の意思決定モジュールへと、主人公は、死と覚醒を繰り返す多層的な「現実」を体験する。案内役の少女に導かれ、宇宙の再設計という壮大な目的のために数百万の現実を生きてきたことが明かされ、最終的に自らの「本物の現実」を選ぶ感動的な物語は、AIが作ったとは思えないほどの深遠さと完成度だ。\n\n要するに：たった5行の指示でAIが生成したとは思えないほど、多層的で壮大かつ感動的なSF小説が読者を仰天させた。",
-    "bookmarkCount": 409,
-    "audioFile": "../audio/hatebu-it-0-36b18b002010.wav"
+    "date": "2026-03-10T03:09:30.939Z",
+    "summary": "Anthropicがクラウドサービス「Claude」のコードレビューシステムを導入し、エンジニアによる深いレビューを自動化。エンジニア1人あたりPR1件あたりのレビュー件数は前年比200%増加し、深刻なレビューは54%に達した。コードレビューがボトルネックとなっているが、レビュー結果の信頼性を高めるために「Code Review」を導入した。",
+    "bookmarkCount": 190,
+    "audioFile": "../audio/hatebu-it-0-_code-review.wav"
   },
   {
-    "id": "hatebu-it-6-id-bloatware",
-    "title": "日本の大手携帯キャリア販売スマホには、怪しいアプリが混入・蔓延。「削除不可能なスパイウェア」との批判も - すまほん!!",
-    "url": "https://smhn.info/202603-appcloud-android-bloatware",
+    "id": "hatebu-it-16-th_traversal",
+    "title": "AWS公式SDKにも存在した、署名付きURLにおけるパストラバーサル - GMO Flatt Security Blog",
+    "url": "https://blog.flatt.tech/entry/signed_url_path_traversal",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-07T13:51:45.861Z",
-    "summary": "日本の大手携帯キャリアが販売する一部のAndroidスマートフォンには、「AppCloud」や「App Selector」といったシステムアプリが密かに混入し、通知をきっかけに利用者の意図しないアプリを勝手にインストールする事例が多数報告され、問題視されています。これらのアプリはOS動作に必要そうな名称で巧妙に偽装され、利用者はアドウェアと認識しづらく、通常の方法では削除が困難な上、無効化してもアップデート後に復活する可能性も指摘されています。海外では「削除不能なスパイウェア」と批判され、生体情報などの機密情報を扱う可能性まで指摘されており、極めて悪質です。キャリアやメーカーは、製品の信頼性を著しく毀損するこの行為を厳に慎むべきでしょう。\n\n要するに：日本の大手キャリア販売Androidスマホに、ユーザーに無断でアプリをインストールし、削除も困難な悪質なシステムアプリが蔓延している。",
-    "bookmarkCount": 341,
-    "audioFile": "../audio/hatebu-it-6-id-bloatware.wav"
+    "date": "2026-03-10T03:10:08.029Z",
+    "summary": "AWS公式SDKのGo v1とJavaScript v3で、署名付きURLのペイロードに「/」を指定して署名を行うと、パス正規化の仕組みにより同一バケット内の任意のオブジェクトにアクセスできてしまうパストラバーサルが発生する脆弱性が確認されています。アプリケーション側で正規化処理を省略し、ペイロードをそのまま組み立てるケースがミスとして指摘されています。対策として、SDKの組み込み正規化機能を活用し、バケットやテナントを区別する際にパスをエスケープする実装が推奨されています。",
+    "bookmarkCount": 7,
+    "audioFile": "../audio/hatebu-it-16-th_traversal.wav"
   }
 ]
