@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 export default function BackToDashboardButton() {
 	const pathname = usePathname();
 	// ログインページとダッシュボードページでは非表示
-	if (pathname === "/login" || pathname === "/dashboard" || pathname === "/" || pathname.startsWith("/roadmap")) {
+	if (pathname === "/login" || pathname === "/dashboard" || pathname === "/") {
 		return null;
 	}
 

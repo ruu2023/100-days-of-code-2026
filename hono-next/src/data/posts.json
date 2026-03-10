@@ -14,7 +14,8 @@
       "#Ferrum",
       "#Scraping"
     ],
-    "url": "https://x.com/ruu_web/status/2031348530280018228"
+    "url": "https://x.com/ruu_web/status/2031348530280018228",
+    "demoLink": "https://rails.ruu-dev.com/day069"
   },
   {
     "day": 68,
@@ -34,7 +35,8 @@
       "#Scraping",
       "#Backend"
     ],
-    "url": "https://x.com/ruu_web/status/2031024838538936641"
+    "url": "https://x.com/ruu_web/status/2031024838538936641",
+    "demoLink": "https://go.ruu-dev.com/day068/md?url=https://b.hatena.ne.jp/hotentry/it"
   },
   {
     "day": 67,
@@ -52,7 +54,8 @@
       "#VPS",
       "#Hetzner"
     ],
-    "url": "https://x.com/ruu_web/status/2030700275582075084"
+    "url": "https://x.com/ruu_web/status/2030700275582075084",
+    "demoLink": "https://rails.ruu-dev.com/day067/posts"
   },
   {
     "day": 66,
@@ -69,7 +72,8 @@
       "#OCR",
       "#AI"
     ],
-    "url": "https://x.com/ruu_web/status/2030249337448812722"
+    "url": "https://x.com/ruu_web/status/2030249337448812722",
+    "demoLink": "/day066"
   },
   {
     "day": 65,
@@ -87,7 +91,8 @@
       "#AI",
       "#LLM"
     ],
-    "url": "https://x.com/ruu_web/status/2029881919421435967"
+    "url": "https://x.com/ruu_web/status/2029881919421435967",
+    "demoLink": "/day065"
   },
   {
     "day": 64,
@@ -105,7 +110,8 @@
       "#CloudRun",
       "#OCR"
     ],
-    "url": "https://x.com/ruu_web/status/2029574951490199857"
+    "url": "https://x.com/ruu_web/status/2029574951490199857",
+    "demoLink": "/day064"
   },
   {
     "day": 63,
@@ -122,7 +128,8 @@
       "#TypeScript",
       "#DesignPatterns"
     ],
-    "url": "https://x.com/ruu_web/status/2029216369468948631"
+    "url": "https://x.com/ruu_web/status/2029216369468948631",
+    "demoLink": "/day063"
   },
   {
     "day": 62,
@@ -139,7 +146,8 @@
       "#TypeScript",
       "#XLSX"
     ],
-    "url": "https://x.com/ruu_web/status/2028849512186581247"
+    "url": "https://x.com/ruu_web/status/2028849512186581247",
+    "demoLink": "/day062"
   },
   {
     "day": 61,
@@ -157,7 +165,8 @@
       "#Nextjs",
       "#Hono"
     ],
-    "url": "https://x.com/ruu_web/status/2028482332672573776"
+    "url": "https://x.com/ruu_web/status/2028482332672573776",
+    "demoLink": "/day061"
   },
   {
     "day": 60,
@@ -176,7 +185,8 @@
       "#Cloudflare",
       "#R2"
     ],
-    "url": "https://x.com/ruu_web/status/2028124225517850918"
+    "url": "https://x.com/ruu_web/status/2028124225517850918",
+    "demoLink": "/day060"
   },
   {
     "day": 59,
@@ -192,7 +202,8 @@
       "#Hono",
       "#OAuth"
     ],
-    "url": "https://x.com/ruu_web/status/2027750621009547563"
+    "url": "https://x.com/ruu_web/status/2027750621009547563",
+    "demoLink": "/day059"
   },
   {
     "day": 58,
@@ -210,7 +221,8 @@
       "#GeminiAPI",
       "#Antigravity"
     ],
-    "url": "https://x.com/ruu_web/status/2027396676118581500"
+    "url": "https://x.com/ruu_web/status/2027396676118581500",
+    "demoLink": "/day058"
   },
   {
     "day": 57,
@@ -228,7 +240,8 @@
       "#CanvasAPI",
       "#shadcnui"
     ],
-    "url": "https://x.com/ruu_web/status/2026996209211388077"
+    "url": "https://x.com/ruu_web/status/2026996209211388077",
+    "demoLink": "/day057"
   },
   {
     "day": 56,
@@ -243,7 +256,8 @@
       "#Nextjs",
       "#VOICEVOX"
     ],
-    "url": "https://x.com/ruu_web/status/2026669350770577659"
+    "url": "https://x.com/ruu_web/status/2026669350770577659",
+    "demoLink": "/day056"
   },
   {
     "day": 55,
@@ -261,7 +275,8 @@
       "#JWT",
       "#ServerActions"
     ],
-    "url": "https://x.com/ruu_web/status/2026260095735300267"
+    "url": "https://x.com/ruu_web/status/2026260095735300267",
+    "demoLink": "/day055"
   },
   {
     "day": 54,
@@ -278,7 +293,8 @@
       "#SQLite",
       "#sqljs"
     ],
-    "url": "https://x.com/ruu_web/status/2025838998430818369"
+    "url": "https://x.com/ruu_web/status/2025838998430818369",
+    "demoLink": "/day054"
   },
   {
     "day": 53,
@@ -297,7 +313,8 @@
       "#Hono",
       "#GeminiAPI"
     ],
-    "url": "https://x.com/ruu_web/status/2025540581070618844"
+    "url": "https://x.com/ruu_web/status/2025540581070618844",
+    "demoLink": "/day053"
   },
   {
     "day": 52,
@@ -313,7 +330,8 @@
       "#Nextjs",
       "#App"
     ],
-    "url": "https://x.com/ruu_web/status/2025175697061544074"
+    "url": "https://x.com/ruu_web/status/2025175697061544074",
+    "demoLink": "/day052"
   },
   {
     "day": 51,
@@ -331,7 +349,8 @@
       "#GoF",
       "#React"
     ],
-    "url": "https://x.com/ruu_web/status/2024782933056479278"
+    "url": "https://x.com/ruu_web/status/2024782933056479278",
+    "demoLink": "/day051"
   },
   {
     "day": 50,
@@ -364,7 +383,8 @@
       "#React",
       "#TailwindCSS"
     ],
-    "url": "https://x.com/ruu_web/status/2024077225876939211"
+    "url": "https://x.com/ruu_web/status/2024077225876939211",
+    "demoLink": "/day049"
   },
   {
     "day": 48,
@@ -383,7 +403,8 @@
       "#GameDev",
       "#React"
     ],
-    "url": "https://x.com/ruu_web/status/2023745974783668461"
+    "url": "https://x.com/ruu_web/status/2023745974783668461",
+    "demoLink": "/day048"
   },
   {
     "day": 47,
@@ -400,7 +421,8 @@
       "#CloudflareWorkers",
       "#Nextjs"
     ],
-    "url": "https://x.com/ruu_web/status/2023411514120802590"
+    "url": "https://x.com/ruu_web/status/2023411514120802590",
+    "demoLink": "/day047"
   },
   {
     "day": 46,
@@ -416,7 +438,8 @@
       "#DrizzleORM",
       "#TypeScript"
     ],
-    "url": "https://x.com/ruu_web/status/2022986819441426591"
+    "url": "https://x.com/ruu_web/status/2022986819441426591",
+    "demoLink": "/day046"
   },
   {
     "day": 45,
@@ -449,7 +472,8 @@
       "#CloudRun",
       "#Docker"
     ],
-    "url": "https://x.com/ruu_web/status/2022327415339614393"
+    "url": "https://x.com/ruu_web/status/2022327415339614393",
+    "demoLink": "/day044"
   },
   {
     "day": 43,
@@ -475,7 +499,8 @@
       "#Nextjs",
       "#Frontend"
     ],
-    "url": "https://x.com/ruu_web/status/2021962283342250161"
+    "url": "https://x.com/ruu_web/status/2021962283342250161",
+    "demoLink": "/day042"
   },
   {
     "day": 41,
@@ -489,7 +514,8 @@
       "#100DaysOfCode",
       "#GeminiAPI"
     ],
-    "url": "https://x.com/ruu_web/status/2021228226991792179"
+    "url": "https://x.com/ruu_web/status/2021228226991792179",
+    "demoLink": "/day041"
   },
   {
     "day": 40,
@@ -507,7 +533,8 @@
       "#CanvasAPI",
       "#WebSocket"
     ],
-    "url": "https://x.com/ruu_web/status/2020844893774684192"
+    "url": "https://x.com/ruu_web/status/2020844893774684192",
+    "demoLink": "/day040"
   },
   {
     "day": 39,
@@ -525,7 +552,8 @@
       "#Firebase",
       "#PWA"
     ],
-    "url": "https://x.com/ruu_web/status/2020442481356313038"
+    "url": "https://x.com/ruu_web/status/2020442481356313038",
+    "demoLink": "/day039"
   },
   {
     "day": 38,
@@ -560,7 +588,8 @@
       "#Nextjs",
       "#Study"
     ],
-    "url": "https://x.com/ruu_web/status/2019613739549638698"
+    "url": "https://x.com/ruu_web/status/2019613739549638698",
+    "demoLink": "/day037"
   },
   {
     "day": 36,
@@ -577,7 +606,8 @@
       "#Nextjs",
       "#MusicApp"
     ],
-    "url": "https://x.com/ruu_web/status/2019255897512677644"
+    "url": "https://x.com/ruu_web/status/2019255897512677644",
+    "demoLink": "/day036"
   },
   {
     "day": 35,
@@ -594,7 +624,8 @@
       "#Nextjs",
       "#Markdown"
     ],
-    "url": "https://x.com/ruu_web/status/2019012075620831458"
+    "url": "https://x.com/ruu_web/status/2019012075620831458",
+    "demoLink": "/day035"
   },
   {
     "day": 34,
@@ -612,7 +643,8 @@
       "#Nextjs",
       "#LMS"
     ],
-    "url": "https://x.com/ruu_web/status/2018670129777983512"
+    "url": "https://x.com/ruu_web/status/2018670129777983512",
+    "demoLink": "/day034"
   },
   {
     "day": 33,
@@ -628,7 +660,8 @@
       "#Nextjs",
       "#GameDev"
     ],
-    "url": "https://x.com/ruu_web/status/2018283672412319869"
+    "url": "https://x.com/ruu_web/status/2018283672412319869",
+    "demoLink": "/day033"
   },
   {
     "day": 32,
@@ -644,7 +677,8 @@
       "#Nextjs",
       "#useMemo"
     ],
-    "url": "https://x.com/ruu_web/status/2017956142115332515"
+    "url": "https://x.com/ruu_web/status/2017956142115332515",
+    "demoLink": "/day032"
   },
   {
     "day": 31,
@@ -659,7 +693,8 @@
       "#React",
       "#Nextjs"
     ],
-    "url": "https://x.com/ruu_web/status/2017601271914762604"
+    "url": "https://x.com/ruu_web/status/2017601271914762604",
+    "demoLink": "/day031"
   },
   {
     "day": 30,
@@ -675,7 +710,8 @@
       "#Nextjs",
       "#CanvasAPI"
     ],
-    "url": "https://x.com/ruu_web/status/2017237298455462359"
+    "url": "https://x.com/ruu_web/status/2017237298455462359",
+    "demoLink": "/day030"
   },
   {
     "day": 29,
@@ -708,7 +744,8 @@
       "#CSS",
       "#Glassmorphism"
     ],
-    "url": "https://x.com/ruu_web/status/2016498966196846705"
+    "url": "https://x.com/ruu_web/status/2016498966196846705",
+    "demoLink": "/day028"
   },
   {
     "day": 27,
@@ -789,7 +826,8 @@
       "#SQLite",
       "#PWA"
     ],
-    "url": "https://x.com/ruu_web/status/2014678439295648148"
+    "url": "https://x.com/ruu_web/status/2014678439295648148",
+    "demoLink": "/day023"
   },
   {
     "day": 22,
@@ -816,7 +854,8 @@
       "#TypeScript",
       "#FramerMotion"
     ],
-    "url": "https://x.com/ruu_web/status/2013960655686992165"
+    "url": "https://x.com/ruu_web/status/2013960655686992165",
+    "demoLink": "/day021"
   },
   {
     "day": 20,
@@ -831,7 +870,8 @@
       "#Dexie",
       "#WebDev"
     ],
-    "url": "https://x.com/ruu_web/status/2013582534706401672"
+    "url": "https://x.com/ruu_web/status/2013582534706401672",
+    "demoLink": "/day020"
   },
   {
     "day": 19,
@@ -940,7 +980,8 @@
       "#Nextjs",
       "#Notion"
     ],
-    "url": "https://x.com/ruu_web/status/2010709845574594611"
+    "url": "https://x.com/ruu_web/status/2010709845574594611",
+    "demoLink": "/day012"
   },
   {
     "day": 11,
@@ -1059,7 +1100,8 @@
       "#Nextjs",
       "#Docker"
     ],
-    "url": "https://x.com/ruu_web/status/2007423507123311030"
+    "url": "https://x.com/ruu_web/status/2007423507123311030",
+    "demoLink": "/day003"
   },
   {
     "day": 2,
@@ -1083,6 +1125,7 @@
       "#100DaysOfCode",
       "#Nextjs"
     ],
-    "url": "https://x.com/ruu_web/status/2006704508722930165"
+    "url": "https://x.com/ruu_web/status/2006704508722930165",
+    "demoLink": "/day001"
   }
 ]

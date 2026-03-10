@@ -36,11 +36,19 @@ export function PostCard({ post }: { post: any }) {
           ))}
         </div>
       </CardContent>
-      <div className="p-4 pt-0 mt-auto">
+      <div className="p-4 pt-0 mt-auto flex flex-col gap-2">
+        {post.demoLink && (
+          <a
+            href={post.demoLink}
+            className="text-[12px] flex items-center justify-center w-full py-2 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md transition-colors font-bold shadow-sm"
+          >
+            触ってみる
+          </a>
+        )}
         <a 
           href={post.url} 
           target="_blank" 
-          className="text-[10px] flex items-center justify-center w-full py-2 bg-secondary hover:bg-secondary/80 rounded-md transition-colors"
+          className="text-[10px] flex items-center justify-center w-full py-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md transition-colors"
         >
           View on X <ExternalLink className="w-3 h-3 ml-1" />
         </a>
