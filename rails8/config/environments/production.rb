@@ -55,7 +55,6 @@ Rails.application.configure do
 
   # Use Solid Cable for real-time updates
   config.action_cable.mount_path = "/cable"
-  config.action_cable.connects_to = { database: { writing: :cable } }
 
   # Use R2 for Active Storage in production
   config.active_storage.service = :r2

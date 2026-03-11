@@ -8,5 +8,3 @@ description: tweet
   - hono-app/src/data/posts.md
 
   - README.md
-
-  - hono-next/src/app/dashboard/page.tsx
