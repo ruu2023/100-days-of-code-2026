@@ -24,6 +24,7 @@ proxy:
   ssl: true
   host: rails.ruu-dev.com
   forward_headers: true
+  app_port: 80
 
 # Where you keep your container images.
 registry:
