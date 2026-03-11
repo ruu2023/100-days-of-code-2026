@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-/code-review",
-    "title": "Code Review for Claude Code | Claude",
-    "url": "https://claude.com/blog/code-review",
+    "id": "hatebu-it-21-news010.html",
+    "title": "【無料】Anthropic公式「エージェントスキル入門」講座が公開　Claude Codeでの活用法が分かる22分の動画",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2603/10/news010.html",
     "source": "Hatena:it",
-    "bookmarkCount": 190,
-    "summary": "Anthropicがクラウドサービス「Claude」のコードレビューシステムを導入し、エンジニアによる深いレビューを自動化。エンジニア1人あたりPR1件あたりのレビュー件数は前年比200%増加し、深刻なレビューは54%に達した。コードレビューがボトルネックとなっているが、レビュー結果の信頼性を高めるために「Code Review」を導入した。",
+    "bookmarkCount": 700,
+    "summary": "ルールに従い、要点を整理した簡潔なまとめは以下の通りです。\n\n**要約：**  \nAnthropicは、無料の「エージェントスキル入門」講座を公開。Claude Codeでの活用法を解説した22分の動画を提供。\n\n**補足：**  \n本動画では、Claude Codeを用いてエージェントスキルを導入する手順を説明。初心者でも理解できるよう、実践的な例を交えて解説しています。",
     "category": "AI",
-    "date": "2026-03-10T03:09:30.939Z"
+    "date": "2026-03-11T03:09:52.747Z"
   },
   {
-    "id": "hatebu-it-16-th_traversal",
-    "title": "AWS公式SDKにも存在した、署名付きURLにおけるパストラバーサル - GMO Flatt Security Blog",
-    "url": "https://blog.flatt.tech/entry/signed_url_path_traversal",
+    "id": "hatebu-it-9-m/li/2673168",
+    "title": "【追記あり】メルカリで50万円の商品を購入したら中身が空だった...開封動画まで撮影して証拠もあるのに相手は非を認めず事務局もなかなか動いてくれず手詰まり状態に",
+    "url": "https://togetter.com/li/2673168",
     "source": "Hatena:it",
-    "bookmarkCount": 7,
-    "summary": "AWS公式SDKのGo v1とJavaScript v3で、署名付きURLのペイロードに「/」を指定して署名を行うと、パス正規化の仕組みにより同一バケット内の任意のオブジェクトにアクセスできてしまうパストラバーサルが発生する脆弱性が確認されています。アプリケーション側で正規化処理を省略し、ペイロードをそのまま組み立てるケースがミスとして指摘されています。対策として、SDKの組み込み正規化機能を活用し、バケットやテナントを区別する際にパスをエスケープする実装が推奨されています。",
+    "bookmarkCount": 103,
+    "summary": "メルカリで50万円の商品を買った被害者が動画証拠を撮影したものの、出品者や被害者が非を認めず事務局も動いてくれず、SNSでの拡散で解決を図っている。出品者から質問すると相手が理由をつけて警察への被害届けを止めようとしており、動画の提出を求められたが、被害者は証拠として有効か疑問を呈。相手の出品画像には空の箱と仮想的な中身の梱包しか写っておらず、50万円の商品の梱包が酷いと指摘。高額商品は梱包に気を配る必要があり、被害者に写真や動画を撮るよう促す声も上がった。",
     "category": "Security",
-    "date": "2026-03-10T03:10:08.029Z"
+    "date": "2026-03-11T03:10:27.229Z"
   }
 ]
