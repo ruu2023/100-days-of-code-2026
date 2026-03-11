@@ -22,7 +22,7 @@ Rails.application.configure do
   # config.asset_host = "http://assets.example.com"
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  # (Overridden to :r2 below for Cloudflare R2)
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
   # config.assume_ssl = true
@@ -52,6 +52,15 @@ Rails.application.configure do
   # Replace the default in-process and non-durable queuing backend for Active Job.
   config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
+
+  # Use Solid Cable for real-time updates
+  config.action_cable.mount_path = "/cable"
+  config.action_cable.connects_to = { database: { writing: :cable } }
+
+  # Use R2 for Active Storage in production
+  config.active_storage.service = :r2
+  # Use rails_storage_proxy for R2 to avoid CORS issues
+  config.active_storage.resolve_model_to_route = :rails_storage_proxy
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

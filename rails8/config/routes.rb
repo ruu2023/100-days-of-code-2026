@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
+
+  # OAuth routes
+  get "auth/google_oauth2", to: "auth#google_oauth2"
+  get "auth/google_oauth2/callback", to: "auth#google_oauth2"
+  get "auth/failure", to: "auth#failure"
+
+  # X (Twitter) Clone - Post routes
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  # Timeline route
+  get "/timeline" => "posts#timeline", as: :timeline
+
+  # Search route
+  get "/search" => "posts#search", as: :search
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Day006 - Memo App
@@ -29,5 +48,5 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  get "/", to: proc { [200, { "Content-Type" => "text/plain" }, ["Rails is running"]] }
+  get "/", to: "posts#index"
 end

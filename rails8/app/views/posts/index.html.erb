@@ -1,0 +1,13 @@
+<%# Turbo Frame for new posts %>
+<%= turbo_stream_from "posts" %>
+
+<% @posts.each do |post| %>
+  <%= render partial: "post", object: post %>
+<% end %>
+
+<% if @posts.empty? %>
+  <div class="p-8 text-center text-gray-500">
+    <p class="text-xl">No posts yet</p>
+    <p class="mt-2">Be the first to post something!</p>
+  </div>
+<% end %>

@@ -1,4 +1,20 @@
 
+## 2026-03-11
+
+【Day 070/100】Rails mini X clone 🛠️✨
+
+R2とGoogleAuthを導入した、Rails8でのX風アプリを作りました。
+Claude Code で若干1時間で完成です。
+
+✅ R2によるメディアストレージ
+✅ GoogleAuthによる認証
+
+#100DaysOfCode #Rails #R2 #GoogleAuth
+
+[Original Post](https://x.com/ruu_web/status/2031348530280018228)
+
+---
+
 ## 2026-03-10
 
 【Day 069/100】Rails Image Scraper 🛠️✨
