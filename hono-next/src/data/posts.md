@@ -11,7 +11,7 @@ Claude Code で若干1時間で完成です。
 
 #100DaysOfCode #Rails #R2 #GoogleAuth
 
-[Original Post](https://x.com/ruu_web/status/2031348530280018228)
+[Original Post](https://x.com/ruu_web/status/2031757771205669246)
 
 ---
 
