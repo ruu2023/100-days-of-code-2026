@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
     if @post.save
       respond_to do |format|
-        format.turbo_stream
+        format.turbo_stream { render turbo_stream: turbo_stream.prepend("posts", partial: "posts/post", object: @post) }
         format.html { redirect_to posts_path, notice: "Post created!" }
       end
     else
@@ -46,7 +46,10 @@ class PostsController < ApplicationController
   def destroy
     if @post.user == Current.user || Current.user.admin?
       @post.destroy
-      redirect_to posts_path, notice: "Post deleted"
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
+        format.html { redirect_to posts_path, notice: "Post deleted" }
+      end
     else
       redirect_to posts_path, alert: "Not authorized"
     end
