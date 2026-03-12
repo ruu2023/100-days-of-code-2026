@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-export const parseXPosts = (rawText) => {
+export const parseXPosts = (rawText, existingPostsMap = new Map()) => {
   const sections = rawText.split('---').filter(s => s.trim().length > 0);
 
   return sections.map(section => {
@@ -32,10 +32,19 @@ export const parseXPosts = (rawText) => {
     const urlMatch = section.match(/\[Original Post\]\((.*?)\)/);
     const url = urlMatch ? urlMatch[1] : "#";
 
+    // 5.5. Demo Link
+    const demoMatch = section.match(/\[Demo\]\((.*?)\)/);
+    let demoLink = demoMatch ? demoMatch[1] : undefined;
+    if (!demoLink && existingPostsMap.has(day)) {
+      demoLink = existingPostsMap.get(day).demoLink;
+    }
+
     // 6. 説明文 (タイトル行の直後の行、かつ空行やタグ行でないもの)
     const description = lines.slice(2).find(l => l.length > 5 && !l.includes('✅') && !l.includes('#') && !l.includes('http')) || "";
 
-    return { day, date, title, description, features, tags, url };
+    const post = { day, date, title, description, features, tags, url };
+    if (demoLink) post.demoLink = demoLink;
+    return post;
   })
   .filter(post => post.day > 0) // RTなどを除外
   .sort((a, b) => b.day - a.day); // 降順
@@ -44,8 +53,18 @@ export const parseXPosts = (rawText) => {
 const mdPath = path.join(process.cwd(), 'posts.md');
 const jsonPath = path.join(process.cwd(), 'posts.json');
 
+let existingPostsMap = new Map();
+if (fs.existsSync(jsonPath)) {
+  try {
+    const existingData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    existingPostsMap = new Map(existingData.map(p => [p.day, p]));
+  } catch (e) {
+    // Ignore invalid JSON
+  }
+}
+
 const rawData = fs.readFileSync(mdPath, 'utf8');
-const posts = parseXPosts(rawData);
+const posts = parseXPosts(rawData, existingPostsMap);
 
 fs.writeFileSync(jsonPath, JSON.stringify(posts, null, 2));
 console.log('✅ posts.json generated!');
