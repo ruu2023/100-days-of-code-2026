@@ -1,4 +1,21 @@
 
+## 2026-03-12
+
+【Day 071/100】Rails curl prompt maker 🛠️✨
+
+Rails で curl コマンドを実行できるアプリを作りました。
+
+✅ 画面で curl コマンドを生成
+✅ 生成した curl コマンドを実行
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/curl_prompt)
+
+[Original Post](https://x.com/ruu_web/status/2032105481670652255)
+
+---
+
 ## 2026-03-11
 
 【Day 070/100】Rails mini X clone 🛠️✨

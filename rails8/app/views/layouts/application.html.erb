@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Accounting - Blue Return</title>
+    <title>Rails8 in 100day of code</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -17,18 +17,6 @@
   </head>
 
   <body class="bg-gray-50 text-gray-900">
-    <!-- Mobile-first header -->
-    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-        <h1 class="text-lg font-bold text-gray-900">Blue Return</h1>
-        <nav class="flex items-center gap-4">
-          <%= link_to "Transactions", accounting_journal_entries_path,
-              class: "px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 rounded-lg hover:bg-gray-100" %>
-          <%= link_to "New", new_accounting_journal_entry_path,
-              class: "px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700" %>
-        </nav>
-      </div>
-    </header>
 
     <!-- Main content -->
     <main class="min-h-screen">

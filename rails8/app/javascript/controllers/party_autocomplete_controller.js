@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import { FetchRequest } from "@hotwired/turbo-rails"
 
 export default class extends Controller {
   static targets = ["input", "results", "hiddenId", "quickAddFrame"]
@@ -44,11 +43,14 @@ export default class extends Controller {
       url.searchParams.set("query", query)
       url.searchParams.set("type", this.partyTypeValue)
 
-      const request = new FetchRequest("get", url.toString())
-      const response = await request.perform()
+      const response = await fetch(url.toString(), {
+        headers: {
+          "Accept": "text/html"
+        }
+      })
 
       if (response.ok) {
-        const html = await response.text
+        const html = await response.text()
         this.resultsTarget.innerHTML = html
         this.showResults()
       }

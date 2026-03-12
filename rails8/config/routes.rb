@@ -75,6 +75,12 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  # Curl Prompt Maker
+  get "/curl_prompt" => "curl_prompt#index"
+  post "/curl_prompt" => "curl_prompt#create"
+  post "/curl_prompt/send_request" => "curl_prompt#send_request"
+  post "/curl_prompt/mock" => "curl_prompt#mock"
+
   # Defines the root path route ("/")
   get "/", to: "posts#index"
 end

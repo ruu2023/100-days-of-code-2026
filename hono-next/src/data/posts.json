@@ -1,5 +1,21 @@
 [
   {
+    "day": 71,
+    "date": "2026-03-12",
+    "title": "Rails curl prompt maker 🛠️✨",
+    "description": "【Day 071/100】Rails curl prompt maker 🛠️✨",
+    "features": [
+      "画面で curl コマンドを生成",
+      "生成した curl コマンドを実行"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2032105481670652255",
+    "demoLink": "https://rails.ruu-dev.com/curl_prompt"
+  },
+  {
     "day": 70,
     "date": "2026-03-11",
     "title": "Rails mini X clone 🛠️✨",

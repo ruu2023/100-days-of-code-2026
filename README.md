@@ -142,6 +142,8 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 068 | 03/09 | Go API Web Scraper   | Gin / goquery / Web Scraping               | [View](./go-api)                                      |
 | 069 | 03/10 | Rails Image Scraper  | Ferrum / Scraping / Images                 | [View](./rails/day069/image_viewer)                      |
 | 070 | 03/11 | Rails Mini X Clone   | R2 / GoogleAuth / Rails 8                  | [View](./rails8)                                      |
+| 071 | 03/12 | Rails curl prompt maker | Rails / curl / GoogleAuth / R2             | [View](./rails8)                                      |
+
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/
