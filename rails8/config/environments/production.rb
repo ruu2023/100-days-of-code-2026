@@ -58,8 +58,6 @@ Rails.application.configure do
 
   # Use R2 for Active Storage in production
   config.active_storage.service = :r2
-  # Use rails_storage_proxy for R2 to avoid CORS issues
-  config.active_storage.resolve_model_to_route = :rails_storage_proxy
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

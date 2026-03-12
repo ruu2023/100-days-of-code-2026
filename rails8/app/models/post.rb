@@ -16,12 +16,17 @@ class Post < ApplicationRecord
   scope :timeline, -> { order(created_at: :desc).includes(:user, media_attachments: :blob) }
 
   after_create_commit :broadcast_to_turbo_stream
+  after_destroy_commit :broadcast_remove_from_turbo_stream
   after_create_commit :process_video_thumbnails
 
   private
 
   def broadcast_to_turbo_stream
     broadcast_prepend_to "posts", partial: "posts/post", object: self
+  end
+
+  def broadcast_remove_from_turbo_stream
+    broadcast_remove_to "posts", target: dom_id(self)
   end
 
   def process_video_thumbnails
