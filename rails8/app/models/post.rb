@@ -31,7 +31,7 @@ class Post < ApplicationRecord
   end
 
   def broadcast_remove_from_turbo_stream
-    broadcast_remove_to "posts", target: dom_id(self)
+    broadcast_remove_to "posts"
   end
 
   def process_video_thumbnails
