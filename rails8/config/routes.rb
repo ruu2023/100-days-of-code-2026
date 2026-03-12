@@ -1,4 +1,32 @@
 Rails.application.routes.draw do
+  # Bookkeeping routes
+  scope "/accounting", as: :accounting do
+    root to: "journal_entries#index"
+    resources :journal_entries do
+      member do
+        post :post
+        post :reverse
+      end
+    end
+
+    resources :parties do
+      collection do
+        get :search
+        post :quick_create
+      end
+    end
+    get "parties/quick_new", to: "parties#quick_new"
+  end
+
+  # Parties also available outside accounting scope for backward compatibility
+  resources :parties do
+    collection do
+      get :search
+      post :quick_create
+    end
+  end
+  get "parties/quick_new", to: "parties#quick_new"
+
   resource :session
   resources :passwords, param: :token
 

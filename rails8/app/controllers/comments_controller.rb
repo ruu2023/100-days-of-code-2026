@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  layout "x"
+
   before_action :require_authentication
 
   def create

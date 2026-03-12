@@ -1,0 +1,15 @@
+<div data-controller="party-autocomplete" data-party-autocomplete-target="quickCreated">
+  <div class="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
+    <p class="text-green-700 font-medium">Party "<%= party.name %>" created!</p>
+    <p class="text-sm text-green-600 mt-1">Select it from the dropdown to use it.</p>
+  </div>
+</div>
+
+<script>
+  // Dispatch custom event for party-autocomplete controller
+  document.addEventListener("DOMContentLoaded", () => {
+    window.dispatchEvent(new CustomEvent("party-quick-created", {
+      detail: <%= party.to_json.html_safe %>
+    }));
+  });
+</script>

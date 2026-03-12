@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AuthController < ApplicationController
+  layout "x"
+
   allow_unauthenticated_access
 
   def google_oauth2
