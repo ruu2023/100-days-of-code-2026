@@ -1,4 +1,19 @@
 
+## 2026-03-13
+
+【Day 072/100】News Site 🛠️✨
+
+Rails でニュースサイトを作りました。
+
+✅ 画面でニュースを表示
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/news)
+
+[Original Post](https://x.com/ruu_web/status/2032498458465317036)
+
+---
 ## 2026-03-12
 
 【Day 071/100】Rails curl prompt maker 🛠️✨
