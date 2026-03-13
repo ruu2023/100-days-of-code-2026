@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-ing-members/",
-    "title": "Claude Code Skills (Agent Skills) 入門【社内勉強会スライド】 | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/claude-code-skills-for-cloud-bu-consulting-members/",
+    "id": "hatebu-it-1-f54c17fc5f43",
+    "title": "Claude Codeのセッション履歴が30日で消えると知って9999日に変えた話｜cute_agapan9087",
+    "url": "https://note.com/cute_agapan9087/n/nf54c17fc5f43",
     "source": "Hatena:it",
-    "bookmarkCount": 635,
-    "summary": "2026年3月10日に社内のチームメンバー（クラウド事業本部コンサルティング部）向けに、Claude Code（エージェント）スキル入門勉強会が開催されました。DevelopersIO向けに調整したスライドを公開し、勉強会の目的は以下の3点です。  \n\n1. 勉強会の背景とゴールを連携  \n2. Claude Code 用エージェント拡張機能「Claude Code (Agent Skills)」の導入を説明  \n3. 参加者全員がスキルをセットアップし、基本的な使い方を習得  \n\n期待される成果は、参加者がスキルのセットアップ完了と基本的な操作方法を理解し、日常業務で活用する試みが広がることです。長期的には、チーム内でスキルの蓄積やベストプラクティスが共有され、スタンダード化が進むとされています。  \n\n勉強会のポイントは以下の通りです。  \n\n- エージェントに新しい機能や専門知識を付与するシンプルでオープンなスキルフォーマット  \n- 「Overview」フォルダにスキルの全体像と定義を記載  \n- 「SKILL.md」フォルダに必須の指示（SKILL.md）を配置し、任意で「scripts」や「references」などを追加  \n- スキルの変遷: もともとAnthropicがClaude Code向けに開発し、現在はClaude Code以外のエージェントにも採用が広がっている  \n- フォルダ構成は「SKILL.md」「scripts」「references」「assets」の4つで、フォルダ内には「SKILL.md」のみ必須  \n\n勉強会の成果として、社外向けにアレンジされたスキルが社外向けに公開されています。参加者はスキルの自動発火体験や、他仕組み（CLAUDE.md、MCP、Subagents）との活用方法を学び、実際の業務でスキル化を試すことで、Claude Codeの活用効率向上を目指すことが期待されます。",
+    "bookmarkCount": 212,
+    "summary": "AnthropicのChatbot「Claude Code」のセッション履歴が30日で自動的に削除されることに気づいたユーザーが、セッション保存期間を変更して9999日（約27年）に延長した話です。保存期間は「サーバー側（Anthropic）」と「ローカル側（端末）」の2種類があり、サーバー側ではデフォルト30日、モデル改善の有無で保存期間が変わります。ローカル側では30日間の非アクティブセッションが起動時に削除され、過去のセッションを再開できるのはローカル履歴があるためです。変更は .claude/settings.json の cleanupPeriodDays に設定し、9999日を設定すると約27年分のデータが保存されます。長期保存が不要な場合でも、過去の作業を振り返る、長期プロジェクトで続きから再開する、ナレッジの蓄積などに利用できますが、ローカルストレージを消費するため、ディスク容量に余裕がある場合に長めに設定すると損はありません。",
     "category": "AI",
-    "date": "2026-03-12T03:16:14.250Z"
+    "date": "2026-03-13T03:12:04.923Z"
   },
   {
-    "id": "hatebu-it-4-cle/16406076",
-    "title": "社内研修でも使える「生成AIはじめの一歩」　総務省が資料を無償公開",
-    "url": "https://smbiz.asahi.com/article/16406076",
+    "id": "hatebu-it-15-chaosmap/199",
+    "title": "プロダクトセキュリティツールカオスマップ　インフラ編　2026年上期版 - Findy Tools",
+    "url": "https://findy-tools.io/articles/infrasec-chaosmap/199",
     "source": "Hatena:it",
-    "bookmarkCount": 323,
-    "summary": "総務省は、生成AIを社内研修に活用できる学習教材を無償公開しました。PowerPoint形式の教材にはノート欄に講師用メモも含まれ、研修の準備がしやすい内容となっています。総務省は、生成AIを入手する際には、誤った回答や偽情報のリスク、機密情報の流出、知的財産権の侵害、倫理観の問題などを警告しています。",
+    "bookmarkCount": 18,
+    "summary": "インフラセキュリティ分野では、ツールの数が増えるほど「何を導入するか」よりも「何を導入しないか」「どう統合するか」が重要視されています。2026年上期版の「プロダクトセキュリティツールカオスマップ」では、インフラを「Build / Deploy / Runtime」の横軸、「Edge / Platform / Data / Secret Core」の縦軸で可視化し、ツール群を分類しました。エンジニアは自社のスタック全体を俯瞰し、カバーできていない領域を特定することで、シフトレフトの実施やツール選定の指針を得られます。",
     "category": "Security",
-    "date": "2026-03-12T03:16:58.914Z"
+    "date": "2026-03-13T03:12:47.968Z"
   }
 ]
