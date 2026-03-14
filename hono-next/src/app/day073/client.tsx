@@ -71,6 +71,11 @@ type ScheduledCalendarItem = {
   meta: string
 }
 
+type TokyoNowInfo = {
+  dateKey: string
+  minutes: number
+}
+
 const storageKey = "day073-planner-state"
 const storageEvent = "day073-planner-updated"
 const defaultSelectedDate = "2026-03-14"
@@ -286,6 +291,37 @@ function buildWeekdays(value: string) {
         dateKey === value ? "active" : dateKey < value ? "done" : "next",
     }
   })
+}
+
+function getTokyoNowInfo(): TokyoNowInfo | null {
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  })
+
+  const parts = formatter.formatToParts(new Date())
+  const getValue = (type: Intl.DateTimeFormatPartTypes) =>
+    parts.find((part) => part.type === type)?.value
+
+  const year = getValue("year")
+  const month = getValue("month")
+  const day = getValue("day")
+  const hour = getValue("hour")
+  const minute = getValue("minute")
+
+  if (!year || !month || !day || !hour || !minute) {
+    return null
+  }
+
+  return {
+    dateKey: `${year}-${month}-${day}`,
+    minutes: Number(hour) * 60 + Number(minute),
+  }
 }
 
 function clampSlotTime(time: string, durationMinutes: number) {
@@ -567,7 +603,7 @@ export default function Day073Client() {
   const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null)
   const [activeDropSlot, setActiveDropSlot] = useState<string | null>(null)
   const [selectedDate, setSelectedDate] = useState(defaultSelectedDate)
-  const [currentTime, setCurrentTime] = useState<Date | null>(null)
+  const [currentTime, setCurrentTime] = useState<TokyoNowInfo | null>(null)
 
   useEffect(() => {
     hasHydrated = true
@@ -577,9 +613,9 @@ export default function Day073Client() {
   useEffect(() => {
     let intervalId: number | null = null
     const timerId = window.setTimeout(() => {
-      setCurrentTime(new Date())
+      setCurrentTime(getTokyoNowInfo())
       intervalId = window.setInterval(() => {
-        setCurrentTime(new Date())
+        setCurrentTime(getTokyoNowInfo())
       }, 60_000)
     }, 0)
 
@@ -626,10 +662,9 @@ export default function Day073Client() {
   )
   const weekdays = buildWeekdays(selectedDate)
   const showCurrentTimeLine =
-    currentTime !== null && formatDateKey(currentTime) === selectedDate
+    currentTime !== null && currentTime.dateKey === selectedDate
   const currentTimeOffset = showCurrentTimeLine
-    ? (currentTime.getHours() * 60 + currentTime.getMinutes() - dayStartHour * 60) *
-      pxPerMinute
+    ? (currentTime.minutes - dayStartHour * 60) * pxPerMinute
     : null
 
   const totalEstimatedMinutes = tasks.reduce(
@@ -1125,6 +1160,9 @@ export default function Day073Client() {
                             style={{ top: `${currentTimeOffset}px` }}
                           >
                             <span className="absolute -left-1 -top-[5px] size-2.5 rounded-full bg-sky-500" />
+                            <span className="absolute left-3 -top-5 rounded-full bg-sky-500 px-2 py-0.5 text-[10px] font-medium text-white">
+                              Now
+                            </span>
                           </div>
                         ) : null}
                         {timeSlots.map((slot, index) => (
@@ -1213,6 +1251,9 @@ export default function Day073Client() {
                                       variant="ghost"
                                       size="sm"
                                       className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                      draggable={false}
+                                      onPointerDown={(event) => event.stopPropagation()}
+                                      onMouseDown={(event) => event.stopPropagation()}
                                       onClick={() => {
                                         const task = tasks.find((candidate) => candidate.id === item.id)
                                         if (task) {
@@ -1228,6 +1269,9 @@ export default function Day073Client() {
                                     variant="ghost"
                                     size="sm"
                                     className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                    draggable={false}
+                                    onPointerDown={(event) => event.stopPropagation()}
+                                    onMouseDown={(event) => event.stopPropagation()}
                                     onClick={() => unscheduleTask(item.id)}
                                   >
                                     Backlog
