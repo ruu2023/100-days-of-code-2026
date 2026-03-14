@@ -34,4 +34,5 @@ hono-api/remote-dump.sql
 *.exe
 
 # OS
-.DS_Storendlocr-api/ndlocr-lite
+.DS_Store
+/ndlocr-api/ndlocr-lite/
