@@ -4,97 +4,31 @@ class ConvertController < ApplicationController
   def index
   end
 
-  def create
-    @text = params[:text]
-    @language = params[:language].presence || "Japanese"
-
-    if @text.blank?
-      flash.now[:alert] = "Please enter some text."
-      render :index and return
-    end
-
-    client = OpenAI::Client.new(
-      access_token: ENV["OLLAMA_API_KEY"] || "ollama",
-      uri_base: ENV.fetch("OLLAMA_BASE_URL")
-    )
-
-    begin
-      response_data = client.chat(
-        parameters: {
-          model: ENV.fetch("OLLAMA_MODEL"),
-          messages: [
-            {
-              role: "system",
-              content: <<~PROMPT
-                You are a professional news translator.
-
-                Translate the user's text into #{@language}.
-
-                Rules:
-                - Translate faithfully.
-                - Do not add explanations.
-                - Do not add abbreviations.
-                - Do not infer unstated acronyms.
-                - Preserve the original meaning.
-                - Keep proper nouns, dates, numbers, and quotes accurate.
-                - Output natural #{@language}.
-                - Return only the translation.
-              PROMPT
-            },
-            {
-              role: "user",
-              content: @text
-            }
-          ],
-          temperature: 0.2
-        }
-      )
-
-      @translated_text = response_data.dig("choices", 0, "message", "content")
-    rescue => e
-      Rails.logger.error("Ollama API error: #{e.class} #{e.message}")
-      flash.now[:alert] = "Error calling Ollama API: #{e.message}"
-    end
-
-    render :index
-  end
-
   def stream
     text = params[:text].to_s
     language = params[:language].presence || "Japanese"
+
+    if text.blank?
+      response.status = 422
+      response.headers["Content-Type"] = "text/event-stream; charset=utf-8"
+      response.stream.write("event: error\ndata: Please enter some text.\n\n")
+      response.stream.close
+      return
+    end
 
     response.headers["Content-Type"] = "text/event-stream; charset=utf-8"
     response.headers["Cache-Control"] = "no-cache"
     response.headers["X-Accel-Buffering"] = "no"
     response.headers["Last-Modified"] = Time.now.httpdate
 
-    client = OpenAI::Client.new(
-      access_token: ENV["OLLAMA_API_KEY"] || "ollama",
-      uri_base: ENV.fetch("OLLAMA_BASE_URL")
-    )
-
     begin
-      client.chat(
+      ollama_client.chat(
         parameters: {
           model: ENV.fetch("OLLAMA_MODEL"),
           messages: [
             {
               role: "system",
-              content: <<~PROMPT
-                You are a professional news translator.
-
-                Translate the user's text into #{language}.
-
-                Rules:
-                - Translate faithfully.
-                - Do not add explanations.
-                - Do not add abbreviations.
-                - Do not infer unstated acronyms.
-                - Preserve the original meaning.
-                - Keep proper nouns, dates, numbers, and quotes accurate.
-                - Use natural #{language}.
-                - Return only the translation.
-              PROMPT
+              content: translator_prompt(language)
             },
             {
               role: "user",
@@ -108,7 +42,6 @@ class ConvertController < ApplicationController
 
             content = content.force_encoding("UTF-8")
             content = content.encode("UTF-8", invalid: :replace, undef: :replace, replace: "")
-
             response.stream.write("data: #{content}\n\n")
           end
         }
@@ -121,5 +54,32 @@ class ConvertController < ApplicationController
     ensure
       response.stream.close
     end
+  end
+
+  private
+
+  def ollama_client
+    OpenAI::Client.new(
+      access_token: ENV["OLLAMA_API_KEY"] || "ollama",
+      uri_base: ENV.fetch("OLLAMA_BASE_URL")
+    )
+  end
+
+  def translator_prompt(language)
+    <<~PROMPT
+      You are a professional news translator.
+
+      Translate the user's text into #{language}.
+
+      Rules:
+      - Translate faithfully.
+      - Do not add explanations.
+      - Do not add abbreviations.
+      - Do not infer unstated acronyms.
+      - Preserve the original meaning.
+      - Keep proper nouns, dates, numbers, and quotes accurate.
+      - Use natural #{language}.
+      - Return only the translation.
+    PROMPT
   end
 end

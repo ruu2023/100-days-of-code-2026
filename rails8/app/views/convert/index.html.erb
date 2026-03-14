@@ -1,27 +1,27 @@
-<textarea id="text"></textarea>
-<button id="start-btn">Translate</button>
+<div data-controller="translator">
+  <%= form_with url: convert_stream_path,
+                method: :get,
+                data: { action: "submit->translator#submit", turbo: false } do |f| %>
+    <div class="field">
+      <%= f.label :text, "Original text" %><br>
+      <%= f.text_area :text, rows: 10, data: { translator_target: "text" } %>
+    </div>
 
-<pre id="result"></pre>
+    <div class="field">
+      <%= f.label :language, "Target language" %><br>
+      <%= f.select :language,
+                   [["Japanese", "Japanese"], ["English", "English"]],
+                   {},
+                   data: { translator_target: "language" } %>
+    </div>
 
-<script>
-  document.getElementById("start-btn").addEventListener("click", () => {
-    const text = document.getElementById("text").value
-    const result = document.getElementById("result")
-    result.textContent = ""
+    <div class="actions">
+      <%= f.submit "Translate" %>
+    </div>
+  <% end %>
 
-    const url = "/convert/stream?text=" + encodeURIComponent(text) + "&language=Japanese"
-    const es = new EventSource(url)
-
-    es.onmessage = (event) => {
-      result.textContent += event.data
-    }
-
-    es.addEventListener("done", () => {
-      es.close()
-    })
-
-    es.addEventListener("error", () => {
-      es.close()
-    })
-  })
-</script>
+  <div class="mt-4">
+    <h3>Translation</h3>
+    <pre data-translator-target="result"></pre>
+  </div>
+</div>

@@ -13,6 +13,5 @@ Rails.application.routes.draw do
   get "news", to: "news#index"
 
   get "convert", to: "convert#index"
-  post "convert",         to: "convert#create"
   get  "convert/stream",  to: "convert#stream"
 end
