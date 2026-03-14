@@ -71,7 +71,7 @@ class ConvertController < ApplicationController
   def ollama_client
     OpenAI::Client.new(
       access_token: ENV["OLLAMA_API_KEY"] || "ollama",
-      uri_base: "http://172.18.0.1:11434/v1"
+      uri_base: Rails.configuration.x.ollama_base_url
     )
   end
 
