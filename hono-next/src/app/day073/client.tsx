@@ -1061,13 +1061,14 @@ export default function Day073Client() {
                             44
                           )
 
-                          return (
-                            <div
-                              key={`${item.type}-${item.id}`}
-                              draggable={item.type === "task"}
-                              onDragStart={() => {
-                                if (item.type === "task") {
-                                  handleDragStart(item.id)
+                        return (
+                          <div
+                            key={`${item.type}-${item.id}`}
+                            draggable={item.type === "task"}
+                            title={`${item.title} · ${item.meta}`}
+                            onDragStart={() => {
+                              if (item.type === "task") {
+                                handleDragStart(item.id)
                                 }
                               }}
                               onDragEnd={handleDragEnd}
@@ -1091,7 +1092,6 @@ export default function Day073Client() {
                                     {shortenLabel(item.title, 15)}
                                   </p>
                                 </div>
-                                <p className="text-xs text-current/70">{item.meta}</p>
                               </div>
                                 {item.type === "task" ? (
                                   <Button
