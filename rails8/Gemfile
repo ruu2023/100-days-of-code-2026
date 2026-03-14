@@ -16,6 +16,15 @@ gem "puma", ">= 5.0"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 
+# Use bcrypt for passwords
+gem "bcrypt", "~> 3.1.7"
+# CSV handling (standard library gem in Ruby 3.4+)
+gem "csv"
+# Headless Chrome for scraping
+gem "ferrum"
+# Image processing for Active Storage variants
+gem "image_processing", "~> 1.2"
+
 # OpenAI client
 gem "ruby-openai"
 

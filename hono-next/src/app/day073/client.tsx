@@ -1003,27 +1003,17 @@ export default function Day073Client() {
 
                     <div className="relative mt-4 grid grid-cols-[72px_minmax(0,1fr)] gap-3">
                       <div className="relative" style={{ height: `${gridHeight}px` }}>
-                        {Array.from(
-                          { length: dayEndHour - dayStartHour + 1 },
-                          (_, index) => {
-                            const hour = dayStartHour + index
-                            if (hour === dayEndHour) {
-                              return null
-                            }
-
-                            return (
-                              <div
-                                key={hour}
-                              className="absolute left-0 right-0 -translate-y-1/2 pr-2 text-right text-xs text-foreground/45"
-                              style={{
-                                top: `${(hour - dayStartHour) * 60 * pxPerMinute}px`,
-                              }}
-                              >
-                                {`${hour % 12 || 12}:00`}
-                              </div>
-                            )
-                          }
-                        )}
+                      {timeSlots.map((slot, index) => (
+                        <div
+                          key={slot}
+                          className="absolute left-0 right-0 -translate-y-1/2 pr-2 text-right text-[11px] text-foreground/45"
+                          style={{
+                            top: `${index * slotMinutes * pxPerMinute}px`,
+                          }}
+                        >
+                          {slot}
+                        </div>
+                      ))}
                       </div>
 
                       <div
@@ -1060,11 +1050,8 @@ export default function Day073Client() {
                               height: `${slotMinutes * pxPerMinute}px`,
                             }}
                           >
-                            <span className="pointer-events-none absolute left-4 top-1 text-[10px] uppercase tracking-[0.18em] text-foreground/30">
-                              {slot}
-                            </span>
-                          </div>
-                        ))}
+                        </div>
+                      ))}
 
                         {calendarItems.map((item) => {
                           const startMinutes = timeToMinutes(item.startTime)
@@ -1101,7 +1088,7 @@ export default function Day073Client() {
                                     className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
                                   />
                                   <p className="truncate text-sm font-semibold leading-5">
-                                    {`${item.startTime} ${shortenLabel(item.title, 15)}`}
+                                    {shortenLabel(item.title, 15)}
                                   </p>
                                 </div>
                                 <p className="text-xs text-current/70">{item.meta}</p>
