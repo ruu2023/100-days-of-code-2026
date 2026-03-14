@@ -132,6 +132,8 @@ const energyStyles: Record<BacklogTask["energy"], string> = {
 
 const sourceOptions: BacklogTask["source"][] = ["Inbox", "Project", "Calendar"]
 const energyOptions: BacklogTask["energy"][] = ["Low", "Medium", "High"]
+let cachedStorageValue: string | null | undefined
+let cachedTasks: BacklogTask[] = defaultBacklog
 
 function parseStoredTasks(rawValue: string | null): BacklogTask[] {
   if (!rawValue) {
@@ -178,7 +180,14 @@ function getSnapshot() {
     return defaultBacklog
   }
 
-  return parseStoredTasks(window.localStorage.getItem(storageKey))
+  const rawValue = window.localStorage.getItem(storageKey)
+  if (rawValue === cachedStorageValue) {
+    return cachedTasks
+  }
+
+  cachedStorageValue = rawValue
+  cachedTasks = parseStoredTasks(rawValue)
+  return cachedTasks
 }
 
 function getServerSnapshot() {
@@ -190,7 +199,10 @@ function persistTasks(nextTasks: BacklogTask[]) {
     return
   }
 
-  window.localStorage.setItem(storageKey, JSON.stringify(nextTasks))
+  const nextValue = JSON.stringify(nextTasks)
+  cachedStorageValue = nextValue
+  cachedTasks = nextTasks
+  window.localStorage.setItem(storageKey, nextValue)
   window.dispatchEvent(new Event(storageEvent))
 }
 
