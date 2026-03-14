@@ -325,7 +325,7 @@ function parseStoredState(rawValue: string | null): PlannerState {
   }
 
   try {
-    const parsedValue = JSON.parse(rawValue)
+    const parsedValue: unknown = JSON.parse(rawValue)
     if (
       typeof parsedValue !== "object" ||
       parsedValue === null ||
@@ -335,8 +335,11 @@ function parseStoredState(rawValue: string | null): PlannerState {
       return defaultPlannerState
     }
 
-    const tasks = parsedValue.tasks.filter(
-      (task): task is PlannerTask =>
+    const parsedTasks = parsedValue.tasks as unknown[]
+    const parsedScheduled = parsedValue.scheduled as unknown[]
+
+    const tasks = parsedTasks.filter(
+      (task: unknown): task is PlannerTask =>
         typeof task?.id === "string" &&
         typeof task?.title === "string" &&
         typeof task?.estimate === "string" &&
@@ -347,8 +350,8 @@ function parseStoredState(rawValue: string | null): PlannerState {
     )
 
     const taskIds = new Set(tasks.map((task) => task.id))
-    const scheduled = parsedValue.scheduled.filter(
-      (item): item is ScheduledTask =>
+    const scheduled = parsedScheduled.filter(
+      (item: unknown): item is ScheduledTask =>
         typeof item?.taskId === "string" &&
         (typeof item?.date === "string" || typeof item?.date === "undefined") &&
         typeof item?.startTime === "string" &&
