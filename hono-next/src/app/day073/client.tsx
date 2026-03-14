@@ -80,7 +80,7 @@ const storageKey = "day073-planner-state"
 const storageEvent = "day073-planner-updated"
 const defaultSelectedDate = "2026-03-14"
 const dayStartHour = 8
-const dayEndHour = 19
+const dayEndHour = 23
 const slotMinutes = 30
 const totalGridMinutes = (dayEndHour - dayStartHour) * 60
 const pxPerMinute = 1.6
@@ -996,6 +996,18 @@ export default function Day073Client() {
             </Card>
 
             <div className="grid gap-6">
+              {editingId ? (
+                <TaskComposer
+                  title="Edit task"
+                  description="Update the selected task and persist the changes in localStorage."
+                  submitLabel="Save changes"
+                  draft={editingDraft}
+                  onDraftChange={setEditingDraft}
+                  onSubmit={handleSaveEdit}
+                  onCancel={handleCancelEditing}
+                />
+              ) : null}
+
               <TaskComposer
                 title="Post a task"
                 description="Create a task locally, then drag it into the daily calendar."
@@ -1052,17 +1064,6 @@ export default function Day073Client() {
               </Card>
             </div>
 
-            {editingId ? (
-              <TaskComposer
-                title="Edit task"
-                description="Update the selected task and persist the changes in localStorage."
-                submitLabel="Save changes"
-                draft={editingDraft}
-                onDraftChange={setEditingDraft}
-                onSubmit={handleSaveEdit}
-                onCancel={handleCancelEditing}
-              />
-            ) : null}
           </div>
 
           <div className="grid gap-6">
