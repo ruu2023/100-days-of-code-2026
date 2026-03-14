@@ -1,0 +1,34 @@
+<h1>AI Translation</h1>
+
+<% if flash[:alert] %>
+  <div style="color: red; margin-bottom: 1rem;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<%= form_with url: convert_path, method: :post, local: true do |f| %>
+  <div style="margin-bottom: 1rem;">
+    <%= f.label :text, "Text to translate:" %><br>
+    <%= f.text_area :text, rows: 5, value: @text, style: "width: 100%; max-width: 600px;" %>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <%= f.label :language, "Target Language:" %><br>
+    <%= f.select :language, ["Japanese", "English", "French", "German", "Spanish", "Chinese", "Korean"], selected: @language || "Japanese" %>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <%= f.submit "Translate", style: "padding: 0.5rem 1rem; cursor: pointer;" %>
+  </div>
+<% end %>
+
+<hr>
+
+<% if @translated_text %>
+  <div style="margin-top: 1rem;">
+    <h3>Result:</h3>
+    <div style="padding: 1rem; background-color: #f4f4f4; border-radius: 4px; white-space: pre-wrap;">
+      <%= @translated_text %>
+    </div>
+  </div>
+<% end %>

@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   get "news", to: "news#index"
+
+  get "convert", to: "convert#index"
+  post "convert", to: "convert#create"
 end
