@@ -646,19 +646,24 @@ export default function Day073Client() {
   const elapsedScheduledMinutes =
     currentTime === null
       ? 0
-      : selectedDate < currentTime.dateKey
-        ? scheduledTaskItems.reduce(
-            (total, item) => total + item.durationMinutes,
-            0
-          )
-        : selectedDate === currentTime.dateKey
-          ? scheduledTaskItems.reduce((total, item) => {
-              const itemStart = timeToMinutes(item.startTime)
-              return itemStart < currentTime.minutes
-                ? total + item.durationMinutes
-                : total
-            }, 0)
-          : 0
+      : scheduled.reduce((total, item) => {
+          const task = tasks.find((candidate) => candidate.id === item.taskId)
+          if (!task) {
+            return total
+          }
+
+          const taskDuration = parseEstimateToMinutes(task.estimate)
+          const taskEndMinutes = timeToMinutes(item.startTime) + taskDuration
+
+          if (
+            item.date < currentTime.dateKey ||
+            (item.date === currentTime.dateKey && taskEndMinutes <= currentTime.minutes)
+          ) {
+            return total + taskDuration
+          }
+
+          return total
+        }, 0)
   const scheduledMinutes = scheduledTaskItems.reduce(
     (total, item) => total + item.durationMinutes,
     0
