@@ -74,6 +74,10 @@ type ScheduledCalendarItem = {
   meta: string
 }
 
+type TaskCalendarItem = ScheduledCalendarItem & {
+  type: "task"
+}
+
 type TokyoNowInfo = {
   dateKey: string
   minutes: number
@@ -210,6 +214,10 @@ function parseEstimateToMinutes(estimate: string) {
   return match[2].toLowerCase() === "h" ? value * 60 : value
 }
 
+function isObjectRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null
+}
+
 function timeToMinutes(time: string) {
   const [hours, minutes] = time.split(":").map(Number)
   return hours * 60 + minutes
@@ -326,39 +334,52 @@ function parseStoredState(rawValue: string | null): PlannerState {
 
   try {
     const parsedValue: unknown = JSON.parse(rawValue)
-    if (typeof parsedValue !== "object" || parsedValue === null) {
+    if (!isObjectRecord(parsedValue)) {
       return defaultPlannerState
     }
 
-    const parsedRecord = parsedValue as Record<string, unknown>
     if (
-      !Array.isArray(parsedRecord.tasks) ||
-      !Array.isArray(parsedRecord.scheduled)
+      !Array.isArray(parsedValue.tasks) ||
+      !Array.isArray(parsedValue.scheduled)
     ) {
       return defaultPlannerState
     }
 
-    const parsedTasks = parsedRecord.tasks
-    const parsedScheduled = parsedRecord.scheduled
+    const parsedTasks = parsedValue.tasks
+    const parsedScheduled = parsedValue.scheduled
 
     const tasks = parsedTasks.filter(
-      (task: unknown): task is PlannerTask =>
-        typeof task?.id === "string" &&
-        typeof task?.title === "string" &&
-        typeof task?.estimate === "string" &&
-        typeof task?.source === "string" &&
-        typeof task?.energy === "string" &&
-        typeof task?.notes === "string" &&
-        typeof task?.createdAt === "string"
+      (task: unknown): task is PlannerTask => {
+        if (!isObjectRecord(task)) {
+          return false
+        }
+
+        return (
+          typeof task.id === "string" &&
+          typeof task.title === "string" &&
+          typeof task.estimate === "string" &&
+          typeof task.source === "string" &&
+          typeof task.energy === "string" &&
+          typeof task.notes === "string" &&
+          typeof task.createdAt === "string"
+        )
+      }
     )
 
     const taskIds = new Set(tasks.map((task) => task.id))
     const scheduled = parsedScheduled.filter(
-      (item: unknown): item is ScheduledTask =>
-        typeof item?.taskId === "string" &&
-        (typeof item?.date === "string" || typeof item?.date === "undefined") &&
-        typeof item?.startTime === "string" &&
-        taskIds.has(item.taskId)
+      (item: unknown): item is ScheduledTask => {
+        if (!isObjectRecord(item)) {
+          return false
+        }
+
+        return (
+          typeof item.taskId === "string" &&
+          (typeof item.date === "string" || typeof item.date === "undefined") &&
+          typeof item.startTime === "string" &&
+          taskIds.has(item.taskId)
+        )
+      }
     )
 
     return {
@@ -607,24 +628,27 @@ export default function Day073Client() {
 
   const scheduledTaskIds = new Set(scheduled.map((item) => item.taskId))
   const backlogTasks = tasks.filter((task) => !scheduledTaskIds.has(task.id))
-  const scheduledTaskItems = scheduled
-    .filter((item) => item.date === selectedDate)
-    .map((item) => {
-      const task = tasks.find((candidate) => candidate.id === item.taskId)
-      if (!task) {
-        return null
+  const scheduledTaskItems = scheduled.reduce<TaskCalendarItem[]>((items, item) => {
+      if (item.date !== selectedDate) {
+        return items
       }
 
-      return {
+      const task = tasks.find((candidate) => candidate.id === item.taskId)
+      if (!task) {
+        return items
+      }
+
+      items.push({
         id: task.id,
         title: task.title,
         startTime: clampSlotTime(item.startTime, parseEstimateToMinutes(task.estimate)),
         durationMinutes: parseEstimateToMinutes(task.estimate),
         type: "task" as const,
         meta: `${task.estimate} · ${task.source}`,
-      }
-    })
-    .filter((item): item is ScheduledCalendarItem => item !== null)
+      })
+
+      return items
+    }, [])
 
   const baseCalendarItems: ScheduledCalendarItem[] = baseCalendar.map((block) => ({
     id: block.id,
