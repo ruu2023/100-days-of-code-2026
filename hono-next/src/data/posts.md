@@ -1,4 +1,21 @@
 
+## 2026-03-14
+
+【Day 073/100】 🛠️✨
+
+Codex CLIでデイリープランナーのフロントを作りました。
+タスクをドラッグしてカレンダーに配置できます。
+
+✅ タスクとカレンダーをセットで表示
+
+#100DaysOfCode #Nextjs #CodexCLI
+
+[Demo](/day073)
+
+[Original Post](https://x.com/ruu_web/status/2032800117036822820)
+
+---
+
 ## 2026-03-13
 
 【Day 072/100】News Site 🛠️✨
