@@ -8,11 +8,15 @@ import {
   Focus,
   GripVertical,
   LogOut,
+  Pause,
   Pencil,
+  Play,
   Plus,
+  RotateCcw,
   Sparkles,
   Target,
   Trash2,
+  X,
 } from "lucide-react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -257,6 +261,19 @@ function minutesToTime(totalMinutes: number) {
 
 function shortenLabel(value: string, maxLength: number) {
   return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value
+}
+
+function formatTimer(totalSeconds: number) {
+  const safeSeconds = Math.max(totalSeconds, 0)
+  const hours = Math.floor(safeSeconds / 3600)
+  const minutes = Math.floor((safeSeconds % 3600) / 60)
+  const seconds = safeSeconds % 60
+
+  if (hours > 0) {
+    return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+  }
+
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
 }
 
 function parseDateString(value: string) {
@@ -604,6 +621,10 @@ export default function Day073Client() {
   const [activeDropSlot, setActiveDropSlot] = useState<string | null>(null)
   const [selectedDate, setSelectedDate] = useState(defaultSelectedDate)
   const [currentTime, setCurrentTime] = useState<TokyoNowInfo | null>(null)
+  const [focusModeOpen, setFocusModeOpen] = useState(false)
+  const [activeFocusTaskId, setActiveFocusTaskId] = useState<string | null>(null)
+  const [focusSecondsRemaining, setFocusSecondsRemaining] = useState(0)
+  const [focusRunning, setFocusRunning] = useState(false)
 
   useEffect(() => {
     hasHydrated = true
@@ -684,6 +705,15 @@ export default function Day073Client() {
       type: "task" as const,
       meta: `${backlogTasks[0].estimate} · ${backlogTasks[0].source}`,
     } : null)
+  const activeFocusTask =
+    tasks.find((task) => task.id === activeFocusTaskId) ??
+    (focusTask ? tasks.find((task) => task.id === focusTask.id) ?? null : null)
+  const activeFocusDurationSeconds = activeFocusTask
+    ? parseEstimateToMinutes(activeFocusTask.estimate) * 60
+    : 0
+  const focusProgress = activeFocusDurationSeconds
+    ? 1 - focusSecondsRemaining / activeFocusDurationSeconds
+    : 0
 
   function handleCreateTask() {
     const title = newTaskDraft.title.trim()
@@ -814,6 +844,57 @@ export default function Day073Client() {
     setDraggedTaskId(null)
     setActiveDropSlot(null)
   }
+
+  function openFocusMode(taskId?: string) {
+    const nextTask =
+      tasks.find((task) => task.id === taskId) ??
+      (focusTask ? tasks.find((task) => task.id === focusTask.id) : null) ??
+      tasks[0] ??
+      null
+
+    if (!nextTask) {
+      return
+    }
+
+    setActiveFocusTaskId(nextTask.id)
+    setFocusSecondsRemaining(parseEstimateToMinutes(nextTask.estimate) * 60)
+    setFocusRunning(false)
+    setFocusModeOpen(true)
+  }
+
+  function closeFocusMode() {
+    setFocusModeOpen(false)
+    setFocusRunning(false)
+  }
+
+  function resetFocusTimer() {
+    if (!activeFocusTask) {
+      return
+    }
+
+    setFocusSecondsRemaining(parseEstimateToMinutes(activeFocusTask.estimate) * 60)
+    setFocusRunning(false)
+  }
+
+  useEffect(() => {
+    if (!focusModeOpen || !focusRunning) {
+      return
+    }
+
+    const intervalId = window.setInterval(() => {
+      setFocusSecondsRemaining((current) => {
+        if (current <= 1) {
+          window.clearInterval(intervalId)
+          setFocusRunning(false)
+          return 0
+        }
+
+        return current - 1
+      })
+    }, 1000)
+
+    return () => window.clearInterval(intervalId)
+  }, [focusModeOpen, focusRunning])
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(14,165,233,0.18),_transparent_32%),linear-gradient(180deg,_rgba(255,255,255,0.98),_rgba(241,245,249,0.96))] text-foreground transition-colors dark:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.16),_transparent_28%),linear-gradient(180deg,_rgba(2,6,23,1),_rgba(15,23,42,0.96))]">
@@ -962,6 +1043,16 @@ export default function Day073Client() {
                         variant="outline"
                         size="sm"
                         className="rounded-full"
+                        onClick={() => openFocusMode(task.id)}
+                      >
+                        <Focus className="size-4" />
+                        Focus
+                      </Button>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className="rounded-full"
                         onClick={() =>
                           scheduleTask(task.id, clampSlotTime("13:00", parseEstimateToMinutes(task.estimate)))
                         }
@@ -1039,6 +1130,14 @@ export default function Day073Client() {
                       {focusTask?.meta ?? "Schedule a task on the calendar"}
                     </p>
                     <p className="mt-6 text-5xl font-semibold tracking-tight">48:12</p>
+                    <Button
+                      type="button"
+                      className="mt-6 rounded-full"
+                      onClick={() => openFocusMode(focusTask?.id)}
+                    >
+                      <Focus className="size-4" />
+                      Open focus mode
+                    </Button>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-2">
                     <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
@@ -1247,23 +1346,37 @@ export default function Day073Client() {
                               {item.type === "task" ? (
                                 <div className="flex gap-2">
                                   {tasks.find((task) => task.id === item.id) ? (
-                                    <Button
-                                      type="button"
-                                      variant="ghost"
-                                      size="sm"
-                                      className="rounded-full bg-white/35 px-3 dark:bg-black/10"
-                                      draggable={false}
-                                      onPointerDown={(event) => event.stopPropagation()}
-                                      onMouseDown={(event) => event.stopPropagation()}
-                                      onClick={() => {
-                                        const task = tasks.find((candidate) => candidate.id === item.id)
-                                        if (task) {
-                                          handleStartEditing(task)
-                                        }
-                                      }}
-                                    >
-                                      Edit
-                                    </Button>
+                                    <>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                        draggable={false}
+                                        onPointerDown={(event) => event.stopPropagation()}
+                                        onMouseDown={(event) => event.stopPropagation()}
+                                        onClick={() => openFocusMode(item.id)}
+                                      >
+                                        Focus
+                                      </Button>
+                                      <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                        draggable={false}
+                                        onPointerDown={(event) => event.stopPropagation()}
+                                        onMouseDown={(event) => event.stopPropagation()}
+                                        onClick={() => {
+                                          const task = tasks.find((candidate) => candidate.id === item.id)
+                                          if (task) {
+                                            handleStartEditing(task)
+                                          }
+                                        }}
+                                      >
+                                        Edit
+                                      </Button>
+                                    </>
                                   ) : null}
                                   <Button
                                     type="button"
@@ -1292,6 +1405,89 @@ export default function Day073Client() {
           </div>
         </section>
       </div>
+      {focusModeOpen && activeFocusTask ? (
+        <div className="fixed inset-0 z-50 bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.18),_transparent_28%),linear-gradient(180deg,_rgba(2,6,23,0.97),_rgba(15,23,42,0.98))] text-white">
+          <div className="mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-8">
+            <div className="flex items-center justify-between">
+              <Badge className="rounded-full bg-white/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-white">
+                Focus Mode
+              </Badge>
+              <Button
+                type="button"
+                variant="ghost"
+                size="icon-sm"
+                className="rounded-full bg-white/10 text-white hover:bg-white/15 hover:text-white"
+                onClick={closeFocusMode}
+              >
+                <X className="size-4" />
+              </Button>
+            </div>
+
+            <div className="flex flex-1 flex-col items-center justify-center text-center">
+              <p className="text-sm uppercase tracking-[0.32em] text-white/50">
+                Active task
+              </p>
+              <h2 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
+                {activeFocusTask.title}
+              </h2>
+              <p className="mt-4 text-sm text-white/65 sm:text-base">
+                {activeFocusTask.estimate} · {activeFocusTask.source}
+              </p>
+
+              <div className="mt-12 w-full max-w-2xl rounded-[2rem] border border-white/10 bg-white/5 p-8 backdrop-blur">
+                <p className="text-7xl font-semibold tracking-tight sm:text-8xl">
+                  {formatTimer(focusSecondsRemaining)}
+                </p>
+                <div className="mt-8 h-3 rounded-full bg-white/10">
+                  <div
+                    className="h-full rounded-full bg-sky-400 transition-[width]"
+                    style={{ width: `${Math.max(0, Math.min(focusProgress * 100, 100))}%` }}
+                  />
+                </div>
+                <div className="mt-8 flex flex-wrap justify-center gap-3">
+                  <Button
+                    type="button"
+                    className="rounded-full bg-sky-500 px-5 text-white hover:bg-sky-400"
+                    onClick={() => setFocusRunning((current) => !current)}
+                  >
+                    {focusRunning ? <Pause className="size-4" /> : <Play className="size-4" />}
+                    {focusRunning ? "Pause" : "Start"}
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="rounded-full border-white/15 bg-white/5 px-5 text-white hover:bg-white/10 hover:text-white"
+                    onClick={resetFocusTimer}
+                  >
+                    <RotateCcw className="size-4" />
+                    Reset
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="rounded-full border-white/15 bg-white/5 px-5 text-white hover:bg-white/10 hover:text-white"
+                    onClick={() => {
+                      const nextTask = tasks.find((task) => task.id !== activeFocusTask.id)
+                      if (nextTask) {
+                        setActiveFocusTaskId(nextTask.id)
+                        setFocusSecondsRemaining(parseEstimateToMinutes(nextTask.estimate) * 60)
+                        setFocusRunning(false)
+                      }
+                    }}
+                  >
+                    <Target className="size-4" />
+                    Switch task
+                  </Button>
+                </div>
+              </div>
+
+              <p className="mt-8 max-w-xl text-sm leading-7 text-white/55">
+                {activeFocusTask.notes || "Stay on one thing. When the timer ends, review progress and reschedule the next block."}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </main>
   )
 }
