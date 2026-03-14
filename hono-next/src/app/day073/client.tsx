@@ -98,43 +98,7 @@ const timeSlots = Array.from(
   }
 )
 
-const baseCalendar: CalendarBlock[] = [
-  {
-    id: "calendar-1",
-    time: "08:30",
-    label: "Morning planning",
-    type: "focus",
-    durationMinutes: 30,
-  },
-  {
-    id: "calendar-2",
-    time: "09:00",
-    label: "Design review with product",
-    type: "event",
-    durationMinutes: 45,
-  },
-  {
-    id: "calendar-3",
-    time: "11:30",
-    label: "Buffer / admin",
-    type: "break",
-    durationMinutes: 30,
-  },
-  {
-    id: "calendar-4",
-    time: "15:00",
-    label: "Focus mode prototype",
-    type: "focus",
-    durationMinutes: 60,
-  },
-  {
-    id: "calendar-5",
-    time: "16:30",
-    label: "Team sync",
-    type: "event",
-    durationMinutes: 30,
-  },
-]
+const baseCalendar: CalendarBlock[] = []
 
 const defaultTasks: PlannerTask[] = [
   {
@@ -679,8 +643,28 @@ export default function Day073Client() {
     (total, task) => total + parseEstimateToMinutes(task.estimate),
     0
   )
+  const elapsedScheduledMinutes =
+    currentTime === null
+      ? 0
+      : selectedDate < currentTime.dateKey
+        ? scheduledTaskItems.reduce(
+            (total, item) => total + item.durationMinutes,
+            0
+          )
+        : selectedDate === currentTime.dateKey
+          ? scheduledTaskItems.reduce((total, item) => {
+              const itemStart = timeToMinutes(item.startTime)
+              return itemStart < currentTime.minutes
+                ? total + item.durationMinutes
+                : total
+            }, 0)
+          : 0
   const scheduledMinutes = scheduledTaskItems.reduce(
     (total, item) => total + item.durationMinutes,
+    0
+  )
+  const remainingEstimatedMinutes = Math.max(
+    totalEstimatedMinutes - elapsedScheduledMinutes,
     0
   )
   const focusTask =
@@ -978,7 +962,7 @@ export default function Day073Client() {
             <CardHeader className="gap-1">
               <CardDescription>Total estimated work</CardDescription>
               <CardTitle className="text-3xl">
-                {Math.floor(totalEstimatedMinutes / 60)}h {totalEstimatedMinutes % 60}m
+                {Math.floor(remainingEstimatedMinutes / 60)}h {remainingEstimatedMinutes % 60}m
               </CardTitle>
             </CardHeader>
           </Card>
@@ -1048,12 +1032,6 @@ export default function Day073Client() {
                         className={`rounded-full border-0 ${energyStyles[task.energy]}`}
                       >
                         {task.energy} energy
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="rounded-full border-white/10 bg-transparent"
-                      >
-                        {task.source}
                       </Badge>
                     </div>
                     <p className="mt-3 text-sm leading-6 text-foreground/70">
@@ -1289,7 +1267,7 @@ export default function Day073Client() {
                                     className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
                                   />
                                   <p className="truncate text-sm font-semibold leading-5">
-                                    {shortenLabel(item.title, 15)}
+                                    {shortenLabel(item.title, 30)}
                                   </p>
                                 </div>
                               </div>
