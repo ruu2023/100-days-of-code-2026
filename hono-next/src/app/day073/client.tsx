@@ -241,6 +241,10 @@ function minutesToTime(totalMinutes: number) {
   return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}`
 }
 
+function shortenLabel(value: string, maxLength: number) {
+  return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value
+}
+
 function clampSlotTime(time: string, durationMinutes: number) {
   const rawMinutes = timeToMinutes(time)
   const dayStartMinutes = dayStartHour * 60
@@ -880,7 +884,7 @@ export default function Day073Client() {
               </CardContent>
             </Card>
 
-            <div className="grid gap-6 xl:grid-cols-2">
+            <div className="grid gap-6">
               <TaskComposer
                 title="Post a task"
                 description="Create a task locally, then drag it into the daily calendar."
@@ -1010,10 +1014,10 @@ export default function Day073Client() {
                             return (
                               <div
                                 key={hour}
-                                className="absolute left-0 right-0 -translate-y-3 text-right text-xs text-foreground/45"
-                                style={{
-                                  top: `${(hour - dayStartHour) * 60 * pxPerMinute}px`,
-                                }}
+                              className="absolute left-0 right-0 -translate-y-1/2 pr-2 text-right text-xs text-foreground/45"
+                              style={{
+                                top: `${(hour - dayStartHour) * 60 * pxPerMinute}px`,
+                              }}
                               >
                                 {`${hour % 12 || 12}:00`}
                               </div>
@@ -1091,20 +1095,17 @@ export default function Day073Client() {
                               }}
                             >
                               <div className="flex items-start justify-between gap-3">
-                                <div className="space-y-1">
-                                  <div className="flex items-center gap-2">
-                                    <span
-                                      className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
-                                    />
-                                    <p className="text-[11px] uppercase tracking-[0.22em] text-current/65">
-                                      {item.startTime}
-                                    </p>
-                                  </div>
-                                  <h3 className="text-sm font-semibold leading-5">
-                                    {item.title}
-                                  </h3>
-                                  <p className="text-xs text-current/70">{item.meta}</p>
+                              <div className="space-y-1">
+                                <div className="flex items-center gap-2">
+                                  <span
+                                    className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
+                                  />
+                                  <p className="truncate text-sm font-semibold leading-5">
+                                    {`${item.startTime} ${shortenLabel(item.title, 15)}`}
+                                  </p>
                                 </div>
+                                <p className="text-xs text-current/70">{item.meta}</p>
+                              </div>
                                 {item.type === "task" ? (
                                   <Button
                                     type="button"
