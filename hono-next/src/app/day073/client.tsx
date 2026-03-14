@@ -4,7 +4,6 @@ import Link from "next/link"
 import { useEffect, useId, useState, useSyncExternalStore } from "react"
 import {
   CalendarClock,
-  Clock3,
   Focus,
   GripVertical,
   LogOut,
@@ -715,6 +714,41 @@ export default function Day073Client() {
     ? 1 - focusSecondsRemaining / activeFocusDurationSeconds
     : 0
 
+  function getTaskScheduledEndMinutes(taskId: string) {
+    const scheduledItem = scheduled.find(
+      (item) => item.taskId === taskId && item.date === selectedDate
+    )
+    if (!scheduledItem) {
+      return null
+    }
+
+    const task = tasks.find((candidate) => candidate.id === taskId)
+    if (!task) {
+      return null
+    }
+
+    return (
+      timeToMinutes(scheduledItem.startTime) +
+      parseEstimateToMinutes(task.estimate)
+    )
+  }
+
+  function getInitialFocusSeconds(task: PlannerTask) {
+    const scheduledEndMinutes = getTaskScheduledEndMinutes(task.id)
+    if (
+      scheduledEndMinutes !== null &&
+      currentTime !== null &&
+      currentTime.dateKey === selectedDate
+    ) {
+      const remainingMinutes = scheduledEndMinutes - currentTime.minutes
+      if (remainingMinutes > 0) {
+        return remainingMinutes * 60
+      }
+    }
+
+    return parseEstimateToMinutes(task.estimate) * 60
+  }
+
   function handleCreateTask() {
     const title = newTaskDraft.title.trim()
     const estimate = newTaskDraft.estimate.trim()
@@ -857,8 +891,8 @@ export default function Day073Client() {
     }
 
     setActiveFocusTaskId(nextTask.id)
-    setFocusSecondsRemaining(parseEstimateToMinutes(nextTask.estimate) * 60)
-    setFocusRunning(false)
+    setFocusSecondsRemaining(getInitialFocusSeconds(nextTask))
+    setFocusRunning(true)
     setFocusModeOpen(true)
   }
 
@@ -872,7 +906,7 @@ export default function Day073Client() {
       return
     }
 
-    setFocusSecondsRemaining(parseEstimateToMinutes(activeFocusTask.estimate) * 60)
+    setFocusSecondsRemaining(getInitialFocusSeconds(activeFocusTask))
     setFocusRunning(false)
   }
 
@@ -1107,60 +1141,6 @@ export default function Day073Client() {
                 onDraftChange={setNewTaskDraft}
                 onSubmit={handleCreateTask}
               />
-
-              <Card className="border-white/10 bg-white/[0.7] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
-                <CardHeader className="border-b border-white/10">
-                  <CardTitle className="flex items-center gap-2 text-xl">
-                    <Focus className="size-5" />
-                    Focus mode preview
-                  </CardTitle>
-                  <CardDescription>
-                    The earliest scheduled task becomes the current focus target.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-6 p-6">
-                  <div className="rounded-[2rem] border border-emerald-500/20 bg-emerald-500/10 p-6 text-center">
-                    <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
-                      Active now
-                    </p>
-                    <h3 className="mt-3 text-xl font-semibold">
-                      {focusTask?.title ?? "No task selected"}
-                    </h3>
-                    <p className="mt-2 text-sm text-foreground/65">
-                      {focusTask?.meta ?? "Schedule a task on the calendar"}
-                    </p>
-                    <p className="mt-6 text-5xl font-semibold tracking-tight">48:12</p>
-                    <Button
-                      type="button"
-                      className="mt-6 rounded-full"
-                      onClick={() => openFocusMode(focusTask?.id)}
-                    >
-                      <Focus className="size-4" />
-                      Open focus mode
-                    </Button>
-                  </div>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
-                      <p className="flex items-center gap-2 text-sm font-medium">
-                        <Clock3 className="size-4" />
-                        Calendar load
-                      </p>
-                      <p className="mt-2 text-sm text-foreground/65">
-                        {scheduledTaskItems.length} scheduled task blocks today
-                      </p>
-                    </div>
-                    <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
-                      <p className="flex items-center gap-2 text-sm font-medium">
-                        <Sparkles className="size-4" />
-                        Ritual
-                      </p>
-                      <p className="mt-2 text-sm text-foreground/65">
-                        Use drag-and-drop first, then refine details from the backlog.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
 
           </div>
@@ -1470,8 +1450,8 @@ export default function Day073Client() {
                       const nextTask = tasks.find((task) => task.id !== activeFocusTask.id)
                       if (nextTask) {
                         setActiveFocusTaskId(nextTask.id)
-                        setFocusSecondsRemaining(parseEstimateToMinutes(nextTask.estimate) * 60)
-                        setFocusRunning(false)
+                        setFocusSecondsRemaining(getInitialFocusSeconds(nextTask))
+                        setFocusRunning(true)
                       }
                     }}
                   >
