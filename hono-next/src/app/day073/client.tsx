@@ -216,7 +216,6 @@ const energyStyles: Record<TaskEnergy, string> = {
   Low: "bg-emerald-500/[0.15] text-emerald-700 dark:text-emerald-200",
 }
 
-const sourceOptions: TaskSource[] = ["Inbox", "Project", "Calendar"]
 const energyOptions: TaskEnergy[] = ["Low", "Medium", "High"]
 const weekdayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 const monthNames = [
@@ -561,17 +560,6 @@ function TaskComposer({
             }
           />
         </div>
-        <SelectField
-          label="Source"
-          value={draft.source}
-          options={sourceOptions}
-          onChange={(value) =>
-            onDraftChange({
-              ...draft,
-              source: value as TaskSource,
-            })
-          }
-        />
         <label htmlFor={notesId} className="space-y-2">
           <span className="text-xs font-medium uppercase tracking-[0.22em] text-foreground/55">
             Notes
@@ -1081,18 +1069,6 @@ export default function Day073Client() {
                       >
                         <Focus className="size-4" />
                         Focus
-                      </Button>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="sm"
-                        className="rounded-full"
-                        onClick={() =>
-                          scheduleTask(task.id, clampSlotTime("13:00", parseEstimateToMinutes(task.estimate)))
-                        }
-                      >
-                        <CalendarClock className="size-4" />
-                        Add to 13:00
                       </Button>
                       <Button
                         type="button"
