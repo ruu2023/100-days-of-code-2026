@@ -1065,18 +1065,17 @@ export default function Day073Client() {
                           <div
                             key={`${item.type}-${item.id}`}
                             draggable={item.type === "task"}
-                            title={`${item.title} · ${item.meta}`}
                             onDragStart={() => {
                               if (item.type === "task") {
                                 handleDragStart(item.id)
                                 }
                               }}
                               onDragEnd={handleDragEnd}
-                              className={[
-                                "absolute left-3 right-3 rounded-2xl border px-4 py-3 shadow-sm",
-                                blockStyles[item.type].card,
-                                item.type === "task" ? "cursor-grab active:cursor-grabbing" : "",
-                              ].join(" ")}
+                            className={[
+                              "group absolute left-3 right-3 rounded-2xl border px-4 py-3 shadow-sm",
+                              blockStyles[item.type].card,
+                              item.type === "task" ? "cursor-grab active:cursor-grabbing" : "",
+                            ].join(" ")}
                               style={{
                                 top: `${offset}px`,
                                 height: `${height}px`,
@@ -1093,9 +1092,15 @@ export default function Day073Client() {
                                   </p>
                                 </div>
                               </div>
-                                {item.type === "task" ? (
-                                  <Button
-                                    type="button"
+                              <div className="pointer-events-none absolute -top-12 left-3 z-20 rounded-xl bg-slate-950 px-3 py-2 text-xs text-white opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 dark:bg-slate-100 dark:text-slate-950">
+                                <p className="whitespace-nowrap font-medium">{item.title}</p>
+                                <p className="mt-1 whitespace-nowrap text-white/75 dark:text-slate-700">
+                                  {item.meta}
+                                </p>
+                              </div>
+                              {item.type === "task" ? (
+                                <Button
+                                  type="button"
                                     variant="ghost"
                                     size="sm"
                                     className="rounded-full bg-white/35 px-3 dark:bg-black/10"
