@@ -24,6 +24,9 @@ proxy:
   ssl: true
   host: rails.ruu-dev.com
   forward_headers: true
+  response_timeout: 300
+  buffering:
+    responses: false
   app_port: 80
 
 # Where you keep your container images.
