@@ -50,8 +50,8 @@ export const parseXPosts = (rawText, existingPostsMap = new Map()) => {
   .sort((a, b) => b.day - a.day); // 降順
 };
 
-const mdPath = path.join(process.cwd(), 'posts.md');
-const jsonPath = path.join(process.cwd(), 'posts.json');
+const mdPath = path.join(process.cwd(), 'hono-next/src/data/posts.md');
+const jsonPath = path.join(process.cwd(), 'hono-next/src/data/posts.json');
 
 let existingPostsMap = new Map();
 if (fs.existsSync(jsonPath)) {

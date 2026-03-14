@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/data/parse-x-posts.mjs"  ],
+, "src/data/posts.mjs"  ],
   "exclude": ["node_modules"]
 }
