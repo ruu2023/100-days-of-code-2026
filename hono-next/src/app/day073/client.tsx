@@ -53,6 +53,7 @@ type PlannerTask = DraftTask & {
 
 type ScheduledTask = {
   taskId: string
+  date: string
   startTime: string
 }
 
@@ -72,6 +73,7 @@ type ScheduledCalendarItem = {
 
 const storageKey = "day073-planner-state"
 const storageEvent = "day073-planner-updated"
+const defaultSelectedDate = "2026-03-14"
 const dayStartHour = 8
 const dayEndHour = 19
 const slotMinutes = 30
@@ -178,14 +180,6 @@ const emptyDraft: DraftTask = {
   notes: "",
 }
 
-const weekdays = [
-  { name: "Mon", date: "10", state: "done" },
-  { name: "Tue", date: "11", state: "done" },
-  { name: "Wed", date: "12", state: "active" },
-  { name: "Thu", date: "13", state: "next" },
-  { name: "Fri", date: "14", state: "next" },
-]
-
 const blockStyles: Record<
   ScheduledCalendarItem["type"],
   { card: string; dot: string }
@@ -216,6 +210,21 @@ const energyStyles: Record<TaskEnergy, string> = {
 
 const sourceOptions: TaskSource[] = ["Inbox", "Project", "Calendar"]
 const energyOptions: TaskEnergy[] = ["Low", "Medium", "High"]
+const weekdayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+const monthNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+]
 let cachedStorageValue: string | null | undefined
 let cachedPlannerState: PlannerState = defaultPlannerState
 let hasHydrated = false
@@ -243,6 +252,40 @@ function minutesToTime(totalMinutes: number) {
 
 function shortenLabel(value: string, maxLength: number) {
   return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value
+}
+
+function parseDateString(value: string) {
+  return new Date(`${value}T00:00:00`)
+}
+
+function formatDateKey(date: Date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`
+}
+
+function shiftDate(value: string, offset: number) {
+  const date = parseDateString(value)
+  date.setDate(date.getDate() + offset)
+  return formatDateKey(date)
+}
+
+function formatHeaderDate(value: string) {
+  const date = parseDateString(value)
+  return `${weekdayNames[date.getDay()]}, ${monthNames[date.getMonth()]} ${date.getDate()}`
+}
+
+function buildWeekdays(value: string) {
+  return Array.from({ length: 5 }, (_, index) => {
+    const date = parseDateString(shiftDate(value, index - 2))
+    const dateKey = formatDateKey(date)
+
+    return {
+      key: dateKey,
+      name: weekdayNames[date.getDay()],
+      date: String(date.getDate()).padStart(2, "0"),
+      state:
+        dateKey === value ? "active" : dateKey < value ? "done" : "next",
+    }
+  })
 }
 
 function clampSlotTime(time: string, durationMinutes: number) {
@@ -292,13 +335,17 @@ function parseStoredState(rawValue: string | null): PlannerState {
     const scheduled = parsedValue.scheduled.filter(
       (item): item is ScheduledTask =>
         typeof item?.taskId === "string" &&
+        (typeof item?.date === "string" || typeof item?.date === "undefined") &&
         typeof item?.startTime === "string" &&
         taskIds.has(item.taskId)
     )
 
     return {
       tasks,
-      scheduled,
+      scheduled: scheduled.map((item) => ({
+        ...item,
+        date: item.date || defaultSelectedDate,
+      })),
     }
   } catch {
     return defaultPlannerState
@@ -519,15 +566,35 @@ export default function Day073Client() {
   const [editingDraft, setEditingDraft] = useState<DraftTask>(emptyDraft)
   const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null)
   const [activeDropSlot, setActiveDropSlot] = useState<string | null>(null)
+  const [selectedDate, setSelectedDate] = useState(defaultSelectedDate)
+  const [currentTime, setCurrentTime] = useState<Date | null>(null)
 
   useEffect(() => {
     hasHydrated = true
     window.dispatchEvent(new Event(storageEvent))
   }, [])
 
+  useEffect(() => {
+    let intervalId: number | null = null
+    const timerId = window.setTimeout(() => {
+      setCurrentTime(new Date())
+      intervalId = window.setInterval(() => {
+        setCurrentTime(new Date())
+      }, 60_000)
+    }, 0)
+
+    return () => {
+      window.clearTimeout(timerId)
+      if (intervalId !== null) {
+        window.clearInterval(intervalId)
+      }
+    }
+  }, [])
+
   const scheduledTaskIds = new Set(scheduled.map((item) => item.taskId))
   const backlogTasks = tasks.filter((task) => !scheduledTaskIds.has(task.id))
   const scheduledTaskItems = scheduled
+    .filter((item) => item.date === selectedDate)
     .map((item) => {
       const task = tasks.find((candidate) => candidate.id === item.taskId)
       if (!task) {
@@ -557,6 +624,13 @@ export default function Day073Client() {
   const calendarItems = [...baseCalendarItems, ...scheduledTaskItems].sort(
     (left, right) => timeToMinutes(left.startTime) - timeToMinutes(right.startTime)
   )
+  const weekdays = buildWeekdays(selectedDate)
+  const showCurrentTimeLine =
+    currentTime !== null && formatDateKey(currentTime) === selectedDate
+  const currentTimeOffset = showCurrentTimeLine
+    ? (currentTime.getHours() * 60 + currentTime.getMinutes() - dayStartHour * 60) *
+      pxPerMinute
+    : null
 
   const totalEstimatedMinutes = tasks.reduce(
     (total, task) => total + parseEstimateToMinutes(task.estimate),
@@ -668,9 +742,11 @@ export default function Day073Client() {
     const existingItem = scheduled.find((item) => item.taskId === taskId)
     const nextScheduled = existingItem
       ? scheduled.map((item) =>
-          item.taskId === taskId ? { ...item, startTime: nextStartTime } : item
+          item.taskId === taskId
+            ? { ...item, date: selectedDate, startTime: nextStartTime }
+            : item
         )
-      : [...scheduled, { taskId, startTime: nextStartTime }]
+      : [...scheduled, { taskId, date: selectedDate, startTime: nextStartTime }]
 
     persistState({
       ...plannerState,
@@ -961,30 +1037,50 @@ export default function Day073Client() {
                   <div className="space-y-1">
                     <CardTitle className="flex items-center gap-2 text-2xl">
                       <CalendarClock className="size-5" />
-                      Friday, March 14
+                      {formatHeaderDate(selectedDate)}
                     </CardTitle>
                     <CardDescription>
                       Drag from the backlog and drop onto a 30-minute slot to place
                       tasks on the calendar.
                     </CardDescription>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="rounded-full"
+                      onClick={() => setSelectedDate((current) => shiftDate(current, -1))}
+                    >
+                      Prev
+                    </Button>
                     {weekdays.map((day) => (
-                      <div
-                        key={day.name}
+                      <button
+                        key={day.key}
+                        type="button"
                         className={[
                           "flex min-w-14 flex-col items-center rounded-2xl border px-3 py-2 text-center transition-colors",
                           day.state === "active"
                             ? "border-sky-500/40 bg-sky-500/15"
                             : "border-white/10 bg-white/[0.08]",
                         ].join(" ")}
+                        onClick={() => setSelectedDate(day.key)}
                       >
                         <span className="text-[11px] uppercase tracking-[0.24em] text-foreground/55">
                           {day.name}
                         </span>
                         <span className="mt-1 text-lg font-semibold">{day.date}</span>
-                      </div>
+                      </button>
                     ))}
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      className="rounded-full"
+                      onClick={() => setSelectedDate((current) => shiftDate(current, 1))}
+                    >
+                      Next
+                    </Button>
                   </div>
                 </div>
               </CardHeader>
@@ -1020,6 +1116,17 @@ export default function Day073Client() {
                         className="relative rounded-3xl border border-white/10 bg-background/55 dark:bg-black/10"
                         style={{ height: `${gridHeight}px` }}
                       >
+                        {showCurrentTimeLine &&
+                        currentTimeOffset !== null &&
+                        currentTimeOffset >= 0 &&
+                        currentTimeOffset <= gridHeight ? (
+                          <div
+                            className="pointer-events-none absolute inset-x-0 z-10 border-t-2 border-sky-500"
+                            style={{ top: `${currentTimeOffset}px` }}
+                          >
+                            <span className="absolute -left-1 -top-[5px] size-2.5 rounded-full bg-sky-500" />
+                          </div>
+                        ) : null}
                         {timeSlots.map((slot, index) => (
                           <div
                             key={slot}
@@ -1099,8 +1206,25 @@ export default function Day073Client() {
                                 </p>
                               </div>
                               {item.type === "task" ? (
-                                <Button
-                                  type="button"
+                                <div className="flex gap-2">
+                                  {tasks.find((task) => task.id === item.id) ? (
+                                    <Button
+                                      type="button"
+                                      variant="ghost"
+                                      size="sm"
+                                      className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                      onClick={() => {
+                                        const task = tasks.find((candidate) => candidate.id === item.id)
+                                        if (task) {
+                                          handleStartEditing(task)
+                                        }
+                                      }}
+                                    >
+                                      Edit
+                                    </Button>
+                                  ) : null}
+                                  <Button
+                                    type="button"
                                     variant="ghost"
                                     size="sm"
                                     className="rounded-full bg-white/35 px-3 dark:bg-black/10"
@@ -1108,9 +1232,10 @@ export default function Day073Client() {
                                   >
                                     Backlog
                                   </Button>
-                                ) : null}
-                              </div>
+                                </div>
+                              ) : null}
                             </div>
+                          </div>
                           )
                         })}
                       </div>
