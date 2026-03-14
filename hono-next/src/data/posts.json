@@ -1,5 +1,24 @@
 [
   {
+    "day": 73,
+    "date": "2026-03-14",
+    "title": "Sunsama-like Task Management App 🛠️✨",
+    "description": "【Day 073/100】Sunsama-like Task Management App 🛠️✨",
+    "features": [
+      "日次プランニング用の 2 カラム UI",
+      "カレンダー風タイムラインと unified backlog",
+      "Focus mode preview とダークモード対応"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#Hono",
+      "#TaskManagement"
+    ],
+    "url": "https://x.com/ruu_web",
+    "demoLink": "/day073"
+  },
+  {
     "day": 72,
     "date": "2026-03-13",
     "title": "News Site 🛠️✨",
