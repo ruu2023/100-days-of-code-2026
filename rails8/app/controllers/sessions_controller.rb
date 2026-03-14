@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include Authentication
   layout "x"
 
   allow_unauthenticated_access only: %i[ new create ]

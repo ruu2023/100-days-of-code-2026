@@ -5,9 +5,31 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+
+  ##
+  # require auth
+  # OAuth routes
+  get "auth/google_oauth2", to: "auth#google_oauth2"
+  get "auth/google_oauth2/callback", to: "auth#google_oauth2"
+  get "auth/failure", to: "auth#failure"
+
+  # X (Twitter) Clone - Post routes
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
+
+  # Timeline route
+  get "/timeline" => "posts#timeline", as: :timeline
+
+  # Search route
+  get "/search" => "posts#search", as: :search
+
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # require auth end
+
+
   # Defines the root path route ("/")
   get "news", to: "news#index"
-
   get "convert", to: "convert#index"
   get  "convert/stream",  to: "convert#stream"
 
@@ -42,24 +64,6 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
 
-  # OAuth routes
-  get "auth/google_oauth2", to: "auth#google_oauth2"
-  get "auth/google_oauth2/callback", to: "auth#google_oauth2"
-  get "auth/failure", to: "auth#failure"
-
-  # X (Twitter) Clone - Post routes
-  resources :posts do
-    resources :comments, only: [:create, :destroy]
-  end
-
-  # Timeline route
-  get "/timeline" => "posts#timeline", as: :timeline
-
-  # Search route
-  get "/search" => "posts#search", as: :search
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
   # Day006 - Memo App
   scope "/day006", as: :day006 do
     get "/" => "day006/memos#index"
@@ -85,7 +89,5 @@ Rails.application.routes.draw do
   post "/curl_prompt/send_request" => "curl_prompt#send_request"
   post "/curl_prompt/mock" => "curl_prompt#mock"
 
-  # Defines the root path route ("/")
-  get "/", to: "posts#index"
 end
 

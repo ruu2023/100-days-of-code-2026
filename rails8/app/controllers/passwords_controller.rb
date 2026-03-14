@@ -1,4 +1,5 @@
 class PasswordsController < ApplicationController
+  include Authentication
   layout "x"
 
   allow_unauthenticated_access

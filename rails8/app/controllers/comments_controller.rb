@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  include Authentication
   layout "x"
 
   before_action :require_authentication

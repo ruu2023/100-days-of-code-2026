@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  include Authentication
   layout "x"
 
   before_action :require_authentication, except: [:index, :show, :search]
