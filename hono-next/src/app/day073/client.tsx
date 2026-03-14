@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useId, useState, useSyncExternalStore } from "react"
+import { useEffect, useId, useState, useSyncExternalStore } from "react"
 import {
   CalendarClock,
   Clock3,
@@ -218,6 +218,7 @@ const sourceOptions: TaskSource[] = ["Inbox", "Project", "Calendar"]
 const energyOptions: TaskEnergy[] = ["Low", "Medium", "High"]
 let cachedStorageValue: string | null | undefined
 let cachedPlannerState: PlannerState = defaultPlannerState
+let hasHydrated = false
 
 function parseEstimateToMinutes(estimate: string) {
   const match = estimate.trim().match(/^(\d+)(m|h)$/i)
@@ -316,6 +317,10 @@ function subscribe(callback: () => void) {
 
 function getSnapshot() {
   if (typeof window === "undefined") {
+    return defaultPlannerState
+  }
+
+  if (!hasHydrated) {
     return defaultPlannerState
   }
 
@@ -510,6 +515,11 @@ export default function Day073Client() {
   const [editingDraft, setEditingDraft] = useState<DraftTask>(emptyDraft)
   const [draggedTaskId, setDraggedTaskId] = useState<string | null>(null)
   const [activeDropSlot, setActiveDropSlot] = useState<string | null>(null)
+
+  useEffect(() => {
+    hasHydrated = true
+    window.dispatchEvent(new Event(storageEvent))
+  }, [])
 
   const scheduledTaskIds = new Set(scheduled.map((item) => item.taskId))
   const backlogTasks = tasks.filter((task) => !scheduledTaskIds.has(task.id))
@@ -764,7 +774,7 @@ export default function Day073Client() {
           </Card>
         </section>
 
-        <section className="grid flex-1 gap-6 lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.65fr)]">
+        <section className="grid flex-1 gap-6 lg:grid-cols-[minmax(340px,0.95fr)_minmax(0,1.65fr)]">
           <div className="grid gap-6">
             <Card className="border-white/10 bg-white/[0.7] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
               <CardHeader className="border-b border-white/10">
@@ -870,20 +880,6 @@ export default function Day073Client() {
               </CardContent>
             </Card>
 
-            {editingId ? (
-              <TaskComposer
-                title="Edit task"
-                description="Update the selected task and persist the changes in localStorage."
-                submitLabel="Save changes"
-                draft={editingDraft}
-                onDraftChange={setEditingDraft}
-                onSubmit={handleSaveEdit}
-                onCancel={handleCancelEditing}
-              />
-            ) : null}
-          </div>
-
-          <div className="grid gap-6">
             <div className="grid gap-6 xl:grid-cols-2">
               <TaskComposer
                 title="Post a task"
@@ -941,6 +937,20 @@ export default function Day073Client() {
               </Card>
             </div>
 
+            {editingId ? (
+              <TaskComposer
+                title="Edit task"
+                description="Update the selected task and persist the changes in localStorage."
+                submitLabel="Save changes"
+                draft={editingDraft}
+                onDraftChange={setEditingDraft}
+                onSubmit={handleSaveEdit}
+                onCancel={handleCancelEditing}
+              />
+            ) : null}
+          </div>
+
+          <div className="grid gap-6">
             <Card className="overflow-hidden border-white/10 bg-white/[0.72] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
               <CardHeader className="border-b border-white/10">
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
