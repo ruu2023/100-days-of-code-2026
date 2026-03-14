@@ -11,3 +11,27 @@ node_modules
 .claude
 
 hono-api/remote-dump.sql
+
+# dependencies
+**/node_modules/
+
+# next.js
+**/.next/
+**/out/
+
+# build outputs
+**/dist/
+**/build/
+**/.cache/
+**/.turbo/
+**/coverage/
+
+# python
+**/__pycache__/
+*.pyc
+
+# binaries
+*.exe
+
+# OS
+.DS_Store
