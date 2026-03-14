@@ -326,17 +326,20 @@ function parseStoredState(rawValue: string | null): PlannerState {
 
   try {
     const parsedValue: unknown = JSON.parse(rawValue)
+    if (typeof parsedValue !== "object" || parsedValue === null) {
+      return defaultPlannerState
+    }
+
+    const parsedRecord = parsedValue as Record<string, unknown>
     if (
-      typeof parsedValue !== "object" ||
-      parsedValue === null ||
-      !Array.isArray(parsedValue.tasks) ||
-      !Array.isArray(parsedValue.scheduled)
+      !Array.isArray(parsedRecord.tasks) ||
+      !Array.isArray(parsedRecord.scheduled)
     ) {
       return defaultPlannerState
     }
 
-    const parsedTasks = parsedValue.tasks as unknown[]
-    const parsedScheduled = parsedValue.scheduled as unknown[]
+    const parsedTasks = parsedRecord.tasks
+    const parsedScheduled = parsedRecord.scheduled
 
     const tasks = parsedTasks.filter(
       (task: unknown): task is PlannerTask =>
