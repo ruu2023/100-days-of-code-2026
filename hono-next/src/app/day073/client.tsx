@@ -764,205 +764,8 @@ export default function Day073Client() {
           </Card>
         </section>
 
-        <section className="grid flex-1 gap-6 lg:grid-cols-[minmax(0,1.65fr)_minmax(340px,0.95fr)]">
-          <Card className="overflow-hidden border-white/10 bg-white/[0.72] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
-            <CardHeader className="border-b border-white/10">
-              <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-                <div className="space-y-1">
-                  <CardTitle className="flex items-center gap-2 text-2xl">
-                    <CalendarClock className="size-5" />
-                    Friday, March 14
-                  </CardTitle>
-                  <CardDescription>
-                    Drag from the backlog and drop onto a 30-minute slot to place
-                    tasks on the calendar.
-                  </CardDescription>
-                </div>
-                <div className="flex gap-2">
-                  {weekdays.map((day) => (
-                    <div
-                      key={day.name}
-                      className={[
-                        "flex min-w-14 flex-col items-center rounded-2xl border px-3 py-2 text-center transition-colors",
-                        day.state === "active"
-                          ? "border-sky-500/40 bg-sky-500/15"
-                          : "border-white/10 bg-white/[0.08]",
-                      ].join(" ")}
-                    >
-                      <span className="text-[11px] uppercase tracking-[0.24em] text-foreground/55">
-                        {day.name}
-                      </span>
-                      <span className="mt-1 text-lg font-semibold">{day.date}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent className="p-3 sm:p-5">
-              <div className="overflow-x-auto">
-                <div className="min-w-[640px] rounded-[2rem] border border-white/10 bg-white/[0.45] p-4 dark:bg-white/[0.03]">
-                  <div className="grid grid-cols-[72px_minmax(0,1fr)] gap-3 border-b border-white/10 pb-3">
-                    <div />
-                    <div className="rounded-2xl border border-sky-500/15 bg-sky-500/[0.08] px-4 py-3">
-                      <p className="text-xs uppercase tracking-[0.26em] text-foreground/50">
-                        My calendar
-                      </p>
-                      <p className="mt-1 text-lg font-semibold">Tokyo time · 08:00 - 19:00</p>
-                    </div>
-                  </div>
-
-                  <div className="relative mt-4 grid grid-cols-[72px_minmax(0,1fr)] gap-3">
-                    <div className="relative" style={{ height: `${gridHeight}px` }}>
-                      {Array.from(
-                        { length: dayEndHour - dayStartHour + 1 },
-                        (_, index) => {
-                          const hour = dayStartHour + index
-                          if (hour === dayEndHour) {
-                            return null
-                          }
-
-                          return (
-                            <div
-                              key={hour}
-                              className="absolute left-0 right-0 -translate-y-3 text-right text-xs text-foreground/45"
-                              style={{
-                                top: `${(hour - dayStartHour) * 60 * pxPerMinute}px`,
-                              }}
-                            >
-                              {`${hour % 12 || 12}:00`}
-                            </div>
-                          )
-                        }
-                      )}
-                    </div>
-
-                    <div
-                      className="relative rounded-3xl border border-white/10 bg-background/55 dark:bg-black/10"
-                      style={{ height: `${gridHeight}px` }}
-                    >
-                      {timeSlots.map((slot, index) => (
-                        <div
-                          key={slot}
-                          onDragOver={(event) => {
-                            event.preventDefault()
-                            setActiveDropSlot(slot)
-                          }}
-                          onDragLeave={() => {
-                            if (activeDropSlot === slot) {
-                              setActiveDropSlot(null)
-                            }
-                          }}
-                          onDrop={(event) => {
-                            event.preventDefault()
-                            handleDropOnSlot(slot)
-                          }}
-                          className={[
-                            "absolute inset-x-0 border-t transition-colors",
-                            index % 2 === 0
-                              ? "border-white/10"
-                              : "border-dashed border-white/6",
-                            activeDropSlot === slot
-                              ? "bg-sky-500/[0.08]"
-                              : "bg-transparent",
-                          ].join(" ")}
-                          style={{
-                            top: `${index * slotMinutes * pxPerMinute}px`,
-                            height: `${slotMinutes * pxPerMinute}px`,
-                          }}
-                        >
-                          <span className="pointer-events-none absolute left-4 top-1 text-[10px] uppercase tracking-[0.18em] text-foreground/30">
-                            {slot}
-                          </span>
-                        </div>
-                      ))}
-
-                      {calendarItems.map((item) => {
-                        const startMinutes = timeToMinutes(item.startTime)
-                        const offset = (startMinutes - dayStartHour * 60) * pxPerMinute
-                        const height = Math.max(
-                          item.durationMinutes * pxPerMinute,
-                          44
-                        )
-
-                        return (
-                          <div
-                            key={`${item.type}-${item.id}`}
-                            draggable={item.type === "task"}
-                            onDragStart={() => {
-                              if (item.type === "task") {
-                                handleDragStart(item.id)
-                              }
-                            }}
-                            onDragEnd={handleDragEnd}
-                            className={[
-                              "absolute left-3 right-3 rounded-2xl border px-4 py-3 shadow-sm",
-                              blockStyles[item.type].card,
-                              item.type === "task" ? "cursor-grab active:cursor-grabbing" : "",
-                            ].join(" ")}
-                            style={{
-                              top: `${offset}px`,
-                              height: `${height}px`,
-                            }}
-                          >
-                            <div className="flex items-start justify-between gap-3">
-                              <div className="space-y-1">
-                                <div className="flex items-center gap-2">
-                                  <span
-                                    className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
-                                  />
-                                  <p className="text-[11px] uppercase tracking-[0.22em] text-current/65">
-                                    {item.startTime}
-                                  </p>
-                                </div>
-                                <h3 className="text-sm font-semibold leading-5">
-                                  {item.title}
-                                </h3>
-                                <p className="text-xs text-current/70">{item.meta}</p>
-                              </div>
-                              {item.type === "task" ? (
-                                <Button
-                                  type="button"
-                                  variant="ghost"
-                                  size="sm"
-                                  className="rounded-full bg-white/35 px-3 dark:bg-black/10"
-                                  onClick={() => unscheduleTask(item.id)}
-                                >
-                                  Backlog
-                                </Button>
-                              ) : null}
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
+        <section className="grid flex-1 gap-6 lg:grid-cols-[minmax(320px,0.95fr)_minmax(0,1.65fr)]">
           <div className="grid gap-6">
-            <TaskComposer
-              title="Post a task"
-              description="Create a task locally, then drag it into the daily calendar."
-              submitLabel="Post task"
-              draft={newTaskDraft}
-              onDraftChange={setNewTaskDraft}
-              onSubmit={handleCreateTask}
-            />
-
-            {editingId ? (
-              <TaskComposer
-                title="Edit task"
-                description="Update the selected task and persist the changes in localStorage."
-                submitLabel="Save changes"
-                draft={editingDraft}
-                onDraftChange={setEditingDraft}
-                onSubmit={handleSaveEdit}
-                onCancel={handleCancelEditing}
-              />
-            ) : null}
-
             <Card className="border-white/10 bg-white/[0.7] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
               <CardHeader className="border-b border-white/10">
                 <CardTitle className="flex items-center gap-2 text-xl">
@@ -1067,47 +870,248 @@ export default function Day073Client() {
               </CardContent>
             </Card>
 
-            <Card className="border-white/10 bg-white/[0.7] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
-              <CardHeader className="border-b border-white/10">
-                <CardTitle className="flex items-center gap-2 text-xl">
-                  <Focus className="size-5" />
-                  Focus mode preview
-                </CardTitle>
-                <CardDescription>
-                  The earliest scheduled task becomes the current focus target.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6 p-6">
-                <div className="rounded-[2rem] border border-emerald-500/20 bg-emerald-500/10 p-6 text-center">
-                  <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
-                    Active now
-                  </p>
-                  <h3 className="mt-3 text-xl font-semibold">
-                    {focusTask?.title ?? "No task selected"}
-                  </h3>
-                  <p className="mt-2 text-sm text-foreground/65">
-                    {focusTask?.meta ?? "Schedule a task on the calendar"}
-                  </p>
-                  <p className="mt-6 text-5xl font-semibold tracking-tight">48:12</p>
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
-                    <p className="flex items-center gap-2 text-sm font-medium">
-                      <Clock3 className="size-4" />
-                      Calendar load
+            {editingId ? (
+              <TaskComposer
+                title="Edit task"
+                description="Update the selected task and persist the changes in localStorage."
+                submitLabel="Save changes"
+                draft={editingDraft}
+                onDraftChange={setEditingDraft}
+                onSubmit={handleSaveEdit}
+                onCancel={handleCancelEditing}
+              />
+            ) : null}
+          </div>
+
+          <div className="grid gap-6">
+            <div className="grid gap-6 xl:grid-cols-2">
+              <TaskComposer
+                title="Post a task"
+                description="Create a task locally, then drag it into the daily calendar."
+                submitLabel="Post task"
+                draft={newTaskDraft}
+                onDraftChange={setNewTaskDraft}
+                onSubmit={handleCreateTask}
+              />
+
+              <Card className="border-white/10 bg-white/[0.7] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
+                <CardHeader className="border-b border-white/10">
+                  <CardTitle className="flex items-center gap-2 text-xl">
+                    <Focus className="size-5" />
+                    Focus mode preview
+                  </CardTitle>
+                  <CardDescription>
+                    The earliest scheduled task becomes the current focus target.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6 p-6">
+                  <div className="rounded-[2rem] border border-emerald-500/20 bg-emerald-500/10 p-6 text-center">
+                    <p className="text-xs uppercase tracking-[0.3em] text-foreground/50">
+                      Active now
                     </p>
+                    <h3 className="mt-3 text-xl font-semibold">
+                      {focusTask?.title ?? "No task selected"}
+                    </h3>
                     <p className="mt-2 text-sm text-foreground/65">
-                      {scheduledTaskItems.length} scheduled task blocks today
+                      {focusTask?.meta ?? "Schedule a task on the calendar"}
                     </p>
+                    <p className="mt-6 text-5xl font-semibold tracking-tight">48:12</p>
                   </div>
-                  <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
-                    <p className="flex items-center gap-2 text-sm font-medium">
-                      <Sparkles className="size-4" />
-                      Ritual
-                    </p>
-                    <p className="mt-2 text-sm text-foreground/65">
-                      Use drag-and-drop first, then refine details from the backlog.
-                    </p>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
+                      <p className="flex items-center gap-2 text-sm font-medium">
+                        <Clock3 className="size-4" />
+                        Calendar load
+                      </p>
+                      <p className="mt-2 text-sm text-foreground/65">
+                        {scheduledTaskItems.length} scheduled task blocks today
+                      </p>
+                    </div>
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.5] p-4 dark:bg-white/[0.04]">
+                      <p className="flex items-center gap-2 text-sm font-medium">
+                        <Sparkles className="size-4" />
+                        Ritual
+                      </p>
+                      <p className="mt-2 text-sm text-foreground/65">
+                        Use drag-and-drop first, then refine details from the backlog.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="overflow-hidden border-white/10 bg-white/[0.72] shadow-2xl shadow-slate-950/10 backdrop-blur dark:bg-white/[0.06] dark:shadow-black/20">
+              <CardHeader className="border-b border-white/10">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                  <div className="space-y-1">
+                    <CardTitle className="flex items-center gap-2 text-2xl">
+                      <CalendarClock className="size-5" />
+                      Friday, March 14
+                    </CardTitle>
+                    <CardDescription>
+                      Drag from the backlog and drop onto a 30-minute slot to place
+                      tasks on the calendar.
+                    </CardDescription>
+                  </div>
+                  <div className="flex gap-2">
+                    {weekdays.map((day) => (
+                      <div
+                        key={day.name}
+                        className={[
+                          "flex min-w-14 flex-col items-center rounded-2xl border px-3 py-2 text-center transition-colors",
+                          day.state === "active"
+                            ? "border-sky-500/40 bg-sky-500/15"
+                            : "border-white/10 bg-white/[0.08]",
+                        ].join(" ")}
+                      >
+                        <span className="text-[11px] uppercase tracking-[0.24em] text-foreground/55">
+                          {day.name}
+                        </span>
+                        <span className="mt-1 text-lg font-semibold">{day.date}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="p-3 sm:p-5">
+                <div className="overflow-x-auto">
+                  <div className="min-w-[640px] rounded-[2rem] border border-white/10 bg-white/[0.45] p-4 dark:bg-white/[0.03]">
+                    <div className="grid grid-cols-[72px_minmax(0,1fr)] gap-3 border-b border-white/10 pb-3">
+                      <div />
+                      <div className="rounded-2xl border border-sky-500/15 bg-sky-500/[0.08] px-4 py-3">
+                        <p className="text-xs uppercase tracking-[0.26em] text-foreground/50">
+                          My calendar
+                        </p>
+                        <p className="mt-1 text-lg font-semibold">Tokyo time · 08:00 - 19:00</p>
+                      </div>
+                    </div>
+
+                    <div className="relative mt-4 grid grid-cols-[72px_minmax(0,1fr)] gap-3">
+                      <div className="relative" style={{ height: `${gridHeight}px` }}>
+                        {Array.from(
+                          { length: dayEndHour - dayStartHour + 1 },
+                          (_, index) => {
+                            const hour = dayStartHour + index
+                            if (hour === dayEndHour) {
+                              return null
+                            }
+
+                            return (
+                              <div
+                                key={hour}
+                                className="absolute left-0 right-0 -translate-y-3 text-right text-xs text-foreground/45"
+                                style={{
+                                  top: `${(hour - dayStartHour) * 60 * pxPerMinute}px`,
+                                }}
+                              >
+                                {`${hour % 12 || 12}:00`}
+                              </div>
+                            )
+                          }
+                        )}
+                      </div>
+
+                      <div
+                        className="relative rounded-3xl border border-white/10 bg-background/55 dark:bg-black/10"
+                        style={{ height: `${gridHeight}px` }}
+                      >
+                        {timeSlots.map((slot, index) => (
+                          <div
+                            key={slot}
+                            onDragOver={(event) => {
+                              event.preventDefault()
+                              setActiveDropSlot(slot)
+                            }}
+                            onDragLeave={() => {
+                              if (activeDropSlot === slot) {
+                                setActiveDropSlot(null)
+                              }
+                            }}
+                            onDrop={(event) => {
+                              event.preventDefault()
+                              handleDropOnSlot(slot)
+                            }}
+                            className={[
+                              "absolute inset-x-0 border-t transition-colors",
+                              index % 2 === 0
+                                ? "border-white/10"
+                                : "border-dashed border-white/6",
+                              activeDropSlot === slot
+                                ? "bg-sky-500/[0.08]"
+                                : "bg-transparent",
+                            ].join(" ")}
+                            style={{
+                              top: `${index * slotMinutes * pxPerMinute}px`,
+                              height: `${slotMinutes * pxPerMinute}px`,
+                            }}
+                          >
+                            <span className="pointer-events-none absolute left-4 top-1 text-[10px] uppercase tracking-[0.18em] text-foreground/30">
+                              {slot}
+                            </span>
+                          </div>
+                        ))}
+
+                        {calendarItems.map((item) => {
+                          const startMinutes = timeToMinutes(item.startTime)
+                          const offset = (startMinutes - dayStartHour * 60) * pxPerMinute
+                          const height = Math.max(
+                            item.durationMinutes * pxPerMinute,
+                            44
+                          )
+
+                          return (
+                            <div
+                              key={`${item.type}-${item.id}`}
+                              draggable={item.type === "task"}
+                              onDragStart={() => {
+                                if (item.type === "task") {
+                                  handleDragStart(item.id)
+                                }
+                              }}
+                              onDragEnd={handleDragEnd}
+                              className={[
+                                "absolute left-3 right-3 rounded-2xl border px-4 py-3 shadow-sm",
+                                blockStyles[item.type].card,
+                                item.type === "task" ? "cursor-grab active:cursor-grabbing" : "",
+                              ].join(" ")}
+                              style={{
+                                top: `${offset}px`,
+                                height: `${height}px`,
+                              }}
+                            >
+                              <div className="flex items-start justify-between gap-3">
+                                <div className="space-y-1">
+                                  <div className="flex items-center gap-2">
+                                    <span
+                                      className={`size-2 rounded-full ${blockStyles[item.type].dot}`}
+                                    />
+                                    <p className="text-[11px] uppercase tracking-[0.22em] text-current/65">
+                                      {item.startTime}
+                                    </p>
+                                  </div>
+                                  <h3 className="text-sm font-semibold leading-5">
+                                    {item.title}
+                                  </h3>
+                                  <p className="text-xs text-current/70">{item.meta}</p>
+                                </div>
+                                {item.type === "task" ? (
+                                  <Button
+                                    type="button"
+                                    variant="ghost"
+                                    size="sm"
+                                    className="rounded-full bg-white/35 px-3 dark:bg-black/10"
+                                    onClick={() => unscheduleTask(item.id)}
+                                  >
+                                    Backlog
+                                  </Button>
+                                ) : null}
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </CardContent>

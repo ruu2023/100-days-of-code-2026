@@ -1,34 +1,27 @@
-<h1>AI Translation</h1>
+<textarea id="text"></textarea>
+<button id="start-btn">Translate</button>
 
-<% if flash[:alert] %>
-  <div style="color: red; margin-bottom: 1rem;">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
+<pre id="result"></pre>
 
-<%= form_with url: convert_path, method: :post, local: true do |f| %>
-  <div style="margin-bottom: 1rem;">
-    <%= f.label :text, "Text to translate:" %><br>
-    <%= f.text_area :text, rows: 5, value: @text, style: "width: 100%; max-width: 600px;" %>
-  </div>
+<script>
+  document.getElementById("start-btn").addEventListener("click", () => {
+    const text = document.getElementById("text").value
+    const result = document.getElementById("result")
+    result.textContent = ""
 
-  <div style="margin-bottom: 1rem;">
-    <%= f.label :language, "Target Language:" %><br>
-    <%= f.select :language, ["Japanese", "English", "French", "German", "Spanish", "Chinese", "Korean"], selected: @language || "Japanese" %>
-  </div>
+    const url = "/convert/stream?text=" + encodeURIComponent(text) + "&language=Japanese"
+    const es = new EventSource(url)
 
-  <div style="margin-bottom: 1rem;">
-    <%= f.submit "Translate", style: "padding: 0.5rem 1rem; cursor: pointer;" %>
-  </div>
-<% end %>
+    es.onmessage = (event) => {
+      result.textContent += event.data
+    }
 
-<hr>
+    es.addEventListener("done", () => {
+      es.close()
+    })
 
-<% if @translated_text %>
-  <div style="margin-top: 1rem;">
-    <h3>Result:</h3>
-    <div style="padding: 1rem; background-color: #f4f4f4; border-radius: 4px; white-space: pre-wrap;">
-      <%= @translated_text %>
-    </div>
-  </div>
-<% end %>
+    es.addEventListener("error", () => {
+      es.close()
+    })
+  })
+</script>
