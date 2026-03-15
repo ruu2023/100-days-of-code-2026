@@ -1,5 +1,21 @@
 [
   {
+    "day": 74,
+    "date": "2026-03-15",
+    "title": "AI translator 🛠️✨",
+    "description": "【Day 074/100】AI translator 🛠️✨",
+    "features": [
+      "Ollama APIからの逐次ストリーム表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails",
+      "#Ollama"
+    ],
+    "url": "https://x.com/ruu_web/status/2033195354162885117",
+    "demoLink": "https://rails.ruu-dev.com/convert"
+  },
+  {
     "day": 73,
     "date": "2026-03-14",
     "title": "Daily Planner 🛠️✨",

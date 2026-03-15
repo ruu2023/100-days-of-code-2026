@@ -1,4 +1,20 @@
 
+## 2026-03-15
+
+【Day 074/100】AI translator 🛠️✨
+
+AI翻訳アプリを作りました。
+Rails8で構築し、Ollamaを叩いています。
+
+✅ Ollama APIからの逐次ストリーム表示
+
+#100DaysOfCode #Rails #Ollama
+
+[Demo](https://rails.ruu-dev.com/convert)
+
+[Original Post](https://x.com/ruu_web/status/2033195354162885117)
+
+---
 ## 2026-03-14
 
 【Day 073/100】Daily Planner 🛠️✨
