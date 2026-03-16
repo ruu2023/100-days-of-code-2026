@@ -6,6 +6,7 @@ import { tangoApp } from "@/api/tango";
 import { day058App } from "@/api/day058";
 import { day060App } from "@/api/day060";
 import { accountingApp } from "@/api/accounting";
+import { day075App } from "@/api/day075";
 
 const apiApp = new Hono<{ Bindings: Env }>();
 
@@ -156,5 +157,6 @@ apiApp.route("/tango", tangoApp);
 apiApp.route("/day058", day058App);
 apiApp.route("/day060", day060App);
 apiApp.route("/accounting", accountingApp);
+apiApp.route("/day075", day075App);
 
 export { apiApp };

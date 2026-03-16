@@ -143,7 +143,10 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 069 | 03/10 | Rails Image Scraper  | Ferrum / Scraping / Images                 | [View](./rails/day069/image_viewer)                      |
 | 070 | 03/11 | Rails Mini X Clone   | R2 / GoogleAuth / Rails 8                  | [View](./rails8)                                      |
 | 071 | 03/12 | Rails curl prompt maker | Rails / curl / GoogleAuth / R2             | [View](./rails8)                                      |
-
+| 072 | 03/13 | Rails News Site      | Rails 8 / R2 / GoogleAuth                  | [View](./rails8)                                      |
+| 073 | 03/14 | Rails Daily Planner  | Rails 8 / R2 / GoogleAuth                  | [View](./rails8)                                      |
+| 074 | 03/15 | Rails AI Translator  | Rails 8 / R2 / GoogleAuth                  | [View](./rails8)                                      |
+| 075 | 03/16 | htmx Search UI       | htmx / Hono API / Cloudflare Workers       | [View](./html/day075)                                 |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/

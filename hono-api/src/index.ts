@@ -21,10 +21,24 @@ const ALLOWED_ORIGINS = [
   "http://localhost:3000",
   "https://hono-next-app-455056438426.asia-northeast1.run.app",
   "https://ruu-dev.com",
+  "https://ruu2023.github.io",
 ];
 
+const isAllowedOrigin = (origin: string) => {
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    return true;
+  }
+
+  try {
+    const url = new URL(origin);
+    return ["localhost", "127.0.0.1"].includes(url.hostname);
+  } catch {
+    return false;
+  }
+};
+
 app.use("*", cors({
-  origin: (origin) => ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+  origin: (origin) => isAllowedOrigin(origin) ? origin : ALLOWED_ORIGINS[0],
   credentials: true,
 }));
 
