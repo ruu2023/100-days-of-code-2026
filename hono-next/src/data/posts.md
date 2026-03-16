@@ -1,4 +1,20 @@
 
+## 2026-03-16
+
+【Day 075/100】htmx x Hono API 🛠️✨
+
+htmxとHono APIを使って検索UIを作りました。
+
+✅ htmxでHTML断片だけ差し替える
+✅ Hono APIがHTMLを返す
+
+#100DaysOfCode #htmx #Hono
+
+[Demo](https://ruu2023.github.io/100-days-of-code-2026/htmx)
+
+[Original Post](https://x.com/ruu_web/status/2033540420840599948)
+
+---
 ## 2026-03-15
 
 【Day 074/100】AI translator 🛠️✨

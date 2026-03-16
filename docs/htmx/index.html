@@ -242,6 +242,10 @@
       border-radius: 0.4rem;
       background: rgba(22, 93, 82, 0.08);
     }
+
+    h1 {
+      font-size: clamp(1rem, 5vw, 2rem);
+    }
   </style>
 </head>
 
@@ -249,7 +253,7 @@
   <main>
     <section class="hero">
       <p class="eyebrow">Day 075 / htmx x Hono API</p>
-      <h1 style="font-size: clamp(1rem, 5vw, 2rem);">検索 UI を HTML 断片だけで作る</h1>
+      <h1>検索 UI を HTML 断片だけで作る</h1>
       <p class="lead">
         このチュートリアルは <code>/api/day075/search</code> が HTML を返し、
         フロント側は htmx で結果一覧だけ差し替える最小構成です。
@@ -258,17 +262,14 @@
 
       <div class="search-box">
         <label class="search-label" for="search-input">チュートリアルを検索</label>
-        <form id="search-form" data-api-local="http://localhost:8787/api/day075/search"
-          data-api-production="https://ruu-dev.com/api/day075/search" hx-get="http://localhost:8787/api/day075/search"
-          hx-trigger="input from:#search-input delay:250ms, search from:#search-input, submit"
+        <form id="search-form" hx-get="https://ruu-dev.com/api/day075/search"
+          hx-trigger="load, input from:#search-input delay:250ms, search from:#search-input, submit"
           hx-target="#search-results" hx-indicator="#loading-indicator" hx-swap="innerHTML">
           <input id="search-input" class="search-input" type="search" name="q" placeholder="例: htmx / workers / cors"
             autocomplete="off" />
         </form>
         <p class="search-help">
           入力するたびに API を呼び、カード一覧だけを差し替えます。
-        </p>
-        <p class="search-endpoint">API endpoint: <span id="api-endpoint">http://localhost:8787/api/day075/search</span>
         </p>
         <div id="loading-indicator" class="htmx-indicator">検索中...</div>
         <div id="search-results" aria-live="polite"></div>
@@ -296,22 +297,6 @@
       </article>
     </section>
   </main>
-  <script>
-    const form = document.getElementById("search-form");
-    const endpoint = document.getElementById("api-endpoint");
-    const isLocalHost = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname);
-    const apiUrl = isLocalHost ? form.dataset.apiLocal : form.dataset.apiProduction;
-
-    form.setAttribute("hx-get", apiUrl);
-    endpoint.textContent = apiUrl;
-
-    window.addEventListener("load", () => {
-      if (window.htmx) {
-        window.htmx.process(form);
-        form.requestSubmit();
-      }
-    });
-  </script>
 </body>
 
 </html>

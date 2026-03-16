@@ -1,5 +1,22 @@
 [
   {
+    "day": 75,
+    "date": "2026-03-16",
+    "title": "htmx x Hono API 🛠️✨",
+    "description": "【Day 075/100】htmx x Hono API 🛠️✨",
+    "features": [
+      "htmxでHTML断片だけ差し替える",
+      "Hono APIがHTMLを返す"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#htmx",
+      "#Hono"
+    ],
+    "url": "https://x.com/ruu_web/status/2033540420840599948",
+    "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/htmx"
+  },
+  {
     "day": 74,
     "date": "2026-03-15",
     "title": "AI translator 🛠️✨",
