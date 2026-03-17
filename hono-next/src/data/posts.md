@@ -5,14 +5,15 @@
 
 htmxとHono APIを使ってCRUD操作ができる管理画面を作りました。
 
-✅ htmxでHTML断片だけ差し替える
-✅ Hono APIがHTMLを返す
+✅ フロントはJSなしだけどCRUDできる
+
+最軽量のフロント技術って感じします。
 
 #100DaysOfCode #htmx #Hono
 
 [Demo](https://ruu2023.github.io/100-days-of-code-2026/htmx/day076)
 
-[Original Post](https://x.com/ruu_web/status/2033540420840599948)
+[Original Post](https://x.com/ruu_web/status/2033922549856538805)
 
 ---
 ## 2026-03-16
