@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-5-methods-2026",
-    "title": "生成AIでパワポを作る方法一覧【2026年3月版】",
-    "url": "https://zenn.dev/ncukondo/articles/ai-generate-pptx-methods-2026",
+    "id": "hatebu-it-0-r-oksskolten",
+    "title": "AI機能搭載のRSSリーダーを作った",
+    "url": "https://zenn.dev/babarot/articles/ai-rss-reader-oksskolten",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-16T03:40:21.930Z",
-    "summary": "生成AIでパワポを作る方法は2026年3月版で整理された。PPTXは編集可能かどうかが重要で、画像埋め込みのツールは直接編集できない。Gammaはレイアウト崩れが起きやすいが無料枠あり、NotebookLMは画像生成で編集不可。Claude.aiはブラウザ上で編集可能なPPTXを生成し、QAパスで品質確認が必要。コード生成型のPptxGenJSはカスタムデザインが必要。パワポ提出が必須の場面では、Gammaのレイアウト崩れを考慮しつつ、ClaudeのテンプレートやMarpのGUIを活用し、再現性と編集性を両立させる方法が推奨される。",
-    "bookmarkCount": 499,
-    "audioFile": "../audio/hatebu-it-5-methods-2026.wav"
+    "date": "2026-03-17T03:17:11.761Z",
+    "summary": "ある開発者は、情報の受け取り方に対するニーズに応えるために、独自のRSSリーダーを開発した。このリーダーは、ユーザーが自分の好きなフィードを自分で選び、情報の流れを完全にコントロールできるように設計されている。AIを組み込み、記事の要約や翻訳、さらにはお気に入りやいいね、既読履歴による管理機能を備えている。全文をアプリ内で読みたいというニーズに応え、記事の自動フルテキスト取得も実現している。さらに、読書の好みに合わせてテーマをカスタマイズでき、ユーザーが自分だけのナレッジDBとして長期間にわたって情報を蓄積できる。",
+    "bookmarkCount": 293,
+    "audioFile": "../audio/hatebu-it-0-r-oksskolten.wav"
   },
   {
-    "id": "hatebu-it-2-19e6eb745436",
-    "title": "簡単コピペでClaude Codeに144種類のエージェントチームを作成 ── agency-agentsという40Kスター超のAIエージェント集を使いこなす - Qiita",
-    "url": "https://qiita.com/nogataka/items/5b5747f619e6eb745436",
+    "id": "hatebu-it-25-news036.html",
+    "title": "FortiGate侵害からAD侵入　SentinelOneが最新の攻撃手法を分析",
+    "url": "https://www.itmedia.co.jp/enterprise/articles/2603/17/news036.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-16T03:41:21.843Z",
-    "summary": "Claude Codeのエージェントをコピペで活用し、40Kを超えるエージェントチームを構築できるOSS「agency-agents」が、Qiitaの記事で紹介されています。マーケティングやプロダクト、セキュリティなど12のカテゴリに分かれたエージェントは、Claude Code、Copilot、Gemini CLIなど10以上のツールに対応しています。2025年10月にリリースされ、2026年3月14日現在のスター数は40,889、フォーク数は6,172と成長中です。\n\nインストールはシンプルで、リポジトリをクローンし、指定したツールに対応するスクリプトを実行するだけ。カテゴリ別にエージェントが用意されており、マーケティングやプロダクト開発向けの「Frontend Developer」や、セキュリティレビュー向けの「Security Engineer」など、業務に合わせたエージェントを選択可能です。\n\nカテゴリごとにエージェント数が異なり、例えば「Marketing」カテゴリには26のエージェントが用意されています。インストール後は、Claude Codeのプロンプト入力時に「/agents」と入力するだけで利用可能となり、使いたいエージェントをそのセッションに適用できます。\n\nエージェントは汎用プロンプトと異なり、専門領域ごとの知識体系が構造化されており、パフォーマンス最適化やアクセシビリティ対応など、抜け落ちがちな重要ポイントを補完します。コアウェブビットル（LCP・CLS・INP）やセキュリティレビューの観点、品質ゲートとしてのチェックなど、多様な観点から開発をサポートします。\n\n実際の使用例として、Reactコンポーネントの描画速度改善を依頼した場合、汎用プロンプトでは「React.memo」「useCallback」「仮想スクロール」などの一般的なアドバイスしか得られませんが、Frontend Developerエージェントを使うと、プロファイリングやLighthouseでのLCP/CLS測定を踏まえた具体的な改善提案が可能になります。\n\n結論付近では、各エージェントの出力を次のエージェントの入力として渡すことで、専門性の高いレビューチェーンを構築できると説明されています。現時点ではエージェント間の自動連携機能はなく、手動でエージェントを切り替えながら運用する必要がありますが、将来的なオーケストレーション機能の追加が期待されています。",
-    "bookmarkCount": 263,
-    "audioFile": "../audio/hatebu-it-2-19e6eb745436.wav"
+    "date": "2026-03-17T03:18:07.293Z",
+    "summary": "SentinelOneは、FortiGateとActive Directory侵入攻撃を分析した結果、攻撃者はADの認証情報を使用してFortiGateに侵入し、攻撃者が実行している攻撃の方法についての洞察を得たと発表した。",
+    "bookmarkCount": 5,
+    "audioFile": "../audio/hatebu-it-25-news036_html.wav"
   }
 ]
