@@ -1,4 +1,20 @@
 
+## 2026-03-17
+
+【Day 076/100】htmx x Hono CRUD 🛠️✨
+
+htmxとHono APIを使ってCRUD操作ができる管理画面を作りました。
+
+✅ htmxでHTML断片だけ差し替える
+✅ Hono APIがHTMLを返す
+
+#100DaysOfCode #htmx #Hono
+
+[Demo](https://ruu2023.github.io/100-days-of-code-2026/htmx/day076)
+
+[Original Post](https://x.com/ruu_web/status/2033540420840599948)
+
+---
 ## 2026-03-16
 
 【Day 075/100】htmx x Hono API 🛠️✨

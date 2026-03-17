@@ -147,6 +147,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 073 | 03/14 | Rails Daily Planner  | Rails 8 / R2 / GoogleAuth                  | [View](./rails8)                                      |
 | 074 | 03/15 | Rails AI Translator  | Rails 8 / R2 / GoogleAuth                  | [View](./rails8)                                      |
 | 075 | 03/16 | htmx Search UI       | htmx / Hono API / Cloudflare Workers       | [View](./html/day075)                                 |
+| 076 | 03/17 | htmx CRUD UI         | htmx / Hono API / Cloudflare Workers       | [View](./html/day076)                                 |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/
