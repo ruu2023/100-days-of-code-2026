@@ -119,7 +119,7 @@ day076App.get("/:id/edit", (c) => {
   return c.html(`
     <section class="panel" style="margin-top: 16px;">
       <h2>編集: ${escapeHtml(item.title)}</h2>
-      <form hx-put="http://localhost:8787/api/day076/${id}" hx-target="#table-container" hx-swap="innerHTML">
+      <form hx-put="http://localhost:8787/api/day076/${id}" hx-target="#table-container" hx-swap="innerHTML" hx-on::after-request="document.getElementById('edit-container').innerHTML = ''">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">タイトル</label>
@@ -135,7 +135,7 @@ day076App.get("/:id/edit", (c) => {
           <textarea name="content" class="form-textarea" required>${escapeHtml(item.content)}</textarea>
         </div>
         <div class="form-actions">
-          <a href="http://localhost:8787/api/day076" hx-get="http://localhost:8787/api/day076" hx-target="#edit-container" hx-swap="innerHTML" class="btn btn-secondary">キャンセル</a>
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('edit-container').innerHTML = ''">キャンセル</button>
           <button type="submit" class="btn btn-primary">保存</button>
         </div>
       </form>
