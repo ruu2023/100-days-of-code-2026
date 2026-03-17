@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day076 | htmx Admin Dashboard</title>
+  <meta name="htmx-config" content='{"selfRequestsOnly":false}' />
+  <script src="https://unpkg.com/htmx.org@2.0.7/dist/htmx.min.js"></script>
+  <style>
+    :root {
+      --bg: #f3efe4;
+      --panel: #fffdf7;
+      --panel-strong: #fff7de;
+      --line: #d7cbb2;
+      --text: #1f2328;
+      --muted: #5f5a4f;
+      --accent: #165d52;
+      --accent-soft: #d8efe9;
+      --danger: #c53030;
+      --danger-soft: #fed7d7;
+      --shadow: 0 18px 60px rgba(46, 39, 23, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(22, 93, 82, 0.12), transparent 24%),
+        linear-gradient(180deg, #f8f4e8 0%, var(--bg) 100%);
+    }
+
+    main { width: min(960px, calc(100% - 32px)); margin: 40px auto 72px; }
+
+    .hero {
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 0.96; }
+
+    .lead {
+      max-width: 58ch;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .actions { margin-top: 24px; display: flex; gap: 12px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #0f4a42; }
+    .btn-secondary { background: var(--panel-strong); color: var(--text); border: 1px solid var(--line); }
+    .btn-secondary:hover { background: #f5ecd3; }
+    .btn-danger { background: var(--danger-soft); color: var(--danger); }
+    .btn-danger:hover { background: #feb2b2; }
+
+    .panel {
+      margin-top: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+    .panel h2 { margin: 0; font-size: 1.2rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: var(--panel-strong); font-weight: 700; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr:hover { background: rgba(22, 93, 82, 0.03); }
+    .cell-title { font-weight: 600; }
+    .cell-date { color: var(--muted); font-size: 0.9rem; }
+    .cell-actions { display: flex; gap: 8px; }
+    .btn-sm { padding: 8px 14px; font-size: 0.85rem; border-radius: 8px; }
+
+    .empty-state { padding: 48px 24px; text-align: center; color: var(--muted); }
+    .empty-state p { margin: 0; }
+
+    /* Create Form */
+    .create-form { margin-top: 20px; padding: 20px; background: var(--panel-strong); border-radius: 16px; }
+    .create-form h3 { margin: 0 0 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .form-group { margin-bottom: 12px; }
+    .form-label { display: block; margin-bottom: 6px; font-weight: 700; font-size: 0.85rem; }
+    .form-input, .form-textarea {
+      width: 100%; padding: 12px 14px;
+      border: 1px solid var(--line); border-radius: 10px;
+      background: #fffdf8; font-size: 0.95rem; font-family: inherit;
+    }
+    .form-input:focus, .form-textarea:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .form-textarea { min-height: 80px; resize: vertical; }
+    .form-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+
+    /* Inline Edit */
+    .edit-row td { background: var(--panel-strong); }
+    .edit-row td:first-child { border-top-left-radius: 12px; border-bottom-left-radius: 12px; }
+    .edit-row td:last-child { border-top-right-radius: 12px; border-bottom-right-radius: 12px; }
+
+    .htmx-indicator { display: none; }
+    .htmx-request .htmx-indicator { display: block; }
+  </style>
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Day 076 / htmx x Hono Admin</p>
+      <h1>管理画面チュートリアル</h1>
+      <p class="lead">
+        htmx を使って CRUD 操作をページ遷移なしで実現する管理画面です。
+      </p>
+    </section>
+
+    <!-- Create Form -->
+    <section class="panel">
+      <h2>新規作成</h2>
+      <form class="create-form" hx-post="http://localhost:8787/api/day076" hx-target="#table-container" hx-swap="innerHTML" hx-on::after-request="this.reset()">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">タイトル</label>
+            <input type="text" name="title" class="form-input" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">著者</label>
+            <input type="text" name="author" class="form-input" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">内容</label>
+          <textarea name="content" class="form-textarea" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">作成</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Edit Form Container -->
+    <div id="edit-container"></div>
+
+    <!-- List -->
+    <section class="panel">
+      <div class="panel-header">
+        <h2>作品一覧</h2>
+      </div>
+      <div id="table-container"
+        hx-get="http://localhost:8787/api/day076"
+        hx-trigger="load"
+        hx-swap="innerHTML">
+        <div class="empty-state">
+          <p>読み込み中...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
