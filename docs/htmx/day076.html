@@ -294,7 +294,7 @@
     <!-- Create Form -->
     <section class="panel">
       <h2>新規作成</h2>
-      <form class="create-form" hx-post="http://localhost:8787/api/day076" hx-target="#table-container"
+      <form class="create-form" hx-post="https://ruu-dev.com/api/day076" hx-target="#table-container"
         hx-swap="innerHTML" hx-on::after-request="this.reset()">
         <div class="form-row">
           <div class="form-group">
@@ -324,7 +324,7 @@
       <div class="panel-header">
         <h2>作品一覧</h2>
       </div>
-      <div id="table-container" hx-get="http://localhost:8787/api/day076" hx-trigger="load" hx-swap="innerHTML">
+      <div id="table-container" hx-get="https://ruu-dev.com/api/day076" hx-trigger="load" hx-swap="innerHTML">
         <div class="empty-state">
           <p>読み込み中...</p>
         </div>
