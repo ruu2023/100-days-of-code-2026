@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-r-oksskolten",
-    "title": "AI機能搭載のRSSリーダーを作った",
-    "url": "https://zenn.dev/babarot/articles/ai-rss-reader-oksskolten",
+    "id": "hatebu-it-2-siness-use1/",
+    "title": "【非エンジニアのためのClaude/Claude Codeシリーズ 】Claude Codeを動かす環境を整えてみた | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/claude-business-use1/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-17T03:17:11.761Z",
-    "summary": "ある開発者は、情報の受け取り方に対するニーズに応えるために、独自のRSSリーダーを開発した。このリーダーは、ユーザーが自分の好きなフィードを自分で選び、情報の流れを完全にコントロールできるように設計されている。AIを組み込み、記事の要約や翻訳、さらにはお気に入りやいいね、既読履歴による管理機能を備えている。全文をアプリ内で読みたいというニーズに応え、記事の自動フルテキスト取得も実現している。さらに、読書の好みに合わせてテーマをカスタマイズでき、ユーザーが自分だけのナレッジDBとして長期間にわたって情報を蓄積できる。",
-    "bookmarkCount": 293,
-    "audioFile": "../audio/hatebu-it-0-r-oksskolten.wav"
+    "date": "2026-03-18T03:24:31.971Z",
+    "summary": "非エンジニアのClaude活用で生産性向上を目指す取り組みが紹介され、Claude Codeを動かす環境整備のポイントが解説される。営業資料の自動生成やカレンダー連携、勤怠管理などの業務効率化が紹介され、Claudeの「自律性」と「コンテキストの蓄積」が非エンジニアの活用を容易にする点が強調される。フォルダの整理やCLAUDE.mdの作成を最初に推奨し、専用の作業フォルダとプロジェクトごとの分割を推奨する。環境を整えることで、非エンジニアでも効率的にClaudeを活用できるようになる。",
+    "bookmarkCount": 148,
+    "audioFile": "../audio/hatebu-it-2-siness-use1_.wav"
   },
   {
-    "id": "hatebu-it-25-news036.html",
-    "title": "FortiGate侵害からAD侵入　SentinelOneが最新の攻撃手法を分析",
-    "url": "https://www.itmedia.co.jp/enterprise/articles/2603/17/news036.html",
+    "id": "hatebu-it-3-y-checklist/",
+    "title": "Google Cloud が推奨セキュリティチェックリストを公開しました | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/google-cloud-recommended-security-checklist/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-17T03:18:07.293Z",
-    "summary": "SentinelOneは、FortiGateとActive Directory侵入攻撃を分析した結果、攻撃者はADの認証情報を使用してFortiGateに侵入し、攻撃者が実行している攻撃の方法についての洞察を得たと発表した。",
-    "bookmarkCount": 5,
-    "audioFile": "../audio/hatebu-it-25-news036_html.wav"
+    "date": "2026-03-18T03:25:16.270Z",
+    "summary": "Google Cloud がクラウド環境のセキュリティ基準となるチェックリスト「GCMVSP」を公開しました。60 のコントロールが「ベーシック」「中級」「上級」の 3 段階に分かれており、組織の規模や利用シーンに合わせて段階的に導入できるようになっています。チェックリストはシンプルで拡張性が高く、60 のコントロールは「認証と認可」「組織」「インフラストラクチャ」「データ保護」「ネットワーク セキュリティ」「コントロールの適用」という 6 つのドメインに分類されています。さらに、GKE 用の認証プロセスや RBAC の実装例など、IaC によるコード適用を前提としたサンプルコードも GitHub で公開されています。State of Cloud Security Research の調査結果によれば、約 80% の組織がクラウドでセキュリティインシデントを経験しており、ツールの多用による複雑化が課題となっている中で、CSP が体系的に提供するチェックリストは、セキュリティ出発点として非常に重要な役割を果たすでしょう。",
+    "bookmarkCount": 102,
+    "audioFile": "../audio/hatebu-it-3-y-checklist_.wav"
   }
 ]
