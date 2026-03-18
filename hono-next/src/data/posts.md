@@ -1,4 +1,21 @@
 
+## 2026-03-18
+
+【Day 077/100】Vim Coding Practice App 🛠️✨
+
+Vimの練習アプリを作りました。
+
+✅ Vim モードのシミュレーション (Normal, Insert)
+✅ 基本的な移動と編集コマンドのサポート
+✅ ステップバイステップの練習問題
+
+#100DaysOfCode #Nextjs
+
+[Demo](./day077)
+
+[Original Post](https://x.com/ruu_web/status/2034287914751050131)
+
+---
 ## 2026-03-17
 
 【Day 076/100】htmx x Hono CRUD 🛠️✨

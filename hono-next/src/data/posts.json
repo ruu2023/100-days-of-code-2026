@@ -1,19 +1,35 @@
 [
   {
+    "day": 77,
+    "date": "2026-03-18",
+    "title": "Vim Coding Practice App 🛠️✨",
+    "description": "【Day 077/100】Vim Coding Practice App 🛠️✨",
+    "features": [
+      "Vim モードのシミュレーション (Normal, Insert)",
+      "基本的な移動と編集コマンドのサポート",
+      "ステップバイステップの練習問題"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Nextjs"
+    ],
+    "url": "https://x.com/ruu_web/status/2034287914751050131",
+    "demoLink": "./day077"
+  },
+  {
     "day": 76,
     "date": "2026-03-17",
     "title": "htmx x Hono CRUD 🛠️✨",
     "description": "【Day 076/100】htmx x Hono CRUD 🛠️✨",
     "features": [
-      "htmxでHTML断片だけ差し替える",
-      "Hono APIがHTMLを返す"
+      "フロントはJSなしだけどCRUDできる"
     ],
     "tags": [
       "#100DaysOfCode",
       "#htmx",
       "#Hono"
     ],
-    "url": "https://x.com/ruu_web/status/2033540420840599948",
+    "url": "https://x.com/ruu_web/status/2033922549856538805",
     "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/htmx/day076"
   },
   {
