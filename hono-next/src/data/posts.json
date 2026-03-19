@@ -1,5 +1,23 @@
 [
   {
+    "day": 78,
+    "date": "2026-03-19",
+    "title": "JSON Pretty Printer 🛠️✨",
+    "description": "【Day 078/100】JSON Pretty Printer 🛠️✨",
+    "features": [
+      "JSON入力 → 整形ハイライト表示",
+      "シンタックスハイライト (キー/文字列/数値/真偽値)",
+      "画面幅いっぱいに表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#HTML",
+      "#JavaScript"
+    ],
+    "url": "https://x.com/ruu_web/status/2034594082379771986",
+    "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/html/day078"
+  },
+  {
     "day": 77,
     "date": "2026-03-18",
     "title": "Vim Coding Practice App 🛠️✨",
@@ -487,776 +505,237 @@
     "day": 50,
     "date": "2026-02-19 20:30",
     "title": "100 Days Roadmap 🗺️🚀",
-    "description": "前半戦終了！これまでの50個のアプリと技術スタックを可視化しました。",
+    "description": "【Day 050/100】100 Days Roadmap 🗺️🚀",
     "features": [
       "Tech Stack Chart (Recharts)",
-      "Tag & Project Dashboard"
+      "Tag & Project Dashboard",
+      "140字(X)/2200字(Insta)/原稿用紙 などプリセット対応  文字数超過アラート &amp; ワンタップコピー",
+      "Canvas APIによる描画",
+      "React Hooks (useRef) ゲームループ",
+      "脆弱性のパッチ当てをゲーム化",
+      "全員への一斉配信 (Broadcast)",
+      "接続人数のリアルタイム同期",
+      "リアルタイム判定 &amp; 視覚フィードバック",
+      "1秒でデプロイ (Cloudflare Workers)",
+      "エッジで動くDB (D1)",
+      "Node.js バージョン選択",
+      "Cloud Run デプロイコマンド生成",
+      "毎朝9時に自動更新 (Cron)",
+      "キャンバスAPI (Canvas API) での描画処理",
+      "Next.js + Pusher (Channels)",
+      "1行ログ（30\\_読書 → 30min自動付与）",
+      "5行日記（事実/発見/教訓/宣言/悩み）",
+      "JSON + AIプロンプト一発コピー",
+      "ドラッグ&amp;スクショ貼り付け",
+      "タブで分類",
+      "JSONでバックアップ",
+      "表面/裏面のフリップアニメーション",
+      "学習モード / 編集モードの切り替え",
+      "LocalStorageでデータを永続化",
+      "iTunes APIで楽曲情報を検索紐付け",
+      "YouTube Music へのダイレクトリンク生成",
+      "リアルタイムライブプレビュー",
+      "自動保存（LocalStorage）で閉じても安心",
+      "カリキュラム進捗管理（LocalStorage保存）",
+      "コード＆解説の2カラムレイアウト",
+      "完了バッジ＆プログレスバー",
+      "マップ移動＆会話イベント（Framer Motion）  実践的クイズ（.env流出対策、Git Rebase etc...）",
+      "文字数行数単語数を即時表示  読了時間を自動推定（400文字/分）",
+      "URLペーストで即再生  クリックでその場所にジャンプ",
+      "クリックでJump  スコア連動のスピードアップ機能",
+      "再生時間をワンクリックで保存",
+      "再生位置へリンク",
+      "スライダーでBlur/Opacityを調整  CSSコードを一発コピー",
+      "Go + Bubbletea で実装  作業休憩モードをキーボードで瞬時に切り替え",
+      "コミット感覚で時分秒＆メモを一瞬で記録  「30\\_開発」で30分の作業ログとして自動記録",
+      "Apache / MySQL コース切替  リアルタイムの正誤判定 (ミスは赤字で即通知)",
+      "勝敗判定ロジック (縦横斜め)  手番表示 &amp; リセット機能",
+      "サーバー不要 (sql.js + WASM)",
+      "スマホ用 SQL クイック入力ボタン",
+      "実行結果の即時判定",
+      "こだわりのダーク＆グラスモーフィズムUI",
+      "習慣リストの追加 JSON 永続化  日本語"
     ],
     "tags": [
       "#100DaysOfCode",
       "#Nextjs",
       "#Recharts",
-      "#Dashboard"
-    ],
-    "url": "https://x.com/ruu_web/status/2024448032180490524"
-  },
-  {
-    "day": 49,
-    "date": "2026-02-18 20:03",
-    "title": "Universal Draft App",
-    "description": "文字数制限を自由に設定できる、ブラウザ自動保存メモ。",
-    "features": [
-      "140字(X)/2200字(Insta)/原稿用紙 などプリセット対応  文字数超過アラート &amp; ワンタップコピー"
-    ],
-    "tags": [
+      "#Dashboard",
       "#100DaysOfCode",
       "#Nextjs",
       "#React",
-      "#TailwindCSS"
-    ],
-    "url": "https://x.com/ruu_web/status/2024077225876939211",
-    "demoLink": "/day049"
-  },
-  {
-    "day": 48,
-    "date": "2026-02-17 22:06",
-    "title": "VPN Defender",
-    "description": "「なぜVPNは『構造的に脆弱』なのか。」",
-    "features": [
-      "Canvas APIによる描画",
-      "React Hooks (useRef) ゲームループ",
-      "脆弱性のパッチ当てをゲーム化"
-    ],
-    "tags": [
+      "#TailwindCSS",
       "#100DaysOfCode",
       "#Nextjs",
       "#CanvasAPI",
       "#GameDev",
-      "#React"
-    ],
-    "url": "https://x.com/ruu_web/status/2023745974783668461",
-    "demoLink": "/day048"
-  },
-  {
-    "day": 47,
-    "date": "2026-02-16 23:57",
-    "title": "Real-time Chat w/ Hono DO",
-    "description": "2年目エンジニア「サーバーレスWebSocketすごい。」",
-    "features": [
-      "全員への一斉配信 (Broadcast)",
-      "接続人数のリアルタイム同期"
-    ],
-    "tags": [
+      "#React",
       "#100DaysOfCode",
       "#Hono",
       "#CloudflareWorkers",
-      "#Nextjs"
-    ],
-    "url": "https://x.com/ruu_web/status/2023411514120802590",
-    "demoLink": "/day047"
-  },
-  {
-    "day": 46,
-    "date": "2026-02-15 19:50",
-    "title": "Drizzle Typist",
-    "description": "「ORMの書き方を身体で覚える！」",
-    "features": [
-      "リアルタイム判定 &amp; 視覚フィードバック"
-    ],
-    "tags": [
+      "#Nextjs",
       "#100DaysOfCode",
       "#Nextjs",
       "#DrizzleORM",
-      "#TypeScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2022986819441426591",
-    "demoLink": "/day046"
-  },
-  {
-    "day": 45,
-    "date": "2026-02-14 22:39",
-    "title": "Anonymous Board - Cloudflare D1",
-    "description": "「サーバーレスで掲示板を作りたい！」",
-    "features": [
-      "1秒でデプロイ (Cloudflare Workers)",
-      "エッジで動くDB (D1)"
-    ],
-    "tags": [
+      "#TypeScript",
       "#100DaysOfCode",
       "#Cloudflare",
-      "#Nextjs"
-    ],
-    "url": "https://x.com/ruu_web/status/2022667014217814019"
-  },
-  {
-    "day": 44,
-    "date": "2026-02-14 00:10",
-    "title": "GCP Docker Architect",
-    "description": "Next.js を Cloud Run にデプロイするための Dockerfile を質問に答えるだけで自動生成！",
-    "features": [
-      "Node.js バージョン選択",
-      "Cloud Run デプロイコマンド生成"
-    ],
-    "tags": [
+      "#Nextjs",
       "#100DaysOfCode",
       "#GCP",
       "#CloudRun",
-      "#Docker"
-    ],
-    "url": "https://x.com/ruu_web/status/2022327415339614393",
-    "demoLink": "/day044"
-  },
-  {
-    "day": 43,
-    "date": "2026-02-13 00:09",
-    "title": "Reflection Log v2",
-    "description": "自分専用の振り返りログアプリ",
-    "features": [],
-    "tags": [
+      "#Docker",
       "#100DaysOfCode",
-      "#Supabase"
-    ],
-    "url": "https://x.com/ruu_web/status/2021964853720797599"
-  },
-  {
-    "day": 42,
-    "date": "2026-02-12 23:59",
-    "title": "Grass Designer",
-    "description": "GitHub の草（Contributions）を自由にデザインできるアプリを作りました！",
-    "features": [],
-    "tags": [
+      "#Supabase",
       "#100DaysOfCode",
       "#BuildInPublic",
       "#Nextjs",
-      "#Frontend"
-    ],
-    "url": "https://x.com/ruu_web/status/2021962283342250161",
-    "demoLink": "/day042"
-  },
-  {
-    "day": 41,
-    "date": "2026-02-10 23:22",
-    "title": "AI Tech Pulse - 自動ニュース要約",
-    "description": "「毎日AIとセキュリティの最新情報を追うのが大変…」",
-    "features": [
-      "毎朝9時に自動更新 (Cron)"
-    ],
-    "tags": [
+      "#Frontend",
       "#100DaysOfCode",
-      "#GeminiAPI"
-    ],
-    "url": "https://x.com/ruu_web/status/2021228226991792179",
-    "demoLink": "/day041"
-  },
-  {
-    "day": 40,
-    "date": "2026-02-09 21:59",
-    "title": "Real-time Board",
-    "description": "Pusherを使って、day015に作った同期されるお絵描きボードをNext.jsだけで作りました！",
-    "features": [
-      "キャンバスAPI (Canvas API) での描画処理",
-      "Next.js + Pusher (Channels)"
-    ],
-    "tags": [
+      "#GeminiAPI",
       "#100DaysOfCode",
       "#Nextjs",
       "#Pusher",
       "#CanvasAPI",
-      "#WebSocket"
-    ],
-    "url": "https://x.com/ruu_web/status/2020844893774684192",
-    "demoLink": "/day040"
-  },
-  {
-    "day": 39,
-    "date": "2026-02-08 19:20",
-    "title": "Reflection Log ✨",
-    "description": "週次振り返りを習慣化したくて作ったアプリ！",
-    "features": [
-      "1行ログ（30_読書 → 30min自動付与）",
-      "5行日記（事実/発見/教訓/宣言/悩み）",
-      "JSON + AIプロンプト一発コピー"
-    ],
-    "tags": [
+      "#WebSocket",
       "#100DaysOfCode",
       "#React",
       "#Firebase",
-      "#PWA"
-    ],
-    "url": "https://x.com/ruu_web/status/2020442481356313038",
-    "demoLink": "/day039"
-  },
-  {
-    "day": 38,
-    "date": "2026-02-07 18:34",
-    "title": "Pic-Spot v2",
-    "description": "ネット使えない現場でスクショ整理、 「あれどこ行った...」問題を解決したくて作った。  ",
-    "features": [
-      "ドラッグ&amp;スクショ貼り付け",
-      "タブで分類",
-      "JSONでバックアップ"
-    ],
-    "tags": [
+      "#PWA",
       "#100DaysOfCode",
       "#Nextjs",
-      "#TypeScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2020068740415869153"
-  },
-  {
-    "day": 37,
-    "date": "2026-02-06 12:26",
-    "title": "Simple Tango",
-    "description": "「結局、単語帳が最強の学習ツール」",
-    "features": [
-      "表面/裏面のフリップアニメーション",
-      "学習モード / 編集モードの切り替え",
-      "LocalStorageでデータを永続化"
-    ],
-    "tags": [
+      "#TypeScript",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#Study"
-    ],
-    "url": "https://x.com/ruu_web/status/2019613739549638698",
-    "demoLink": "/day037"
-  },
-  {
-    "day": 36,
-    "date": "2026-02-05 12:44",
-    "title": "Lyric Studio",
-    "description": "「歌詞をストックして、音楽とリンクする」 自分だけの歌詞カードアプリを作りました。",
-    "features": [
-      "iTunes APIで楽曲情報を検索紐付け",
-      "YouTube Music へのダイレクトリンク生成"
-    ],
-    "tags": [
+      "#Study",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#MusicApp"
-    ],
-    "url": "https://x.com/ruu_web/status/2019255897512677644",
-    "demoLink": "/day036"
-  },
-  {
-    "day": 35,
-    "date": "2026-02-04 20:36",
-    "title": "Quick Markdown ✨",
-    "description": "「ブラウザでタッと書いて、すぐプレビュー」",
-    "features": [
-      "リアルタイムライブプレビュー",
-      "自動保存（LocalStorage）で閉じても安心"
-    ],
-    "tags": [
+      "#MusicApp",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#Markdown"
-    ],
-    "url": "https://x.com/ruu_web/status/2019012075620831458",
-    "demoLink": "/day035"
-  },
-  {
-    "day": 34,
-    "date": "2026-02-03 21:57",
-    "title": "MyBatis Tutorial",
-    "description": "E-learningはAIで作れますね〜〜",
-    "features": [
-      "カリキュラム進捗管理（LocalStorage保存）",
-      "コード＆解説の2カラムレイアウト",
-      "完了バッジ＆プログレスバー"
-    ],
-    "tags": [
+      "#Markdown",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#LMS"
-    ],
-    "url": "https://x.com/ruu_web/status/2018670129777983512",
-    "demoLink": "/day034"
-  },
-  {
-    "day": 33,
-    "date": "2026-02-02 20:21",
-    "title": "Debugging Tavern",
-    "description": "「本番環境のバグ」を倒すクイズゲームを作りました！現場の知識で攻略せよ。",
-    "features": [
-      "マップ移動＆会話イベント（Framer Motion）  実践的クイズ（.env流出対策、Git Rebase etc...）"
-    ],
-    "tags": [
+      "#LMS",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#GameDev"
-    ],
-    "url": "https://x.com/ruu_web/status/2018283672412319869",
-    "demoLink": "/day033"
-  },
-  {
-    "day": 32,
-    "date": "2026-02-01 22:40",
-    "title": "Text Stats App",
-    "description": "至極有名な文字数カウントアプリを作りました。React × useMemoでリアルタイム計算！",
-    "features": [
-      "文字数行数単語数を即時表示  読了時間を自動推定（400文字/分）"
-    ],
-    "tags": [
+      "#GameDev",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#useMemo"
-    ],
-    "url": "https://x.com/ruu_web/status/2017956142115332515",
-    "demoLink": "/day032"
-  },
-  {
-    "day": 31,
-    "date": "2026-01-31 23:10",
-    "title": "YT_LOG",
-    "description": "YouTube学習のお供！タイムスタンプ付きメモアプリを作りました。React × YouTube IFrame APIで動画と連携！",
-    "features": [
-      "URLペーストで即再生  クリックでその場所にジャンプ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs"
-    ],
-    "url": "https://x.com/ruu_web/status/2017601271914762604",
-    "demoLink": "/day031"
-  },
-  {
-    "day": 30,
-    "date": "2026-01-30 23:03",
-    "title": "NEODASH",
-    "description": "重力を自在に操るランゲームを作りました。 React × Canvas API滑らかな動きを実現！",
-    "features": [
-      "クリックでJump  スコア連動のスピードアップ機能"
-    ],
-    "tags": [
+      "#useMemo",
       "#100DaysOfCode",
       "#React",
       "#Nextjs",
-      "#CanvasAPI"
-    ],
-    "url": "https://x.com/ruu_web/status/2017237298455462359",
-    "demoLink": "/day030"
-  },
-  {
-    "day": 29,
-    "date": "2026-01-29 22:20",
-    "title": "YouTube Timestamp Clipper",
-    "description": "Chrome拡張機能（まだ公開してないのです）",
-    "features": [
-      "再生時間をワンクリックで保存",
-      "再生位置へリンク"
-    ],
-    "tags": [
+      "#100DaysOfCode",
+      "#React",
+      "#Nextjs",
+      "#CanvasAPI",
       "#100DaysOfCode",
       "#ChromeExtension",
-      "#JavaScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2016864111318143007"
-  },
-  {
-    "day": 28,
-    "date": "2026-01-28 22:09",
-    "title": "Glassmorphism Generator  コピペで使えるCSS生成ツール。",
-    "description": "Glassmorphism て流行なんですかね。",
-    "features": [
-      "スライダーでBlur/Opacityを調整  CSSコードを一発コピー"
-    ],
-    "tags": [
+      "#JavaScript",
       "#100DaysOfCode",
       "#React",
       "#TailwindCSS",
       "#CSS",
-      "#Glassmorphism"
-    ],
-    "url": "https://x.com/ruu_web/status/2016498966196846705",
-    "demoLink": "/day028"
-  },
-  {
-    "day": 27,
-    "date": "2026-01-27 22:30",
-    "title": "TUI Pomodoro Timer  ターミナルで完結する集中ツール。",
-    "description": "シンプルなCLIもいいですよね。",
-    "features": [
-      "Go + Bubbletea で実装  作業休憩モードをキーボードで瞬時に切り替え"
-    ],
-    "tags": [
+      "#Glassmorphism",
       "#100DaysOfCode",
       "#Go",
       "#Golang",
       "#Bubbletea",
-      "#TUI"
-    ],
-    "url": "https://x.com/ruu_web/status/2016141859853418811"
-  },
-  {
-    "day": 26,
-    "date": "2026-01-26 21:56",
-    "title": "Commit Log App 💾 エンジニアにとって「ローカル×テキスト」が最強。",
-    "description": "",
-    "features": [
-      "コミット感覚で時分秒＆メモを一瞬で記録  「30_開発」で30分の作業ログとして自動記録"
-    ],
-    "tags": [
+      "#TUI",
       "#100DaysOfCode",
       "#webdevelopment",
       "#JavaScript",
-      "#LifeHacks"
-    ],
-    "url": "https://x.com/ruu_web/status/2015770835190153611"
-  },
-  {
-    "day": 25,
-    "date": "2026-01-25 21:51",
-    "title": "Dockerfile Typing Game  Apache や MySQL の Dockerfile を打ち込んで覚えるタイピングゲームを制作！",
-    "description": "",
-    "features": [
-      "Apache / MySQL コース切替  リアルタイムの正誤判定 (ミスは赤字で即通知)"
-    ],
-    "tags": [
+      "#LifeHacks",
       "#100DaysOfCode",
       "#webdevelopment",
-      "#Docker"
-    ],
-    "url": "https://x.com/ruu_web/status/2015407131160461590"
-  },
-  {
-    "day": 24,
-    "date": "2026-01-24 22:51",
-    "title": "五目並べ (Gomoku)  React + TypeScript で古典的な「五目並べ」を実装！CSS Grid だけです。",
-    "description": "",
-    "features": [
-      "勝敗判定ロジック (縦横斜め)   手番表示 &amp; リセット機能"
-    ],
-    "tags": [
+      "#Docker",
       "#100DaysOfCode",
       "#React",
-      "#TypeScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2015059836271284452"
-  },
-  {
-    "day": 23,
-    "date": "2026-01-23 21:35",
-    "title": "iPhone で SQL 筋トレ！🛠️",
-    "description": "ブラウザの中で本物の SQLite が動く「SQL Drill」を構築。",
-    "features": [
-      "サーバー不要 (sql.js + WASM)",
-      "スマホ用 SQL クイック入力ボタン",
-      "実行結果の即時判定"
-    ],
-    "tags": [
+      "#TypeScript",
       "#100DaysOfCode",
       "#Nextjs",
       "#SQLite",
-      "#PWA"
-    ],
-    "url": "https://x.com/ruu_web/status/2014678439295648148",
-    "demoLink": "/day023"
-  },
-  {
-    "day": 22,
-    "date": "2026-01-23 00:10",
-    "title": ": Java × SQLite 高速一括挿入ツール 🚀",
-    "description": "SQLiteへの100万件データ登録JavaのJDBCを使って、バッチ処理とオートコミットOFFを駆使した結果…",
-    "features": [],
-    "tags": [
+      "#PWA",
       "#100DaysOfCode",
       "#Java",
-      "#SQLite"
-    ],
-    "url": "https://x.com/ruu_web/status/2014354996662550945"
-  },
-  {
-    "day": 21,
-    "date": "2026-01-21 22:03",
-    "title": "MindFlow",
-    "description": "感情の波を記録する、超シンプルな一言日記アプリ。",
-    "features": [],
-    "tags": [
+      "#SQLite",
       "#100DaysOfCode",
       "#Nextjs",
       "#TypeScript",
-      "#FramerMotion"
-    ],
-    "url": "https://x.com/ruu_web/status/2013960655686992165",
-    "demoLink": "/day021"
-  },
-  {
-    "day": 20,
-    "date": "2026-01-20 21:01",
-    "title": "Pic-Spot",
-    "description": "外部サイトから画像をドラッグ＆ドロップして、ブラウザ内に一瞬でコレクションできるギャラリーのアプリ。",
-    "features": [],
-    "tags": [
+      "#FramerMotion",
       "#100DaysOfCode",
       "#Nextjs",
       "#TypeScript",
       "#Dexie",
-      "#WebDev"
-    ],
-    "url": "https://x.com/ruu_web/status/2013582534706401672",
-    "demoLink": "/day020"
-  },
-  {
-    "day": 19,
-    "date": "2026-01-19 20:54",
-    "title": "MD to JSON Converter",
-    "description": "✨Notionから出力した複数のMarkdownを、一括で整形されたJSONに変換するツールを作成。 ダウンロード機能をVanilla JSで実装しました。 🛠️",
-    "features": [],
-    "tags": [
+      "#WebDev",
       "#100DaysOfCode",
       "#JavaScript",
       "#HTML",
-      "#WebDesign"
-    ],
-    "url": "https://x.com/ruu_web/status/2013218444729111027"
-  },
-  {
-    "day": 18,
-    "date": "2026-01-18 20:43",
-    "title": "毎日30分1本勝負、本日は「JSON LOG」を制作！✨",
-    "description": "「AIに自分の思考ログを効率よく食わせたい」と思っていて、結果的に Vanilla JS でシンプルに JSON 保存できる形に落ち着きました。",
-    "features": [],
-    "tags": [
+      "#WebDesign",
       "#100DaysOfCode",
-      "#JavaScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2012853400686240009"
-  },
-  {
-    "day": 17,
-    "date": "2026-01-17 19:56",
-    "title": "React Tetris 🎮",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：React Tetris App",
-    "features": [],
-    "tags": [
+      "#JavaScript",
       "#100DaysOfCode",
       "#React",
       "#Vite",
       "#TypeScript",
-      "#GameDev"
-    ],
-    "url": "https://x.com/ruu_web/status/2012479114834534481"
-  },
-  {
-    "day": 16,
-    "date": "2026-01-16 21:47",
-    "title": "Kanban Board (Trello-style) 完成！📋",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Glassmorphic Kanban バックエンドなし",
-    "features": [],
-    "tags": [
+      "#GameDev",
       "#100DaysOfCode",
       "#React",
       "#dndkit",
       "#Vite",
-      "#TypeScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2012144620130681224"
-  },
-  {
-    "day": 15,
-    "date": "2026-01-15 21:49",
-    "title": "リアルタイムお絵描きアプリ完成！🎨",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Collaborative Canvas",
-    "features": [],
-    "tags": [
+      "#TypeScript",
       "#100DaysOfCode",
       "#Go",
       "#React",
-      "#WebSockets"
-    ],
-    "url": "https://x.com/ruu_web/status/2011782895984394380"
-  },
-  {
-    "day": 14,
-    "date": "2026-01-14 22:51",
-    "title": "useQueryの学習。",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：パスワードマネージャー",
-    "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs"
-    ],
-    "url": "https://x.com/ruu_web/status/2011435931639935376"
-  },
-  {
-    "day": 13,
-    "date": "2026-01-13 23:57",
-    "title": "🛠️ 今日の成果：リラクゼーションアプリ「Zen Breathing」",
-    "description": "爆速開発しました🚀",
-    "features": [
-      "こだわりのダーク＆グラスモーフィズムUI"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#javascript"
-    ],
-    "url": "https://x.com/ruu_web/status/2011090246222692460"
-  },
-  {
-    "day": 12,
-    "date": "2026-01-12 22:45",
-    "title": "Notion API 連携🛑 ルール：毎日30分 1本勝負 🛠 今日の成果：Notion DB 簡易表示ビューア",
-    "description": "NotionのDBを自分好みのUIで可視化したくて、Next.js × Material UIでビューアを作成しました。",
-    "features": [],
-    "tags": [
+      "#WebSockets",
       "#100DaysOfCode",
       "#Nextjs",
-      "#Notion"
-    ],
-    "url": "https://x.com/ruu_web/status/2010709845574594611",
-    "demoLink": "/day012"
-  },
-  {
-    "day": 11,
-    "date": "2026-01-11 22:33",
-    "title": "AIチャット antigravity で爆速開発！",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：ずんだもんとおしゃべりチャットアプリ",
-    "features": [],
-    "tags": [
+      "#100DaysOfCode",
+      "#javascript",
       "#100DaysOfCode",
       "#Nextjs",
-      "#AI"
-    ],
-    "url": "https://x.com/ruu_web/status/2010344400258503064"
-  },
-  {
-    "day": 10,
-    "date": "2026-01-10 23:21",
-    "title": "時間がない！そんな今日は速攻で「Stopwatch」を作成⏱️",
-    "description": "ReactのuseRefでインターバルIDを管理し、再レンダリングの罠を回避しつつ実装。 ミリ秒がパラパラ動くの楽しさがありますね。",
-    "features": [],
-    "tags": [
+      "#Notion",
+      "#100DaysOfCode",
+      "#Nextjs",
+      "#AI",
       "#100DaysOfCode",
       "#React",
-      "#Vite"
-    ],
-    "url": "https://x.com/ruu_web/status/2009994056039051691"
-  },
-  {
-    "day": 9,
-    "date": "2026-01-09 23:34",
-    "title": "時間がないし、原点回帰の「Digital Clock」！⏰",
-    "description": "useEffect × setInterval で時を刻むシンプルな時計。桁が変わってもガタつかないようにする",
-    "features": [],
-    "tags": [
+      "#Vite",
       "#100DaysOfCode",
       "#React",
-      "#Vite"
-    ],
-    "url": "https://x.com/ruu_web/status/2009634850651951356"
-  },
-  {
-    "day": 8,
-    "date": "2026-01-08 22:55",
-    "title": "React × Material UI でカレンダーアプリを作成！🗓️",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：シンプルカレンダービュー",
-    "features": [],
-    "tags": [
+      "#Vite",
       "#100DaysOfCode",
       "#React",
-      "#MaterialUI"
-    ],
-    "url": "https://x.com/ruu_web/status/2009262799432896893"
-  },
-  {
-    "day": 7,
-    "date": "2026-01-07 21:49",
-    "title": "Javaでパックマン  ᗣᗣᗣ 今日はJava Swingでゲーム開発。",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：パックマン",
-    "features": [],
-    "tags": [
+      "#MaterialUI",
       "#100DaysOfCode",
-      "#Java"
-    ],
-    "url": "https://x.com/ruu_web/status/2008883724923048334"
-  },
-  {
-    "day": 6,
-    "date": "2026-01-06 21:55",
-    "title": "Rails Hotwire の威力 ⚡",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Keep Rails(メモアプリ)",
-    "features": [],
-    "tags": [
+      "#Java",
       "#100DaysOfCode",
       "#Rails",
-      "#Web"
-    ],
-    "url": "https://x.com/ruu_web/status/2008522903252607299"
-  },
-  {
-    "day": 5,
-    "date": "2026-01-05 22:48",
-    "title": "Habit Log App  Rust + eframe で「簡易習慣記録アプリ」を作成！",
-    "description": "ある程度「使えるアプリ」に進化した。 Rust で GUI アプリ、意外とサクッと作れて楽しいぞ…！🚀",
-    "features": [
-      "習慣リストの追加 JSON 永続化  日本語"
-    ],
-    "tags": [
+      "#Web",
       "#100DaysOfCode",
       "#Rust",
       "#RustLang",
-      "#eframe"
-    ],
-    "url": "https://x.com/ruu_web/status/2008173689687494945"
-  },
-  {
-    "day": 4,
-    "date": "2026-01-04 18:32",
-    "title": "Rust はまだよくわからないですが、「プログレスバー出したいな」→ cargo add indicatif → 実装 5 分。 CLI ツールは作れます。サボりじゃない...！",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：CLI Pomodoro Timer",
-    "features": [],
-    "tags": [
+      "#eframe",
       "#100DaysOfCode",
-      "#Rust"
-    ],
-    "url": "https://x.com/ruu_web/status/2007746980492222486"
-  },
-  {
-    "day": 3,
-    "date": "2026-01-03 21:07",
-    "title": "簡易クイズ API を Go で実装 🐹 Docker の知識を問うクイズアプリが完成。",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Docker Quiz API",
-    "features": [],
-    "tags": [
+      "#Rust",
       "#100DaysOfCode",
       "#Go",
       "#Nextjs",
-      "#Docker"
-    ],
-    "url": "https://x.com/ruu_web/status/2007423507123311030",
-    "demoLink": "/day003"
-  },
-  {
-    "day": 2,
-    "date": "2026-01-02 11:30",
-    "title": "Rust でライフゲーム実装！🧬 今日は Rust の GUI ライブラリ egui を使ってます。",
-    "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Rust Game of Life (egui/eframe)",
-    "features": [],
-    "tags": [
+      "#Docker",
       "#100DaysOfCode",
-      "#Rust"
-    ],
-    "url": "https://x.com/ruu_web/status/2006915917914190239"
-  },
-  {
-    "day": 1,
-    "date": "2026-01-01 21:30",
-    "title": "元旦からスタート！🚀 エンジニア2年目の挑戦として、「100日間で100個のアプリを作る」チャレンジを始めます。",
-    "description": "🛑 ルール：毎日30分1本勝負 🛠️ 今日の成果：100日おみくじアプリ",
-    "features": [],
-    "tags": [
+      "#Rust",
       "#100DaysOfCode",
-      "#Nextjs"
+      "#Nextjs",
+      "#100DaysOfCode"
     ],
-    "url": "https://x.com/ruu_web/status/2006704508722930165",
-    "demoLink": "/day001"
+    "url": "https://x.com/ruu_web/status/2024448032180490524",
+    "demoLink": "/day049"
   }
 ]
