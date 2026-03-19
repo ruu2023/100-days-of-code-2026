@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON Pretty Printer - Day078</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .json-key {
+        color: #9cdcfe;
+      }
+      .json-string {
+        color: #ce9178;
+      }
+      .json-number {
+        color: #b5cea8;
+      }
+      .json-boolean {
+        color: #569cd6;
+      }
+      .json-null {
+        color: #569cd6;
+      }
+      .json-bracket {
+        color: #ffd700;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-gray-100 min-h-screen p-4">
+    <div class="w-full h-full flex flex-col">
+      <h1 class="text-3xl font-bold mb-4 text-center">JSON Pretty Printer</h1>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-4 flex-1">
+        <div class="flex flex-col">
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium">入力 (JSON)</label>
+            <button
+              onclick="clearAll()"
+              class="text-xs bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded"
+            >
+              クリア
+            </button>
+          </div>
+          <textarea
+            id="input"
+            class="min-h-[30vh] flex-1 w-full bg-gray-800 border border-gray-700 rounded p-3 font-mono text-base focus:outline-none focus:border-blue-500"
+            placeholder='{"key": "value"}'
+          ></textarea>
+        </div>
+
+        <div class="flex flex-col">
+          <div class="flex justify-between items-center mb-2">
+            <label class="text-sm font-medium">出力 (整形後)</label>
+            <button
+              onclick="copyOutput()"
+              class="text-xs bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded"
+            >
+              コピー
+            </button>
+          </div>
+          <pre
+            id="output"
+            class="min-h-[30vh] flex-1 w-full bg-gray-800 border border-gray-700 rounded p-3 font-mono text-base overflow-auto"
+          ></pre>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button
+          onclick="formatJSON()"
+          class="bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-8 rounded-lg transition"
+        >
+          整形
+        </button>
+      </div>
+
+      <div
+        id="error"
+        class="hidden mt-4 p-4 bg-red-900/50 border border-red-500 rounded text-red-200 text-center"
+      ></div>
+    </div>
+
+    <script>
+      function formatJSON() {
+        const input = document.getElementById("input").value.trim();
+        const output = document.getElementById("output");
+        const error = document.getElementById("error");
+
+        error.classList.add("hidden");
+        output.innerHTML = "";
+
+        if (!input) {
+          error.textContent = "JSONを入力してください";
+          error.classList.remove("hidden");
+          return;
+        }
+
+        try {
+          const parsed = JSON.parse(input);
+          const formatted = JSON.stringify(parsed, null, 2);
+          output.innerHTML = syntaxHighlight(formatted);
+        } catch (e) {
+          error.textContent = "無効なJSONです: " + e.message;
+          error.classList.remove("hidden");
+        }
+      }
+
+      function syntaxHighlight(json) {
+        return json
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(
+            /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g,
+            function (match) {
+              let cls = "json-number";
+              if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                  cls = "json-key";
+                } else {
+                  cls = "json-string";
+                }
+              } else if (/true|false/.test(match)) {
+                cls = "json-boolean";
+              } else if (/null/.test(match)) {
+                cls = "json-null";
+              }
+              return '<span class="' + cls + '">' + match + "</span>";
+            },
+          )
+          .replace(/([{}\[\]])/g, '<span class="json-bracket">$1</span>');
+      }
+
+      function copyOutput() {
+        const output = document.getElementById("output");
+        const text = output.textContent;
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(() => {
+          alert("コピーしました");
+        });
+      }
+
+      function clearAll() {
+        document.getElementById("input").value = "";
+        document.getElementById("output").innerHTML = "";
+        document.getElementById("error").classList.add("hidden");
+      }
+
+      // Ctrl+Enter で整形
+      document
+        .getElementById("input")
+        .addEventListener("keydown", function (e) {
+          if (e.ctrlKey && e.key === "Enter") {
+            formatJSON();
+          }
+        });
+    </script>
+  </body>
+</html>
