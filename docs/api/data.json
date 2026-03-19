@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-2-siness-use1/",
-    "title": "【非エンジニアのためのClaude/Claude Codeシリーズ 】Claude Codeを動かす環境を整えてみた | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/claude-business-use1/",
+    "id": "hatebu-it-14-n-agent-era/",
+    "title": "Coding Agent時代のドキュメントについて考えていること",
+    "url": "https://nyosegawa.com/posts/docs-in-agent-era/",
     "source": "Hatena:it",
-    "bookmarkCount": 148,
-    "summary": "非エンジニアのClaude活用で生産性向上を目指す取り組みが紹介され、Claude Codeを動かす環境整備のポイントが解説される。営業資料の自動生成やカレンダー連携、勤怠管理などの業務効率化が紹介され、Claudeの「自律性」と「コンテキストの蓄積」が非エンジニアの活用を容易にする点が強調される。フォルダの整理やCLAUDE.mdの作成を最初に推奨し、専用の作業フォルダとプロジェクトごとの分割を推奨する。環境を整えることで、非エンジニアでも効率的にClaudeを活用できるようになる。",
+    "bookmarkCount": 305,
+    "summary": "ルールに従って、Coding Agent時代のドキュメントの役割を振り返り、ドキュメントが正確でなければ正しく機能しないことを指摘したうえで、コードのような機械的フィードバックループが欠如している自然言語ドキュメントが腐りやすい問題を説明。コードの自動化された検証が可能な一方、自然言語のドキュメントは文脈依存的な変化を正確に追跡できず、腐敗を防げないと指摘。そこで、ドキュメントの「harness」をコードと同様に管理し、チェックツールを用いて「check-doc-freshness.sh」などで最新性を検証し、Agentが古いドキュメントを参照しないようにする試みを紹介。人間向けドキュメントはリポジトリ外に出す方向で検討中だが、まだ最適な方法を模索中と述べた。要するに、ドキュメントの自動化されたフィードバックループと、ドキュメントの品質を確保するための「harness」運用が、Coding Agent時代におけるドキュメント管理の鍵だと結論付けている。",
     "category": "AI",
-    "date": "2026-03-18T03:24:31.971Z"
+    "date": "2026-03-19T03:25:17.781Z"
   },
   {
-    "id": "hatebu-it-3-y-checklist/",
-    "title": "Google Cloud が推奨セキュリティチェックリストを公開しました | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/google-cloud-recommended-security-checklist/",
+    "id": "hatebu-it-0-s-exec-says/",
+    "title": "OpenAIも、ついにChatGPTの料金を見直し。「使い放題プラン」廃止も示唆 | Business Insider Japan",
+    "url": "https://www.businessinsider.jp/article/2603-openai-may-drop-unlimited-chatgpt-plans-exec-says/",
     "source": "Hatena:it",
-    "bookmarkCount": 102,
-    "summary": "Google Cloud がクラウド環境のセキュリティ基準となるチェックリスト「GCMVSP」を公開しました。60 のコントロールが「ベーシック」「中級」「上級」の 3 段階に分かれており、組織の規模や利用シーンに合わせて段階的に導入できるようになっています。チェックリストはシンプルで拡張性が高く、60 のコントロールは「認証と認可」「組織」「インフラストラクチャ」「データ保護」「ネットワーク セキュリティ」「コントロールの適用」という 6 つのドメインに分類されています。さらに、GKE 用の認証プロセスや RBAC の実装例など、IaC によるコード適用を前提としたサンプルコードも GitHub で公開されています。State of Cloud Security Research の調査結果によれば、約 80% の組織がクラウドでセキュリティインシデントを経験しており、ツールの多用による複雑化が課題となっている中で、CSP が体系的に提供するチェックリストは、セキュリティ出発点として非常に重要な役割を果たすでしょう。",
+    "bookmarkCount": 141,
+    "summary": "OpenAIは、利用制限つきの無料版や月額200ドル（3万1800円）の「Pro」など複数の有料プランを提供しているが、AIの性能向上と計算コストの増大により、「使い放題プラン」の廃止も示唆した。OpenAIのChatGPT責任者ニック・ターリー氏は、同社のAI製品の課金モデルが今後大きく変わる可能性を示唆し、技術革新のペースに「対応しきれない」状況に直面していると述べた。この動きは業界全体の料金体系見直しの一環として、他社のモデル変更にも影響を与えている。",
     "category": "Security",
-    "date": "2026-03-18T03:25:16.270Z"
+    "date": "2026-03-19T03:25:52.257Z"
   }
 ]
