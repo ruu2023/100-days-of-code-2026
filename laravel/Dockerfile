@@ -44,8 +44,5 @@ COPY --from=node-builder /app/public/build ./public/build
 # PHP依存関係のインストール
 RUN composer install --no-dev --optimize-autoloader
 
-# コンフィグとルートのキャッシュ
-RUN php artisan config:cache && php artisan route:cache
-
 EXPOSE 8080
 CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
