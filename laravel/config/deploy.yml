@@ -17,10 +17,35 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 
+env:
+  clear:
+    APP_ENV: production
+    APP_DEBUG: false
+    APP_URL: https://laravel.ruu-dev.com
+    DB_CONNECTION: sqlite
+    # 必要に応じて追加:
+    # DB_DATABASE: /var/www/html/database/database.sqlite
+    # CACHE_STORE: database
+    # SESSION_DRIVER: database
+    # QUEUE_CONNECTION: database
+  secret:
+    - APP_KEY
+
 builder:
   arch: amd64
-  local: false
   remote: ssh://deploy@162.43.77.16
 
 ssh:
   user: deploy
+
+volumes:
+  - "laravel_storage:/var/www/html/storage"
+  - "laravel_database:/var/www/html/database"
+
+asset_path: /var/www/html/public/build
+
+aliases:
+  artisan: app exec --interactive --reuse "php artisan"
+  tinker: app exec --interactive --reuse "php artisan tinker"
+  migrate: app exec --interactive --reuse "php artisan migrate --force"
+  logs: app logs -f

@@ -1,0 +1,10 @@
+.git
+.github
+node_modules
+vendor
+storage/*.key
+.env
+public/build
+.kamal
+.dockerignore
+Dockerfile

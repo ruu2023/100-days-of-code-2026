@@ -1,6 +1,15 @@
+# --- Node.js ステージ (アセットビルド用) ---
+FROM node:22 AS node-builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# --- PHP ステージ ---
 FROM php:8.4-fpm
 
-# 必要なパッケージインストール
+# 必要なシステムパッケージのインストール
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -20,14 +29,22 @@ RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o 
     && chmod a+rx /usr/local/bin/yt-dlp \
     && ln -sf /usr/local/bin/yt-dlp /usr/bin/yt-dlp
 
-# PHP拡張
+# PHP拡張のインストール
 RUN docker-php-ext-install pdo pdo_pgsql zip pcntl
 
 WORKDIR /var/www/html
+
+# ソースコードのコピー
 COPY . .
 
+# ディレクトリ作成を保証してから、Node ステージからビルド済みアセットをコピー
+RUN mkdir -p public/build
+COPY --from=node-builder /app/public/build ./public/build
+
+# PHP依存関係のインストール
 RUN composer install --no-dev --optimize-autoloader
 
+# コンフィグとルートのキャッシュ
 RUN php artisan config:cache && php artisan route:cache
 
 EXPOSE 8080
