@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-14-n-agent-era/",
-    "title": "Coding Agent時代のドキュメントについて考えていること",
-    "url": "https://nyosegawa.com/posts/docs-in-agent-era/",
+    "id": "hatebu-it-11-af47816c63e0",
+    "title": "CLAUDE.mdを設計するとClaude Codeの生産性が別物になる — 実際の設定と運用ワークフローを公開 - Qiita",
+    "url": "https://qiita.com/nogataka/items/1ad4e4ccaf47816c63e0",
     "source": "Hatena:it",
-    "bookmarkCount": 305,
-    "summary": "ルールに従って、Coding Agent時代のドキュメントの役割を振り返り、ドキュメントが正確でなければ正しく機能しないことを指摘したうえで、コードのような機械的フィードバックループが欠如している自然言語ドキュメントが腐りやすい問題を説明。コードの自動化された検証が可能な一方、自然言語のドキュメントは文脈依存的な変化を正確に追跡できず、腐敗を防げないと指摘。そこで、ドキュメントの「harness」をコードと同様に管理し、チェックツールを用いて「check-doc-freshness.sh」などで最新性を検証し、Agentが古いドキュメントを参照しないようにする試みを紹介。人間向けドキュメントはリポジトリ外に出す方向で検討中だが、まだ最適な方法を模索中と述べた。要するに、ドキュメントの自動化されたフィードバックループと、ドキュメントの品質を確保するための「harness」運用が、Coding Agent時代におけるドキュメント管理の鍵だと結論付けている。",
+    "bookmarkCount": 411,
+    "summary": "CLAUDE.md を設計し、Claude Code の作業環境を整えることで、生産性が劇的に向上しました。プロジェクトごとのルールを分離し、サブエージェントを1タスク1エージェントで定義することで、作業のやり直しが激減しました。機械的に検証できるルールは Linter 等に委譲し、AIメモリを構造化してセッション間で知識を蓄積しました。コンテキスト管理のルールを明文化し、AI の出力を安定させることで、雑に書く CLAUDE.md が意図的な設計へと変わり、Claude Code の動作がはっきりと安定しました。この設定をベースに、自分のワークフローに合わせてカスタマイズしてみてください。",
     "category": "AI",
-    "date": "2026-03-19T03:25:17.781Z"
+    "date": "2026-03-20T03:14:19.330Z"
   },
   {
-    "id": "hatebu-it-0-s-exec-says/",
-    "title": "OpenAIも、ついにChatGPTの料金を見直し。「使い放題プラン」廃止も示唆 | Business Insider Japan",
-    "url": "https://www.businessinsider.jp/article/2603-openai-may-drop-unlimited-chatgpt-plans-exec-says/",
+    "id": "hatebu-it-0-6faa4f61d98f",
+    "title": "Anthropic社員のClaude Code活用術8選 — 公式情報から読み解く実践テクニック",
+    "url": "https://zenn.dev/happy_elements/articles/046faa4f61d98f",
     "source": "Hatena:it",
-    "bookmarkCount": 141,
-    "summary": "OpenAIは、利用制限つきの無料版や月額200ドル（3万1800円）の「Pro」など複数の有料プランを提供しているが、AIの性能向上と計算コストの増大により、「使い放題プラン」の廃止も示唆した。OpenAIのChatGPT責任者ニック・ターリー氏は、同社のAI製品の課金モデルが今後大きく変わる可能性を示唆し、技術革新のペースに「対応しきれない」状況に直面していると述べた。この動きは業界全体の料金体系見直しの一環として、他社のモデル変更にも影響を与えている。",
+    "bookmarkCount": 217,
+    "summary": "AnthropicチームがClaude Codeを活用し、作業効率を劇的に向上させるテクニックを8選紹介。コンテキストエンジニアリングやHooksの活用、計画モードでの実装から、複数のアシスタントを並列で動かす「Subagents」まで、作業を複利的に蓄積していく構造が明らかに。コードを書く前の戦略の選択が重要とし、Plan Modeでのやり取りやHooksでの自動化を推奨。参考リンク一覧あり。",
     "category": "Security",
-    "date": "2026-03-19T03:25:52.257Z"
+    "date": "2026-03-20T03:14:54.240Z"
   }
 ]
