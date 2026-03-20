@@ -97,7 +97,7 @@ asset_path: /rails/public/assets
 # Configure the image builder.
 builder:
   arch: amd64
-  remote: ssh://root@162.43.77.16
+  remote: ssh://deploy@162.43.77.16
 
   # # Build image via remote server (useful for faster amd64 builds on arm64 computers)
   # remote: ssh://docker@docker-builder-server
@@ -110,8 +110,8 @@ builder:
   #   - RAILS_MASTER_KEY
 
 # Use a different ssh user than root
-# ssh:
-#   user: app
+ssh:
+  user: deploy
 
 # Use accessory services (secrets come from .kamal/secrets).
 # accessories:

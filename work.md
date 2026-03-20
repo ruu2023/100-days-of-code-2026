@@ -50,3 +50,5 @@ PasswordAuthentication no
 ```
 
 sudo systemctl restart ssh
+
+sudo usermod -aG docker deploy
