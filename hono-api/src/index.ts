@@ -37,10 +37,13 @@ const isAllowedOrigin = (origin: string) => {
   }
 };
 
-app.use("*", cors({
-  origin: (origin) => isAllowedOrigin(origin) ? origin : ALLOWED_ORIGINS[0],
-  credentials: true,
-}));
+app.use(
+  "*",
+  cors({
+    origin: (origin) => (isAllowedOrigin(origin) ? origin : ALLOWED_ORIGINS[0]),
+    credentials: true,
+  }),
+);
 
 // Mount API routes
 app.route("/api", apiApp);
@@ -48,66 +51,72 @@ app.route("/api", apiApp);
 // -----------------------------------------------------------------------------
 // VPS (Kamal / Rails 8) へのプロキシ設定
 // -----------------------------------------------------------------------------
-app.all('/vps/*', async (c) => {
-  const url = new URL(c.req.url)
-  const VPS_HOST = '65.108.219.151.nip.io'
+// app.all('/vps/*', async (c) => {
+//   const url = new URL(c.req.url)
+//   const VPS_HOST = '65.108.219.151.nip.io'
 
-  const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
-  const targetUrl = new URL(cleanPath + url.search, `http://${VPS_HOST}`)
+//   const cleanPath = url.pathname.replace(/^\/vps/, '') || '/'
+//   const targetUrl = new URL(cleanPath + url.search, `http://${VPS_HOST}`)
 
-  const headers = new Headers(c.req.raw.headers)
+//   const headers = new Headers(c.req.raw.headers)
 
-  // Host は接続先と揃える
-  headers.set('Host', VPS_HOST)
+//   // Host は接続先と揃える
+//   headers.set('Host', VPS_HOST)
 
-  // 元の公開URL情報をRailsに伝える
-  headers.set('X-Forwarded-Host', url.host)
-  headers.set('X-Forwarded-Proto', 'https')
-  headers.set('X-Forwarded-Port', '443')
+//   // 元の公開URL情報をRailsに伝える
+//   headers.set('X-Forwarded-Host', url.host)
+//   headers.set('X-Forwarded-Proto', 'https')
+//   headers.set('X-Forwarded-Port', '443')
 
-  const clientIp = c.req.header('CF-Connecting-IP')
-  if (clientIp) {
-    headers.set('X-Forwarded-For', clientIp)
-  }
+//   const clientIp = c.req.header('CF-Connecting-IP')
+//   if (clientIp) {
+//     headers.set('X-Forwarded-For', clientIp)
+//   }
 
-  return fetch(targetUrl.toString(), {
-    method: c.req.method,
-    headers,
-    body: ['GET', 'HEAD'].includes(c.req.method) ? undefined : c.req.raw.body,
-    redirect: 'manual',
-  })
-})
+//   return fetch(targetUrl.toString(), {
+//     method: c.req.method,
+//     headers,
+//     body: ['GET', 'HEAD'].includes(c.req.method) ? undefined : c.req.raw.body,
+//     redirect: 'manual',
+//   })
+// })
 
-app.all('*', async (c) => {
-  const url = new URL(c.req.url)
-  
+app.all("*", async (c) => {
+  const url = new URL(c.req.url);
+
   // Cloud Run のオリジンURL
-  const CLOUD_RUN_ORIGIN = "hono-next-app-455056438426.asia-northeast1.run.app" 
-  const targetUrl = new URL(url.pathname + url.search, `https://${CLOUD_RUN_ORIGIN}`)
+  const CLOUD_RUN_ORIGIN = "hono-next-app-455056438426.asia-northeast1.run.app";
+  const targetUrl = new URL(
+    url.pathname + url.search,
+    `https://${CLOUD_RUN_ORIGIN}`,
+  );
 
   // ヘッダーの移し替えと書き換え
-  const headers = new Headers(c.req.raw.headers)
-  
+  const headers = new Headers(c.req.raw.headers);
+
   // 重要：Cloud Runがリクエストを受け付けるために Host を書き換える
-  headers.set('Host', CLOUD_RUN_ORIGIN)
-  
+  headers.set("Host", CLOUD_RUN_ORIGIN);
+
   // 重要：Next.js(Auth.js)が本来のドメインを認識するために X-Forwarded を設定
-  headers.set('X-Forwarded-Host', url.hostname) // ruu-dev.com
-  headers.set('X-Forwarded-Proto', 'https')
+  headers.set("X-Forwarded-Host", url.hostname); // ruu-dev.com
+  headers.set("X-Forwarded-Proto", "https");
 
   return fetch(targetUrl.toString(), {
     method: c.req.method,
     headers: headers,
     body: c.req.raw.body,
-    redirect: 'manual' // リダイレクトはブラウザ側に任せる
-  })
-})
+    redirect: "manual", // リダイレクトはブラウザ側に任せる
+  });
+});
 
 // -----------------------------------------------------------------------------
 // Cron Handler: 毎時0分 — tango カード裏面を Gemini(Requesty経由) で自動補完
 // -----------------------------------------------------------------------------
 
-async function callRequesty(front: string, apiKey: string): Promise<string | null> {
+async function callRequesty(
+  front: string,
+  apiKey: string,
+): Promise<string | null> {
   try {
     const res = await fetch("https://router.requesty.ai/v1/chat/completions", {
       method: "POST",
@@ -161,7 +170,11 @@ async function callRequesty(front: string, apiKey: string): Promise<string | nul
 export default {
   fetch: app.fetch,
 
-  async scheduled(_controller: ScheduledController, env: Env, _ctx: ExecutionContext) {
+  async scheduled(
+    _controller: ScheduledController,
+    env: Env,
+    _ctx: ExecutionContext,
+  ) {
     console.log("[cron] tango auto-fill started");
     const db = drizzle(env.hono_db);
 
@@ -180,7 +193,9 @@ export default {
           .update(tangoCards)
           .set({ back: answer })
           .where(eq(tangoCards.id, card.id));
-        console.log(`[cron] updated card ${card.id}: "${card.front}" → "${answer}"`);
+        console.log(
+          `[cron] updated card ${card.id}: "${card.front}" → "${answer}"`,
+        );
       } else {
         console.warn(`[cron] failed to get answer for card: "${card.front}"`);
       }

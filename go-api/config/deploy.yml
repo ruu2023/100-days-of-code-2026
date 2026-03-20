@@ -3,7 +3,7 @@ image: kokihiru/goapp
 
 servers:
   web:
-    - 65.108.219.151
+    - 162.43.77.16
 
 proxy:
   host: go.ruu-dev.com
@@ -20,4 +20,4 @@ registry:
 builder:
   arch: amd64
   local: false
-  remote: ssh://root@65.108.219.151
+  remote: ssh://root@162.43.77.16
