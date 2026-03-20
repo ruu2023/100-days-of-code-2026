@@ -20,7 +20,7 @@ registry:
 env:
   clear:
     APP_ENV: production
-    APP_DEBUG: true
+    APP_DEBUG: false
     APP_URL: https://laravel.ruu-dev.com
     DB_CONNECTION: sqlite
     # 必要に応じて追加:
