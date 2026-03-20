@@ -45,4 +45,5 @@ COPY --from=node-builder /app/public/build ./public/build
 RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 8080
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+CMD ["sh", "-c", "touch database/database.sqlite && php -S 0.0.0.0:8080 -t public"]
+
