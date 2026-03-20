@@ -7,7 +7,7 @@ servers:
 
 proxy:
   host: laravel.ruu-dev.com
-  app_port: 8000
+  app_port: 8080
   ssl: true
   forward_headers: true
 

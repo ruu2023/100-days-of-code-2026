@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\YouTubeDownloader;
 use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class YouTubeDownloadController extends Controller
 {
@@ -14,11 +14,10 @@ class YouTubeDownloadController extends Controller
 
     public function index()
     {
-        $files = $this->downloader->getFiles();
-        return view('youtube.index', compact('files'));
+        return view('youtube.index');
     }
 
-    public function download(Request $request): JsonResponse
+    public function download(Request $request): StreamedResponse|JsonResponse
     {
         $request->validate([
             'url' => 'required|url',
@@ -27,24 +26,18 @@ class YouTubeDownloadController extends Controller
             'format' => 'nullable|in:mp4,mp3,audio',
         ]);
 
-        $result = $this->downloader->download(
-            url: $request->input('url'),
-            start: $request->input('start'),
-            end: $request->input('end'),
-            format: $request->input('format', 'mp4'),
-        );
-
-        return response()->json($result);
-    }
-
-    public function files(): JsonResponse
-    {
-        return response()->json($this->downloader->getFiles());
-    }
-
-    public function delete(Request $request, string $filename): JsonResponse
-    {
-        $deleted = $this->downloader->deleteFile($filename);
-        return response()->json(['success' => $deleted]);
+        try {
+            return $this->downloader->getStreamedResponse(
+                url: $request->input('url'),
+                start: $request->input('start'),
+                end: $request->input('end'),
+                format: $request->input('format', 'mp4'),
+            );
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage(),
+            ], 500);
+        }
     }
 }

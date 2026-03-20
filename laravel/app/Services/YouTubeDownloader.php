@@ -2,29 +2,25 @@
 
 namespace App\Services;
 
-use Symfony\Component\Process\Process;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class YouTubeDownloader
 {
-    private string $storagePath;
-
-    public function __construct()
-    {
-        $this->storagePath = storage_path('app/downloads');
-        if (!is_dir($this->storagePath)) {
-            mkdir($this->storagePath, 0755, true);
-        }
-    }
-
-    public function download(string $url, ?string $start = null, ?string $end = null, string $format = 'mp4'): array
+    public function getStreamedResponse(string $url, ?string $start = null, ?string $end = null, string $format = 'mp4'): StreamedResponse
     {
         $section = $this->buildSection($start, $end);
-        $outputTemplate = $this->storagePath . '/%(title)s_%(' . time() . ')s.%(ext)s';
+
+        // まず動画情報を取得
+        $info = $this->getVideoInfo($url);
+        $filename = $info['title'] ?? 'video';
+        $extension = $format === 'mp3' ? 'mp3' : 'mp4';
+        $mimeType = $this->getMimeType($format);
 
         $command = [
             'yt-dlp',
             '-f', $this->getFormatSelector($format),
-            '-o', $outputTemplate,
+            '-o', '-',
+            '--no-playlist',
         ];
 
         if ($section) {
@@ -32,33 +28,53 @@ class YouTubeDownloader
             $command[] = $section;
         }
 
-        $command[] = '--no-playlist';
-        $command[] = '--newline';
-        $command[] = '-v';
         $command[] = $url;
 
-        $process = new Process($command);
-        $process->setTimeout(300);
+        $safeFilename = preg_replace('/[^\w\-\.]/', '_', $filename) . '.' . $extension;
+        $safeFilename = mb_substr($safeFilename, 0, 200);
 
-        $output = [];
-        $error = [];
-
-        $process->run(function ($type, $buffer) use (&$output, &$error) {
-            if ($type === Process::OUT) {
-                $output[] = $buffer;
-            } else {
-                $error[] = $buffer;
+        $response = new StreamedResponse(function () use ($command) {
+            // 出力バッファを全てクリア
+            while (ob_get_level() > 0) {
+                ob_end_clean();
             }
+
+            // STDERR を STDOUT にリダイレクト
+            $command[] = '2>&1';
+
+            passthru(implode(' ', array_map('escapeshellarg', $command)));
         });
 
-        $files = glob($this->storagePath . '/*.' . $format);
+        $response->headers->set('Content-Type', $mimeType);
+        $response->headers->set('Content-Disposition', 'attachment; filename="' . $safeFilename . '"');
+        $response->headers->set('Cache-Control', 'no-cache');
+        $response->headers->set('X-Content-Type-Options', 'nosniff');
+
+        return $response;
+    }
+
+    private function getVideoInfo(string $url): array
+    {
+        $command = ['yt-dlp', '--dump-json', '--no-playlist', $url];
+
+        $output = shell_exec(implode(' ', array_map('escapeshellarg', $command)) . ' 2>/dev/null');
+        $data = json_decode($output, true);
+
+        if (!$data) {
+            return ['title' => 'video_' . time()];
+        }
 
         return [
-            'success' => $process->isSuccessful(),
-            'files' => $files ? array_map('basename', $files) : [],
-            'output' => implode('', $output),
-            'error' => implode('', $error),
+            'title' => $data['title'] ?? 'video_' . time(),
         ];
+    }
+
+    private function getFormatSelector(string $format): string
+    {
+        return match ($format) {
+            'mp3', 'audio' => 'bestaudio/best',
+            default => 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+        };
     }
 
     private function buildSection(?string $start, ?string $end): ?string
@@ -77,7 +93,6 @@ class YouTubeDownloader
 
     private function parseTime(string $time): string
     {
-        // 秒数で入力された場合
         if (is_numeric($time)) {
             $seconds = (int) $time;
             $hours = floor($seconds / 3600);
@@ -86,7 +101,6 @@ class YouTubeDownloader
             return sprintf('%d:%02d:%02d', $hours, $minutes, $secs);
         }
 
-        // すでに HH:MM:SS や MM:SS 形式の場合
         if (preg_match('/^\d+:\d+$/', $time)) {
             $parts = explode(':', $time);
             if (count($parts) === 2) {
@@ -97,32 +111,12 @@ class YouTubeDownloader
         return $time;
     }
 
-    private function getFormatSelector(string $format): string
+    private function getMimeType(string $format): string
     {
         return match ($format) {
-            'mp3', 'audio' => 'bestaudio/best',
-            default => 'best[ext=mp4]/best',
+            'mp3', 'audio' => 'audio/mpeg',
+            'webm' => 'video/webm',
+            default => 'video/mp4',
         };
-    }
-
-    public function getFiles(): array
-    {
-        $files = glob($this->storagePath . '/*');
-        return array_map(function ($file) {
-            return [
-                'name' => basename($file),
-                'size' => filesize($file),
-                'path' => $file,
-            ];
-        }, $files ?: []);
-    }
-
-    public function deleteFile(string $filename): bool
-    {
-        $filepath = $this->storagePath . '/' . $filename;
-        if (file_exists($filepath)) {
-            return unlink($filepath);
-        }
-        return false;
     }
 }

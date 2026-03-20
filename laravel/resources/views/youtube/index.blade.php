@@ -10,7 +10,7 @@
     <div class="max-w-2xl mx-auto">
         <h1 class="text-3xl font-bold mb-8 text-center">YouTube 動画ダウンローダー</h1>
 
-        <div class="bg-gray-800 rounded-lg p-6 mb-8">
+        <div class="bg-gray-800 rounded-lg p-6">
             <div class="mb-4">
                 <label class="block text-sm mb-2">YouTube URL</label>
                 <input type="url" id="url" placeholder="https://www.youtube.com/watch?v=..."
@@ -49,30 +49,11 @@
                 </div>
             </div>
         </div>
-
-        <div class="bg-gray-800 rounded-lg p-6">
-            <h2 class="text-xl font-bold mb-4">ダウンロード済みファイル</h2>
-            <div id="fileList">
-                @if(empty($files))
-                    <p class="text-gray-400">ファイルがありません</p>
-                @else
-                    <ul class="space-y-2">
-                        @foreach($files as $file)
-                            <li class="flex items-center justify-between bg-gray-700 rounded px-4 py-2">
-                                <span class="truncate">{{ $file['name'] }}</span>
-                                <span class="text-sm text-gray-400">{{ round($file['size'] / 1024 / 1024, 2) }} MB</span>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-            </div>
-            <button onclick="refreshFiles()" class="mt-4 text-blue-400 hover:text-blue-300 text-sm">
-                更新
-            </button>
-        </div>
     </div>
 
     <script>
+        let downloadStarted = false;
+
         async function download() {
             const url = document.getElementById('url').value;
             const start = document.getElementById('start').value;
@@ -89,53 +70,53 @@
             const statusText = document.getElementById('statusText');
 
             btn.disabled = true;
-            btn.textContent = 'ダウンロード中...';
+            btn.textContent = '処理中...';
             status.classList.remove('hidden');
-            statusText.textContent = '動画をダウンロードしています...';
+            statusText.textContent = '動画を準備しています...';
+            downloadStarted = false;
 
             try {
-                const response = await fetch('/youtube/download', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify({ url, start, end, format })
-                });
+                // フォームを動的に作成してサブミット（ブラウザダウンロード dialog 対応）
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/youtube/download';
+                form.style.display = 'none';
 
-                const result = await response.json();
+                const params = { url, format };
+                if (start) params.start = start;
+                if (end) params.end = end;
 
-                if (result.success) {
-                    statusText.textContent = 'ダウンロード完了！ファイル: ' + result.files.join(', ');
-                    status.classList.remove('hidden');
-                    refreshFiles();
-                } else {
-                    statusText.textContent = 'エラー: ' + result.error;
+                for (const [key, value] of Object.entries(params)) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    form.appendChild(input);
                 }
+
+                const csrfInput = document.createElement('input');
+                csrfInput.type = 'hidden';
+                csrfInput.name = '_token';
+                csrfInput.value = '{{ csrf_token() }}';
+                form.appendChild(csrfInput);
+
+                document.body.appendChild(form);
+
+                form.submit();
+                document.body.removeChild(form);
+
+                statusText.textContent = 'ダウンロード開始しました';
+                downloadStarted = true;
+
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.textContent = 'ダウンロード';
+                }, 3000);
+
             } catch (e) {
                 statusText.textContent = 'エラー: ' + e.message;
-            } finally {
                 btn.disabled = false;
                 btn.textContent = 'ダウンロード';
-            }
-        }
-
-        async function refreshFiles() {
-            const response = await fetch('/youtube/files');
-            const files = await response.json();
-            const fileList = document.getElementById('fileList');
-
-            if (files.length === 0) {
-                fileList.innerHTML = '<p class="text-gray-400">ファイルがありません</p>';
-            } else {
-                fileList.innerHTML = '<ul class="space-y-2">' +
-                    files.map(f => `
-                        <li class="flex items-center justify-between bg-gray-700 rounded px-4 py-2">
-                            <span class="truncate">${f.name}</span>
-                            <span class="text-sm text-gray-400">${(f.size / 1024 / 1024).toFixed(2)} MB</span>
-                        </li>
-                    `).join('') +
-                    '</ul>';
             }
         }
     </script>
