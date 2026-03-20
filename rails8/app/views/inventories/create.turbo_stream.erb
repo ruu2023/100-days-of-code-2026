@@ -1,0 +1,10 @@
+<%= turbo_stream.append "inventories" do %>
+  <%= render "inventory", inventory: @inventory %>
+<% end %>
+<%= turbo_stream.update "inventory_form" do %>
+  <h2 class="text-lg font-medium text-gray-900 mb-4">新規登録</h2>
+  <%= render "form", inventory: Inventory.new %>
+<% end %>
+<%= turbo_stream.update "inventory_count" do %>
+  <%= Inventory.count %>
+<% end %>

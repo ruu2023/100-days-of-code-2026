@@ -1,3 +1,20 @@
+## 2026-03-20
+
+【Day 079/100】JSON Pretty Printer 🛠️✨
+
+シンプルな在庫管理アプリをRailsで作成
+
+✅ Hotwireで検索
+✅ 新規追加はトグルで表示・非表示
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/inventories)
+
+[Original Post](https://x.com/ruu_web/status/2035016459131527649)
+
+---
+
 ## 2026-03-19
 
 【Day 078/100】JSON Pretty Printer 🛠️✨

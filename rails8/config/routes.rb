@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   # X (Twitter) Clone - Post routes
   resources :posts do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [ :create, :destroy ]
   end
 
   # Timeline route
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   get "news", to: "news#index"
   get "convert", to: "convert#index"
-  get  "convert/stream",  to: "convert#stream"
+  get "convert/stream",  to: "convert#stream"
 
   # Bookkeeping routes
   scope "/accounting", as: :accounting do
@@ -83,11 +83,16 @@ Rails.application.routes.draw do
     get "/download_csv" => "day069/image_viewer#download_csv"
   end
 
-  # Curl Prompt Maker
-  get "/curl_prompt" => "curl_prompt#index"
-  post "/curl_prompt" => "curl_prompt#create"
-  post "/curl_prompt/send_request" => "curl_prompt#send_request"
-  post "/curl_prompt/mock" => "curl_prompt#mock"
+# Curl Prompt Maker
+get "/curl_prompt" => "curl_prompt#index"
+post "/curl_prompt" => "curl_prompt#create"
+post "/curl_prompt/send_request" => "curl_prompt#send_request"
+post "/curl_prompt/mock" => "curl_prompt#mock"
 
+# Inventory Management
+resources :inventories do
+  collection do
+    get :search
+  end
 end
-
+end

@@ -1,0 +1,26 @@
+service: laravel
+image: kokihiru/laravel
+
+servers:
+  web:
+    - 162.43.77.16
+
+proxy:
+  host: laravel.ruu-dev.com
+  app_port: 8000
+  ssl: true
+  forward_headers: true
+
+registry:
+  server: index.docker.io
+  username: kokihiru
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+builder:
+  arch: amd64
+  local: false
+  remote: ssh://deploy@162.43.77.16
+
+ssh:
+  user: deploy

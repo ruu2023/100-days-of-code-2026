@@ -1,0 +1,10 @@
+<%= turbo_stream.replace dom_id(@inventory) do %>
+  <%= render "inventory", inventory: @inventory %>
+<% end %>
+<%= turbo_stream.update "inventory_edit_form" do %>
+<% end %>
+<%= turbo_stream.append "inventory_edit_form" do %>
+  <script>
+    document.getElementById('new_form_container').style.display = 'block';
+  </script>
+<% end %>

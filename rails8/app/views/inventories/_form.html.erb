@@ -1,0 +1,42 @@
+<%= form_with model: inventory, data: { turbo_frame: "inventories_list" } do |f| %>
+  <% if inventory.errors.any? %>
+    <div class="mb-4 p-3 bg-red-50 border border-red-200 rounded-md">
+      <ul class="text-sm text-red-600">
+        <% inventory.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="space-y-4">
+    <div>
+      <%= f.label :code, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :code, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm", placeholder: "例: SKU-001" %>
+    </div>
+    <div>
+      <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :name, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm", placeholder: "商品名" %>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <%= f.label :quantity, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.number_field :quantity, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm" %>
+      </div>
+      <div>
+        <%= f.label :unit, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.text_field :unit, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm", placeholder: "例: 個, kg" %>
+      </div>
+    </div>
+    <div>
+      <%= f.label :location, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_field :location, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm", placeholder: "保管場所" %>
+    </div>
+    <div>
+      <%= f.label :notes, class: "block text-sm font-medium text-gray-700" %>
+      <%= f.text_area :notes, rows: 3, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm", placeholder: "備考" %>
+    </div>
+    <div>
+      <%= f.submit "登録", class: "w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+    </div>
+  </div>
+<% end %>

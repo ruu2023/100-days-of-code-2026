@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_12_000004) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_20_143605) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -75,6 +75,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_12_000004) do
     t.text "body"
     t.datetime "created_at", null: false
     t.string "title"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.string "location"
+    t.string "name"
+    t.text "notes"
+    t.integer "quantity"
+    t.string "unit"
     t.datetime "updated_at", null: false
   end
 

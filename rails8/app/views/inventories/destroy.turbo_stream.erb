@@ -1,0 +1,4 @@
+<%= turbo_stream.remove dom_id(@inventory) %>
+<%= turbo_stream.update "inventory_count" do %>
+  <%= Inventory.count %>
+<% end %>

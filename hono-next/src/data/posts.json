@@ -1,5 +1,21 @@
 [
   {
+    "day": 79,
+    "date": "2026-03-20",
+    "title": "JSON Pretty Printer 🛠️✨",
+    "description": "【Day 079/100】JSON Pretty Printer 🛠️✨",
+    "features": [
+      "Hotwireで検索",
+      "新規追加はトグルで表示非表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2035016459131527649",
+    "demoLink": "https://rails.ruu-dev.com/inventories"
+  },
+  {
     "day": 78,
     "date": "2026-03-19",
     "title": "JSON Pretty Printer 🛠️✨",
