@@ -1,6 +1,23 @@
+## 2026-03-21
+
+【Day 080/100】YouTubeDownloader 🛠️✨
+
+yt-dlp を laravel から呼ぶだけで簡易アプリ化です。
+
+✅ Laravel でフロントバックを即開発
+✅ 動画を切り抜いて保存可能
+
+#100DaysOfCode #Laravel
+
+[Demo](https://laravel.ruu-dev.com/youtube)
+
+[Original Post](https://x.com/ruu_web/status/2035016459131527649)
+
+---
+
 ## 2026-03-20
 
-【Day 079/100】JSON Pretty Printer 🛠️✨
+【Day 079/100】Inventory App 🛠️✨
 
 シンプルな在庫管理アプリをRailsで作成
 

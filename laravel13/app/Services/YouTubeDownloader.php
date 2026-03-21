@@ -58,11 +58,16 @@ class YouTubeDownloader
 
         if ($returnVar !== 0 || !file_exists($tempFile) || filesize($tempFile) === 0) {
             $errorMsg = !empty($output) ? implode("\n", $output) : 'Unknown error';
+            if (file_exists($tempFile)) {
+                @unlink($tempFile);
+            }
             throw new \Exception('動画のダウンロードに失敗しました: ' . $errorMsg);
         }
 
-        $safeFilename = preg_replace('/[^\w\-\.]/', '_', $filename) . '.' . $extension;
-        $safeFilename = mb_substr($safeFilename, 0, 200);
+        // ファイル名のサニタイズ (OS禁止文字のみ除去)
+        $safeFilename = preg_replace('/[\/\\\\\?\*\:\|\"<>]/', '_', $filename);
+        $safeFilename = mb_substr($safeFilename, 0, 150); // 長すぎるとエラーになるため制限
+        $fullFilename = $safeFilename . '.' . $extension;
 
         $response = new StreamedResponse(function () use ($tempFile) {
             // 出力バッファを全てクリア
@@ -83,7 +88,16 @@ class YouTubeDownloader
         });
 
         $response->headers->set('Content-Type', $mimeType);
-        $response->headers->set('Content-Disposition', 'attachment; filename="' . $safeFilename . '"');
+        // 日本語ファイル名対応 (RFC 6266 準拠)
+        $disposition = $response->headers->makeDisposition(
+            \Symfony\Component\HttpFoundation\ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $fullFilename,
+            str_replace('%', '', bin2hex($fullFilename)) // フォールバック用(英数字)
+        );
+        // 上記の fallback は簡易的なので、手動で確実に設定
+        $encodedFilename = rawurlencode($fullFilename);
+        $response->headers->set('Content-Disposition', "attachment; filename=\"$encodedFilename\"; filename*=UTF-8''$encodedFilename");
+        
         $response->headers->set('Cache-Control', 'no-cache');
         $response->headers->set('X-Content-Type-Options', 'nosniff');
         $response->headers->set('Content-Length', filesize($tempFile));

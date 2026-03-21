@@ -1,9 +1,25 @@
 [
   {
+    "day": 80,
+    "date": "2026-03-21",
+    "title": "YouTubeDownloader 🛠️✨",
+    "description": "【Day 080/100】YouTubeDownloader 🛠️✨",
+    "features": [
+      "Laravel でフロントバックを即開発",
+      "動画を切り抜いて保存可能"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Laravel"
+    ],
+    "url": "https://x.com/ruu_web/status/2035016459131527649",
+    "demoLink": "https://laravel.ruu-dev.com/youtube"
+  },
+  {
     "day": 79,
     "date": "2026-03-20",
-    "title": "JSON Pretty Printer 🛠️✨",
-    "description": "【Day 079/100】JSON Pretty Printer 🛠️✨",
+    "title": "Inventory App 🛠️✨",
+    "description": "【Day 079/100】Inventory App 🛠️✨",
     "features": [
       "Hotwireで検索",
       "新規追加はトグルで表示非表示"
