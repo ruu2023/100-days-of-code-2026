@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-11-af47816c63e0",
-    "title": "CLAUDE.mdを設計するとClaude Codeの生産性が別物になる — 実際の設定と運用ワークフローを公開 - Qiita",
-    "url": "https://qiita.com/nogataka/items/1ad4e4ccaf47816c63e0",
+    "id": "hatebu-it-4-5c9340a418c3",
+    "title": "AI生成文から「AIくささ」を取り除く技術と、Claude Codeスキルに組み込むまでの話",
+    "url": "https://zenn.dev/m0370/articles/205c9340a418c3",
     "source": "Hatena:it",
-    "bookmarkCount": 411,
-    "summary": "CLAUDE.md を設計し、Claude Code の作業環境を整えることで、生産性が劇的に向上しました。プロジェクトごとのルールを分離し、サブエージェントを1タスク1エージェントで定義することで、作業のやり直しが激減しました。機械的に検証できるルールは Linter 等に委譲し、AIメモリを構造化してセッション間で知識を蓄積しました。コンテキスト管理のルールを明文化し、AI の出力を安定させることで、雑に書く CLAUDE.md が意図的な設計へと変わり、Claude Code の動作がはっきりと安定しました。この設定をベースに、自分のワークフローに合わせてカスタマイズしてみてください。",
+    "bookmarkCount": 331,
+    "summary": "Wikipediaで見つけたAIくささ検出パターンを基に、Claude Codeの執筆支援スキルに組み込んだ。英文で使われる「Additionally」「Furthermore」などを日本語の「さらに」「加えて」として、複雑な構文を避ける。英語の「serves as」「stands as」のcopula回避は、日本語では「〜として位置づけられています」「〜の役割を果たしています」などの回りくどい表現に置き換える。チェックリストを活用して、執筆後のアンチAIパス（セルフ監査）を実施し、AI生成っぽい箇所を特定・修正する。",
     "category": "AI",
-    "date": "2026-03-20T03:14:19.330Z"
+    "date": "2026-03-21T02:51:03.030Z"
   },
   {
-    "id": "hatebu-it-0-6faa4f61d98f",
-    "title": "Anthropic社員のClaude Code活用術8選 — 公式情報から読み解く実践テクニック",
-    "url": "https://zenn.dev/happy_elements/articles/046faa4f61d98f",
+    "id": "hatebu-it-16--compromise/",
+    "title": "2026年3月19日の Trivy 再侵害の概要と対応指針",
+    "url": "https://diary.shift-js.info/trivy-compromise/",
     "source": "Hatena:it",
-    "bookmarkCount": 217,
-    "summary": "AnthropicチームがClaude Codeを活用し、作業効率を劇的に向上させるテクニックを8選紹介。コンテキストエンジニアリングやHooksの活用、計画モードでの実装から、複数のアシスタントを並列で動かす「Subagents」まで、作業を複利的に蓄積していく構造が明らかに。コードを書く前の戦略の選択が重要とし、Plan Modeでのやり取りやHooksでの自動化を推奨。参考リンク一覧あり。",
+    "bookmarkCount": 109,
+    "summary": "2026年3月19日、Aqua Security が提供するOSSセキュリティスキャナ Trivy v0.69.4 がサプライチェーン攻撃の対象となりました。攻撃者は aquasecurity/setup-trivy および aquasecurity/trivy-action の2つのGitHub Actionsに悪意あるコードを注入し、クレデンシャル窃取ペイロードを配布しました。攻撃者は Trivy のリリースワークフローを改竄し、ビルドした下流への影響を含め、環境変数の収集やメモリダンプによるシークレット窃取を行いました。Trivy が改竄されたため、リリースが正常に作成されたかどうかを判断できず、過去のリリースと比較できませんが、GitHub Events API に v0.69.4 に対する ReleaseEvent が記録されていないことから、リリース自体が作成されなかった可能性が高いと推測されています。",
     "category": "Security",
-    "date": "2026-03-20T03:14:54.240Z"
+    "date": "2026-03-21T02:51:45.437Z"
   }
 ]
