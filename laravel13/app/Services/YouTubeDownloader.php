@@ -16,12 +16,33 @@ class YouTubeDownloader
         $extension = $format === 'mp3' ? 'mp3' : 'mp4';
         $mimeType = $this->getMimeType($format);
 
+        // 一時ファイルを作成 (storage/app/youtube ディレクトリ)
+        $tempDir = storage_path('app/youtube');
+        if (!file_exists($tempDir)) {
+            mkdir($tempDir, 0755, true);
+        }
+        $tempFile = $tempDir . '/' . uniqid('yt-', true) . '.' . $extension;
+
         $command = [
             'yt-dlp',
-            '-f', $this->getFormatSelector($format),
-            '-o', '-',
+            '--quiet',
+            '--no-warnings',
             '--no-playlist',
+            '-f', $this->getFormatSelector($format),
+            '-o', $tempFile,
         ];
+
+        if ($format === 'mp3' || $format === 'audio') {
+            $command[] = '-x';
+            $command[] = '--audio-format';
+            $command[] = 'mp3';
+        } else {
+            $command[] = '--merge-output-format';
+            $command[] = 'mp4';
+            // QuickTime 互換性のための FastStart (moov atom を先頭に)
+            $command[] = '--postprocessor-args';
+            $command[] = 'ffmpeg:-movflags +faststart';
+        }
 
         if ($section) {
             $command[] = '--download-sections';
@@ -30,25 +51,42 @@ class YouTubeDownloader
 
         $command[] = $url;
 
+        // 実行 (タイムリミットを解除して完了を待つ)
+        set_time_limit(0);
+        $commandStr = implode(' ', array_map('escapeshellarg', $command));
+        exec($commandStr . ' 2>&1', $output, $returnVar);
+
+        if ($returnVar !== 0 || !file_exists($tempFile) || filesize($tempFile) === 0) {
+            $errorMsg = !empty($output) ? implode("\n", $output) : 'Unknown error';
+            throw new \Exception('動画のダウンロードに失敗しました: ' . $errorMsg);
+        }
+
         $safeFilename = preg_replace('/[^\w\-\.]/', '_', $filename) . '.' . $extension;
         $safeFilename = mb_substr($safeFilename, 0, 200);
 
-        $response = new StreamedResponse(function () use ($command) {
+        $response = new StreamedResponse(function () use ($tempFile) {
             // 出力バッファを全てクリア
             while (ob_get_level() > 0) {
                 ob_end_clean();
             }
 
-            // STDERR を STDOUT にリダイレクト
-            $command[] = '2>&1';
-
-            passthru(implode(' ', array_map('escapeshellarg', $command)));
+            $stream = fopen($tempFile, 'rb');
+            if ($stream) {
+                fpassthru($stream);
+                fclose($stream);
+            }
+            
+            // 送信完了後に一時ファイルを削除
+            if (file_exists($tempFile)) {
+                @unlink($tempFile);
+            }
         });
 
         $response->headers->set('Content-Type', $mimeType);
         $response->headers->set('Content-Disposition', 'attachment; filename="' . $safeFilename . '"');
         $response->headers->set('Cache-Control', 'no-cache');
         $response->headers->set('X-Content-Type-Options', 'nosniff');
+        $response->headers->set('Content-Length', filesize($tempFile));
 
         return $response;
     }
@@ -73,7 +111,7 @@ class YouTubeDownloader
     {
         return match ($format) {
             'mp3', 'audio' => 'bestaudio/best',
-            default => 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best',
+            default => 'bestvideo[vcodec^=avc1][ext=mp4]+bestaudio[acodec^=mp4a][ext=m4a]/best[vcodec^=avc1][ext=mp4]/best[ext=mp4]/best',
         };
     }
 
