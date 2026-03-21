@@ -64,7 +64,30 @@ if (fs.existsSync(jsonPath)) {
 }
 
 const rawData = fs.readFileSync(mdPath, 'utf8');
-const posts = parseXPosts(rawData, existingPostsMap);
+let posts = parseXPosts(rawData, existingPostsMap);
+
+// posts50.json を読み込んでマージ
+const json50Path = path.join(process.cwd(), 'hono-next/src/data/posts50.json');
+if (fs.existsSync(json50Path)) {
+  try {
+    const posts50 = JSON.parse(fs.readFileSync(json50Path, 'utf8'));
+    
+    // Map を使って重複排除（posts50 を後に加えることで上書き・優先する）
+    const mergedMap = new Map();
+    
+    // まず md からパースしたものを入れる
+    posts.forEach(p => mergedMap.set(p.day, p));
+    
+    // 次に posts50 を入れる（重複があれば上書きされる = posts50優先）
+    posts50.forEach(p => mergedMap.set(p.day, p));
+    
+    // 配列に戻して降順ソート
+    posts = Array.from(mergedMap.values()).sort((a, b) => b.day - a.day);
+    console.log('✅ posts50.json merged (priority given to posts50)!');
+  } catch (e) {
+    console.error('❌ Failed to merge posts50.json:', e.message);
+  }
+}
 
 fs.writeFileSync(jsonPath, JSON.stringify(posts, null, 2));
 console.log('✅ posts.json generated!');
