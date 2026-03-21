@@ -11,7 +11,7 @@ yt-dlp を laravel から呼ぶだけで簡易アプリ化です。
 
 [Demo](https://laravel.ruu-dev.com/youtube)
 
-[Original Post](https://x.com/ruu_web/status/2035016459131527649)
+[Original Post](https://x.com/ruu_web/status/2035320828284506564)
 
 ---
 
