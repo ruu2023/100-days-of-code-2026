@@ -73,7 +73,7 @@ func GeminiHandler(c *gin.Context) {
 		return
 	}
 
-	c.Data(http.StatusOK, "text/markdown; charset=utf-8", []byte(summary))
+	c.Data(http.StatusOK, "text/plain; charset=utf-8", []byte(summary))
 }
 
 func downloadTranscript(ctx context.Context, videoURL, lang string) (string, string, error) {
@@ -138,12 +138,12 @@ func runGemini(ctx context.Context, prompt string) (string, error) {
 		return "", err
 	}
 
-	return cleanGeminiMarkdown(string(out)), nil
+	return cleanGeminiResponse(string(out)), nil
 }
 
 func buildSummaryPrompt(transcript string) string {
 	return fmt.Sprintf(
-		"次のYouTube字幕を日本語で簡潔に要約してください。Markdown形式のみで出力してください。JSONや前置きは不要です。\n\n字幕:\n%s",
+		"次のYouTube字幕を日本語で要約してください。\n\n字幕:\n%s",
 		limitRunes(transcript, maxTranscriptRunes),
 	)
 }
@@ -186,10 +186,11 @@ func limitRunes(input string, limit int) string {
 	return string(runes[:limit]) + "..."
 }
 
-func cleanGeminiMarkdown(raw string) string {
+func cleanGeminiResponse(raw string) string {
 	trimmed := strings.TrimSpace(raw)
 	trimmed = strings.TrimPrefix(trimmed, "```markdown")
 	trimmed = strings.TrimPrefix(trimmed, "```json")
+	trimmed = strings.TrimPrefix(trimmed, "```text")
 	trimmed = strings.TrimPrefix(trimmed, "```")
 	trimmed = strings.TrimSuffix(trimmed, "```")
 

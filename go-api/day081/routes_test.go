@@ -2,7 +2,7 @@ package day081
 
 import "testing"
 
-func TestCleanGeminiMarkdown(t *testing.T) {
+func TestCleanGeminiResponse(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -32,8 +32,8 @@ func TestCleanGeminiMarkdown(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := cleanGeminiMarkdown(tt.in); got != tt.want {
-				t.Fatalf("cleanGeminiMarkdown() = %q, want %q", got, tt.want)
+			if got := cleanGeminiResponse(tt.in); got != tt.want {
+				t.Fatalf("cleanGeminiResponse() = %q, want %q", got, tt.want)
 			}
 		})
 	}
