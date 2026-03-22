@@ -5,7 +5,13 @@ posts.json の最新の投稿内容を元に、以下のファイル内へ追記
 ---
 
 ```bash
+cd hono-next
 gcloud run deploy hono-next-app --source . --region asia-northeast1
+```
+
+```bash
+cd rails8
+source .env && kamal deploy
 ```
 
 ```bash
