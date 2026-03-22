@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-4-5c9340a418c3",
-    "title": "AI生成文から「AIくささ」を取り除く技術と、Claude Codeスキルに組み込むまでの話",
-    "url": "https://zenn.dev/m0370/articles/205c9340a418c3",
+    "id": "hatebu-it-19-se-leverage/",
+    "title": "[2026年版] Claude Code を知る。 | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/shoma-2026-claude-code-know-use-leverage/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-21T02:51:03.030Z",
-    "summary": "Wikipediaで見つけたAIくささ検出パターンを基に、Claude Codeの執筆支援スキルに組み込んだ。英文で使われる「Additionally」「Furthermore」などを日本語の「さらに」「加えて」として、複雑な構文を避ける。英語の「serves as」「stands as」のcopula回避は、日本語では「〜として位置づけられています」「〜の役割を果たしています」などの回りくどい表現に置き換える。チェックリストを活用して、執筆後のアンチAIパス（セルフ監査）を実施し、AI生成っぽい箇所を特定・修正する。",
-    "bookmarkCount": 331,
-    "audioFile": "../audio/hatebu-it-4-5c9340a418c3.wav"
+    "date": "2026-03-22T03:24:29.513Z",
+    "summary": "Claude Code は、Anthropic が開発した AI アシスタント「Claude」のコード生成・実行を担うエージェント型コーディングツールで、単なるチャットボットとは異なる「自律的にタスクをこなすAI」を提供します。2025 年 2 月にリリースされた Claude Code は、Web やデスクトップアプリで利用可能で、タスク受け取りからコード実行、Git 連携まで自律的にループを回すことができます。さらに、複数のエージェントをチームとして協働させる機能や、Slack や Google Drive などのツールと連携する機能も備えています。2026 年 1 月登場の非エンジニア向けデスクトップアプリ「Cowork」と、セキュリティに特化した「Claude Code Security」も提供されており、開発ワークフローの効率化を多角的にサポートします。料金は Pro プランで月額 $20 から利用可能で、モデル選択や使用量に応じて柔軟にカスタマイズできます。",
+    "bookmarkCount": 269,
+    "audioFile": "../audio/hatebu-it-19-se-leverage_.wav"
   },
   {
-    "id": "hatebu-it-16--compromise/",
-    "title": "2026年3月19日の Trivy 再侵害の概要と対応指針",
-    "url": "https://diary.shift-js.info/trivy-compromise/",
+    "id": "hatebu-it-0-9452278d1f2a",
+    "title": "非デザイナーでもできる。Google Stitchがだいたい理解できるハンズオンマニュアル｜すぅ | AI駆動PM",
+    "url": "https://note.com/suh_sunaneko/n/n9452278d1f2a",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-21T02:51:45.437Z",
-    "summary": "2026年3月19日、Aqua Security が提供するOSSセキュリティスキャナ Trivy v0.69.4 がサプライチェーン攻撃の対象となりました。攻撃者は aquasecurity/setup-trivy および aquasecurity/trivy-action の2つのGitHub Actionsに悪意あるコードを注入し、クレデンシャル窃取ペイロードを配布しました。攻撃者は Trivy のリリースワークフローを改竄し、ビルドした下流への影響を含め、環境変数の収集やメモリダンプによるシークレット窃取を行いました。Trivy が改竄されたため、リリースが正常に作成されたかどうかを判断できず、過去のリリースと比較できませんが、GitHub Events API に v0.69.4 に対する ReleaseEvent が記録されていないことから、リリース自体が作成されなかった可能性が高いと推測されています。",
-    "bookmarkCount": 109,
-    "audioFile": "../audio/hatebu-it-16--compromise_.wav"
+    "date": "2026-03-22T03:25:09.659Z",
+    "summary": "非デザイナーの視点から、Google Stitchの基本操作をわかりやすく解説した記事。Stitchにログインし、画面中央のプロンプトバーの指示に従ってデザインの方向性を決めます。その後、デザインシステムのルールを `DESIGN.md` というマークダウンファイルに書き出し、AIツールと連携させてデザインの微調整やコード生成を行います。特に `DESIGN.md` の活用が効果的だと強調されています。",
+    "bookmarkCount": 264,
+    "audioFile": "../audio/hatebu-it-0-9452278d1f2a.wav"
   }
 ]
