@@ -14,7 +14,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const maxTranscriptRunes = 12000
+const maxTranscriptRunes = 1200000
 
 var subtitleTimestampPattern = regexp.MustCompile(`^\d{2}:\d{2}:\d{2},\d{3}\s+-->\s+\d{2}:\d{2}:\d{2},\d{3}`)
 
@@ -22,7 +22,7 @@ var subtitleTimestampPattern = regexp.MustCompile(`^\d{2}:\d{2}:\d{2},\d{3}\s+--
 func SetupRoutes(r *gin.Engine) {
 	day081 := r.Group("/day081")
 	{
-		day081.GET("/gemini", GeminiHandler)
+		day081.GET("", GeminiHandler)
 	}
 }
 
@@ -118,7 +118,7 @@ func downloadTranscript(ctx context.Context, videoURL, lang string) (string, str
 		return "", "", err
 	}
 
-	transcript := sanitizeSRT(string(content))
+	transcript := string(content)
 	if transcript == "" {
 		return "", "", fmt.Errorf("subtitle content was empty after sanitizing")
 	}
@@ -143,8 +143,8 @@ func runGemini(ctx context.Context, prompt string) (string, error) {
 
 func buildSummaryPrompt(transcript string) string {
 	return fmt.Sprintf(
-		"次のYouTube字幕を日本語で要約してください。\n\n字幕:\n%s",
-		limitRunes(transcript, maxTranscriptRunes),
+		"要約してください。\n%s",
+		transcript,
 	)
 }
 
@@ -175,15 +175,6 @@ func isSRTSequence(line string) bool {
 	}
 
 	return line != ""
-}
-
-func limitRunes(input string, limit int) string {
-	runes := []rune(input)
-	if len(runes) <= limit {
-		return input
-	}
-
-	return string(runes[:limit]) + "..."
 }
 
 func cleanGeminiResponse(raw string) string {
