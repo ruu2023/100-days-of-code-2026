@@ -190,7 +190,7 @@ export default class extends Controller {
     this.emptyTarget.classList.remove("flex")
     this.spinButtonTarget.disabled = this.spinning
 
-    const palette = ["#fb7185", "#f59e0b", "#10b981", "#38bdf8", "#818cf8", "#f97316", "#14b8a6", "#e879f9"]
+    const palette = ["#fca5a5", "#fcd34d", "#86efac", "#93c5fd", "#a5b4fc", "#fdba74", "#99f6e4", "#f5d0fe"]
     const labelsMarkup = []
     const step = 360 / items.length
     const gradientStops = items.map((item, index) => {
@@ -200,7 +200,7 @@ export default class extends Controller {
       const angle = start + step / 2
 
       labelsMarkup.push(
-        `<div class="absolute left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-900" style="transform: translate(-50%, -50%) rotate(${angle}deg) translateY(-126px) rotate(90deg);">${this.escapeHtml(item.label)}</div>`
+        `<div class="absolute left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-[11px] font-bold tracking-[0.12em] text-slate-900" style="width: 120px; transform: translate(-50%, -50%) rotate(${angle}deg) translateY(-148px) rotate(90deg);">${this.escapeHtml(item.label)}</div>`
       )
 
       return `${color} ${start}deg ${finish}deg`
