@@ -83,6 +83,11 @@ Rails.application.routes.draw do
     get "/download_csv" => "day069/image_viewer#download_csv"
   end
 
+  # Day081 - Roulette App
+  scope "/day081", as: :day081 do
+    get "/" => "day081/roulette#index"
+  end
+
 # Curl Prompt Maker
 get "/curl_prompt" => "curl_prompt#index"
 post "/curl_prompt" => "curl_prompt#create"
