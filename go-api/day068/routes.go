@@ -1,4 +1,4 @@
-package main
+package day068
 
 import (
 	"context"
@@ -19,8 +19,8 @@ type GeminiResponse struct {
 	Tags    []string `json:"tags"`
 }
 
-// SetupDay068Routes /day068 のルートを設定
-func SetupDay068Routes(r *gin.Engine) {
+// SetupRoutes /day068 のルートを設定
+func SetupRoutes(r *gin.Engine) {
 	day068 := r.Group("/day068")
 	{
 		day068.GET("/md", MDHandler)

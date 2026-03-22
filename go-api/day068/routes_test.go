@@ -1,4 +1,4 @@
-package main
+package day068
 
 import "testing"
 

@@ -3,6 +3,8 @@ package main
 import (
 	"net/http"
 
+	"go-web-tools/day068"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,7 +20,7 @@ func main() {
 	})
 
 	// day068 ルート
-	SetupDay068Routes(r)
+	day068.SetupRoutes(r)
 
 	r.Run("0.0.0.0:8080")
 }
