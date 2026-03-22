@@ -200,7 +200,7 @@ export default class extends Controller {
       const angle = start + step / 2
 
       labelsMarkup.push(
-        `<div class="absolute left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center text-[11px] font-bold tracking-[0.12em] text-slate-900" style="width: 120px; transform: translate(-50%, -50%) rotate(${angle}deg) translateY(-148px) rotate(90deg);">${this.escapeHtml(item.label)}</div>`
+        `<div class="absolute left-1/2 top-1/2 origin-center -translate-x-1/2 -translate-y-1/2 text-center font-bold text-slate-900" style="width: clamp(84px, 18vw, 148px); font-size: clamp(10px, 1.2vw, 14px); letter-spacing: clamp(0.02em, 0.12vw, 0.08em); line-height: 1.15; transform: translate(-50%, -50%) rotate(${angle}deg) translateY(clamp(-174px, -27vw, -150px)) rotate(90deg);">${this.escapeHtml(item.label)}</div>`
       )
 
       return `${color} ${start}deg ${finish}deg`
