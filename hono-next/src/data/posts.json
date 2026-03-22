@@ -1,5 +1,21 @@
 [
   {
+    "day": 81,
+    "date": "2026-03-22",
+    "title": "Railsルーレット 🛠️✨",
+    "description": "【Day 081/100】Railsルーレット 🛠️✨",
+    "features": [
+      "Rails stimulas で作成",
+      "選ばれると自動的に除外"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2035741875437768972",
+    "demoLink": "https://rails.ruu-dev.com/day081"
+  },
+  {
     "day": 80,
     "date": "2026-03-21",
     "title": "YouTubeDownloader 🛠️✨",

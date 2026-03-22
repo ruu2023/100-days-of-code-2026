@@ -1,4 +1,19 @@
-## 2026-03-21
+## 2026-03-22
+
+【Day 081/100】Railsルーレット 🛠️✨
+
+よくあるルーレットを作りました
+
+✅ Rails stimulas で作成
+✅ 選ばれると自動的に除外
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/day081)
+
+[Original Post](https://x.com/ruu_web/status/2035741875437768972)
+
+---## 2026-03-21
 
 【Day 080/100】YouTubeDownloader 🛠️✨
 
