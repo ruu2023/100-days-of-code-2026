@@ -2,7 +2,7 @@ package day081
 
 import "testing"
 
-func TestCleanGeminiJSON(t *testing.T) {
+func TestCleanGeminiMarkdown(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -11,19 +11,19 @@ func TestCleanGeminiJSON(t *testing.T) {
 		want string
 	}{
 		{
-			name: "plain json",
-			in:   `{"summary":"a","tags":["x"]}`,
-			want: `{"summary":"a","tags":["x"]}`,
+			name: "plain markdown",
+			in:   "## 要約\n本文",
+			want: "## 要約\n本文",
 		},
 		{
-			name: "json code fence",
-			in:   "```json\n{\"summary\":\"a\",\"tags\":[\"x\"]}\n```",
-			want: `{"summary":"a","tags":["x"]}`,
+			name: "markdown code fence",
+			in:   "```markdown\n## 要約\n本文\n```",
+			want: "## 要約\n本文",
 		},
 		{
 			name: "generic code fence",
-			in:   "```\n{\"summary\":\"a\",\"tags\":[\"x\"]}\n```",
-			want: `{"summary":"a","tags":["x"]}`,
+			in:   "```\n## 要約\n本文\n```",
+			want: "## 要約\n本文",
 		},
 	}
 
@@ -32,8 +32,8 @@ func TestCleanGeminiJSON(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			if got := cleanGeminiJSON(tt.in); got != tt.want {
-				t.Fatalf("cleanGeminiJSON() = %q, want %q", got, tt.want)
+			if got := cleanGeminiMarkdown(tt.in); got != tt.want {
+				t.Fatalf("cleanGeminiMarkdown() = %q, want %q", got, tt.want)
 			}
 		})
 	}

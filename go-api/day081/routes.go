@@ -2,7 +2,6 @@ package day081
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
@@ -18,11 +17,6 @@ import (
 const maxTranscriptRunes = 12000
 
 var subtitleTimestampPattern = regexp.MustCompile(`^\d{2}:\d{2}:\d{2},\d{3}\s+-->\s+\d{2}:\d{2}:\d{2},\d{3}`)
-
-type GeminiResponse struct {
-	Summary string   `json:"summary"`
-	Tags    []string `json:"tags"`
-}
 
 // SetupRoutes /day081 のルートを設定
 func SetupRoutes(r *gin.Engine) {
@@ -64,7 +58,7 @@ func GeminiHandler(c *gin.Context) {
 	geminiCtx, geminiCancel := context.WithTimeout(c.Request.Context(), 45*time.Second)
 	defer geminiCancel()
 
-	res, err := runGemini(geminiCtx, prompt)
+	summary, err := runGemini(geminiCtx, prompt)
 	if err != nil {
 		status := http.StatusInternalServerError
 		if geminiCtx.Err() == context.DeadlineExceeded {
@@ -79,12 +73,7 @@ func GeminiHandler(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"url":           videoURL,
-		"lang":          lang,
-		"subtitle_file": filepath.Base(subtitleFile),
-		"result":        res,
-	})
+	c.Data(http.StatusOK, "text/markdown; charset=utf-8", []byte(summary))
 }
 
 func downloadTranscript(ctx context.Context, videoURL, lang string) (string, string, error) {
@@ -137,7 +126,7 @@ func downloadTranscript(ctx context.Context, videoURL, lang string) (string, str
 	return transcript, matches[0], nil
 }
 
-func runGemini(ctx context.Context, prompt string) (GeminiResponse, error) {
+func runGemini(ctx context.Context, prompt string) (string, error) {
 	geminiBin := os.Getenv("GEMINI_BIN")
 	if geminiBin == "" {
 		geminiBin = "gemini"
@@ -146,20 +135,15 @@ func runGemini(ctx context.Context, prompt string) (GeminiResponse, error) {
 	cmd := exec.CommandContext(ctx, geminiBin, prompt)
 	out, err := cmd.Output()
 	if err != nil {
-		return GeminiResponse{}, err
+		return "", err
 	}
 
-	var res GeminiResponse
-	if err := json.Unmarshal([]byte(cleanGeminiJSON(string(out))), &res); err != nil {
-		return GeminiResponse{}, err
-	}
-
-	return res, nil
+	return cleanGeminiMarkdown(string(out)), nil
 }
 
 func buildSummaryPrompt(transcript string) string {
 	return fmt.Sprintf(
-		"次のYouTube字幕を要約してください。summaryとtagsを持つJSON形式のみで出力してください。解説は不要です。\n\n字幕:\n%s",
+		"次のYouTube字幕を日本語で簡潔に要約してください。Markdown形式のみで出力してください。JSONや前置きは不要です。\n\n字幕:\n%s",
 		limitRunes(transcript, maxTranscriptRunes),
 	)
 }
@@ -202,8 +186,9 @@ func limitRunes(input string, limit int) string {
 	return string(runes[:limit]) + "..."
 }
 
-func cleanGeminiJSON(raw string) string {
+func cleanGeminiMarkdown(raw string) string {
 	trimmed := strings.TrimSpace(raw)
+	trimmed = strings.TrimPrefix(trimmed, "```markdown")
 	trimmed = strings.TrimPrefix(trimmed, "```json")
 	trimmed = strings.TrimPrefix(trimmed, "```")
 	trimmed = strings.TrimSuffix(trimmed, "```")
