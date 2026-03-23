@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-
+  
   ##
   # require auth
   # OAuth routes
@@ -94,6 +94,13 @@ post "/curl_prompt" => "curl_prompt#create"
 post "/curl_prompt/send_request" => "curl_prompt#send_request"
 post "/curl_prompt/mock" => "curl_prompt#mock"
 
+
+resources :images, only: [:new, :create, :show]
+get "images/:id/download" => "images#download", as: :download_image
+  
+get "day082", to: "images#new"
+
+root "images#new"
 # Inventory Management
 resources :inventories do
   collection do

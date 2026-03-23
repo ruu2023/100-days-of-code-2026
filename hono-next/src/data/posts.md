@@ -1,5 +1,22 @@
 ## 2026-03-22
 
+【Day 082/100】Rails 画像リサイズ 🛠️✨
+
+画像のリサイズアプリを作りました
+
+✅ Rails MiniMagick を使用
+✅ 選択範囲を切り抜き
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/day082)
+
+[Original Post](https://x.com/ruu_web/status/2035741875437768972)
+
+---
+
+## 2026-03-22
+
 【Day 081/100】Railsルーレット 🛠️✨
 
 よくあるルーレットを作りました
@@ -13,7 +30,9 @@
 
 [Original Post](https://x.com/ruu_web/status/2035741875437768972)
 
----## 2026-03-21
+---
+
+## 2026-03-21
 
 【Day 080/100】YouTubeDownloader 🛠️✨
 

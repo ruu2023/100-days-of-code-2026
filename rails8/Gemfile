@@ -2,42 +2,19 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.2"
-# Bootsnap for faster boot times
-gem "bootsnap", require: false
-# Thruster for faster server startup
-gem "thruster", require: false
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
-# Omniauth
-gem "omniauth"
-gem "omniauth-google-oauth2"
-
-# Use bcrypt for passwords
-gem "bcrypt", "~> 3.1.7"
-# CSV handling (standard library gem in Ruby 3.4+)
-gem "csv"
-# Headless Chrome for scraping
-gem "ferrum"
-# Image processing for Active Storage variants
-gem "image_processing", "~> 1.2"
-
-# OpenAI client
-gem "ruby-openai"
+gem "image_processing", "~> 1.12"
+gem "mini_magick"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-gem "importmap-rails"
-gem "stimulus-rails"
-gem "turbo-rails"
-gem "tailwindcss-rails"
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "dotenv-rails"
 end

@@ -1,5 +1,21 @@
 [
   {
+    "day": 82,
+    "date": "2026-03-22",
+    "title": "Rails 画像リサイズ 🛠️✨",
+    "description": "【Day 082/100】Rails 画像リサイズ 🛠️✨",
+    "features": [
+      "Rails MiniMagick を使用",
+      "選択範囲を切り抜き"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2035741875437768972",
+    "demoLink": "https://rails.ruu-dev.com/day082"
+  },
+  {
     "day": 81,
     "date": "2026-03-22",
     "title": "Railsルーレット 🛠️✨",

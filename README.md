@@ -152,6 +152,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 078 | 03/19 | JSON Pretty Printer | HTML / Vanilla JS / Syntax Highlight | [View](./html/day078) |
 | 079 | 03/20 | Inventory App | Rails / Hotwire / Search | [View](./rails8) |
 | 080 | 03/21 | YouTubeDownloader | Laravel / YouTube Cutting / QuickTime Compatible | [View](./laravel13) |
+| 081 | 03/22 | Railsルーレット | Rails / Stimulus / Auto Exclude | [View](./rails8) |
 
 ## 📬 Links
 - **day042 log** https://ruu2023.github.io/100-days-of-code-2026/log/
