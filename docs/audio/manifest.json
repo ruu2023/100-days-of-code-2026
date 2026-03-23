@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-19-se-leverage/",
-    "title": "[2026年版] Claude Code を知る。 | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/shoma-2026-claude-code-know-use-leverage/",
+    "id": "hatebu-it-1-vtools2.html",
+    "title": "AIエージェントがコマンドラインでブラウザを自動操作できる「Browser Use CLI 2.0」リリース。Chrome DevToolsへの接続などで操作速度が2倍に",
+    "url": "https://www.publickey1.jp/blog/26/aibrowser_use_cli_20chrome_devtools2.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-22T03:24:29.513Z",
-    "summary": "Claude Code は、Anthropic が開発した AI アシスタント「Claude」のコード生成・実行を担うエージェント型コーディングツールで、単なるチャットボットとは異なる「自律的にタスクをこなすAI」を提供します。2025 年 2 月にリリースされた Claude Code は、Web やデスクトップアプリで利用可能で、タスク受け取りからコード実行、Git 連携まで自律的にループを回すことができます。さらに、複数のエージェントをチームとして協働させる機能や、Slack や Google Drive などのツールと連携する機能も備えています。2026 年 1 月登場の非エンジニア向けデスクトップアプリ「Cowork」と、セキュリティに特化した「Claude Code Security」も提供されており、開発ワークフローの効率化を多角的にサポートします。料金は Pro プランで月額 $20 から利用可能で、モデル選択や使用量に応じて柔軟にカスタマイズできます。",
-    "bookmarkCount": 269,
-    "audioFile": "../audio/hatebu-it-19-se-leverage_.wav"
+    "date": "2026-03-23T03:28:20.924Z",
+    "summary": "オープンソースのPythonライブラリ「Browser Use CLI 2.0」がリリースされ、ユーザーがコマンドラインからブラウザを自動操作できるようになりました。AIが指示を理解し、ブラウザを起動せずセッションを保持して操作することで、操作速度が2倍、チャットボットの速度が半分になると説明されています。",
+    "bookmarkCount": 98,
+    "audioFile": "../audio/hatebu-it-1-vtools2_html.wav"
   },
   {
-    "id": "hatebu-it-0-9452278d1f2a",
-    "title": "非デザイナーでもできる。Google Stitchがだいたい理解できるハンズオンマニュアル｜すぅ | AI駆動PM",
-    "url": "https://note.com/suh_sunaneko/n/n9452278d1f2a",
+    "id": "hatebu-it-5-2087324.html",
+    "title": "見た目はNASだが中身は別もの!!　ランサムウェアにも耐えるバックアップを実現するSynology ActiveProtectアプライアンス「DP340」の正体【イニシャルB【特別編】】[Sponsored]",
+    "url": "https://internet.watch.impress.co.jp/docs/topic/shimizu_sp/2087324.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-22T03:25:09.659Z",
-    "summary": "非デザイナーの視点から、Google Stitchの基本操作をわかりやすく解説した記事。Stitchにログインし、画面中央のプロンプトバーの指示に従ってデザインの方向性を決めます。その後、デザインシステムのルールを `DESIGN.md` というマークダウンファイルに書き出し、AIツールと連携させてデザインの微調整やコード生成を行います。特に `DESIGN.md` の活用が効果的だと強調されています。",
-    "bookmarkCount": 264,
-    "audioFile": "../audio/hatebu-it-0-9452278d1f2a.wav"
+    "date": "2026-03-23T03:29:05.810Z",
+    "summary": "Synologyのバックアップ専用アプライアンス「DP340」は、NASとは違う設計思想でバックアップ専用に開発されています。単なるバックアップではなく、ランサムウェア対策を前提とした「不変バックアップ（イミュータブル保護プラン）」と「エアギャップ（隔離）」機能を提供しています。さらに、バックアップに必要なデータを共有しなくて済むよう設計された専用OS「ActiveProtect Manager」を搭載し、複雑な初期設定や運用を簡素化しています。",
+    "bookmarkCount": 19,
+    "audioFile": "../audio/hatebu-it-5-2087324_html.wav"
   }
 ]
