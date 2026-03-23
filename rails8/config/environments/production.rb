@@ -40,6 +40,10 @@ Rails.application.configure do
   # Prevent health checks from clogging up the logs.
   config.silence_healthcheck_path = "/up"
 
+  # Active Storage
+  config.active_storage.service = :local
+  config.active_storage.variant_processor = :mini_magick
+
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
 
