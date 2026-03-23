@@ -11,7 +11,7 @@
 
 [Demo](https://rails.ruu-dev.com/day082)
 
-[Original Post](https://x.com/ruu_web/status/2035741875437768972)
+[Original Post](https://x.com/ruu_web/status/2036073624713748684)
 
 ---
 
