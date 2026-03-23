@@ -55,6 +55,8 @@ env:
     - OLLAMA_BASE_URL
     - OLLAMA_MODEL
   clear:
+    PORT: 80
+
     # Run the Solid Queue Supervisor inside the web server's Puma process to do jobs.
     # When you start using multiple servers, you should split out job processing to a dedicated machine.
     SOLID_QUEUE_IN_PUMA: true
