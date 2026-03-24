@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
+  get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
+  get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   
   ##
@@ -86,6 +88,13 @@ Rails.application.routes.draw do
   # Day081 - Roulette App
   scope "/day081", as: :day081 do
     get "/" => "day081/roulette#index"
+  end
+
+  # Day083 - PWA Diary App
+  scope "/day083", as: :day083 do
+    get "/" => "day083/diary#index"
+    post "/" => "day083/diary#create"
+    delete "/:id" => "day083/diary#destroy", as: :entry
   end
 
 # Curl Prompt Maker

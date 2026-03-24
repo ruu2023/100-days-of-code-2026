@@ -1,0 +1,138 @@
+<% content_for :title, "Day083 Diary" %>
+
+<div class="min-h-screen bg-stone-950 text-stone-100">
+  <div
+    class="mx-auto flex min-h-screen max-w-7xl flex-col gap-8 px-4 py-8 sm:px-6 lg:grid lg:grid-cols-[1.15fr_0.85fr] lg:px-8"
+    data-controller="day083-diary"
+    data-day083-diary-reminder-title-value="Day083 Diary"
+    data-day083-diary-reminder-body-value="1日の記録を残す時間です。今日の気分と出来事を書き留めましょう。"
+  >
+    <section class="rounded-[2rem] border border-stone-800 bg-[radial-gradient(circle_at_top_left,_rgba(251,191,36,0.18),_transparent_35%),linear-gradient(135deg,_rgba(28,25,23,0.98),_rgba(12,10,9,0.96))] p-6 shadow-2xl shadow-amber-950/20 sm:p-8">
+      <div class="flex flex-col gap-4 border-b border-stone-800 pb-6">
+        <p class="text-sm uppercase tracking-[0.35em] text-amber-300/80">Day083</p>
+        <h1 class="text-4xl font-black tracking-tight text-stone-50 sm:text-5xl">Pocket Diary</h1>
+        <p class="max-w-2xl text-sm leading-6 text-stone-300 sm:text-base">
+          PWA と通知を使って、ふと思い出した瞬間にすぐ残せる日記アプリです。ホーム画面追加後も同じ画面から記録とリマインダー設定を管理できます。
+        </p>
+      </div>
+
+      <% if notice.present? %>
+        <div class="mt-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <% if alert.present? %>
+        <div class="mt-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <% if @entry.errors.any? %>
+        <div class="mt-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-100">
+          <p class="font-semibold">入力内容を確認してください。</p>
+          <ul class="mt-2 list-disc pl-5">
+            <% @entry.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mt-8 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+        <div class="rounded-[1.5rem] border border-stone-800 bg-stone-900/70 p-5">
+          <div class="mb-4 flex items-center justify-between">
+            <h2 class="text-lg font-semibold text-stone-50">今日の記録</h2>
+            <span class="rounded-full bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-200">
+              <%= Date.current.strftime("%Y-%m-%d") %>
+            </span>
+          </div>
+
+          <%= form_with model: @entry, url: day083_path, class: "space-y-4" do |form| %>
+            <div>
+              <%= form.label :title, "タイトル", class: "mb-2 block text-sm font-medium text-stone-200" %>
+              <%= form.text_field :title, placeholder: "短い見出し", class: "w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none ring-0 placeholder:text-stone-500 focus:border-amber-300" %>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div>
+                <%= form.label :entry_on, "日付", class: "mb-2 block text-sm font-medium text-stone-200" %>
+                <%= form.date_field :entry_on, class: "w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" %>
+              </div>
+
+              <div>
+                <%= form.label :mood, "気分", class: "mb-2 block text-sm font-medium text-stone-200" %>
+                <%= form.select :mood, Day083::DiaryEntry::MOODS.map { |mood| [mood.titleize, mood] }, {}, class: "w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" %>
+              </div>
+            </div>
+
+            <div>
+              <%= form.label :body, "本文", class: "mb-2 block text-sm font-medium text-stone-200" %>
+              <%= form.text_area :body, rows: 8, placeholder: "今日あったこと、気づいたこと、明日の自分へのメモ。", class: "w-full rounded-[1.5rem] border border-stone-700 bg-stone-950 px-4 py-4 text-stone-100 outline-none placeholder:text-stone-500 focus:border-amber-300" %>
+            </div>
+
+            <div class="flex flex-wrap gap-3">
+              <%= form.submit "保存する", class: "inline-flex rounded-full bg-amber-300 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-amber-200" %>
+              <button type="button" class="inline-flex rounded-full border border-stone-700 px-5 py-3 text-sm font-medium text-stone-100 transition hover:border-amber-300 hover:text-amber-200" data-action="day083-diary#sendTestNotification">
+                テスト通知
+              </button>
+            </div>
+          <% end %>
+        </div>
+
+        <aside class="rounded-[1.5rem] border border-stone-800 bg-stone-900/70 p-5">
+          <h2 class="text-lg font-semibold text-stone-50">通知設定</h2>
+          <p class="mt-2 text-sm leading-6 text-stone-300">
+            通知を許可すると、毎日決まった時刻に「日記を書く時間」のローカル通知を出します。PWA をホーム画面追加した後も使えます。
+          </p>
+
+          <div class="mt-5 space-y-4">
+            <button type="button" class="inline-flex w-full justify-center rounded-full bg-stone-100 px-4 py-3 text-sm font-semibold text-stone-950 transition hover:bg-white" data-action="day083-diary#requestPermission" data-day083-diary-target="permissionButton">
+              通知を有効化
+            </button>
+
+            <label class="block">
+              <span class="mb-2 block text-sm font-medium text-stone-200">通知時刻</span>
+              <input type="time" value="20:30" class="w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" data-day083-diary-target="reminderTime" data-action="change->day083-diary#saveReminderTime">
+            </label>
+
+            <div class="rounded-2xl border border-stone-800 bg-stone-950/80 px-4 py-4 text-sm text-stone-300">
+              <p class="font-medium text-stone-100">現在の状態</p>
+              <p class="mt-2" data-day083-diary-target="status">通知の許可状態を確認中です。</p>
+            </div>
+
+            <ol class="space-y-3 text-sm leading-6 text-stone-300">
+              <li>1. ブラウザで通知を許可します。</li>
+              <li>2. ホーム画面に追加して PWA として開きます。</li>
+              <li>3. この画面を開いた時点で次回通知が再スケジュールされます。</li>
+            </ol>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="rounded-[2rem] border border-stone-800 bg-stone-900/80 p-6 sm:p-8">
+      <div class="flex items-center justify-between border-b border-stone-800 pb-5">
+        <div>
+          <p class="text-sm uppercase tracking-[0.35em] text-cyan-300/80">Archive</p>
+          <h2 class="mt-2 text-2xl font-bold text-stone-50">Recent Entries</h2>
+        </div>
+        <span class="rounded-full border border-stone-700 px-3 py-1 text-xs text-stone-300">
+          <%= pluralize(@entries.count, "entry") %>
+        </span>
+      </div>
+
+      <div class="mt-6 space-y-4">
+        <% if @entries.any? %>
+          <% @entries.each do |entry| %>
+            <%= render "entry", entry: entry %>
+          <% end %>
+        <% else %>
+          <div class="rounded-[1.5rem] border border-dashed border-stone-700 px-6 py-10 text-center text-sm leading-6 text-stone-400">
+            まだ日記はありません。最初の1件を書いて通知テストも試してください。
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

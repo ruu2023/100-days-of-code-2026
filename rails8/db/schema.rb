@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_23_120001) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_24_090000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -76,6 +76,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_23_120001) do
     t.datetime "created_at", null: false
     t.string "title"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "day083_diary_entries", force: :cascade do |t|
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.date "entry_on", null: false
+    t.string "mood", default: "reflective", null: false
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_day083_diary_entries_on_created_at"
+    t.index ["entry_on"], name: "index_day083_diary_entries_on_entry_on"
   end
 
   create_table "images", force: :cascade do |t|
