@@ -1,3 +1,20 @@
+## 2026-03-23
+
+【Day 083/100】Rails PWA通知 🛠️✨
+
+PWA通家を使って日記アプリを作りました \*本物のWebPushは次回作成します。
+
+✅ Rails MiniMagick を使用
+✅ 選択範囲を切り抜き
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/day083)
+
+[Original Post](https://x.com/ruu_web/status/2036412961905115377)
+
+---
+
 ## 2026-03-22
 
 【Day 082/100】Rails 画像リサイズ 🛠️✨
