@@ -55,14 +55,14 @@
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
-              <div>
+              <div class="min-w-0">
                 <%= form.label :entry_on, "日付", class: "mb-2 block text-sm font-medium text-stone-200" %>
-                <%= form.date_field :entry_on, class: "w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" %>
+                <%= form.date_field :entry_on, class: "block min-w-0 max-w-full appearance-none rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-sm text-stone-100 outline-none focus:border-amber-300 w-full" %>
               </div>
 
-              <div>
+              <div class="min-w-0">
                 <%= form.label :mood, "気分", class: "mb-2 block text-sm font-medium text-stone-200" %>
-                <%= form.select :mood, Day083::DiaryEntry::MOODS.map { |mood| [mood.titleize, mood] }, {}, class: "w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" %>
+                <%= form.select :mood, Day083::DiaryEntry::MOODS.map { |mood| [mood.titleize, mood] }, {}, class: "block min-w-0 max-w-full appearance-none rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-sm text-stone-100 outline-none focus:border-amber-300 w-full" %>
               </div>
             </div>
 
@@ -93,7 +93,7 @@
 
             <label class="block">
               <span class="mb-2 block text-sm font-medium text-stone-200">通知時刻</span>
-              <input type="time" value="20:30" class="w-full rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-stone-100 outline-none focus:border-amber-300" data-day083-diary-target="reminderTime" data-action="change->day083-diary#saveReminderTime">
+              <input type="time" value="20:30" class="block min-w-0 max-w-full appearance-none rounded-2xl border border-stone-700 bg-stone-950 px-4 py-3 text-sm text-stone-100 outline-none focus:border-amber-300 w-full" data-day083-diary-target="reminderTime" data-action="change->day083-diary#saveReminderTime">
             </label>
 
             <div class="rounded-2xl border border-stone-800 bg-stone-950/80 px-4 py-4 text-sm text-stone-300">
