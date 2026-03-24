@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-vtools2.html",
-    "title": "AIエージェントがコマンドラインでブラウザを自動操作できる「Browser Use CLI 2.0」リリース。Chrome DevToolsへの接続などで操作速度が2倍に",
-    "url": "https://www.publickey1.jp/blog/26/aibrowser_use_cli_20chrome_devtools2.html",
+    "id": "hatebu-it-4-03/23/173000",
+    "title": "AIによる実装の品質が微妙で毎回自分で指摘しまくる必要があったので、確認前に自動で品質を上げさせるようにした - $shibayu36->blog;",
+    "url": "https://blog.shibayu36.org/entry/2026/03/23/173000",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-23T03:28:20.924Z",
-    "summary": "オープンソースのPythonライブラリ「Browser Use CLI 2.0」がリリースされ、ユーザーがコマンドラインからブラウザを自動操作できるようになりました。AIが指示を理解し、ブラウザを起動せずセッションを保持して操作することで、操作速度が2倍、チャットボットの速度が半分になると説明されています。",
-    "bookmarkCount": 98,
-    "audioFile": "../audio/hatebu-it-1-vtools2_html.wav"
+    "date": "2026-03-24T03:17:33.483Z",
+    "summary": "Claude Codeで実装した後の品質が毎回低く、レビューのたびにコードを手動で修正する手間が大きな課題だった。そこで、kawarimidollさんの記事に触発され、実装後に自動でセルフレビューを行い、品質を確認する仕組みを作った。実装したのは /self-review スラッシュコマンドで、特性の異なる3つのレビュアエージェントが並列でコードをレビューし、全レビューが終わったら /fix-review-comments が妥当な指摘を評価し、対応すべきものだけをピックアップする。結果として10件中6件の指摘が対応し、要件で意図的に設計されたパスやバグ判明の繰り返しは却下された。レビューが自動で取捨選択されることで安心してセルフレビューに任せられ、Claude Codeの品質向上に大きく貢献している。",
+    "bookmarkCount": 334,
+    "audioFile": "../audio/hatebu-it-4-03_23_173000.wav"
   },
   {
-    "id": "hatebu-it-5-2087324.html",
-    "title": "見た目はNASだが中身は別もの!!　ランサムウェアにも耐えるバックアップを実現するSynology ActiveProtectアプライアンス「DP340」の正体【イニシャルB【特別編】】[Sponsored]",
-    "url": "https://internet.watch.impress.co.jp/docs/topic/shimizu_sp/2087324.html",
+    "id": "hatebu-it-0-0df356434e0f",
+    "title": "DQ1の「ふっかつのじゅもん」の仕組みを全解説 - Qiita",
+    "url": "https://qiita.com/musemyuzu/items/eb08f7790df356434e0f",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-23T03:29:05.810Z",
-    "summary": "Synologyのバックアップ専用アプライアンス「DP340」は、NASとは違う設計思想でバックアップ専用に開発されています。単なるバックアップではなく、ランサムウェア対策を前提とした「不変バックアップ（イミュータブル保護プラン）」と「エアギャップ（隔離）」機能を提供しています。さらに、バックアップに必要なデータを共有しなくて済むよう設計された専用OS「ActiveProtect Manager」を搭載し、複雑な初期設定や運用を簡素化しています。",
-    "bookmarkCount": 19,
-    "audioFile": "../audio/hatebu-it-5-2087324_html.wav"
+    "date": "2026-03-24T03:18:16.272Z",
+    "summary": "ドラクエ1のふっかつのじゅもんは、データ量を削減するために設計された、名前や経験値などの情報を圧縮した2進数です。データは全部で112ビットありますが、そのうち8ビットをチェックコードとして使用します。残りのビットは経験値やパターンなどの情報を圧縮して保存します。",
+    "bookmarkCount": 166,
+    "audioFile": "../audio/hatebu-it-0-0df356434e0f.wav"
   }
 ]
