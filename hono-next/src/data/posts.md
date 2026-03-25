@@ -9,7 +9,7 @@ mini-max token plan が画像生成に対応したのでUI作りました。
 
 #100DaysOfCode #Laravel
 
-[Demo](https://laravel.ruu-dev.com/)
+[Demo](https://laravel.ruu-dev.com/minimax)
 
 [Original Post](https://x.com/ruu_web/status/2036794540775068142)
 
