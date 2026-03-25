@@ -1,5 +1,21 @@
 [
   {
+    "day": 84,
+    "date": "2026-03-24",
+    "title": "Laravel mini-max 画像生成 🛠️✨",
+    "description": "【Day 084/100】Laravel mini-max 画像生成 🛠️✨",
+    "features": [
+      "Image-01 テキストto画像",
+      "T2A 音声合成"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Laravel"
+    ],
+    "url": "https://x.com/ruu_web/status/2036412961905115377",
+    "demoLink": "https://laravel.ruu-dev.com/"
+  },
+  {
     "day": 83,
     "date": "2026-03-23",
     "title": "Rails PWA通知 🛠️✨",

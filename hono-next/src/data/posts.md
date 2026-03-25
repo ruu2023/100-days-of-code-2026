@@ -1,3 +1,20 @@
+## 2026-03-24
+
+【Day 084/100】Laravel mini-max 画像生成 🛠️✨
+
+mini-max token plan が画像生成に対応したのでUI作りました。
+
+✅ Image-01 テキストto画像
+✅ T2A 音声合成
+
+#100DaysOfCode #Laravel
+
+[Demo](https://laravel.ruu-dev.com/)
+
+[Original Post](https://x.com/ruu_web/status/2036794540775068142)
+
+---
+
 ## 2026-03-23
 
 【Day 083/100】Rails PWA通知 🛠️✨
