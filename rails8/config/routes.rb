@@ -97,6 +97,12 @@ Rails.application.routes.draw do
     delete "/:id" => "day083/diary#destroy", as: :entry
   end
 
+  # Day085 - Subscription Management App
+  scope "/day085", as: :day085 do
+    get "/" => "day085/subscriptions#index"
+    resources :subscriptions, controller: "day085/subscriptions"
+  end
+
 # Curl Prompt Maker
 get "/curl_prompt" => "curl_prompt#index"
 post "/curl_prompt" => "curl_prompt#create"

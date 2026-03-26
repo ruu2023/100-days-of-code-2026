@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_24_090000) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_26_000003) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -87,6 +87,35 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_24_090000) do
     t.datetime "updated_at", null: false
     t.index ["created_at"], name: "index_day083_diary_entries_on_created_at"
     t.index ["entry_on"], name: "index_day083_diary_entries_on_entry_on"
+  end
+
+  create_table "day085_categories", force: :cascade do |t|
+    t.integer "color"
+    t.datetime "created_at", null: false
+    t.string "icon"
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_day085_categories_on_name", unique: true
+  end
+
+  create_table "day085_subscriptions", force: :cascade do |t|
+    t.integer "billing_cycle", default: 0, null: false
+    t.integer "category_id"
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.date "end_date"
+    t.string "name", null: false
+    t.date "next_billing_date"
+    t.decimal "price", precision: 10, scale: 2, null: false
+    t.date "start_date"
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.text "website"
+    t.index ["category_id"], name: "index_day085_subscriptions_on_category_id"
+    t.index ["user_id", "category_id"], name: "index_day085_subscriptions_on_user_id_and_category_id"
+    t.index ["user_id", "status"], name: "index_day085_subscriptions_on_user_id_and_status"
+    t.index ["user_id"], name: "index_day085_subscriptions_on_user_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -173,9 +202,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_24_090000) do
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.string "email_address", null: false
+    t.string "image_url"
+    t.string "name"
     t.string "password_digest", null: false
+    t.string "provider"
+    t.string "uid"
     t.datetime "updated_at", null: false
-    t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
   add_foreign_key "accounts", "accounts", column: "parent_id"
@@ -183,6 +216,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_24_090000) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "day085_subscriptions", "day085_categories", column: "category_id"
+  add_foreign_key "day085_subscriptions", "users"
   add_foreign_key "journal_entries", "journal_entries", column: "reversal_of_id"
   add_foreign_key "journal_entries", "parties"
   add_foreign_key "journal_entries", "users", column: "created_by_id"

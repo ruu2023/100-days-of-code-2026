@@ -1,0 +1,96 @@
+<div class="max-w-4xl mx-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold">Subscriptions</h1>
+    <%= link_to "New Subscription", new_day085_subscription_path, class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+  </div>
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-4 gap-4 mb-6">
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-gray-500 text-sm">Monthly Total</div>
+      <div class="text-2xl font-bold text-blue-600">¥<%= number_with_delimiter(@total_monthly.round) %></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-gray-500 text-sm">Yearly Total</div>
+      <div class="text-2xl font-bold text-green-600">¥<%= number_with_delimiter(@total_yearly.round) %></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-gray-500 text-sm">Active</div>
+      <div class="text-2xl font-bold text-green-600"><%= @active_count %></div>
+    </div>
+    <div class="bg-white p-4 rounded shadow">
+      <div class="text-gray-500 text-sm">Cancel Scheduled</div>
+      <div class="text-2xl font-bold text-yellow-600"><%= @cancel_scheduled_count %></div>
+    </div>
+  </div>
+
+  <!-- Search Form -->
+  <div class="bg-white p-4 rounded shadow mb-6">
+    <%= form_tag day085_subscriptions_path, method: :get, class: "grid grid-cols-5 gap-4" do %>
+      <div>
+        <%= label_tag :name, "Name", class: "block text-sm text-gray-600 mb-1" %>
+        <%= text_field_tag :name, params[:name], placeholder: "Search...", class: "w-full border rounded px-3 py-2" %>
+      </div>
+      <div>
+        <%= label_tag :status, "Status", class: "block text-sm text-gray-600 mb-1" %>
+        <%= select_tag :status, options_for_select([["All", ""]] + Day085::Subscription.statuses.map { |k, v| [k.humanize, k] }, params[:status]), class: "w-full border rounded px-3 py-2" %>
+      </div>
+      <div>
+        <%= label_tag :category_id, "Category", class: "block text-sm text-gray-600 mb-1" %>
+        <%= select_tag :category_id, options_for_select([["All", ""]] + @categories.pluck(:name, :id), params[:category_id]), class: "w-full border rounded px-3 py-2" %>
+      </div>
+      <div>
+        <%= label_tag :billing_cycle, "Billing", class: "block text-sm text-gray-600 mb-1" %>
+        <%= select_tag :billing_cycle, options_for_select([["All", ""]] + Day085::Subscription.billing_cycles.map { |k, v| [k.humanize, k] }, params[:billing_cycle]), class: "w-full border rounded px-3 py-2" %>
+      </div>
+      <div class="flex items-end">
+        <%= submit_tag "Search", class: "bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 w-full" %>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Subscriptions List -->
+  <div class="bg-white rounded shadow overflow-hidden">
+    <table class="w-full">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="text-left p-4">Name</th>
+          <th class="text-left p-4">Category</th>
+          <th class="text-left p-4">Billing</th>
+          <th class="text-right p-4">Monthly</th>
+          <th class="text-right p-4">Yearly</th>
+          <th class="text-left p-4">Status</th>
+          <th class="text-left p-4">Next Billing</th>
+          <th class="text-right p-4">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @subscriptions.each do |sub| %>
+          <tr class="border-t hover:bg-gray-50">
+            <td class="p-4 font-medium"><%= sub.name %></td>
+            <td class="p-4"><%= sub.category&.name || "-" %></td>
+            <td class="p-4"><%= sub.billing_cycle.humanize %></td>
+            <td class="p-4 text-right">¥<%= number_with_delimiter(sub.monthly_cost.round) %></td>
+            <td class="p-4 text-right">¥<%= number_with_delimiter(sub.yearly_cost.round) %></td>
+            <td class="p-4">
+              <span class="px-2 py-1 rounded text-xs <%= sub.active? ? 'bg-green-100 text-green-800' : sub.cancel_scheduled? ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800' %>">
+                <%= sub.status.humanize %>
+              </span>
+            </td>
+            <td class="p-4"><%= sub.next_billing_date&.strftime("%Y-%m-%d") || "-" %></td>
+            <td class="p-4 text-right">
+              <%= link_to "View", day085_subscription_path(sub), class: "text-blue-500 hover:underline mr-2" %>
+              <%= link_to "Edit", edit_day085_subscription_path(sub), class: "text-green-500 hover:underline mr-2" %>
+              <%= button_to "Delete", day085_subscription_path(sub), method: :delete, data: { confirm: "Delete?" }, class: "text-red-500 hover:underline" %>
+            </td>
+          </tr>
+        <% end %>
+        <% if @subscriptions.empty? %>
+          <tr>
+            <td colspan="8" class="p-8 text-center text-gray-500">No subscriptions found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

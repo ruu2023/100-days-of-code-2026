@@ -1,0 +1,75 @@
+<div class="max-w-2xl mx-auto p-6">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-2xl font-bold"><%= @subscription.name %></h1>
+    <div class="flex gap-2">
+      <%= link_to "Edit", edit_day085_subscription_path(@subscription), class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" %>
+      <%= link_to "Back", day085_subscriptions_path, class: "bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600" %>
+    </div>
+  </div>
+
+  <div class="bg-white rounded shadow p-6">
+    <div class="grid grid-cols-2 gap-6">
+      <div>
+        <div class="text-gray-500 text-sm">Category</div>
+        <div class="font-medium"><%= @subscription.category&.name || "-" %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Status</div>
+        <div class="font-medium">
+          <span class="px-2 py-1 rounded text-xs <%= @subscription.active? ? 'bg-green-100 text-green-800' : @subscription.cancel_scheduled? ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800' %>">
+            <%= @subscription.status.humanize %>
+          </span>
+        </div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Billing Cycle</div>
+        <div class="font-medium"><%= @subscription.billing_cycle.humanize %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Price</div>
+        <div class="font-medium">¥<%= number_with_delimiter(@subscription.price.round) %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Monthly Cost</div>
+        <div class="font-medium text-blue-600">¥<%= number_with_delimiter(@subscription.monthly_cost.round) %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Yearly Cost</div>
+        <div class="font-medium text-green-600">¥<%= number_with_delimiter(@subscription.yearly_cost.round) %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Start Date</div>
+        <div class="font-medium"><%= @subscription.start_date&.strftime("%Y-%m-%d") || "-" %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">End Date</div>
+        <div class="font-medium"><%= @subscription.end_date&.strftime("%Y-%m-%d") || "-" %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Next Billing Date</div>
+        <div class="font-medium"><%= @subscription.next_billing_date&.strftime("%Y-%m-%d") || "-" %></div>
+      </div>
+      <div>
+        <div class="text-gray-500 text-sm">Website</div>
+        <div class="font-medium">
+          <% if @subscription.website.present? %>
+            <%= link_to @subscription.website, @subscription.website, target: "_blank", class: "text-blue-500 hover:underline" %>
+          <% else %>
+            -
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <% if @subscription.description.present? %>
+      <div class="mt-6">
+        <div class="text-gray-500 text-sm">Description</div>
+        <div class="mt-1 text-gray-700"><%= @subscription.description %></div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-6 flex justify-end">
+    <%= button_to "Delete Subscription", day085_subscription_path(@subscription), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" %>
+  </div>
+</div>
