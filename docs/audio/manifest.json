@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-2-le/35245437/",
-    "title": "OpenAI、動画生成アプリ「Sora」終了へ　なぜ？ 理由を聞いた",
-    "url": "https://japan.cnet.com/article/35245437/",
+    "id": "hatebu-it-12-83c98ae5cc36",
+    "title": "AGENTS.md完全入門 ── 60,000リポジトリが採用した事実上の共通フォーマット - Qiita",
+    "url": "https://qiita.com/nogataka/items/ad15bfa383c98ae5cc36",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-03-25T03:22:52.188Z",
-    "summary": "米OpenAI、動画生成アプリ「Sora」の提供を終了すると発表した。Soraはロボティクスや物理的課題解決を支援する技術開発に注力する方針で、2025年秋に次世代AI「Sora」もリリースする。低品質AIコンテンツの悪用への懸念からSoraの終了を検討したとされ、具体的な終了時期は未定。2026年以降、OpenAIは企業向け製品やコーディング支援に軸足を移しつつある。",
-    "bookmarkCount": 199,
-    "audioFile": "../audio/hatebu-it-2-le_35245437_.wav"
+    "date": "2026-03-26T03:30:47.881Z",
+    "summary": "AGENTS.md は、AIコーディングエージェント向けの設定ファイルを統一し、Codex CLI・Cursor・GitHub Copilot などのツールで共通の指示を読み取れるようにするオープンフォーマットです。ツールごとに設定ファイルの形式や配置場所が異なるため、設定ファイルの同期漏れが品質低下を招くという課題がありました。AGENTS.md では1つのMarkdownファイルに全ツール共通の設定を集約し、同一ファイルを1回だけ更新すれば全ツールに反映されます。",
+    "bookmarkCount": 186,
+    "audioFile": "../audio/hatebu-it-12-83c98ae5cc36.wav"
   },
   {
-    "id": "hatebu-it-0-b6daa978a6c5",
-    "title": "仕事はすべてSkillに書け - それ、Skill にしない？",
-    "url": "https://zenn.dev/jackchuka/articles/e2b6daa978a6c5",
+    "id": "hatebu-it-0-opular_items",
+    "title": "【Claude Code】Agentに入れるべきSkills 20選｜skills.sh活用ガイド - Qiita",
+    "url": "https://qiita.com/yamamoto0/items/17817dc09a78078fa132?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-03-25T03:23:36.275Z",
-    "summary": "ルール: 仕事のやり方が変わる。手順を「書く」ことの重要性が爆発的に高まった。仕事を「やる」のではなく「書く」ようになった。ドキュメント書きましょう、なんて話は100回聞いたよ、って言いながら、AIが実行する。AIに「Skillにできそうなのある？」と聞けば、過去のセッション履歴を元に繰り返し作業のリストを教えてくれる。場所を決めてリポジトリに置けば、書くハードルが下がる。1個のSKILL.md から始め、頻度と価値を重視して増やしていく。",
-    "bookmarkCount": 261,
-    "audioFile": "../audio/hatebu-it-0-b6daa978a6c5.wav"
+    "date": "2026-03-26T03:31:27.202Z",
+    "summary": "Claude CodeやCopilot Agentを使い始めたが、コードは書けるものの実務レベルの設計やプロダクションレベルのUIができないと指摘した。Skillsを導入すれば、業界のベストプラクティスやエンジニアリングの制約を注入し、Agentの「地頭」を底上げできると説明。Skills導入のセキュリティリスク（特にnpx経由の悪意あるコード混入）にも注意喚起し、skills.shの利用方法やリポジトリの確認ポイント、脆弱なスキルの回避方法を紹介。さらに、skill-creatorやcode-review-expertといった上位レベルのSkillsを紹介し、Agentの振る舞いを設計する力が開発者に求められると結論付ける。",
+    "bookmarkCount": 174,
+    "audioFile": "../audio/hatebu-it-0-opular_items.wav"
   }
 ]
