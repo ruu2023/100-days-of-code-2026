@@ -1,0 +1,27 @@
+<%= turbo_frame_tag "master_product_form" do %>
+  <%= form_with model: master_product, url: master_demo_products_path do |f| %>
+    <% if master_product.errors.any? %>
+      <div class="mb-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+        <%= master_product.errors.full_messages.to_sentence %>
+      </div>
+    <% end %>
+
+    <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+      <%= f.text_field :sku, placeholder: "SKU", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.text_field :name, placeholder: "商品名", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.text_field :category, placeholder: "カテゴリ", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.text_field :supplier, placeholder: "仕入先", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.select :status, options_for_select(MasterProduct::STATUSES.map { |status| [status, status] }, master_product.status), {}, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.number_field :stock, placeholder: "在庫", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.text_field :unit, placeholder: "単位", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.number_field :price, step: 1, placeholder: "単価", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.number_field :position, placeholder: "表示順", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.text_field :notes, placeholder: "備考", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+    </div>
+
+    <div class="mt-4 flex items-center justify-between">
+      <p class="text-xs text-slate-500">新規登録は表の上から追加されます。重い編集は詳細編集へ。</p>
+      <%= f.submit "行を追加", class: "rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-700" %>
+    </div>
+  <% end %>
+<% end %>

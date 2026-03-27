@@ -1,0 +1,1 @@
+<%= turbo_stream.replace "master_products_sheet", partial: "table", locals: { master_products: MasterProduct.search(params) } %>

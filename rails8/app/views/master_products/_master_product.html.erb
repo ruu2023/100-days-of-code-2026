@@ -1,0 +1,23 @@
+<tr id="<%= dom_id(master_product) %>" class="border-b border-slate-200 bg-white align-top hover:bg-amber-50/40">
+  <td class="px-3 py-3 text-center text-xs text-slate-500"><%= master_product.position %></td>
+  <td class="px-3 py-3 font-mono text-xs text-slate-700"><%= master_product.sku %></td>
+  <td class="px-3 py-3 min-w-48 text-sm font-semibold text-slate-900"><%= master_product.name %></td>
+  <td class="px-3 py-3 text-sm text-slate-600"><%= master_product.category %></td>
+  <td class="px-3 py-3 text-sm text-slate-600"><%= master_product.supplier %></td>
+  <td class="px-3 py-3 text-right text-sm <%= master_product.stock < 10 ? 'font-semibold text-red-600' : 'text-slate-700' %>"><%= master_product.stock %></td>
+  <td class="px-3 py-3 text-sm text-slate-500"><%= master_product.unit %></td>
+  <td class="px-3 py-3 text-right text-sm text-slate-700">¥<%= number_with_precision(master_product.price, precision: 0, delimiter: ",") %></td>
+  <td class="px-3 py-3">
+    <span class="rounded-full px-2 py-1 text-xs font-medium <%= master_product.status == 'active' ? 'bg-emerald-100 text-emerald-700' : master_product.status == 'draft' ? 'bg-amber-100 text-amber-700' : 'bg-slate-200 text-slate-600' %>">
+      <%= master_product.status %>
+    </span>
+  </td>
+  <td class="px-3 py-3 text-sm text-slate-500"><%= master_product.notes.presence || "-" %></td>
+  <td class="px-3 py-3 whitespace-nowrap text-right text-sm">
+    <div class="flex items-center justify-end gap-3">
+      <%= link_to "行内編集", edit_row_master_demo_product_path(master_product), data: { turbo_stream: true }, class: "font-medium text-indigo-600 hover:text-indigo-800" %>
+      <%= link_to "詳細編集", edit_master_demo_product_path(master_product), class: "font-medium text-slate-600 hover:text-slate-900" %>
+      <%= link_to "削除", master_demo_product_path(master_product), data: { turbo_method: :delete, turbo_confirm: "この行を削除しますか？" }, class: "font-medium text-rose-600 hover:text-rose-800" %>
+    </div>
+  </td>
+</tr>

@@ -1,0 +1,18 @@
+body.active_admin {
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+body.active_admin #header {
+  background: linear-gradient(135deg, #0f172a, #334155);
+}
+
+body.active_admin .index_as_table table {
+  border-collapse: collapse;
+}
+
+body.active_admin .index_as_table th,
+body.active_admin .index_as_table td {
+  padding: 0.75rem;
+}

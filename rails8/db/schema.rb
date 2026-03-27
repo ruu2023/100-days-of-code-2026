@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_26_000003) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_27_000000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -164,6 +164,25 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_26_000003) do
     t.index ["account_id"], name: "index_line_items_on_account_id"
     t.index ["journal_entry_id", "account_id"], name: "index_line_items_on_journal_entry_id_and_account_id"
     t.index ["journal_entry_id"], name: "index_line_items_on_journal_entry_id"
+  end
+
+  create_table "master_products", force: :cascade do |t|
+    t.string "category", null: false
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.text "notes"
+    t.integer "position", default: 0, null: false
+    t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
+    t.string "sku", null: false
+    t.string "status", default: "active", null: false
+    t.integer "stock", default: 0, null: false
+    t.string "supplier", null: false
+    t.string "unit", default: "pcs", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_master_products_on_category"
+    t.index ["position"], name: "index_master_products_on_position"
+    t.index ["sku"], name: "index_master_products_on_sku", unique: true
+    t.index ["status"], name: "index_master_products_on_status"
   end
 
   create_table "parties", force: :cascade do |t|

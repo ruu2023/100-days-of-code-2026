@@ -1,0 +1,40 @@
+<%= turbo_frame_tag "master_products_sheet" do %>
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Master Sheet</p>
+      <h2 class="text-xl font-semibold text-slate-900">商品マスタ一覧</h2>
+    </div>
+    <div class="rounded-full bg-white px-4 py-2 text-sm text-slate-600 shadow-sm ring-1 ring-slate-200">
+      表示 <span id="master_products_count" class="font-semibold text-slate-900"><%= master_products.count %></span> 件
+    </div>
+  </div>
+
+  <div class="overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.08)]">
+    <table class="min-w-full border-collapse">
+      <thead class="bg-slate-900 text-left text-xs uppercase tracking-[0.25em] text-slate-300">
+        <tr>
+          <th class="px-3 py-3">順</th>
+          <th class="px-3 py-3">SKU</th>
+          <th class="px-3 py-3">商品名</th>
+          <th class="px-3 py-3">カテゴリ</th>
+          <th class="px-3 py-3">仕入先</th>
+          <th class="px-3 py-3 text-right">在庫</th>
+          <th class="px-3 py-3">単位</th>
+          <th class="px-3 py-3 text-right">単価</th>
+          <th class="px-3 py-3">状態</th>
+          <th class="px-3 py-3">備考</th>
+          <th class="px-3 py-3 text-right">操作</th>
+        </tr>
+      </thead>
+      <tbody id="master_products_rows" class="bg-white">
+        <%= render master_products %>
+      </tbody>
+    </table>
+
+    <% if master_products.empty? %>
+      <div class="px-6 py-12 text-center text-slate-500">
+        条件に一致する商品はありません。
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+<%= turbo_stream.replace "master_product_form", partial: "form", locals: { master_product: MasterProduct.new(status: "active", unit: "pcs", position: MasterProduct.maximum(:position).to_i + 10) } %>
+<%= turbo_stream.replace "master_products_sheet", partial: "table", locals: { master_products: MasterProduct.search(params) } %>

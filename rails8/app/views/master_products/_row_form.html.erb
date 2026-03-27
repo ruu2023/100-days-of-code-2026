@@ -1,0 +1,29 @@
+<tr id="<%= dom_id(master_product) %>" class="border-b border-amber-200 bg-amber-50/60 align-top">
+  <td colspan="11" class="px-4 py-4">
+    <%= form_with model: master_product, url: quick_update_master_demo_product_path(master_product), method: :patch, class: "grid gap-3 lg:grid-cols-[1.2fr,1fr,1fr,1.6fr,auto]" do |f| %>
+      <div>
+        <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500"><%= "#{master_product.sku} / #{master_product.name}" %></div>
+        <%= f.number_field :stock, class: "w-full rounded-xl border border-slate-300 px-3 py-2 text-sm", min: 0 %>
+      </div>
+      <div>
+        <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Price</div>
+        <%= f.number_field :price, class: "w-full rounded-xl border border-slate-300 px-3 py-2 text-sm", min: 0, step: 1 %>
+      </div>
+      <div>
+        <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Status</div>
+        <%= f.select :status, options_for_select(MasterProduct::STATUSES.map { |status| [status, status] }, master_product.status), {}, class: "w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      </div>
+      <div>
+        <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">Notes</div>
+        <%= f.text_field :notes, class: "w-full rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <% if master_product.errors.any? %>
+          <div class="mt-1 text-xs text-red-600"><%= master_product.errors.full_messages.to_sentence %></div>
+        <% end %>
+      </div>
+      <div class="flex items-end gap-2">
+        <%= f.submit "保存", class: "rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700" %>
+        <%= link_to "戻す", row_master_demo_product_path(master_product), data: { turbo_stream: true }, class: "rounded-full border border-slate-300 px-4 py-2 text-sm text-slate-600 hover:border-slate-400" %>
+      </div>
+    <% end %>
+  </td>
+</tr>

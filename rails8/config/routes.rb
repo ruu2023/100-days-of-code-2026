@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -119,6 +120,17 @@ root "images#new"
 resources :inventories do
   collection do
     get :search
+  end
+end
+
+scope "/master-demo", as: :master_demo do
+  get "/" => "master_products#index"
+  resources :products, controller: "master_products", only: %i[index new create edit update destroy] do
+    member do
+      get :row
+      get :edit_row
+      patch :quick_update
+    end
   end
 end
 end
