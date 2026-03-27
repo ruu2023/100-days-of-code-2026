@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-12-83c98ae5cc36",
-    "title": "AGENTS.md完全入門 ── 60,000リポジトリが採用した事実上の共通フォーマット - Qiita",
-    "url": "https://qiita.com/nogataka/items/ad15bfa383c98ae5cc36",
+    "id": "hatebu-it-17-03/26/164700",
+    "title": "AI を使って国立国会図書館デジタルコレクションを大量に読んでいる - 山下泰平の趣味の方法",
+    "url": "https://cocolog-nifty.hatenablog.com/entry/2026/03/26/164700",
     "source": "Hatena:it",
-    "bookmarkCount": 186,
-    "summary": "AGENTS.md は、AIコーディングエージェント向けの設定ファイルを統一し、Codex CLI・Cursor・GitHub Copilot などのツールで共通の指示を読み取れるようにするオープンフォーマットです。ツールごとに設定ファイルの形式や配置場所が異なるため、設定ファイルの同期漏れが品質低下を招くという課題がありました。AGENTS.md では1つのMarkdownファイルに全ツール共通の設定を集約し、同一ファイルを1回だけ更新すれば全ツールに反映されます。",
+    "bookmarkCount": 419,
+    "summary": "AI を活用した国立国会図書館デジタルコレクションの大量読書を支援する方法を研究する山下泰平氏は、AI を利用して国デジを読む量を増やし、その読書量を「読む」「情報をまとめる」「出力する」の三点に集約させ、面倒な作業をAIに任せるという趣味的なアプローチを示した。AI を活用することで、読書量を増やすだけでなく、AIを使う習慣のない人々にも参考になる方法を提示した。AI の環境構築と、国デジの閲覧・記録・出力という役割に特化したツール開発の重要性も示し、AIを活用した効率化の可能性を強調した。",
     "category": "AI",
-    "date": "2026-03-26T03:30:47.881Z"
+    "date": "2026-03-27T03:34:06.824Z"
   },
   {
-    "id": "hatebu-it-0-opular_items",
-    "title": "【Claude Code】Agentに入れるべきSkills 20選｜skills.sh活用ガイド - Qiita",
-    "url": "https://qiita.com/yamamoto0/items/17817dc09a78078fa132?utm_campaign=popular_items&utm_medium=feed&utm_source=popular_items",
+    "id": "hatebu-it-29-news021.html",
+    "title": "攻撃経路「オンプレからクラウドへ」はもう古い　インフォスティーラーが変えたセキュリティの新常識",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2603/24/news021.html",
     "source": "Hatena:it",
-    "bookmarkCount": 174,
-    "summary": "Claude CodeやCopilot Agentを使い始めたが、コードは書けるものの実務レベルの設計やプロダクションレベルのUIができないと指摘した。Skillsを導入すれば、業界のベストプラクティスやエンジニアリングの制約を注入し、Agentの「地頭」を底上げできると説明。Skills導入のセキュリティリスク（特にnpx経由の悪意あるコード混入）にも注意喚起し、skills.shの利用方法やリポジトリの確認ポイント、脆弱なスキルの回避方法を紹介。さらに、skill-creatorやcode-review-expertといった上位レベルのSkillsを紹介し、Agentの振る舞いを設計する力が開発者に求められると結論付ける。",
+    "bookmarkCount": 7,
+    "summary": "マルウェアのサービスプロバイダー「MaaS」の攻撃経路「オンプレミスからクラウドへ」はもう古いとされる。この攻撃経路は、過去に主流だったが、クラウドコンピューティングの普及に伴い、攻撃者にとっては難易度が上がってきたと指摘される。今回のMaaSの攻撃経路は、攻撃者によって新たに利用され、セキュリティが一層強化されるべきだとされる。",
     "category": "Security",
-    "date": "2026-03-26T03:31:27.202Z"
+    "date": "2026-03-27T03:35:10.606Z"
   }
 ]
