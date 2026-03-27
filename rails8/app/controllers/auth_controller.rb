@@ -8,6 +8,7 @@ class AuthController < ApplicationController
 
   def google_oauth2
     auth = request.env["omniauth.auth"]
+    raise "Missing OmniAuth auth payload" if auth.blank?
 
     user = User.find_or_initialize_by(provider: "google_oauth2", uid: auth.uid)
     if user.new_record?

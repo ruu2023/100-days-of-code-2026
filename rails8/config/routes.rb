@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   ##
   # require auth
   # OAuth routes
-  get "auth/google_oauth2", to: "auth#google_oauth2"
-  get "auth/google_oauth2/callback", to: "auth#google_oauth2"
+  match "auth/google_oauth2/callback", to: "auth#google_oauth2", via: %i[get post]
   get "auth/failure", to: "auth#failure"
 
   # X (Twitter) Clone - Post routes
