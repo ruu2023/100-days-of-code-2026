@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_27_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_27_010000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -166,23 +166,52 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_27_000000) do
     t.index ["journal_entry_id"], name: "index_line_items_on_journal_entry_id"
   end
 
-  create_table "master_products", force: :cascade do |t|
-    t.string "category", null: false
+  create_table "master_categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_master_categories_on_name", unique: true
+    t.index ["position"], name: "index_master_categories_on_position"
+  end
+
+  create_table "master_product_names", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_master_product_names_on_name", unique: true
+    t.index ["position"], name: "index_master_product_names_on_position"
+  end
+
+  create_table "master_products", force: :cascade do |t|
+    t.integer "category_ref_id", null: false
+    t.datetime "created_at", null: false
     t.text "notes"
     t.integer "position", default: 0, null: false
     t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
+    t.integer "product_name_id", null: false
     t.string "sku", null: false
     t.string "status", default: "active", null: false
     t.integer "stock", default: 0, null: false
-    t.string "supplier", null: false
+    t.integer "supplier_ref_id", null: false
     t.string "unit", default: "pcs", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_master_products_on_category"
+    t.index ["category_ref_id"], name: "index_master_products_on_category_ref_id"
     t.index ["position"], name: "index_master_products_on_position"
+    t.index ["product_name_id"], name: "index_master_products_on_product_name_id"
     t.index ["sku"], name: "index_master_products_on_sku", unique: true
     t.index ["status"], name: "index_master_products_on_status"
+    t.index ["supplier_ref_id"], name: "index_master_products_on_supplier_ref_id"
+  end
+
+  create_table "master_suppliers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.integer "position", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_master_suppliers_on_name", unique: true
+    t.index ["position"], name: "index_master_suppliers_on_position"
   end
 
   create_table "parties", force: :cascade do |t|
@@ -242,6 +271,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_27_000000) do
   add_foreign_key "journal_entries", "users", column: "created_by_id"
   add_foreign_key "line_items", "accounts"
   add_foreign_key "line_items", "journal_entries"
+  add_foreign_key "master_products", "master_categories", column: "category_ref_id"
+  add_foreign_key "master_products", "master_product_names", column: "product_name_id"
+  add_foreign_key "master_products", "master_suppliers", column: "supplier_ref_id"
   add_foreign_key "posts", "users"
   add_foreign_key "sessions", "users"
 end

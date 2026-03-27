@@ -7,10 +7,12 @@
     <% end %>
 
     <div class="grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-      <%= f.text_field :sku, placeholder: "SKU", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-      <%= f.text_field :name, placeholder: "商品名", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-      <%= f.text_field :category, placeholder: "カテゴリ", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-      <%= f.text_field :supplier, placeholder: "仕入先", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <div class="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-500">
+        SKU は登録時に自動採番
+      </div>
+      <%= f.select :product_name_id, options_for_select(@product_name_options, master_product.product_name&.id), { include_blank: "商品名を選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.select :category_ref_id, options_for_select(@category_options, master_product.category_ref&.id), { include_blank: "カテゴリを選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+      <%= f.select :supplier_ref_id, options_for_select(@supplier_options, master_product.supplier_ref&.id), { include_blank: "仕入先を選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
       <%= f.select :status, options_for_select(MasterProduct::STATUSES.map { |status| [status, status] }, master_product.status), {}, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
       <%= f.number_field :stock, placeholder: "在庫", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
       <%= f.text_field :unit, placeholder: "単位", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
@@ -20,7 +22,7 @@
     </div>
 
     <div class="mt-4 flex items-center justify-between">
-      <p class="text-xs text-slate-500">新規登録は表の上から追加されます。重い編集は詳細編集へ。</p>
+      <p class="text-xs text-slate-500">商品名・カテゴリ・仕入先は別マスタを使います。メンテナンスは ActiveAdmin 側で行えます。</p>
       <%= f.submit "行を追加", class: "rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-700" %>
     </div>
   <% end %>

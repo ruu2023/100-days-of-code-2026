@@ -15,17 +15,16 @@ class MasterProductsControllerTest < ActionDispatch::IntegrationTest
     get master_demo_products_url, params: { q: "カラーペン" }
     assert_response :success
     assert_includes @response.body, "カラーペン"
-    assert_not_includes @response.body, "定番ノート"
+    assert_not_includes @response.body, "PRD-001"
   end
 
   test "should create master product" do
     assert_difference("MasterProduct.count", 1) do
       post master_demo_products_url, params: {
         master_product: {
-          sku: "PRD-999",
-          name: "追加商品",
-          category: "家電",
-          supplier: "Nagoya Parts",
+          product_name_id: master_product_names(:new_item).id,
+          category_ref_id: master_categories(:electronics).id,
+          supplier_ref_id: master_suppliers(:nagoya_parts).id,
           stock: 12,
           unit: "台",
           price: 12800,
@@ -37,6 +36,7 @@ class MasterProductsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to master_demo_products_url
+    assert_equal "PRD-0003", MasterProduct.order(:created_at).last.sku
   end
 
   test "should update master product inline" do

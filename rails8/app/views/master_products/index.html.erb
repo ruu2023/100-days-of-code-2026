@@ -10,7 +10,7 @@
       </div>
       <div class="flex gap-3">
         <%= link_to "ActiveAdmin", admin_master_products_path, class: "rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:border-slate-400" %>
-        <%= link_to "新規ページへ", new_master_demo_product_path, class: "rounded-full bg-amber-400 px-5 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-300" %>
+        <%= link_to "別マスタ管理", admin_master_product_names_path, class: "rounded-full bg-amber-400 px-5 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-300" %>
       </div>
     </div>
 
@@ -19,9 +19,10 @@
     <% end %>
 
     <div class="mb-6 rounded-3xl border border-white/80 bg-white/85 p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] backdrop-blur">
-      <%= form_with url: master_demo_products_path, method: :get, data: { turbo_frame: "master_products_sheet" }, class: "grid gap-3 md:grid-cols-4 xl:grid-cols-[2fr,1fr,1fr,auto]" do |f| %>
+      <%= form_with url: master_demo_products_path, method: :get, data: { turbo_frame: "master_products_sheet" }, class: "grid gap-3 md:grid-cols-5 xl:grid-cols-[2fr,1fr,1fr,1fr,auto]" do |f| %>
         <%= f.search_field :q, value: params[:q], placeholder: "商品名またはSKUで検索", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.select :category, options_for_select(MasterProduct.category_options, params[:category]), { include_blank: "すべてのカテゴリ" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :category_id, options_for_select(MasterProduct.category_options, params[:category_id]), { include_blank: "すべてのカテゴリ" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :supplier_id, options_for_select(MasterProduct.supplier_options, params[:supplier_id]), { include_blank: "すべての仕入先" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.select :status, options_for_select(MasterProduct::STATUSES, params[:status]), { include_blank: "すべての状態" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <div class="flex gap-2">
           <%= f.submit "検索", class: "w-full rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-700" %>
@@ -36,7 +37,7 @@
           <p class="text-xs uppercase tracking-[0.3em] text-slate-400">Quick Add</p>
           <h2 class="text-lg font-semibold text-slate-900">新しい行を追加</h2>
         </div>
-        <p class="text-xs text-slate-500">詳細な項目編集は通常の編集ページで対応します。</p>
+        <p class="text-xs text-slate-500">SKU は自動採番です。候補マスタが足りない場合は ActiveAdmin で先に追加してください。</p>
       </div>
       <%= render "form", master_product: @master_product %>
     </div>

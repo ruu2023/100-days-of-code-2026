@@ -6,10 +6,13 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Master Management Demo" do
-          para "一覧・検索・CRUD は ActiveAdmin、表の即時更新は Turbo Frames で補っています。"
+          para "SKU は自動採番、商品名・カテゴリ・仕入先は別マスタ管理です。表の即時更新だけ Turbo Frames で補っています。"
           ul do
             li link_to("ActiveAdmin CRUD", admin_master_products_path)
             li link_to("Spreadsheet Demo", master_demo_products_path)
+            li link_to("商品名マスタ", admin_master_product_names_path)
+            li link_to("カテゴリマスタ", admin_master_categories_path)
+            li link_to("仕入先マスタ", admin_master_suppliers_path)
           end
         end
       end
@@ -17,6 +20,9 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Status" do
           para "登録件数: #{MasterProduct.count}件"
+          para "商品名マスタ: #{MasterProductName.count}件"
+          para "カテゴリマスタ: #{MasterCategory.count}件"
+          para "仕入先マスタ: #{MasterSupplier.count}件"
           para "有効: #{MasterProduct.where(status: 'active').count}件"
           para "アーカイブ: #{MasterProduct.where(status: 'archived').count}件"
         end

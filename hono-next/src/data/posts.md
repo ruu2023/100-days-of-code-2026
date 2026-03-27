@@ -1,3 +1,20 @@
+## 2026-03-27
+
+【Day 086/100】Rails マスタ管理 🛠️✨
+
+エクセル感覚のマスタ管理画面の実装学習中です。
+
+✅ ActiveAdmin で CRUD
+✅ 商品マスタのデモ
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/master-demo/products)
+
+[Original Post](https://x.com/ruu_web/status/2037403097853796590)
+
+---
+
 ## 2026-03-26
 
 【Day 085/100】Rails サブスク管理 🛠️✨

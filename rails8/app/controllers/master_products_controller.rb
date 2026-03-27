@@ -4,25 +4,30 @@ class MasterProductsController < ApplicationController
   def index
     @master_products = MasterProduct.search(params)
     @master_product = MasterProduct.new(status: "active", unit: "pcs", position: next_position)
+    load_master_options
 
     render partial: "table", locals: { master_products: @master_products } if turbo_frame_request?
   end
 
   def new
     @master_product = MasterProduct.new(status: "active", unit: "pcs", position: next_position)
+    load_master_options
   end
 
   def edit
+    load_master_options
   end
 
   def create
     @master_product = MasterProduct.new(master_product_params)
+    load_master_options
 
     respond_to do |format|
       if @master_product.save
         format.html { redirect_to master_demo_products_path, notice: "商品マスタを登録しました。" }
         format.turbo_stream
       else
+        load_master_options
         format.html { render :new, status: :unprocessable_entity }
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace(
@@ -39,6 +44,7 @@ class MasterProductsController < ApplicationController
     if @master_product.update(master_product_params)
       redirect_to master_demo_products_path(anchor: helpers.dom_id(@master_product)), notice: "商品マスタを更新しました。"
     else
+      load_master_options
       render :edit, status: :unprocessable_entity
     end
   end
@@ -91,7 +97,7 @@ class MasterProductsController < ApplicationController
   end
 
   def master_product_params
-    params.require(:master_product).permit(:sku, :name, :category, :supplier, :stock, :unit, :price, :status, :notes, :position)
+    params.require(:master_product).permit(:product_name_id, :category_ref_id, :supplier_ref_id, :stock, :unit, :price, :status, :notes, :position)
   end
 
   def quick_update_params
@@ -100,5 +106,11 @@ class MasterProductsController < ApplicationController
 
   def next_position
     MasterProduct.maximum(:position).to_i + 10
+  end
+
+  def load_master_options
+    @product_name_options = MasterProduct.product_name_options
+    @category_options = MasterProduct.category_options
+    @supplier_options = MasterProduct.supplier_options
   end
 end

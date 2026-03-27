@@ -1,0 +1,11 @@
+tokyo_supply:
+  name: Tokyo Supply
+  position: 10
+
+osaka_wholesale:
+  name: Osaka Wholesale
+  position: 20
+
+nagoya_parts:
+  name: Nagoya Parts
+  position: 30

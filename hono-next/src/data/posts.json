@@ -1,5 +1,21 @@
 [
   {
+    "day": 86,
+    "date": "2026-03-27",
+    "title": "Rails マスタ管理 🛠️✨",
+    "description": "【Day 086/100】Rails マスタ管理 🛠️✨",
+    "features": [
+      "ActiveAdmin で CRUD",
+      "商品マスタのデモ"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2037403097853796590",
+    "demoLink": "https://rails.ruu-dev.com/master-demo/products"
+  },
+  {
     "day": 85,
     "date": "2026-03-26",
     "title": "Rails サブスク管理 🛠️✨",

@@ -14,10 +14,12 @@
 
       <div class="grid gap-4 md:grid-cols-2">
         <%= f.number_field :position, min: 0, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :sku, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :name, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :category, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :supplier, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <div class="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
+          SKU: <span class="font-mono font-semibold text-slate-900"><%= @master_product.sku %></span>
+        </div>
+        <%= f.select :product_name_id, options_for_select(@product_name_options, @master_product.product_name&.id), {}, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :category_ref_id, options_for_select(@category_options, @master_product.category_ref&.id), {}, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :supplier_ref_id, options_for_select(@supplier_options, @master_product.supplier_ref&.id), {}, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.number_field :stock, min: 0, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.text_field :unit, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.number_field :price, min: 0, step: 1, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>

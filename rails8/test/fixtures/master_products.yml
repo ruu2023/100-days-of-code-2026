@@ -1,8 +1,8 @@
 alpha:
   sku: PRD-001
-  name: 定番ノート
-  category: 文具
-  supplier: Tokyo Supply
+  product_name: notebook
+  category_ref: stationery
+  supplier_ref: tokyo_supply
   stock: 32
   unit: 冊
   price: 480
@@ -12,9 +12,9 @@ alpha:
 
 beta:
   sku: PRD-002
-  name: カラーペン
-  category: 文具
-  supplier: Osaka Wholesale
+  product_name: pen
+  category_ref: stationery
+  supplier_ref: osaka_wholesale
   stock: 8
   unit: 本
   price: 220

@@ -1,0 +1,11 @@
+notebook:
+  name: 定番ノート
+  position: 10
+
+pen:
+  name: カラーペン
+  position: 20
+
+new_item:
+  name: 追加商品
+  position: 30

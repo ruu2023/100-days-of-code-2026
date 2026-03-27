@@ -13,10 +13,12 @@
       <% end %>
 
       <div class="grid gap-4 md:grid-cols-2">
-        <%= f.text_field :sku, placeholder: "SKU", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :name, placeholder: "商品名", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :category, placeholder: "カテゴリ", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
-        <%= f.text_field :supplier, placeholder: "仕入先", class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <div class="rounded-xl border border-dashed border-slate-300 bg-slate-50 px-3 py-2 text-sm text-slate-500">
+          SKU は保存時に自動採番
+        </div>
+        <%= f.select :product_name_id, options_for_select(@product_name_options, @master_product.product_name&.id), { include_blank: "商品名を選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :category_ref_id, options_for_select(@category_options, @master_product.category_ref&.id), { include_blank: "カテゴリを選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
+        <%= f.select :supplier_ref_id, options_for_select(@supplier_options, @master_product.supplier_ref&.id), { include_blank: "仕入先を選択" }, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.number_field :stock, min: 0, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.text_field :unit, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>
         <%= f.number_field :price, min: 0, step: 1, class: "rounded-xl border border-slate-300 px-3 py-2 text-sm" %>

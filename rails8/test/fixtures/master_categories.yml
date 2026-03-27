@@ -1,0 +1,7 @@
+stationery:
+  name: 文具
+  position: 10
+
+electronics:
+  name: 家電
+  position: 20

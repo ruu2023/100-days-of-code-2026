@@ -158,6 +158,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 083 | 03/24 | Rails PWA通知           | Rails / PWA通知 / Service Worker                 | [View](./rails8)                                                          |
 | 084 | 03/25 | MiniMax AI Tools        | Laravel / MiniMax API / Image & Audio UI         | [View](./laravel13)                                                       |
 | 085 | 03/26 | Rails サブスク管理      | Rails / サブスク管理 / 月額年額管理              | [View](./rails8)                                                          |
+| 086 | 03/27 | Rails マスタ管理        | ActiveAdmin / 商品マスタデモ                     | [View](./rails8)                                                          |
 
 ## 📬 Links
 
