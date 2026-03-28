@@ -1,0 +1,274 @@
+<div class="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 pb-20" data-controller="agency-agents">
+  
+  <!-- モーダル -->
+  <div data-agency-agents-target="modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4 sm:p-6 md:p-10 animate-in fade-in duration-200">
+    <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" data-action="click->agency-agents#closeModal"></div>
+    <div class="relative bg-white w-full max-w-2xl max-h-[85vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-300 border border-white/20">
+      <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
+        <h3 data-agency-agents-target="modalTitle" class="text-xl font-black text-slate-800">指示書</h3>
+        <button data-action="click->agency-agents#closeModal" class="p-2 hover:bg-slate-200 rounded-full transition text-slate-400 hover:text-slate-600">
+          <%= lucide_icon("x", class: "w-6 h-6") %>
+        </button>
+      </div>
+      <div class="p-8 overflow-y-auto flex-grow">
+        <div class="mb-8 bg-indigo-50 p-6 rounded-2xl border border-indigo-100 flex items-start gap-4">
+          <div class="bg-indigo-600 text-white p-2 rounded-lg shrink-0 shadow-lg shadow-indigo-200">
+            <%= lucide_icon("info", class: "w-5 h-5") %>
+          </div>
+          <div>
+            <h4 class="text-indigo-800 font-black text-sm mb-1 uppercase tracking-wider text-left">使い方</h4>
+            <p class="text-indigo-700/80 text-sm leading-relaxed text-left font-medium">
+              下の指示書をすべてコピーして、ChatGPTやClaude、Geminiのチャット画面に最初に貼り付けてください。
+            </p>
+          </div>
+        </div>
+        <pre data-agency-agents-target="modalContent" class="whitespace-pre-wrap font-mono text-xs text-slate-700 bg-slate-50 p-6 rounded-2xl border border-slate-100 leading-relaxed text-left shadow-inner"></pre>
+      </div>
+      <div class="p-6 border-t border-slate-100 bg-slate-50/50 flex gap-3">
+        <button data-action="click->agency-agents#copyPrompt" class="flex-grow py-4 bg-indigo-600 text-white font-black rounded-xl hover:bg-indigo-700 transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-200">
+          <%= lucide_icon("copy", class: "w-4 h-4") %>
+          指示書をコピー
+        </button>
+        <button data-action="click->agency-agents#closeModal" class="px-6 py-4 bg-white text-slate-600 font-bold rounded-xl border border-slate-200 hover:bg-slate-50 transition">
+          閉じる
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ヒーローセクション -->
+  <header class="bg-slate-900 text-white py-32 px-4 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-600 rounded-full blur-[150px] -mr-64 -mt-64"></div>
+      <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px] -ml-64 -mb-64"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 mb-10">
+        <span class="text-indigo-400 font-black tracking-widest text-[10px] uppercase">Official Repository Showcase</span>
+        <div class="w-1 h-1 rounded-full bg-white/30"></div>
+        <a href="https://github.com/msitarzewski/agency-agents" target="_blank" class="text-white hover:text-indigo-300 transition-colors font-bold text-xs flex items-center gap-2 group">
+          <%= lucide_icon("github", class: "w-4 h-4") %>
+          msitarzewski/agency-agents
+          <%= lucide_icon("external-link", class: "w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform") %>
+        </a>
+      </div>
+      
+      <h1 class="text-8xl font-black mb-8 tracking-tighter leading-none">Agency Agents</h1>
+      <p class="text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-16 font-medium">
+        140名以上の専門家AIが集結。あなたのプロジェクトに、<br class="hidden md:block" />
+        <span class="text-white underline decoration-indigo-500 decoration-4 underline-offset-8">世界最高峰のAI知性</span>をデプロイ。
+      </p>
+      
+      <!-- 検索バー -->
+      <div class="max-w-2xl mx-auto relative group mb-12">
+        <div class="absolute inset-y-0 left-6 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-400 transition-colors">
+          <%= lucide_icon("search", class: "w-7 h-7") %>
+        </div>
+        <input 
+          type="text" 
+          data-agency-agents-target="searchInput"
+          data-action="input->agency-agents#search"
+          placeholder="専門家を検索 (例: 開発, セキュリティ, デザイン...)" 
+          class="w-full bg-slate-800/50 backdrop-blur-xl border-2 border-slate-700/50 text-white text-2xl px-16 py-7 rounded-[2.5rem] focus:outline-none focus:border-indigo-500/50 transition-all placeholder:text-slate-600 shadow-2xl focus:shadow-indigo-500/10"
+        >
+      </div>
+
+      <div class="flex justify-center gap-8">
+        <a href="#guide" class="text-slate-400 hover:text-white transition-colors text-sm font-bold flex items-center gap-2">
+          <%= lucide_icon("book-open", class: "w-4 h-4") %>
+          導入ガイドを見る
+        </a>
+        <a href="https://github.com/msitarzewski/agency-agents" target="_blank" class="text-slate-400 hover:text-white transition-colors text-sm font-bold flex items-center gap-2">
+          <%= lucide_icon("star", class: "w-4 h-4 text-yellow-500") %>
+          GitHubでStarを付ける
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="flex flex-col lg:flex-row gap-20">
+      <!-- サイドバー -->
+      <aside class="w-full lg:w-80 shrink-0">
+        <div class="sticky top-12 space-y-3">
+          <div class="flex items-center gap-3 px-4 mb-8">
+            <div class="w-1.5 h-6 bg-indigo-500 rounded-full"></div>
+            <h2 class="text-xs font-black text-slate-400 uppercase tracking-[0.3em]">Specialized Divisions</h2>
+          </div>
+          <% @divisions.each do |division| %>
+            <button 
+              data-agency-agents-target="tabButton"
+              data-action="click->agency-agents#change" 
+              data-division-id="<%= division[:id] %>"
+              class="w-full flex items-center gap-4 px-6 py-5 rounded-[1.5rem] text-left transition-all duration-300 group bg-white text-slate-600 border border-transparent hover:border-indigo-100 shadow-sm hover:shadow-md active:scale-95"
+            >
+              <div class="p-2.5 bg-slate-50 group-hover:bg-indigo-50 rounded-xl transition shadow-inner">
+                <%= lucide_icon(division[:icon], class: "w-5 h-5 text-slate-400 group-hover:text-indigo-600") %>
+              </div>
+              <span class="font-black text-sm tracking-tight"><%= division[:name] %></span>
+            </button>
+          <% end %>
+        </div>
+      </aside>
+
+      <!-- メインコンテンツ -->
+      <main class="flex-grow space-y-24">
+        <% @divisions.each do |division| %>
+          <div data-agency-agents-target="division" data-division-id="<%= division[:id] %>" class="hidden">
+            <div class="mb-16">
+              <div class="flex items-center gap-6 mb-6">
+                <div class="p-5 bg-indigo-600 text-white rounded-3xl shadow-xl shadow-indigo-200">
+                  <%= lucide_icon(division[:icon], class: "w-10 h-10") %>
+                </div>
+                <h2 class="text-6xl font-black text-slate-800 tracking-tighter"><%= division[:name] %></h2>
+              </div>
+              <p class="text-2xl text-slate-400 font-medium max-w-2xl leading-relaxed">
+                <%= division[:name] %>における最高レベルの知識を持つ専門家エージェントの一覧です。
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <% division[:agents].each do |agent| %>
+                <div 
+                  data-agency-agents-target="agentCard" 
+                  data-search-text="<%= agent[:search_text] %>"
+                  class="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full overflow-hidden relative group"
+                >
+                  <div class="flex justify-between items-start mb-8">
+                    <h3 class="text-3xl font-black text-slate-800 tracking-tight leading-tight group-hover:text-indigo-600 transition-colors"><%= agent[:name] %></h3>
+                    <div class="text-slate-100 group-hover:text-indigo-50 transition-colors">
+                      <%= lucide_icon("user-round", class: "w-12 h-12") %>
+                    </div>
+                  </div>
+                  
+                  <div class="space-y-8 flex-grow">
+                    <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 group-hover:bg-indigo-50/30 group-hover:border-indigo-100 transition-colors">
+                      <h4 class="text-[11px] font-black text-indigo-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span> 専門性 / Specialty
+                      </h4>
+                      <p class="text-lg text-slate-700 leading-relaxed font-bold text-left"><%= agent[:specialty] %></p>
+                    </div>
+                    <div class="px-2">
+                      <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-slate-200"></span> 活用シーン / When to Use
+                      </h4>
+                      <p class="text-base text-slate-500 font-medium leading-relaxed text-left"><%= agent[:when_to_use] %></p>
+                    </div>
+                  </div>
+
+                  <div class="mt-10 pt-10 border-t border-slate-50">
+                    <button 
+                      data-action="click->agency-agents#openModal" 
+                      data-agent-name="<%= agent[:name] %>"
+                      data-agent-prompt="<%= agent[:prompt] %>"
+                      class="w-full py-5 bg-slate-900 text-white font-black rounded-2xl hover:bg-indigo-600 transition-all flex items-center justify-center gap-4 shadow-xl shadow-slate-200 group/btn"
+                    >
+                      設定内容を取得
+                      <%= lucide_icon("sparkles", class: "w-5 h-5 group-hover/btn:rotate-12 transition-transform") %>
+                    </button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <!-- 導入ガイドセクション -->
+        <div id="guide" class="mt-32 pt-24 border-t border-slate-200">
+          <div class="mb-16 text-center">
+            <h2 class="text-5xl font-black text-slate-800 tracking-tighter mb-6">クイック・スタートガイド</h2>
+            <p class="text-xl text-slate-500 font-medium">エージェントをあなたの開発環境に統合する方法。</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- Claude Code -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group">
+              <div class="w-20 h-20 bg-orange-50 text-orange-600 rounded-3xl mb-8 flex items-center justify-center shadow-inner">
+                <%= lucide_icon("cpu", class: "w-10 h-10") %>
+              </div>
+              <h3 class="text-2xl font-black text-slate-800 mb-4 tracking-tight">Claude Code</h3>
+              <p class="text-slate-500 font-medium mb-8 flex-grow">リポジトリをクローンして、Claudeのagentsディレクトリにコピーするだけで有効化できます。</p>
+              <div class="w-full bg-slate-900 rounded-2xl p-4 text-left font-mono text-xs text-indigo-300 leading-relaxed mb-6 overflow-x-auto">
+                cp -r agency-agents/* ~/.claude/agents/
+              </div>
+              <a href="https://github.com/msitarzewski/agency-agents#option-1-use-with-claude-code-recommended" target="_blank" class="text-indigo-600 font-black text-sm flex items-center gap-2 hover:underline">
+                詳細を見る <%= lucide_icon("chevron-right", class: "w-4 h-4") %>
+              </a>
+            </div>
+
+            <!-- Cursor / Windsurf -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group">
+              <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-3xl mb-8 flex items-center justify-center shadow-inner">
+                <%= lucide_icon("code-2", class: "w-10 h-10") %>
+              </div>
+              <h3 class="text-2xl font-black text-slate-800 mb-4 tracking-tight">IDE Integration</h3>
+              <p class="text-slate-500 font-medium mb-8 flex-grow">CursorやWindsurfなどのエディタに対応。変換スクリプトを使用して設定ファイルを生成できます。</p>
+              <div class="w-full bg-slate-900 rounded-2xl p-4 text-left font-mono text-xs text-indigo-300 leading-relaxed mb-6 overflow-x-auto">
+                ./scripts/convert.sh<br>
+                ./scripts/install.sh --tool cursor
+              </div>
+              <a href="https://github.com/msitarzewski/agency-agents#option-3-use-with-other-tools-cursor-aider-windsurf-gemini-cli-opencode-kimi-code" target="_blank" class="text-indigo-600 font-black text-sm flex items-center gap-2 hover:underline">
+                詳細を見る <%= lucide_icon("chevron-right", class: "w-4 h-4") %>
+              </a>
+            </div>
+
+            <!-- Chat AI -->
+            <div class="bg-white p-10 rounded-[3rem] shadow-xl border border-slate-100 flex flex-col items-center text-center group">
+              <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-3xl mb-8 flex items-center justify-center shadow-inner">
+                <%= lucide_icon("messages-square", class: "w-10 h-10") %>
+              </div>
+              <h3 class="text-2xl font-black text-slate-800 mb-4 tracking-tight">Chat AI</h3>
+              <p class="text-slate-500 font-medium mb-8 flex-grow">最もシンプルな方法。このサイトで「指示書をコピー」して、ChatGPTやClaudeに貼り付けるだけです。</p>
+              <div class="w-full bg-slate-100 rounded-2xl p-4 text-center text-slate-400 italic text-xs mb-6">
+                コピー＆ペーストのみで完了
+              </div>
+              <a href="#" data-action="click->agency-agents#openFirstModal" class="text-indigo-600 font-black text-sm flex items-center gap-2 hover:underline">
+                今すぐ試す <%= lucide_icon("chevron-right", class: "w-4 h-4") %>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 謝辞セクション -->
+        <div class="mt-32 bg-slate-900 p-16 rounded-[4rem] relative overflow-hidden text-center border border-white/5 shadow-2xl">
+          <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <%= lucide_icon("heart", class: "w-96 h-96 mx-auto -mt-20 text-indigo-500") %>
+          </div>
+          <div class="relative z-10">
+            <h2 class="text-4xl font-black text-white mb-8 tracking-tight">Respect to the Community</h2>
+            <p class="text-xl text-slate-400 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
+              このプロジェクトは、msitarzewski氏と世界中のコントリビューターによって支えられているオープンソースプロジェクトです。
+              140名以上のエージェントは、一つひとつが有志の知恵と熱意によって磨き上げられています。
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+              <a href="https://github.com/msitarzewski/agency-agents" target="_blank" class="bg-indigo-600 text-white px-10 py-5 rounded-3xl font-black shadow-xl hover:bg-indigo-500 transition-all flex items-center gap-3">
+                <%= lucide_icon("github", class: "w-6 h-6") %>
+                公式リポジトリを応援する
+              </a>
+              <a href="https://github.com/sponsors/msitarzewski" target="_blank" class="bg-white/10 text-white backdrop-blur-md border border-white/10 px-10 py-5 rounded-3xl font-black hover:bg-white/20 transition-all flex items-center gap-3">
+                <%= lucide_icon("heart", class: "w-6 h-6 text-pink-500") %>
+                スポンサーになる
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <footer class="bg-white border-t border-slate-100 py-24 mt-32 text-center relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 relative z-10 text-slate-400">
+      <div class="flex justify-center gap-12 mb-12 opacity-20">
+        <%= lucide_icon("gem", class: "w-12 h-12") %>
+        <%= lucide_icon("layers", class: "w-12 h-12") %>
+        <%= lucide_icon("cpu", class: "w-12 h-12") %>
+      </div>
+      <p class="text-sm font-black uppercase tracking-[0.4em] mb-6">Designed for AI Integration</p>
+      <div class="text-xs font-medium space-y-2 italic">
+        <p>Built with Rails 8, Tailwind CSS & Lucide Icons.</p>
+        <p>Special thanks to <a href="https://github.com/msitarzewski" class="text-indigo-500 hover:underline">msitarzewski</a> for the amazing "The Agency" project.</p>
+      </div>
+    </div>
+  </footer>
+</div>

@@ -1,5 +1,21 @@
 [
   {
+    "day": 87,
+    "date": "2026-03-28",
+    "title": "Rails AgencyAgents紹介ページ 🛠️✨",
+    "description": "【Day 087/100】Rails AgencyAgents紹介ページ 🛠️✨",
+    "features": [
+      "AgencyAgents の専門家検索",
+      "グループ一覧表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2037797739908784159",
+    "demoLink": "https://rails.ruu-dev.com/agency_agents"
+  },
+  {
     "day": 86,
     "date": "2026-03-27",
     "title": "Rails マスタ管理 🛠️✨",

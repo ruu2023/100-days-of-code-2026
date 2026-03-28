@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "agency_agents", to: "agency_agents#index"
+  root "agency_agents#index"
   ActiveAdmin.routes(self)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -115,7 +117,6 @@ get "images/:id/download" => "images#download", as: :download_image
   
 get "day082", to: "images#new"
 
-root "images#new"
 # Inventory Management
 resources :inventories do
   collection do

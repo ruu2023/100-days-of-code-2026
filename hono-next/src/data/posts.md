@@ -1,3 +1,20 @@
+## 2026-03-28
+
+【Day 087/100】Rails AgencyAgents紹介ページ 🛠️✨
+
+agent スキルのレポジトリ AgencyAgents の検索日本語ページを作りました。
+
+✅ AgencyAgents の専門家検索
+✅ グループ一覧表示
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/agency_agents)
+
+[Original Post](https://x.com/ruu_web/status/2037797739908784159)
+
+---
+
 ## 2026-03-27
 
 【Day 086/100】Rails マスタ管理 🛠️✨
