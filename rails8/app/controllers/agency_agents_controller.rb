@@ -1,6 +1,6 @@
 class AgencyAgentsController < ApplicationController
   def index
-    base_path = Rails.root.join("vendor", "agency-agents-repo")
+    base_path = Rails.root.join("lib", "data", "agency-agents-repo")
     
     # 全部門・全エージェントの日本語マッピングデータ
     @agent_translations = {
