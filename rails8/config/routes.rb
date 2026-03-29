@@ -134,4 +134,10 @@ scope "/master-demo", as: :master_demo do
     end
   end
 end
+
+# Day090 - Geometry Shapes App
+scope "/geometrys", as: :geometrys do
+  get "/" => "geometrys#index"
+  get "/:shape" => "geometrys#show", as: :shape
+end
 end
