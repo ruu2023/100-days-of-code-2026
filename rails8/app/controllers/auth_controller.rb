@@ -18,6 +18,7 @@ class AuthController < ApplicationController
         name: auth.info.name,
         image_url: auth.info.image
       )
+      user.save!
     else
       user.update!(
         name: auth.info.name,

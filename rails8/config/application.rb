@@ -18,6 +18,23 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Load .env file if it exists
+dot_env = File.expand_path("../.env", __dir__)
+if File.exist?(dot_env)
+  File.readlines(dot_env).each do |line|
+    line = line.strip
+    next if line.empty? || line.start_with?("#")
+    # Support both 'KEY=VALUE' and 'export KEY=VALUE'
+    line = line.sub(/^export\s+/, "")
+    key, value = line.split("=", 2)
+    if key && value
+      # Remove surrounding quotes if present
+      value = value.gsub(/^['"]|['"]$/, "")
+      ENV[key] ||= value
+    end
+  end
+end
+
 module Rails8
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

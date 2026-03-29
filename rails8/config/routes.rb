@@ -138,6 +138,7 @@ end
 # Day090 - Geometry Shapes App
 scope "/geometrys", as: :geometrys do
   get "/" => "geometrys#index"
+  get "/overlap" => "geometrys#overlap"
   get "/:shape" => "geometrys#show", as: :shape
 end
 end
