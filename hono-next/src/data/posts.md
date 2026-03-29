@@ -1,3 +1,20 @@
+## 2026-03-29
+
+【Day 088/100】Rails csv to MD & Excel 🛠️✨
+
+カンマ区切りをmd形式と、エクセルに貼れる形式に変換します。
+
+✅ CSV to MD 自動整形
+✅ Excelようにtable整形
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/csv_tables)
+
+[Original Post](https://x.com/ruu_web/status/2038256488733704663)
+
+---
+
 ## 2026-03-28
 
 【Day 087/100】Rails AgencyAgents紹介ページ 🛠️✨
