@@ -1,4 +1,5 @@
-<div class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8">
+<div class="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8"
+     data-controller="geometry-overlap">
   <div class="max-w-6xl mx-auto">
     <!-- Header -->
     <div class="text-center mb-12">
@@ -26,17 +27,172 @@
         </h2>
         <div class="flex justify-center bg-slate-900/50 rounded-xl p-6">
           <div class="bg-white rounded-lg p-4">
-            <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="120" cy="120" r="80" fill="#3498db" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
-              <circle cx="180" cy="120" r="60" fill="#e74c3c" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
-              <rect x="100" y="80" width="120" height="100" fill="#2ecc71" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+            <svg data-geometry-overlap-target="svg" width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+              <circle data-geometry-overlap-target="shape1" cx="120" cy="120" r="80" fill="#3498db" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+              <circle data-geometry-overlap-target="shape2" cx="180" cy="120" r="60" fill="#e74c3c" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
+              <rect data-geometry-overlap-target="shape3" x="100" y="80" width="120" height="100" fill="#2ecc71" opacity="0.6" stroke="#2c3e50" stroke-width="2"/>
             </svg>
           </div>
         </div>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">円 (半径80)</span>
-          <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm">円 (半径60)</span>
-          <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">長方形 (120×100)</span>
+        <div class="mt-4 flex flex-wrap gap-2" data-geometry-overlap-target="labels">
+          <span data-geometry-overlap-target="label1" class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">円 (半径80)</span>
+          <span data-geometry-overlap-target="label2" class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm">円 (半径60)</span>
+          <span data-geometry-overlap-target="label3" class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-sm">長方形 (120×100)</span>
+        </div>
+      </div>
+
+      <!-- 図形設定 -->
+      <div class="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2 text-yellow-400">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          図形設定
+        </h2>
+
+        <!-- 図形1: 円 -->
+        <div class="mb-6 p-4 bg-slate-900/50 rounded-xl border border-blue-500/30">
+          <h3 class="font-medium text-blue-400 mb-3 flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+            図形1: 円
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">半径</label>
+              <input type="range" min="20" max="120" value="80"
+                     data-geometry-overlap-target="input1"
+                     data-shape-param="r"
+                     data-action="geometry-overlap#updateShape1"
+                     class="w-full accent-blue-500">
+              <span data-geometry-overlap-target="val1r" class="text-sm text-slate-300">80</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">色</label>
+              <input type="color" value="#3498db"
+                     data-geometry-overlap-target="input1"
+                     data-shape-param="color"
+                     data-action="geometry-overlap#updateShape1"
+                     class="w-12 h-8 rounded cursor-pointer bg-transparent border-0">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">X座標</label>
+              <input type="range" min="50" max="250" value="120"
+                     data-geometry-overlap-target="input1"
+                     data-shape-param="cx"
+                     data-action="geometry-overlap#updateShape1"
+                     class="w-full accent-blue-500">
+              <span data-geometry-overlap-target="val1cx" class="text-sm text-slate-300">120</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">Y座標</label>
+              <input type="range" min="50" max="250" value="120"
+                     data-geometry-overlap-target="input1"
+                     data-shape-param="cy"
+                     data-action="geometry-overlap#updateShape1"
+                     class="w-full accent-blue-500">
+              <span data-geometry-overlap-target="val1cy" class="text-sm text-slate-300">120</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 図形2: 円 -->
+        <div class="mb-6 p-4 bg-slate-900/50 rounded-xl border border-red-500/30">
+          <h3 class="font-medium text-red-400 mb-3 flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+            図形2: 円
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">半径</label>
+              <input type="range" min="20" max="120" value="60"
+                     data-geometry-overlap-target="input2"
+                     data-shape-param="r"
+                     data-action="geometry-overlap#updateShape2"
+                     class="w-full accent-red-500">
+              <span data-geometry-overlap-target="val2r" class="text-sm text-slate-300">60</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">色</label>
+              <input type="color" value="#e74c3c"
+                     data-geometry-overlap-target="input2"
+                     data-shape-param="color"
+                     data-action="geometry-overlap#updateShape2"
+                     class="w-12 h-8 rounded cursor-pointer bg-transparent border-0">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">X座標</label>
+              <input type="range" min="50" max="250" value="180"
+                     data-geometry-overlap-target="input2"
+                     data-shape-param="cx"
+                     data-action="geometry-overlap#updateShape2"
+                     class="w-full accent-red-500">
+              <span data-geometry-overlap-target="val2cx" class="text-sm text-slate-300">180</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">Y座標</label>
+              <input type="range" min="50" max="250" value="120"
+                     data-geometry-overlap-target="input2"
+                     data-shape-param="cy"
+                     data-action="geometry-overlap#updateShape2"
+                     class="w-full accent-red-500">
+              <span data-geometry-overlap-target="val2cy" class="text-sm text-slate-300">120</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 図形3: 長方形 -->
+        <div class="p-4 bg-slate-900/50 rounded-xl border border-emerald-500/30">
+          <h3 class="font-medium text-emerald-400 mb-3 flex items-center gap-2">
+            <span class="w-3 h-3 bg-emerald-500"></span>
+            図形3: 長方形
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">幅</label>
+              <input type="range" min="40" max="200" value="120"
+                     data-geometry-overlap-target="input3"
+                     data-shape-param="width"
+                     data-action="geometry-overlap#updateShape3"
+                     class="w-full accent-emerald-500">
+              <span data-geometry-overlap-target="val3width" class="text-sm text-slate-300">120</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">高さ</label>
+              <input type="range" min="40" max="200" value="100"
+                     data-geometry-overlap-target="input3"
+                     data-shape-param="height"
+                     data-action="geometry-overlap#updateShape3"
+                     class="w-full accent-emerald-500">
+              <span data-geometry-overlap-target="val3height" class="text-sm text-slate-300">100</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">色</label>
+              <input type="color" value="#2ecc71"
+                     data-geometry-overlap-target="input3"
+                     data-shape-param="color"
+                     data-action="geometry-overlap#updateShape3"
+                     class="w-12 h-8 rounded cursor-pointer bg-transparent border-0">
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">X座標</label>
+              <input type="range" min="20" max="200" value="100"
+                     data-geometry-overlap-target="input3"
+                     data-shape-param="x"
+                     data-action="geometry-overlap#updateShape3"
+                     class="w-full accent-emerald-500">
+              <span data-geometry-overlap-target="val3x" class="text-sm text-slate-300">100</span>
+            </div>
+            <div>
+              <label class="block text-sm text-slate-400 mb-1">Y座標</label>
+              <input type="range" min="20" max="200" value="80"
+                     data-geometry-overlap-target="input3"
+                     data-shape-param="y"
+                     data-action="geometry-overlap#updateShape3"
+                     class="w-full accent-emerald-500">
+              <span data-geometry-overlap-target="val3y" class="text-sm text-slate-300">80</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -48,9 +204,13 @@
             <polyline points="8,6 2,12 8,18"/>
           </svg>
           Rubyコード
+          <button data-action="geometry-overlap#regenerateCode"
+                  class="ml-auto px-3 py-1 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-400 rounded-lg text-sm transition-colors">
+            コード更新
+          </button>
         </h2>
         <div class="bg-slate-900 rounded-xl p-4 overflow-x-auto">
-          <pre class="text-sm leading-relaxed"><code><%= @highlighted_code.html_safe %></code></pre>
+          <pre class="text-sm leading-relaxed"><code data-geometry-overlap-target="code"><%= @highlighted_code.html_safe %></code></pre>
         </div>
         <p class="mt-4 text-slate-400 text-sm">
           このコードはRubyインタプリタで実行可能です
@@ -66,30 +226,50 @@
             <line x1="12" y1="8" x2="12" y2="16"/>
           </svg>
           計算結果
+          <button data-action="geometry-overlap#recalculate"
+                  class="ml-auto px-3 py-1 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 rounded-lg text-sm transition-colors">
+            再計算
+          </button>
         </h2>
-        <div class="space-y-4">
-          <% @area_results[:individual].each do |result| %>
-            <div class="bg-slate-900/50 rounded-lg p-4">
-              <div class="flex justify-between items-center">
-                <span class="font-medium text-slate-300"><%= result[:name] %></span>
-                <span class="text-2xl font-bold text-white"><%= result[:area].round(2) %></span>
-              </div>
-              <div class="text-sm text-slate-500 mt-1">
-                公式: <%= result[:formula] %>
-              </div>
+        <div class="space-y-4" data-geometry-overlap-target="results">
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-300">円 1</span>
+              <span data-geometry-overlap-target="area1" class="text-2xl font-bold text-white"><%= (Math::PI * 80 ** 2).round(2) %></span>
             </div>
-          <% end %>
+            <div data-geometry-overlap-target="formula1" class="text-sm text-slate-500 mt-1">
+              公式: π × 80²
+            </div>
+          </div>
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-300">円 2</span>
+              <span data-geometry-overlap-target="area2" class="text-2xl font-bold text-white"><%= (Math::PI * 60 ** 2).round(2) %></span>
+            </div>
+            <div data-geometry-overlap-target="formula2" class="text-sm text-slate-500 mt-1">
+              公式: π × 60²
+            </div>
+          </div>
+          <div class="bg-slate-900/50 rounded-lg p-4">
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-slate-300">長方形</span>
+              <span data-geometry-overlap-target="area3" class="text-2xl font-bold text-white">12000</span>
+            </div>
+            <div data-geometry-overlap-target="formula3" class="text-sm text-slate-500 mt-1">
+              公式: 120 × 100
+            </div>
+          </div>
           <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-500/30">
             <div class="flex justify-between items-center">
               <span class="font-bold text-purple-300">合計面積</span>
-              <span class="text-3xl font-bold text-white"><%= @area_results[:total].round(2) %></span>
+              <span data-geometry-overlap-target="total" class="text-3xl font-bold text-white"><%= ((Math::PI * 80 ** 2) + (Math::PI * 60 ** 2) + 12000).round(2) %></span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- 面積内訳 -->
-      <div class="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700">
+      <div class="bg-slate-800/50 backdrop-blur rounded-2xl p-6 border border-slate-700 lg:col-span-2">
         <h2 class="text-xl font-semibold mb-4 flex items-center gap-2 text-cyan-400">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
@@ -99,38 +279,38 @@
           </svg>
           面積内訳
         </h2>
-        <div class="space-y-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div class="flex items-center gap-3 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-            <div class="w-4 h-4 rounded-full bg-blue-500"></div>
+            <div data-geometry-overlap-target="color1" class="w-4 h-4 rounded-full bg-blue-500"></div>
             <div class="flex-1">
               <div class="font-medium">円 1</div>
-              <div class="text-sm text-slate-400">半径 80</div>
+              <div data-geometry-overlap-target="size1" class="text-sm text-slate-400">半径 80</div>
             </div>
             <div class="text-right">
-              <div class="font-mono text-blue-400">π × 80²</div>
-              <div class="text-sm text-slate-400">= <%= (Math::PI * 80 ** 2).round(2) %></div>
+              <div data-geometry-overlap-target="code1" class="font-mono text-blue-400">π × 80²</div>
+              <div data-geometry-overlap-target="result1" class="text-sm text-slate-400">= <%= (Math::PI * 80 ** 2).round(2) %></div>
             </div>
           </div>
           <div class="flex items-center gap-3 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
-            <div class="w-4 h-4 rounded-full bg-red-500"></div>
+            <div data-geometry-overlap-target="color2" class="w-4 h-4 rounded-full bg-red-500"></div>
             <div class="flex-1">
               <div class="font-medium">円 2</div>
-              <div class="text-sm text-slate-400">半径 60</div>
+              <div data-geometry-overlap-target="size2" class="text-sm text-slate-400">半径 60</div>
             </div>
             <div class="text-right">
-              <div class="font-mono text-red-400">π × 60²</div>
-              <div class="text-sm text-slate-400">= <%= (Math::PI * 60 ** 2).round(2) %></div>
+              <div data-geometry-overlap-target="code2" class="font-mono text-red-400">π × 60²</div>
+              <div data-geometry-overlap-target="result2" class="text-sm text-slate-400">= <%= (Math::PI * 60 ** 2).round(2) %></div>
             </div>
           </div>
           <div class="flex items-center gap-3 p-3 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-            <div class="w-4 h-4 rounded bg-emerald-500"></div>
+            <div data-geometry-overlap-target="color3" class="w-4 h-4 bg-emerald-500"></div>
             <div class="flex-1">
               <div class="font-medium">長方形</div>
-              <div class="text-sm text-slate-400">120 × 100</div>
+              <div data-geometry-overlap-target="size3" class="text-sm text-slate-400">120 × 100</div>
             </div>
             <div class="text-right">
-              <div class="font-mono text-emerald-400">120 × 100</div>
-              <div class="text-sm text-slate-400">= 12000</div>
+              <div data-geometry-overlap-target="code3" class="font-mono text-emerald-400">120 × 100</div>
+              <div data-geometry-overlap-target="result3" class="text-sm text-slate-400">= 12000</div>
             </div>
           </div>
         </div>

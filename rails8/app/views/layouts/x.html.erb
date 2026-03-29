@@ -51,7 +51,6 @@
             </div>
           <% else %>
             <div class="text-center py-4">
-              <h2 class="text-2xl font-bold mb-4">Welcome to X</h2>
               <%= button_to "/auth/google_oauth2", method: :post, data: { turbo: false }, class: "inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full cursor-pointer" do %>
                 Sign in with Google
               <% end %>
