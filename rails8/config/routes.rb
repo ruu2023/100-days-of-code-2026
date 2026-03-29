@@ -141,4 +141,7 @@ scope "/geometrys", as: :geometrys do
   get "/overlap" => "geometrys#overlap"
   get "/:shape" => "geometrys#show", as: :shape
 end
+
+# CSV Tables - Convert CSV to Markdown and Excel table
+get "csv_tables", to: "csv_tables#index"
 end

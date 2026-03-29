@@ -7,7 +7,7 @@ class CsvTablesController < ApplicationController
   private
 
   def parse_csv(text)
-    rows = CSV.read(text.gsub(/\r\n?/, "\n"), headers: true, skip_blanks: true)
+    rows = CSV.parse(text.gsub(/\r\n?/, "\n"), headers: true, skip_blanks: true)
     {
       headers: rows.headers,
       rows: rows.map(&:fields)
