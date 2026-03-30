@@ -1,0 +1,18 @@
+<%# app/views/mice/edit.html.erb %>
+
+<%= turbo_frame_tag dom_id(@mouse), class: "contents" do %>
+  <tr class="bg-blue-50">
+    <%= form_with(model: @mouse, class: "contents") do |f| %>
+      <td class="px-4 py-2 border-r"><%= f.text_field :title, class: "w-full text-sm border-gray-300 rounded" %></td>
+      <td class="px-4 py-2 border-r"><%= f.select :status, Mouse.statuses.keys, {}, class: "w-full text-sm border-gray-300 rounded" %></td>
+      <td class="px-4 py-2 border-r"><%= f.date_field :deadline, class: "w-full text-sm border-gray-300 rounded" %></td>
+      <td class="px-4 py-2 border-r"><%= f.text_field :worker, class: "w-full text-sm border-gray-300 rounded" %></td>
+      <td class="px-4 py-2 text-center">
+        <div class="flex justify-center space-x-2">
+          <%= f.submit "Save", class: "text-green-600 font-bold cursor-pointer" %>
+          <%= link_to "Cancel", mice_path, class: "text-gray-400" %>
+        </div>
+      </td>
+    <% end %>
+  </tr>
+<% end %>

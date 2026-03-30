@@ -1,0 +1,7 @@
+<%# 1. 一覧（id="mice_list"）の先頭に、新しく作った _mouse.html.erb を追加する %>
+<%= turbo_stream.prepend "mice_list", partial: "mice/mouse", locals: { mouse: @mouse } %>
+
+<%# 2. 入力フォーム（id="new_mouse"）を空っぽに戻す %>
+<%= turbo_stream.update "new_mouse", "" %>
+
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>

@@ -1,0 +1,13 @@
+<%# app/views/mice/_mouse.html.erb %>
+<%= turbo_frame_tag dom_id(mouse), tag: "tr", class: "hover:bg-gray-50 transition-colors" do %>
+  <td class="px-4 py-3 text-sm border-r text-gray-900"><%= mouse.title %></td>
+  <td class="px-4 py-3 text-sm border-r text-gray-900"><%= mouse.status %></td>
+  <td class="px-4 py-3 text-sm border-r text-gray-500"><%= mouse.deadline %></td>
+  <td class="px-4 py-3 text-sm border-r text-gray-500"><%= mouse.worker %></td>
+  <td class="px-4 py-3 text-sm text-center">
+    <div class="flex justify-center space-x-2">
+      <%= link_to "Edit", edit_mouse_path(mouse), class: "text-blue-600 hover:underline" %>
+      <%= button_to "Del", mouse, method: :delete, data: { turbo_confirm: "消すんご？" }, class: "text-red-500" %>
+    </div>
+  </td>
+<% end %>

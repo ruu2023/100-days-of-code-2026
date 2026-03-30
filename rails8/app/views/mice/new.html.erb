@@ -1,0 +1,31 @@
+<% content_for :title, "New mouse" %>
+
+<div class="md:w-2/3 w-full">
+  <h1 class="font-bold text-4xl">New mouse</h1>
+
+  <%#= render "form", mouse: @mouse %>
+  <%= turbo_frame_tag "new_mouse" do %>
+    <div class="bg-blue-50 p-6 rounded-lg border-2 border-blue-200 mb-6">
+      <h2 class="text-lg font-bold mb-4">新規課題の登録</h2>
+      
+      <%= form_with(model: @mouse, class: "space-y-4") do |f| %>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <%= f.label :title, "タイトル", class: "block text-sm font-medium" %>
+            <%= f.text_field :title, class: "w-full rounded border-gray-300", placeholder: "何をやるんご？" %>
+          </div>
+          <div>
+            <%= f.label :deadline, "期限", class: "block text-sm font-medium" %>
+            <%= f.date_field :deadline, class: "w-full rounded border-gray-300" %>
+          </div>
+          <div class="flex items-end space-x-2">
+            <%= f.submit "保存する", class: "bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer" %>
+            <%= link_to "キャンセル", mice_path, class: "text-gray-500 text-sm py-2" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= link_to "Back to mice", mice_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+</div>

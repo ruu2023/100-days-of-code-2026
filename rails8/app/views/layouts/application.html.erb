@@ -23,6 +23,9 @@
   </head>
 
   <body>
+    <div id="flash" class="fixed top-5 right-5 z-50 flex flex-col gap-2">
+      <%= render "layouts/flash" %>
+    </div>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

@@ -1,0 +1,7 @@
+<%# app/views/mice/update.turbo_stream.erb %>
+
+<%# 特定のID（mouse_123など）の枠を、新しい partial で置換（replace）せよ %>
+<%= turbo_stream.replace dom_id(@mouse), partial: "mice/mouse", locals: { mouse: @mouse } %>
+
+<%# ついでに通知も出せるとカッコいい %>
+<%= turbo_stream.prepend "flash", partial: "layouts/flash" %>

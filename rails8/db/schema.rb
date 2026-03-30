@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_27_010000) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_30_120346) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -212,6 +212,17 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_27_010000) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_master_suppliers_on_name", unique: true
     t.index ["position"], name: "index_master_suppliers_on_position"
+  end
+
+  create_table "mice", force: :cascade do |t|
+    t.string "author"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.date "deadline"
+    t.integer "status"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.string "worker"
   end
 
   create_table "parties", force: :cascade do |t|

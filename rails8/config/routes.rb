@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mice
   get "agency_agents", to: "agency_agents#index"
   root "agency_agents#index"
   ActiveAdmin.routes(self)

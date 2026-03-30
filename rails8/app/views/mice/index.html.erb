@@ -1,0 +1,11 @@
+<%# app/views/mice/index.html.erb %>
+<tbody id="mice_list" class="divide-y divide-gray-200">
+  <% if @mice.any? %>
+    <% @mice.each do |mouse| %>
+      <%# 余計な div を消して、直接 partial を呼ぶ %>
+      <%= render mouse %>
+    <% end %>
+  <% else %>
+    <tr><td colspan="5" class="text-center py-10">No mice found.</td></tr>
+  <% end %>
+</tbody>
