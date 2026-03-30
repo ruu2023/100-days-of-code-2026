@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Sleep Mode</title>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+
+    body {
+      margin: 0;
+      width: 280px;
+      padding: 16px;
+      background: #050505;
+      color: #f5f5f5;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+    }
+
+    p {
+      margin: 0 0 16px;
+      color: #a3a3a3;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      border: 1px solid #262626;
+      background: #111111;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button[data-state="on"] {
+      background: #f5f5f5;
+      color: #050505;
+    }
+
+    .status {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #737373;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube Sleep Mode</h1>
+  <p>動画とライブチャット以外を隠します。YouTube の watch ページで使ってください。</p>
+  <button id="toggleButton" type="button">Loading...</button>
+  <div class="status" id="statusText"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

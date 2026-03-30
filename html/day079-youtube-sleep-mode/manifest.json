@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Sleep Mode",
+  "version": "1.0.0",
+  "description": "Hide everything except the video and live chat on YouTube.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/watch*",
+        "https://www.youtube.com/live_chat*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
