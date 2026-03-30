@@ -1,5 +1,21 @@
 [
   {
+    "day": 89,
+    "date": "2026-03-30",
+    "title": "YouTube sleep extension 🛠️✨",
+    "description": "【Day 089/100】YouTube sleep extension 🛠️✨",
+    "features": [
+      "寝ながらYouTtube",
+      "フルと違ってサイズ調整できる"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Chrome"
+    ],
+    "url": "https://x.com/ruu_web/status/2038256488733704663",
+    "demoLink": "https://ruu-dev.com/"
+  },
+  {
     "day": 88,
     "date": "2026-03-29",
     "title": "Rails csv to MD & Excel 🛠️✨",

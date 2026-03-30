@@ -1,3 +1,20 @@
+## 2026-03-30
+
+【Day 089/100】YouTube sleep extension 🛠️✨
+
+YouTubeを寝るときに再生部分以外を黒塗りにする拡張機能です
+
+✅ 寝ながらYouTtube
+✅ フルと違ってサイズ調整できる
+
+#100DaysOfCode #Chrome exteinsion
+
+[Demo](https://ruu-dev.com/)
+
+[Original Post](https://x.com/ruu_web/status/2038620457587597444)
+
+---
+
 ## 2026-03-29
 
 【Day 088/100】Rails csv to MD & Excel 🛠️✨
