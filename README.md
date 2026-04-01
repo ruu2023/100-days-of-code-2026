@@ -163,6 +163,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 088 | 03/29 | Rails csv to MD & Excel     | CSV to MD 自動整形 / Excelようにtable整形       | [View](./rails8)                                                          |
 | 089 | 03/30 | YouTube sleep extension     | Chrome Extension / Sleep Mode UI                | [View](./html/youtube-sleep-mode)                                         |
 | 090 | 03/31 | Rails 3 tasks               | “消化しないインプットは娯楽” / YouTube埋め込み | [View](./rails8)                                                          |
+| 091 | 04/01 | Rails Ruby Editor           | Rubyを簡単に実行 / Railsで動作                  | [View](./rails8) [Demo](https://rails.ruu-dev.com/editor)                 |
 
 ## 📬 Links
 
