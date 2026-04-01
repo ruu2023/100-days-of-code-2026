@@ -75,8 +75,8 @@ class EditorsController < ApplicationController
   end
 
   def editor_execution_enabled?
-    true
-    # false
+    # true
+    false
   end
 
   def default_code
