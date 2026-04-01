@@ -1,3 +1,20 @@
+## 2026-04-01
+
+【Day 091/100】Rails Ruby Editor 🛠️✨
+
+RubyをWeb上で実行するアプリです。
+
+✅ Rubyを簡単に実行
+✅ Railsで動作
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/editor)
+
+[Original Post](https://x.com/ruu_web/status/2039335497026486524)
+
+---
+
 ## 2026-03-30
 
 【Day 090/100】Rails 3 tasks 🛠️✨
