@@ -65,8 +65,8 @@ class EditorsController < ApplicationController
 
       top = records.max_by { |row| row[:score] }
 
-      puts "top: #{top[:name]} (#{top[:score]})"
-      puts "all: #{records.map { |row| row[:name] }.join(", ")}"
+      puts "top: \#{top[:name]} (\#{top[:score]})"
+      puts "all: \#{records.map { |row| row[:name] }.join(", ")}"
     RUBY
   end
 end
