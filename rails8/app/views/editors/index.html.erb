@@ -24,7 +24,7 @@
         <p class="editor-header__meta">Rails 8 から Ruby をすぐ試すための実行ビュー</p>
       </header>
 
-      <%= form_with url: run_editor_path, scope: :editor, method: :post, class: "editor-form" do |form| %>
+      <%= form_with url: run_editor_path, scope: :editor, method: :post, class: "editor-form", data: { turbo: false } do |form| %>
         <section class="editor-pane editor-pane--code" aria-label="Ruby editor">
           <div class="editor-pane__top">
             <div class="editor-pane__label">Ruby</div>
