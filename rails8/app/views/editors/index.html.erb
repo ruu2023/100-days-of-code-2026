@@ -1,0 +1,69 @@
+<% content_for :title, "Code Editor" %>
+<% content_for :full_bleed, true %>
+
+<section class="editor-workbench">
+  <aside class="editor-activitybar" aria-label="Activity bar">
+    <div class="editor-activitybar__brand">R8</div>
+    <div class="editor-activitybar__item is-active">F</div>
+    <div class="editor-activitybar__item">S</div>
+    <div class="editor-activitybar__item">G</div>
+    <div class="editor-activitybar__item">D</div>
+  </aside>
+
+  <aside class="editor-sidebar" aria-label="Explorer">
+    <p class="editor-sidebar__label">Explorer</p>
+    <ul class="editor-tree">
+      <li>app</li>
+      <li>controllers</li>
+      <li class="is-active">editors_controller.rb</li>
+      <li>views</li>
+      <li class="is-active">editors/index.html.erb</li>
+      <li>assets/stylesheets/application.css</li>
+      <li>config/routes.rb</li>
+    </ul>
+  </aside>
+
+  <section class="editor-main" aria-label="Editor main area">
+    <div class="editor-tabs" role="tablist" aria-label="Open files">
+      <div class="editor-tab">routes.rb</div>
+      <div class="editor-tab">editors_controller.rb</div>
+      <div class="editor-tab is-active">index.html.erb</div>
+    </div>
+
+    <div class="editor-panels">
+      <pre class="editor-code"><code><span class="editor-code__line"><span class="token-comment">&lt;%# Rails 8 code editor starter %&gt;</span></span>
+<span class="editor-code__line">&lt;% <span class="token-method">content_for</span> <span class="token-symbol">:title</span>, <span class="token-string">"Code Editor"</span> %&gt;</span>
+<span class="editor-code__line">&lt;% <span class="token-method">content_for</span> <span class="token-symbol">:full_bleed</span>, <span class="token-class">true</span> %&gt;</span>
+<span class="editor-code__line"></span>
+<span class="editor-code__line">&lt;<span class="token-keyword">section</span> <span class="token-class">class</span>=<span class="token-string">"editor-workbench"</span>&gt;</span>
+<span class="editor-code__line">  &lt;<span class="token-keyword">aside</span> <span class="token-class">class</span>=<span class="token-string">"editor-sidebar"</span>&gt;</span>
+<span class="editor-code__line">    VS Code ライクな UI をここから育てていく</span>
+<span class="editor-code__line">  &lt;/<span class="token-keyword">aside</span>&gt;</span>
+<span class="editor-code__line">&lt;/<span class="token-keyword">section</span>&gt;</span></code></pre>
+
+      <aside class="editor-panel" aria-label="Outline">
+        <p class="editor-panel__label">Outline</p>
+        <ul class="editor-outline">
+          <li class="is-active">editor-workbench</li>
+          <li>editor-activitybar</li>
+          <li>editor-sidebar</li>
+          <li>editor-main</li>
+          <li>editor-statusbar</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="editor-statusbar">
+    <div class="editor-statusbar__group">
+      <span>main</span>
+      <span>Rails 8</span>
+      <span>UTF-8</span>
+    </div>
+    <div class="editor-statusbar__group">
+      <span>ERB</span>
+      <span>Spaces: 2</span>
+      <span>Ln 7, Col 3</span>
+    </div>
+  </footer>
+</section>

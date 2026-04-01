@@ -8,3 +8,208 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  color: #111827;
+  font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+}
+
+.editor-workbench {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 3.5rem 16rem minmax(0, 1fr);
+  grid-template-rows: 2.75rem minmax(0, 1fr) 1.75rem;
+  background:
+    radial-gradient(circle at top left, rgba(88, 166, 255, 0.12), transparent 24rem),
+    linear-gradient(180deg, #111827 0%, #0f172a 100%);
+  color: #e5e7eb;
+}
+
+.editor-activitybar {
+  grid-row: 1 / span 3;
+  background: rgba(15, 23, 42, 0.95);
+  border-right: 1px solid rgba(148, 163, 184, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 0.5rem;
+}
+
+.editor-activitybar__item,
+.editor-activitybar__brand {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  color: #cbd5e1;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.editor-activitybar__item.is-active,
+.editor-activitybar__brand {
+  background: rgba(59, 130, 246, 0.18);
+  border-color: rgba(96, 165, 250, 0.35);
+  color: #eff6ff;
+}
+
+.editor-sidebar {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  background: rgba(15, 23, 42, 0.82);
+  border-right: 1px solid rgba(148, 163, 184, 0.12);
+  padding: 1rem;
+}
+
+.editor-sidebar__label,
+.editor-panel__label {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.editor-tree,
+.editor-outline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.editor-tree li,
+.editor-outline li {
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.55rem;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.editor-tree li.is-active,
+.editor-outline li.is-active {
+  background: rgba(37, 99, 235, 0.22);
+  color: #eff6ff;
+}
+
+.editor-main {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-rows: 2.75rem minmax(0, 1fr);
+  min-width: 0;
+}
+
+.editor-tabs {
+  display: flex;
+  align-items: stretch;
+  background: rgba(15, 23, 42, 0.7);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  overflow-x: auto;
+}
+
+.editor-tab {
+  padding: 0.8rem 1rem;
+  border-right: 1px solid rgba(148, 163, 184, 0.08);
+  color: #94a3b8;
+  white-space: nowrap;
+  font-size: 0.88rem;
+}
+
+.editor-tab.is-active {
+  background: rgba(15, 23, 42, 0.88);
+  color: #f8fafc;
+}
+
+.editor-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  min-height: 0;
+}
+
+.editor-code {
+  margin: 0;
+  padding: 1.25rem 0 2rem;
+  overflow: auto;
+  counter-reset: line;
+}
+
+.editor-code__line {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  padding: 0 1.25rem;
+  line-height: 1.8;
+  white-space: pre;
+}
+
+.editor-code__line::before {
+  counter-increment: line;
+  content: counter(line);
+  color: #64748b;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.token-keyword { color: #c084fc; }
+.token-class { color: #93c5fd; }
+.token-method { color: #f9a8d4; }
+.token-string { color: #86efac; }
+.token-symbol { color: #fcd34d; }
+.token-comment { color: #64748b; }
+
+.editor-panel {
+  border-left: 1px solid rgba(148, 163, 184, 0.1);
+  background: rgba(15, 23, 42, 0.5);
+  padding: 1rem;
+}
+
+.editor-statusbar {
+  grid-column: 2 / span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+  background: #2563eb;
+  color: #eff6ff;
+  font-size: 0.82rem;
+}
+
+.editor-statusbar__group {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .editor-workbench {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    grid-template-rows: 2.75rem auto minmax(0, 1fr) 1.75rem;
+  }
+
+  .editor-sidebar {
+    grid-column: 2;
+    grid-row: 2;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  }
+
+  .editor-main {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .editor-panels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .editor-panel {
+    display: none;
+  }
+
+  .editor-statusbar {
+    grid-column: 1 / span 2;
+  }
+}

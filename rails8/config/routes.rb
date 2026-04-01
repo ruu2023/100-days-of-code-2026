@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   get "news", to: "news#index"
   get "convert", to: "convert#index"
   get "convert/stream",  to: "convert#stream"
+  get "editor", to: "editors#index"
 
   # Bookkeeping routes
   scope "/accounting", as: :accounting do
