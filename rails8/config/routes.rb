@@ -143,6 +143,13 @@ scope "/geometrys", as: :geometrys do
   get "/:shape" => "geometrys#show", as: :shape
 end
 
+# Day091 - Just 3 Things Today (今日やる3つだけ出す)
+scope "/just3", as: :day090 do
+  get "/" => "day090/tasks#index", as: :tasks
+  post "/" => "day090/tasks#create"
+  patch "/:id" => "day090/tasks#update", as: :task
+end
+
 # CSV Tables - Convert CSV to Markdown and Excel table
 get "csv_tables", to: "csv_tables#index"
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_30_120346) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_31_114149) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -116,6 +116,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_30_120346) do
     t.index ["user_id", "category_id"], name: "index_day085_subscriptions_on_user_id_and_category_id"
     t.index ["user_id", "status"], name: "index_day085_subscriptions_on_user_id_and_status"
     t.index ["user_id"], name: "index_day085_subscriptions_on_user_id"
+  end
+
+  create_table "day090_tasks", force: :cascade do |t|
+    t.datetime "completed_at"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.date "scheduled_on"
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|

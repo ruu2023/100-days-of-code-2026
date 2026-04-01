@@ -1,0 +1,76 @@
+<div class="max-w-2xl mx-auto p-4 font-sans text-gray-800">
+  <header class="mb-8 border-b pb-4">
+    <h1 class="text-3xl font-bold mb-2">今日やる 3つだけ出す</h1>
+    <p class="text-sm text-gray-500 italic">“消化しないインプットは娯楽”</p>
+  </header>
+
+  <% if notice %>
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <span class="block sm:inline"><%= notice %></span>
+    </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+      <span class="block sm:inline"><%= alert %></span>
+    </div>
+  <% end %>
+
+  <div class="mb-10 bg-gray-50 p-6 rounded-lg shadow-inner">
+    <%= form_with model: @new_task, url: day090_tasks_path, class: "flex gap-2" do |f| %>
+      <%= f.text_field :content, placeholder: "URL or Text...", class: "flex-1 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", autofocus: true %>
+      <%= f.submit "追加", class: "px-6 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors cursor-pointer" %>
+    <% end %>
+    <% if @new_task.errors.any? %>
+      <div class="mt-2 text-red-500 text-sm">
+        <%= @new_task.errors.full_messages.join(", ") %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="space-y-8">
+    <% if @tasks.any? %>
+      <h2 class="text-xl font-semibold text-gray-700 mb-4 border-l-4 border-blue-600 pl-3">今日の3件</h2>
+      <div class="grid gap-6">
+        <% @tasks.each_with_index do |task, index| %>
+          <div class="bg-white border rounded-xl shadow-sm overflow-hidden p-6 hover:shadow-md transition-shadow">
+            <div class="flex justify-between items-start mb-4">
+              <span class="inline-block px-3 py-1 bg-gray-200 text-gray-700 text-xs font-bold rounded-full">
+                #<%= index + 1 %> 
+                <% if task.scheduled_on < Date.current %>
+                  <span class="text-red-600 ml-1">(Delayed from <%= task.scheduled_on.strftime("%m/%d") %>)</span>
+                <% else %>
+                   (<%= task.scheduled_on.strftime("%m/%d") %>)
+                <% end %>
+              </span>
+              <%= button_to "完了", day090_task_path(task), method: :patch, class: "px-4 py-1 bg-green-600 text-white text-sm font-semibold rounded-md hover:bg-green-700 transition-colors cursor-pointer" %>
+            </div>
+
+            <div class="mb-4">
+              <% if task.youtube? %>
+                <div class="aspect-video mb-3 rounded-lg overflow-hidden shadow">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/<%= task.youtube_id %>" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              <% end %>
+              <div class="text-lg text-gray-900 break-words">
+                <%= task.content %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="text-center py-10 text-gray-500">
+        <p class="text-lg">今日はもう完了！お疲れ様でした。</p>
+        <p class="text-sm mt-2">新しいインプットを上のフォームから追加してください。</p>
+      </div>
+    <% end %>
+  </div>
+</div>
