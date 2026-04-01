@@ -15,61 +15,7 @@
       <div class="editor-tab">run output</div>
     </div>
 
-    <div class="editor-shell">
-      <header class="editor-header">
-        <div>
-          <p class="editor-header__eyebrow">DO Query</p>
-          <h1 class="editor-header__title">Ruby CLI Editor</h1>
-        </div>
-        <p class="editor-header__meta">Rails 8 から Ruby をすぐ試すための実行ビュー</p>
-      </header>
-
-      <%= form_with url: run_editor_path, scope: :editor, method: :post, class: "editor-form", data: { turbo: false } do |form| %>
-        <section class="editor-pane editor-pane--code" aria-label="Ruby editor">
-          <div class="editor-pane__top">
-            <div class="editor-pane__label">Ruby</div>
-            <div class="editor-pane__actions">
-              <span class="editor-chip">CLI</span>
-              <span class="editor-chip">Timeout 4s</span>
-            </div>
-          </div>
-          <%= form.text_area :code, value: @code, class: "editor-textarea", spellcheck: false %>
-          <div class="editor-command">
-            <span class="editor-command__label">Command</span>
-            <code><%= @command %></code>
-          </div>
-        </section>
-
-        <section class="editor-pane editor-pane--output" aria-label="Execution output">
-          <div class="editor-pane__top">
-            <div class="editor-pane__label">Output</div>
-            <%= form.submit "Run Ruby", class: "editor-run" %>
-          </div>
-
-          <div class="editor-console">
-            <% if @exit_status.nil? %>
-              <div class="editor-console__empty">Run Ruby を押すと、標準出力と標準エラーをここに表示します。</div>
-            <% else %>
-              <div class="editor-console__section">
-                <span class="editor-console__badge <%= @exit_status.to_i.zero? ? "is-success" : "is-error" %>">
-                  exit <%= @exit_status %>
-                </span>
-              </div>
-
-              <div class="editor-console__section">
-                <p class="editor-console__label">STDOUT</p>
-                <pre><%= @stdout.presence || "(empty)" %></pre>
-              </div>
-
-              <div class="editor-console__section">
-                <p class="editor-console__label">STDERR</p>
-                <pre><%= @stderr.presence || "(empty)" %></pre>
-              </div>
-            <% end %>
-          </div>
-        </section>
-      <% end %>
-    </div>
+    <%= render "workspace" %>
   </section>
 
   <footer class="editor-statusbar">

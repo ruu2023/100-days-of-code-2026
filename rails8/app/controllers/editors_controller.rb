@@ -12,7 +12,15 @@ class EditorsController < ApplicationController
     build_editor_state(code: editor_params[:code])
     execute_ruby(@code)
 
-    render :index, status: :ok
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace(
+          "editor_workspace",
+          partial: "editors/workspace"
+        )
+      end
+      format.html { render :index, status: :ok }
+    end
   end
 
   private
