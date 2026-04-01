@@ -1,56 +1,74 @@
-<% content_for :title, "Code Editor" %>
+<% content_for :title, "DO Query Ruby Editor" %>
 <% content_for :full_bleed, true %>
 
 <section class="editor-workbench">
   <aside class="editor-activitybar" aria-label="Activity bar">
     <div class="editor-activitybar__brand">R8</div>
-    <div class="editor-activitybar__item is-active">F</div>
-    <div class="editor-activitybar__item">S</div>
-    <div class="editor-activitybar__item">G</div>
-    <div class="editor-activitybar__item">D</div>
-  </aside>
-
-  <aside class="editor-sidebar" aria-label="Explorer">
-    <p class="editor-sidebar__label">Explorer</p>
-    <ul class="editor-tree">
-      <li>app</li>
-      <li>controllers</li>
-      <li class="is-active">editors_controller.rb</li>
-      <li>views</li>
-      <li class="is-active">editors/index.html.erb</li>
-      <li>assets/stylesheets/application.css</li>
-      <li>config/routes.rb</li>
-    </ul>
+    <div class="editor-activitybar__item is-active">Rb</div>
+    <div class="editor-activitybar__item">IO</div>
+    <div class="editor-activitybar__item">Do</div>
   </aside>
 
   <section class="editor-main" aria-label="Editor main area">
     <div class="editor-tabs" role="tablist" aria-label="Open files">
-      <div class="editor-tab">routes.rb</div>
-      <div class="editor-tab">editors_controller.rb</div>
-      <div class="editor-tab is-active">index.html.erb</div>
+      <div class="editor-tab is-active">do_query.rb</div>
+      <div class="editor-tab">run output</div>
     </div>
 
-    <div class="editor-panels">
-      <pre class="editor-code"><code><span class="editor-code__line"><span class="token-comment">&lt;%# Rails 8 code editor starter %&gt;</span></span>
-<span class="editor-code__line">&lt;% <span class="token-method">content_for</span> <span class="token-symbol">:title</span>, <span class="token-string">"Code Editor"</span> %&gt;</span>
-<span class="editor-code__line">&lt;% <span class="token-method">content_for</span> <span class="token-symbol">:full_bleed</span>, <span class="token-class">true</span> %&gt;</span>
-<span class="editor-code__line"></span>
-<span class="editor-code__line">&lt;<span class="token-keyword">section</span> <span class="token-class">class</span>=<span class="token-string">"editor-workbench"</span>&gt;</span>
-<span class="editor-code__line">  &lt;<span class="token-keyword">aside</span> <span class="token-class">class</span>=<span class="token-string">"editor-sidebar"</span>&gt;</span>
-<span class="editor-code__line">    VS Code ライクな UI をここから育てていく</span>
-<span class="editor-code__line">  &lt;/<span class="token-keyword">aside</span>&gt;</span>
-<span class="editor-code__line">&lt;/<span class="token-keyword">section</span>&gt;</span></code></pre>
+    <div class="editor-shell">
+      <header class="editor-header">
+        <div>
+          <p class="editor-header__eyebrow">DO Query</p>
+          <h1 class="editor-header__title">Ruby CLI Editor</h1>
+        </div>
+        <p class="editor-header__meta">Rails 8 から Ruby をすぐ試すための実行ビュー</p>
+      </header>
 
-      <aside class="editor-panel" aria-label="Outline">
-        <p class="editor-panel__label">Outline</p>
-        <ul class="editor-outline">
-          <li class="is-active">editor-workbench</li>
-          <li>editor-activitybar</li>
-          <li>editor-sidebar</li>
-          <li>editor-main</li>
-          <li>editor-statusbar</li>
-        </ul>
-      </aside>
+      <%= form_with url: run_editor_path, scope: :editor, method: :post, class: "editor-form" do |form| %>
+        <section class="editor-pane editor-pane--code" aria-label="Ruby editor">
+          <div class="editor-pane__top">
+            <div class="editor-pane__label">Ruby</div>
+            <div class="editor-pane__actions">
+              <span class="editor-chip">CLI</span>
+              <span class="editor-chip">Timeout 4s</span>
+            </div>
+          </div>
+          <%= form.text_area :code, value: @code, class: "editor-textarea", spellcheck: false %>
+          <div class="editor-command">
+            <span class="editor-command__label">Command</span>
+            <code><%= @command %></code>
+          </div>
+        </section>
+
+        <section class="editor-pane editor-pane--output" aria-label="Execution output">
+          <div class="editor-pane__top">
+            <div class="editor-pane__label">Output</div>
+            <%= form.submit "Run Ruby", class: "editor-run" %>
+          </div>
+
+          <div class="editor-console">
+            <% if @exit_status.nil? %>
+              <div class="editor-console__empty">Run Ruby を押すと、標準出力と標準エラーをここに表示します。</div>
+            <% else %>
+              <div class="editor-console__section">
+                <span class="editor-console__badge <%= @exit_status.to_i.zero? ? "is-success" : "is-error" %>">
+                  exit <%= @exit_status %>
+                </span>
+              </div>
+
+              <div class="editor-console__section">
+                <p class="editor-console__label">STDOUT</p>
+                <pre><%= @stdout.presence || "(empty)" %></pre>
+              </div>
+
+              <div class="editor-console__section">
+                <p class="editor-console__label">STDERR</p>
+                <pre><%= @stderr.presence || "(empty)" %></pre>
+              </div>
+            <% end %>
+          </div>
+        </section>
+      <% end %>
     </div>
   </section>
 
@@ -61,9 +79,9 @@
       <span>UTF-8</span>
     </div>
     <div class="editor-statusbar__group">
-      <span>ERB</span>
+      <span>Ruby</span>
       <span>Spaces: 2</span>
-      <span>Ln 7, Col 3</span>
+      <span>Quick Run</span>
     </div>
   </footer>
 </section>

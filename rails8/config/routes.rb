@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   get "convert", to: "convert#index"
   get "convert/stream",  to: "convert#stream"
   get "editor", to: "editors#index"
+  post "editor/run", to: "editors#run", as: :run_editor
 
   # Bookkeeping routes
   scope "/accounting", as: :accounting do

@@ -19,7 +19,7 @@ body {
 .editor-workbench {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 3.5rem 16rem minmax(0, 1fr);
+  grid-template-columns: 3.5rem minmax(0, 1fr);
   grid-template-rows: 2.75rem minmax(0, 1fr) 1.75rem;
   background:
     radial-gradient(circle at top left, rgba(88, 166, 255, 0.12), transparent 24rem),
@@ -57,46 +57,8 @@ body {
   color: #eff6ff;
 }
 
-.editor-sidebar {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  background: rgba(15, 23, 42, 0.82);
-  border-right: 1px solid rgba(148, 163, 184, 0.12);
-  padding: 1rem;
-}
-
-.editor-sidebar__label,
-.editor-panel__label {
-  margin: 0 0 1rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #94a3b8;
-}
-
-.editor-tree,
-.editor-outline {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.editor-tree li,
-.editor-outline li {
-  padding: 0.45rem 0.6rem;
-  border-radius: 0.55rem;
-  font-size: 0.9rem;
-  color: #cbd5e1;
-}
-
-.editor-tree li.is-active,
-.editor-outline li.is-active {
-  background: rgba(37, 99, 235, 0.22);
-  color: #eff6ff;
-}
-
 .editor-main {
-  grid-column: 3;
+  grid-column: 2;
   grid-row: 1 / span 2;
   display: grid;
   grid-template-rows: 2.75rem minmax(0, 1fr);
@@ -124,50 +86,182 @@ body {
   color: #f8fafc;
 }
 
-.editor-panels {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 18rem;
+.editor-shell {
   min-height: 0;
-}
-
-.editor-code {
-  margin: 0;
-  padding: 1.25rem 0 2rem;
-  overflow: auto;
-  counter-reset: line;
-}
-
-.editor-code__line {
+  padding: 1.25rem;
   display: grid;
-  grid-template-columns: 4rem minmax(0, 1fr);
-  padding: 0 1.25rem;
-  line-height: 1.8;
-  white-space: pre;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
 }
 
-.editor-code__line::before {
-  counter-increment: line;
-  content: counter(line);
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+}
+
+.editor-header__eyebrow {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #60a5fa;
+}
+
+.editor-header__title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: #f8fafc;
+}
+
+.editor-header__meta {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.92rem;
+}
+
+.editor-form {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(20rem, 0.7fr);
+  gap: 1rem;
+}
+
+.editor-pane {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.62);
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.editor-pane--output {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.editor-pane__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.95rem 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.editor-pane__label {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+
+.editor-pane__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editor-chip {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.16);
+  color: #bfdbfe;
+  font-size: 0.75rem;
+}
+
+.editor-textarea {
+  width: 100%;
+  min-height: 26rem;
+  resize: none;
+  border: 0;
+  outline: 0;
+  padding: 1.1rem 1rem 1.2rem;
+  background: transparent;
+  color: #e2e8f0;
+  font: inherit;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+.editor-command {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.9rem 1rem 1rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  font-size: 0.84rem;
+}
+
+.editor-command__label,
+.editor-console__label {
+  margin: 0;
   color: #64748b;
-  text-align: right;
-  padding-right: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.token-keyword { color: #c084fc; }
-.token-class { color: #93c5fd; }
-.token-method { color: #f9a8d4; }
-.token-string { color: #86efac; }
-.token-symbol { color: #fcd34d; }
-.token-comment { color: #64748b; }
+.editor-run {
+  border: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #eff6ff;
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
 
-.editor-panel {
-  border-left: 1px solid rgba(148, 163, 184, 0.1);
-  background: rgba(15, 23, 42, 0.5);
+.editor-console {
+  min-height: 0;
+  overflow: auto;
   padding: 1rem;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.editor-console__empty {
+  color: #94a3b8;
+  line-height: 1.7;
+}
+
+.editor-console__section pre {
+  margin: 0.45rem 0 0;
+  padding: 0.9rem;
+  border-radius: 0.85rem;
+  background: rgba(2, 6, 23, 0.78);
+  color: #e2e8f0;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.editor-console__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.editor-console__badge.is-success {
+  background: rgba(34, 197, 94, 0.16);
+  color: #bbf7d0;
+}
+
+.editor-console__badge.is-error {
+  background: rgba(248, 113, 113, 0.16);
+  color: #fecaca;
 }
 
 .editor-statusbar {
-  grid-column: 2 / span 2;
+  grid-column: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -187,29 +281,49 @@ body {
 @media (max-width: 900px) {
   .editor-workbench {
     grid-template-columns: 3.5rem minmax(0, 1fr);
-    grid-template-rows: 2.75rem auto minmax(0, 1fr) 1.75rem;
-  }
-
-  .editor-sidebar {
-    grid-column: 2;
-    grid-row: 2;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    grid-template-rows: 2.75rem minmax(0, 1fr) 1.75rem;
   }
 
   .editor-main {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 1 / span 2;
   }
 
-  .editor-panels {
+  .editor-header,
+  .editor-form {
     grid-template-columns: minmax(0, 1fr);
+    display: grid;
   }
 
-  .editor-panel {
-    display: none;
+  .editor-header {
+    align-items: start;
   }
 
   .editor-statusbar {
     grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .editor-shell {
+    padding: 0.8rem;
+  }
+
+  .editor-pane__top,
+  .editor-command,
+  .editor-console {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .editor-textarea {
+    min-height: 22rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+
+  .editor-statusbar {
+    font-size: 0.74rem;
+    padding: 0 0.6rem;
   }
 }
