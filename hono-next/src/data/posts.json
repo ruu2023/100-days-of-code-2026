@@ -1,5 +1,21 @@
 [
   {
+    "day": 90,
+    "date": "2026-03-30",
+    "title": "Rails 3 tasks 🛠️✨",
+    "description": "【Day 090/100】Rails 3 tasks 🛠️✨",
+    "features": [
+      "一旦やりたいことを書き出し",
+      "YoutTubeリンクを埋め込み表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2038962394278637761",
+    "demoLink": "https://rails.ruu-dev.com/just3"
+  },
+  {
     "day": 89,
     "date": "2026-03-30",
     "title": "YouTube sleep extension 🛠️✨",
@@ -12,8 +28,8 @@
       "#100DaysOfCode",
       "#Chrome"
     ],
-    "url": "https://x.com/ruu_web/status/2038256488733704663",
-    "demoLink": "https://ruu-dev.com/"
+    "url": "https://x.com/ruu_web/status/2038620457587597444",
+    "demoLink": "https://github.com/ruu2023/100-days-of-code-2026/tree/main/html/youtube-sleep-mode"
   },
   {
     "day": 88,

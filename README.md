@@ -161,7 +161,8 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 086 | 03/27 | Rails マスタ管理             | ActiveAdmin / 商品マスタデモ                     | [View](./rails8)                                                          |
 | 087 | 03/28 | Rails AgencyAgents紹介ページ | AgencyAgents の専門家検索 / グループ一覧表示     | [View](./rails8)                                                          |
 | 088 | 03/29 | Rails csv to MD & Excel     | CSV to MD 自動整形 / Excelようにtable整形       | [View](./rails8)                                                          |
-| 089 | 03/30 | YouTube sleep extension     | Chrome Extension / Sleep Mode UI                | [View](./html/day079-youtube-sleep-mode)                                  |
+| 089 | 03/30 | YouTube sleep extension     | Chrome Extension / Sleep Mode UI                | [View](./html/youtube-sleep-mode)                                         |
+| 090 | 03/31 | Rails 3 tasks               | “消化しないインプットは娯楽” / YouTube埋め込み | [View](./rails8)                                                          |
 
 ## 📬 Links
 
