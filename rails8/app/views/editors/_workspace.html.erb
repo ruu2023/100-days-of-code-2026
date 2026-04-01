@@ -17,7 +17,17 @@
             <span class="editor-chip">Timeout 4s</span>
           </div>
         </div>
-        <%= form.text_area :code, value: @code, class: "editor-textarea", spellcheck: false %>
+        <div class="editor-code-surface" data-controller="editor-highlight">
+          <pre class="editor-highlight" aria-hidden="true" data-editor-highlight-target="preview"></pre>
+          <%= form.text_area :code,
+            value: @code,
+            class: "editor-textarea",
+            spellcheck: false,
+            data: {
+              editor_highlight_target: "input",
+              action: "input->editor-highlight#render scroll->editor-highlight#syncScroll"
+            } %>
+        </div>
         <div class="editor-command">
           <span class="editor-command__label">Command</span>
           <code><%= @command %></code>

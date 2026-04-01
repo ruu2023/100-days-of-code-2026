@@ -173,18 +173,72 @@ body {
   font-size: 0.75rem;
 }
 
+.editor-code-surface {
+  position: relative;
+  min-height: 26rem;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0)),
+    rgba(2, 6, 23, 0.32);
+}
+
+.editor-highlight,
 .editor-textarea {
   width: 100%;
   min-height: 26rem;
-  resize: none;
-  border: 0;
-  outline: 0;
   padding: 1.1rem 1rem 1.2rem;
-  background: transparent;
-  color: #e2e8f0;
   font: inherit;
   line-height: 1.7;
   tab-size: 2;
+  box-sizing: border-box;
+}
+
+.editor-highlight {
+  margin: 0;
+  overflow: auto;
+  color: #e2e8f0;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.editor-textarea {
+  position: absolute;
+  inset: 0;
+  resize: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: #e2e8f0;
+}
+
+.editor-textarea::selection {
+  background: rgba(59, 130, 246, 0.28);
+}
+
+.editor-highlight .token-comment {
+  color: #64748b;
+}
+
+.editor-highlight .token-string {
+  color: #86efac;
+}
+
+.editor-highlight .token-symbol {
+  color: #fbbf24;
+}
+
+.editor-highlight .token-keyword {
+  color: #c084fc;
+}
+
+.editor-highlight .token-constant {
+  color: #93c5fd;
+}
+
+.editor-highlight .token-number {
+  color: #fda4af;
 }
 
 .editor-command {
@@ -318,8 +372,6 @@ body {
 
   .editor-textarea {
     min-height: 22rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
   }
 
   .editor-statusbar {
