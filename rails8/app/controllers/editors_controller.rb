@@ -4,26 +4,38 @@ require "timeout"
 require "rbconfig"
 
 class EditorsController < ApplicationController
+  helper_method :editor_execution_enabled?
+
   def index
     build_editor_state
   end
 
   def run
     build_editor_state(code: editor_params[:code])
-    execute_ruby(@code)
 
+    unless editor_execution_enabled?
+      @stderr = "Ruby execution is disabled. Uncomment the safety switch in EditorsController to enable it again."
+      @exit_status = 503
+      return render_run_response(status: :service_unavailable)
+    end
+
+    execute_ruby(@code)
+    render_run_response(status: :ok)
+  end
+
+  private
+
+  def render_run_response(status:)
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace(
           "editor_workspace",
           partial: "editors/workspace"
-        )
+        ), status: status
       end
-      format.html { render :index, status: :ok }
+      format.html { render :index, status: status }
     end
   end
-
-  private
 
   def build_editor_state(code: default_code)
     @code = code
@@ -60,6 +72,11 @@ class EditorsController < ApplicationController
 
   def editor_params
     params.expect(editor: [ :code ])
+  end
+
+  def editor_execution_enabled?
+    true
+    # false
   end
 
   def default_code

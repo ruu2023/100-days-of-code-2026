@@ -122,6 +122,17 @@ body {
   font-size: 0.92rem;
 }
 
+.editor-header__disabled {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(248, 113, 113, 0.16);
+  color: #fecaca;
+  font-size: 0.74rem;
+}
+
 .editor-form {
   min-height: 0;
   display: grid;
@@ -269,6 +280,12 @@ body {
   font-size: 0.92rem;
   padding: 0.7rem 1rem;
   cursor: pointer;
+}
+
+.editor-run:disabled {
+  background: rgba(100, 116, 139, 0.5);
+  color: #cbd5e1;
+  cursor: not-allowed;
 }
 
 .editor-console {

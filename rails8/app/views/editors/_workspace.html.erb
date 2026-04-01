@@ -5,7 +5,12 @@
         <p class="editor-header__eyebrow">DO Query</p>
         <h1 class="editor-header__title">Ruby CLI Editor</h1>
       </div>
-      <p class="editor-header__meta">Rails 8 から Ruby をすぐ試すための実行ビュー</p>
+      <p class="editor-header__meta">
+        Rails 8 から Ruby をすぐ試すための実行ビュー
+        <% unless editor_execution_enabled? %>
+          <span class="editor-header__disabled">Execution disabled</span>
+        <% end %>
+      </p>
     </header>
 
     <%= form_with url: run_editor_path, scope: :editor, method: :post, class: "editor-form" do |form| %>
@@ -37,7 +42,11 @@
       <section class="editor-pane editor-pane--output" aria-label="Execution output">
         <div class="editor-pane__top">
           <div class="editor-pane__label">Output</div>
-          <%= form.submit "Run Ruby", class: "editor-run" %>
+          <%= form.submit(
+            editor_execution_enabled? ? "Run Ruby" : "Execution Disabled",
+            class: "editor-run",
+            disabled: !editor_execution_enabled?
+          ) %>
         </div>
 
         <div class="editor-console">
