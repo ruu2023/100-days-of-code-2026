@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-source-leak/",
-    "title": "Claude Codeのソースコード流出、npmソースマップに51万行が丸見えだった件",
-    "url": "https://ai-heartland.com/news/claude-code-source-leak/",
+    "id": "hatebu-it-0-0b82e1c2602c",
+    "title": "100行のCLAUDE.mdより35行が効く理由 — 公式仕様で解く設定の最適化 - Qiita",
+    "url": "https://qiita.com/nogataka/items/d6c83ea50b82e1c2602c",
     "source": "Hatena:it",
-    "bookmarkCount": 384,
-    "summary": "Anthropicが提供するAIコーディングツール「Claude Code」のソースコードが丸見えになった。セキュリティ研究者のChaofan Shou氏がハッキングではなく、npmにソースマップファイルが含まれたことが原因と指摘した。Anthropicはソースマップを除去したアップデートをリリースしたが、流出規模（1,902個のファイル、51万行以上）は依然として大きい。npmパッケージの「このファイルだけ入れる」方式のホワイトリストが不備だったことが発覚した。",
+    "bookmarkCount": 265,
+    "summary": "CLAUDE.mdを100行書いても、効果が半減する理由は、Claudeがその長さ分を「埋もれ」てしまうからです。長いCLAUDE.mdは、ユーザー指示の影響が薄れ、注意や命令の競合が発生し、会話の文脈を圧縮・縮小するClaudeの特性がさらに効果を減衰させます。さらに、ユーザーメッセージとしてCLAUDE.mdが起動時に追加されるため、CLAUDE.mdの指示と会話の文脈が競合しやすくなります。要するに、長いCLAUDE.mdはCLAUDEの「減衰メカニズム」（位置バイアス、Attention希釈、命令の競合、要約・圧縮）に飲み込まれてしまい、実質的な効果が半減してしまうのです。",
     "category": "AI",
-    "date": "2026-04-01T03:48:57.520Z"
+    "date": "2026-04-02T03:29:38.723Z"
   },
   {
-    "id": "hatebu-it-5-5af4f4106a9f",
-    "title": "Claude Code 開発者のための完全ガイド",
-    "url": "https://zenn.dev/417/articles/c15af4f4106a9f",
+    "id": "hatebu-it-18-h-wordpress/",
+    "title": "Introducing EmDash — the spiritual successor to WordPress that solves plugin security",
+    "url": "https://blog.cloudflare.com/emdash-wordpress/",
     "source": "Hatena:it",
-    "bookmarkCount": 139,
-    "summary": "この記事は、Claude Codeの会話管理、MCP、プランモード、並列作業など、開発者が知っておくべき機能を網羅的にまとめたガイドです。主な機能は、指示ミスや会話の巻き戻し、セッションの分岐、作業の継続など。Rewind（Esc Esc）は会話の巻き戻しとコードの無事な巻き戻しに使用し、MCPは別セッションとして新しいルートを試す際に利用します。フォークはセッションを残しつつ別ルートを試すために使います。リファレンスは、Rewind（Esc Esc）、Summarize（/summarize）、Plan（/plan）、Worktree（/worktree）、MCPサーバー管理（/mcp）、Transport（/transport）、MCPサーバーインポート（/mcp-add-from-claude-desktop）、Config（/config）、Hooks（/hooks）、Vimモード（/vim）、権限表示（/permissions）、定期実行（/loop）、そして /agents（/agents）など、様々な機能が一覧に掲載されています。",
+    "bookmarkCount": 35,
+    "summary": "EmDash は、WordPress のプラグインアーキテクチャの根本的なセキュリティ問題を解決するために開発された、サーバーレスで完全に TypeScript で記述されたスピリチュアルな後継プロジェクトです。プラグインが公開インターネットにアクセスできるのに対し、EmDash はプラグインごとにアクセス範囲を明確に制限し、信頼できるコードのみを許可することでセキュリティを強化します。プラットフォームの信頼が向上すれば、マーケットプレイスによるプラグインへの中央集権的な支配も緩和されます。EmDash は Cloudflare Workers をバックエンドに使用し、ゼロトラストの旅を加速し、DDoS 攻撃を防ぎ、企業ネットワーク全体のセキュリティを向上させることを目指しています。",
     "category": "Security",
-    "date": "2026-04-01T03:49:41.833Z"
+    "date": "2026-04-02T03:30:02.905Z"
   }
 ]
