@@ -1,5 +1,21 @@
 [
   {
+    "day": 92,
+    "date": "2026-04-02",
+    "title": "Rails Othelo 🛠️✨",
+    "description": "【Day 092/100】Rails Othelo 🛠️✨",
+    "features": [
+      "アニメーションなしオセロ",
+      "Stimulus"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2039633307802247343",
+    "demoLink": "https://rails.ruu-dev.com/day092"
+  },
+  {
     "day": 91,
     "date": "2026-04-01",
     "title": "Rails Ruby Editor 🛠️✨",

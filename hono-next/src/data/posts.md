@@ -1,3 +1,20 @@
+## 2026-04-02
+
+【Day 092/100】Rails Othelo 🛠️✨
+
+Railsでオセロを作りました。Codexだと早いです。
+
+✅ アニメーションなしオセロ
+✅ Stimulus
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/day092)
+
+[Original Post](https://x.com/ruu_web/status/2039633307802247343)
+
+---
+
 ## 2026-04-01
 
 【Day 091/100】Rails Ruby Editor 🛠️✨
