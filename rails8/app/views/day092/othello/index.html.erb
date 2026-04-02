@@ -1,0 +1,79 @@
+<% content_for :title, "Day092 Othello" %>
+
+<div
+  class="min-h-screen bg-[radial-gradient(circle_at_top,_#f5f3ff_0%,_#f8fafc_35%,_#ecfccb_100%)] px-4 py-8 text-slate-900"
+  data-controller="day092-othello"
+>
+  <div class="mx-auto max-w-6xl">
+    <div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white/90 shadow-[0_24px_80px_rgba(15,23,42,0.14)] backdrop-blur">
+      <div class="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+        <section class="bg-[linear-gradient(160deg,_#052e16_0%,_#14532d_48%,_#166534_100%)] px-5 py-6 text-white md:px-8 md:py-8">
+          <p class="text-sm font-semibold uppercase tracking-[0.35em] text-emerald-200">Day092</p>
+          <h1 class="mt-3 text-4xl font-black tracking-tight md:text-5xl">Othello</h1>
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-emerald-50/90 md:text-base">
+            Rails で画面を返して、盤面ロジックは Stimulus で完結させたシンプルなオセロです。アニメーションは入れず、合法手の表示と反転処理だけを素直に動かしています。
+          </p>
+
+          <div class="mt-8 rounded-[1.75rem] border border-white/10 bg-white/10 p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] md:p-5">
+            <div
+              class="grid aspect-square grid-cols-8 gap-1 rounded-[1.5rem] bg-slate-950/20 p-2 md:gap-2 md:p-3"
+              data-day092-othello-target="board"
+            ></div>
+          </div>
+        </section>
+
+        <section class="bg-slate-50 px-5 py-6 md:px-8 md:py-8">
+          <div class="rounded-[1.75rem] bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <p class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">Turn</p>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <article class="rounded-[1.25rem] border border-slate-200 bg-slate-50 px-4 py-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Black</p>
+                <p class="mt-2 text-3xl font-black text-slate-950" data-day092-othello-target="blackScore">2</p>
+              </article>
+              <article class="rounded-[1.25rem] border border-slate-200 bg-slate-50 px-4 py-4">
+                <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">White</p>
+                <p class="mt-2 text-3xl font-black text-slate-950" data-day092-othello-target="whiteScore">2</p>
+              </article>
+            </div>
+
+            <div class="mt-5 rounded-[1.5rem] bg-slate-950 px-4 py-4 text-white">
+              <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Status</p>
+              <p class="mt-3 text-2xl font-black" data-day092-othello-target="turnLabel">Black to move</p>
+              <p class="mt-2 text-sm leading-6 text-slate-300" data-day092-othello-target="statusMessage">
+                合法手をクリックすると石が置かれます。
+              </p>
+            </div>
+
+            <div class="mt-5 grid gap-3 sm:grid-cols-2">
+              <button
+                type="button"
+                class="rounded-2xl border border-amber-300 bg-amber-100 px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-amber-900 transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:border-slate-200 disabled:bg-slate-100 disabled:text-slate-400"
+                data-action="click->day092-othello#passTurn"
+                data-day092-othello-target="passButton"
+              >
+                Pass
+              </button>
+              <button
+                type="button"
+                class="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-slate-800"
+                data-action="click->day092-othello#resetGame"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
+            <h2 class="text-lg font-black tracking-tight text-slate-950">How It Works</h2>
+            <ul class="mt-4 grid gap-3 text-sm leading-6 text-slate-600">
+              <li class="rounded-2xl bg-slate-50 px-4 py-3">緑のドットが付いたマスだけが合法手です。</li>
+              <li class="rounded-2xl bg-slate-50 px-4 py-3">置いた石で相手の石を挟むと、その列がまとめて反転します。</li>
+              <li class="rounded-2xl bg-slate-50 px-4 py-3">打てる場所がないときだけ Pass が使えます。</li>
+              <li class="rounded-2xl bg-slate-50 px-4 py-3">両者とも打てなくなったら終了です。</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

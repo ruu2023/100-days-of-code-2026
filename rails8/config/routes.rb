@@ -108,6 +108,11 @@ Rails.application.routes.draw do
     resources :subscriptions, controller: "day085/subscriptions"
   end
 
+  # Day092 - Othello App
+  scope "/day092", as: :day092 do
+    get "/" => "day092/othello#index"
+  end
+
 # Curl Prompt Maker
 get "/curl_prompt" => "curl_prompt#index"
 post "/curl_prompt" => "curl_prompt#create"
