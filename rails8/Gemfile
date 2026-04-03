@@ -34,3 +34,5 @@ group :development, :test do
 end
 
 gem "activeadmin", "~> 3.5"
+
+gem "ruby-lsp", "~> 0.26.9"

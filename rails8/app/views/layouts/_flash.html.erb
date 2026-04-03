@@ -1,10 +1,11 @@
-<% flash.each do |type, message| %>
-  <div 
-    id="flash_message"
-    class="py-2 px-4 rounded-md shadow-lg font-medium text-white transition-all 
-           <%= type == 'notice' ? 'bg-green-500' : 'bg-red-500' %>"
-    data-controller="flash" <%# あとで自動消去するためにStimulusを付けるのがおすすめ %>
-  >
-    <%= message %>
-  </div>
-<% end %>
+<div id="flash" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 space-y-2">
+  <% flash.each do |type, message| %>
+    <div
+      class="py-2 px-4 rounded-md shadow-lg font-medium text-white transition-all
+       <%= type.to_s == "notice" ? "bg-green-500" : "bg-red-500" %>"
+      data-controller="flash"
+    >
+      <%= message %>
+    </div>
+  <% end %>
+</div>
