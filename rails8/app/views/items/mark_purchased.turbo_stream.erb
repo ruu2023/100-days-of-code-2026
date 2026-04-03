@@ -1,0 +1,8 @@
+<%= turbo_stream.replace "items_list" do %>
+  <%= render "list", items: @items %>
+<% end %>
+
+
+<%= turbo_stream.replace "flash" do %>
+  <%= render "layouts/flash" %>
+<% end %>

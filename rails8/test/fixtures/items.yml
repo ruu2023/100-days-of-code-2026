@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: コーヒー
+  purchase_cycle_days: 7
+  last_purchased_on: 2026-04-01
+  memo: 朝用
+  active: true
+
+two:
+  name: めんつゆ
+  purchase_cycle_days: 30
+  last_purchased_on: 2026-03-20
+  memo: 和食用
+  active: true

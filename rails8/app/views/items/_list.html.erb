@@ -1,0 +1,62 @@
+<div id="items_list" class="space-y-3">
+  <% if items.empty? %>
+    <div class="rounded-2xl border border-dashed border-gray-300 bg-white p-6 text-center text-sm text-gray-500">
+      表示できる商品がありません
+    </div>
+  <% end %>
+
+  <% items.each do |item| %>
+    <% status = item.status %>
+    <% next_purchase_on = item.next_purchase_on %>
+
+    <div class="
+      p-4 rounded-2xl shadow
+      <%= case status
+          when :overdue then 'bg-red-100'
+          when :today then 'bg-yellow-100'
+          when :soon then 'bg-blue-100'
+          when :unknown then 'bg-gray-50'
+          else 'bg-gray-100'
+          end %>
+    ">
+      <div class="flex justify-between items-center">
+        <div>
+          <div class="font-bold text-lg"><%= item.name %></div>
+          <div class="text-sm text-gray-600">
+            次回: <%= next_purchase_on || "未設定" %>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <%= link_to "編集", edit_item_path(item), class: "rounded-lg border border-gray-400 bg-white px-3 py-1 text-sm" %>
+          <%= button_to "買った",
+            mark_purchased_item_path(item),
+            method: :patch,
+            class: "bg-black text-white px-3 py-1 rounded-lg text-sm" %>
+        </div>
+      </div>
+
+      <div class="mt-2 text-sm">
+        <% if status == :overdue %>
+          ⚠️ 期限切れ（<%= item.days_until_next_purchase %>日）
+        <% elsif status == :today %>
+          👉 今日買う
+        <% elsif status == :soon %>
+          ⏳ あと<%= item.days_until_next_purchase %>日
+        <% elsif status == :unknown %>
+          入力が不足しているため日付計算できません
+        <% else %>
+          🟢 余裕あり
+        <% end %>
+      </div>
+
+      <div class="mt-3">
+        <%= button_to "削除",
+          item_path(item),
+          method: :delete,
+          form: { data: { turbo_confirm: "削除しますか？" } },
+          class: "text-sm text-red-600 underline" %>
+      </div>
+    </div>
+  <% end %>
+</div>

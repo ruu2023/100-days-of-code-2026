@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_31_114149) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_03_032124) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -139,6 +139,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_31_114149) do
     t.text "notes"
     t.integer "quantity"
     t.string "unit"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.date "last_purchased_on"
+    t.text "memo"
+    t.string "name"
+    t.integer "purchase_cycle_days"
     t.datetime "updated_at", null: false
   end
 

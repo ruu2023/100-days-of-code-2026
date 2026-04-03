@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "items/index"
   resources :mice
   get "agency_agents", to: "agency_agents#index"
   root "agency_agents#index"
@@ -113,50 +114,57 @@ Rails.application.routes.draw do
     get "/" => "day092/othello#index"
   end
 
-# Curl Prompt Maker
-get "/curl_prompt" => "curl_prompt#index"
-post "/curl_prompt" => "curl_prompt#create"
-post "/curl_prompt/send_request" => "curl_prompt#send_request"
-post "/curl_prompt/mock" => "curl_prompt#mock"
+  # Curl Prompt Maker
+  get "/curl_prompt" => "curl_prompt#index"
+  post "/curl_prompt" => "curl_prompt#create"
+  post "/curl_prompt/send_request" => "curl_prompt#send_request"
+  post "/curl_prompt/mock" => "curl_prompt#mock"
 
 
-resources :images, only: [:new, :create, :show]
-get "images/:id/download" => "images#download", as: :download_image
-  
-get "day082", to: "images#new"
+  resources :images, only: [:new, :create, :show]
+  get "images/:id/download" => "images#download", as: :download_image
+    
+  get "day082", to: "images#new"
 
-# Inventory Management
-resources :inventories do
-  collection do
-    get :search
-  end
-end
-
-scope "/master-demo", as: :master_demo do
-  get "/" => "master_products#index"
-  resources :products, controller: "master_products", only: %i[index new create edit update destroy] do
-    member do
-      get :row
-      get :edit_row
-      patch :quick_update
+  # Inventory Management
+  resources :inventories do
+    collection do
+      get :search
     end
   end
-end
 
-# Day090 - Geometry Shapes App
-scope "/geometrys", as: :geometrys do
-  get "/" => "geometrys#index"
-  get "/overlap" => "geometrys#overlap"
-  get "/:shape" => "geometrys#show", as: :shape
-end
+  scope "/master-demo", as: :master_demo do
+    get "/" => "master_products#index"
+    resources :products, controller: "master_products", only: %i[index new create edit update destroy] do
+      member do
+        get :row
+        get :edit_row
+        patch :quick_update
+      end
+    end
+  end
 
-# Day091 - Just 3 Things Today (今日やる3つだけ出す)
-scope "/just3", as: :day090 do
-  get "/" => "day090/tasks#index", as: :tasks
-  post "/" => "day090/tasks#create"
-  patch "/:id" => "day090/tasks#update", as: :task
-end
+  # Day090 - Geometry Shapes App
+  scope "/geometrys", as: :geometrys do
+    get "/" => "geometrys#index"
+    get "/overlap" => "geometrys#overlap"
+    get "/:shape" => "geometrys#show", as: :shape
+  end
 
-# CSV Tables - Convert CSV to Markdown and Excel table
-get "csv_tables", to: "csv_tables#index"
+  # Day091 - Just 3 Things Today (今日やる3つだけ出す)
+  scope "/just3", as: :day090 do
+    get "/" => "day090/tasks#index", as: :tasks
+    post "/" => "day090/tasks#create"
+    patch "/:id" => "day090/tasks#update", as: :task
+  end
+
+  # CSV Tables - Convert CSV to Markdown and Excel table
+  get "csv_tables", to: "csv_tables#index"
+
+  # Day093 商品購入履歴
+  resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do
+    member do
+      patch :mark_purchased
+    end
+  end
 end
