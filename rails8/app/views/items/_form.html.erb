@@ -1,7 +1,7 @@
-<div class="max-w-md mx-auto p-4">
-  <%= form_with model: item, class: "space-y-4" do |f| %>
+<div class="mx-auto max-w-3xl px-4 py-6 sm:px-6">
+  <%= form_with model: item, class: "space-y-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200" do |f| %>
     <% if item.errors.any? %>
-      <div class="rounded-xl bg-red-100 text-red-700 p-3">
+      <div class="rounded-2xl bg-red-100 p-4 text-red-700">
         <div class="font-bold mb-2">入力を確認してください</div>
         <ul class="list-disc list-inside text-sm">
           <% item.errors.full_messages.each do |message| %>
@@ -11,34 +11,36 @@
       </div>
     <% end %>
 
-    <div>
-      <%= f.label :name, "商品名", class: "block text-sm font-medium mb-1" %>
-      <%= f.text_field :name, class: "w-full p-3 border rounded-xl" %>
+    <div class="grid gap-6 md:grid-cols-2">
+      <div>
+        <%= f.label :name, "商品名", class: "mb-1 block text-sm font-medium text-slate-700" %>
+        <%= f.text_field :name, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+      </div>
+
+      <div>
+        <%= f.label :purchase_cycle_days, "購入周期（日）", class: "mb-1 block text-sm font-medium text-slate-700" %>
+        <%= f.number_field :purchase_cycle_days, min: 1, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+      </div>
     </div>
 
     <div>
-      <%= f.label :purchase_cycle_days, "購入周期（日）", class: "block text-sm font-medium mb-1" %>
-      <%= f.number_field :purchase_cycle_days, min: 1, class: "w-full p-3 border rounded-xl" %>
+      <%= f.label :last_purchased_on, "前回購入日", class: "mb-1 block text-sm font-medium text-slate-700" %>
+      <%= f.date_field :last_purchased_on, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
     </div>
 
     <div>
-      <%= f.label :last_purchased_on, "前回購入日", class: "block text-sm font-medium mb-1" %>
-      <%= f.date_field :last_purchased_on, class: "w-full p-3 border rounded-xl" %>
+      <%= f.label :memo, "メモ", class: "mb-1 block text-sm font-medium text-slate-700" %>
+      <%= f.text_area :memo, rows: 4, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
     </div>
 
-    <div>
-      <%= f.label :memo, "メモ", class: "block text-sm font-medium mb-1" %>
-      <%= f.text_area :memo, rows: 3, class: "w-full p-3 border rounded-xl" %>
-    </div>
+    <label class="flex items-center gap-3 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+      <%= f.check_box :active, class: "rounded border-slate-300" %>
+      <span>有効な商品として一覧に表示する</span>
+    </label>
 
-    <div class="flex items-center gap-2">
-      <%= f.check_box :active %>
-      <%= f.label :active, "有効" %>
-    </div>
-
-    <div class="flex gap-2">
-      <%= f.submit class: "px-4 py-2 bg-black text-white rounded-xl" %>
-      <%= link_to "戻る", items_path, class: "px-4 py-2 border rounded-xl" %>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <%= f.submit class: "inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-700" %>
+      <%= link_to "戻る", items_path, class: "inline-flex items-center justify-center rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50" %>
     </div>
   <% end %>
 </div>

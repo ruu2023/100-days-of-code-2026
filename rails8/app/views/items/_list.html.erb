@@ -1,62 +1,99 @@
-<div id="items_list" class="space-y-3">
+<%
+  sections = [
+    [:overdue, "期限切れ", "すぐに買いたいもの", "bg-rose-50 border-rose-200", "text-rose-700"],
+    [:today, "今日買う", "本日チェックしたいもの", "bg-amber-50 border-amber-200", "text-amber-700"],
+    [:soon, "もうすぐ", "数日以内に必要になるもの", "bg-sky-50 border-sky-200", "text-sky-700"],
+    [:later, "余裕あり", "まだ先のもの", "bg-slate-50 border-slate-200", "text-slate-700"],
+    [:unknown, "要確認", "日付計算に必要な情報が不足しているもの", "bg-white border-slate-200", "text-slate-700"]
+  ]
+%>
+
+<div id="items_list" class="space-y-6">
   <% if items.empty? %>
-    <div class="rounded-2xl border border-dashed border-gray-300 bg-white p-6 text-center text-sm text-gray-500">
+    <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-10 text-center text-sm text-slate-500 shadow-sm">
       表示できる商品がありません
     </div>
   <% end %>
 
-  <% items.each do |item| %>
-    <% status = item.status %>
-    <% next_purchase_on = item.next_purchase_on %>
+  <% sections.each do |section_status, title, description, section_bg, title_color| %>
+    <% section_items = items.select { |item| item.status == section_status } %>
+    <% next if section_items.empty? %>
 
-    <div class="
-      p-4 rounded-2xl shadow
-      <%= case status
-          when :overdue then 'bg-red-100'
-          when :today then 'bg-yellow-100'
-          when :soon then 'bg-blue-100'
-          when :unknown then 'bg-gray-50'
-          else 'bg-gray-100'
-          end %>
-    ">
-      <div class="flex justify-between items-center">
+    <section class="rounded-3xl border p-5 shadow-sm <%= section_bg %>">
+      <div class="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <div class="font-bold text-lg"><%= item.name %></div>
-          <div class="text-sm text-gray-600">
-            次回: <%= next_purchase_on || "未設定" %>
-          </div>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <%= link_to "編集", edit_item_path(item), class: "rounded-lg border border-gray-400 bg-white px-3 py-1 text-sm" %>
-          <%= button_to "買った",
-            mark_purchased_item_path(item),
-            method: :patch,
-            class: "bg-black text-white px-3 py-1 rounded-lg text-sm" %>
+          <div class="text-xs font-semibold uppercase tracking-[0.2em] <%= title_color %>"><%= title %></div>
+          <h2 class="mt-1 text-xl font-bold text-slate-900"><%= section_items.size %>件</h2>
+          <p class="mt-1 text-sm text-slate-600"><%= description %></p>
         </div>
       </div>
 
-      <div class="mt-2 text-sm">
-        <% if status == :overdue %>
-          ⚠️ 期限切れ（<%= item.days_until_next_purchase %>日）
-        <% elsif status == :today %>
-          👉 今日買う
-        <% elsif status == :soon %>
-          ⏳ あと<%= item.days_until_next_purchase %>日
-        <% elsif status == :unknown %>
-          入力が不足しているため日付計算できません
-        <% else %>
-          🟢 余裕あり
+      <div class="grid gap-4 lg:grid-cols-2">
+        <% section_items.each do |item| %>
+          <% status = item.status %>
+          <% next_purchase_on = item.next_purchase_on %>
+
+          <article class="
+            rounded-3xl border border-white/70 bg-white p-5 shadow-sm
+            <%= case status
+                when :overdue then 'ring-1 ring-rose-100'
+                when :today then 'ring-1 ring-amber-100'
+                when :soon then 'ring-1 ring-sky-100'
+                else 'ring-1 ring-slate-100'
+                end %>
+          ">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+              <div class="min-w-0">
+                <div class="text-lg font-bold text-slate-900"><%= item.name %></div>
+                <div class="mt-2 text-sm text-slate-500">
+                  次回購入日: <span class="font-medium text-slate-700"><%= next_purchase_on || "未設定" %></span>
+                </div>
+                <% if item.memo.present? %>
+                  <p class="mt-3 text-sm leading-6 text-slate-600"><%= item.memo %></p>
+                <% end %>
+              </div>
+
+              <div class="flex gap-2 sm:flex-col">
+                <%= link_to "編集",
+                  edit_item_path(item),
+                  data: { turbo_frame: "_top" },
+                  class: "inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50" %>
+                <%= button_to "買った",
+                  mark_purchased_item_path(item),
+                  method: :patch,
+                  class: "inline-flex items-center justify-center rounded-xl bg-slate-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700" %>
+              </div>
+            </div>
+
+            <div class="mt-4 rounded-2xl bg-slate-50 px-4 py-3 text-sm text-slate-700">
+              <% if status == :overdue %>
+                <span class="font-medium text-rose-700">期限切れ</span>
+                <span class="ml-1">(<%= item.days_until_next_purchase %>日)</span>
+              <% elsif status == :today %>
+                <span class="font-medium text-amber-700">今日買うタイミングです</span>
+              <% elsif status == :soon %>
+                <span class="font-medium text-sky-700">あと<%= item.days_until_next_purchase %>日</span>
+              <% elsif status == :unknown %>
+                <span class="font-medium text-slate-700">入力が不足しているため日付計算できません</span>
+              <% else %>
+                <span class="font-medium text-slate-700">まだ余裕があります</span>
+              <% end %>
+            </div>
+
+            <div class="mt-4">
+              <%= button_to "削除",
+                item_path(item),
+                method: :delete,
+                form: { data: { turbo_confirm: "削除しますか？" } },
+                class: "text-sm font-medium text-rose-600 underline underline-offset-2" %>
+            </div>
+          </article>
         <% end %>
       </div>
-
-      <div class="mt-3">
-        <%= button_to "削除",
-          item_path(item),
-          method: :delete,
-          form: { data: { turbo_confirm: "削除しますか？" } },
-          class: "text-sm text-red-600 underline" %>
-      </div>
-    </div>
+    </section>
   <% end %>
+  <%#
+    各 status ごとに section_items が空なら非表示。
+    later/unknown もここで拾うので一覧全体を一度で描画できる。
+  %>
 </div>

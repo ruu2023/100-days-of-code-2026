@@ -1,26 +1,29 @@
-<div class="max-w-md mx-auto p-4">
+<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
+  <div class="mb-6 flex flex-col gap-4 rounded-3xl bg-slate-50 p-5 shadow-sm ring-1 ring-slate-200 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Day093</p>
+      <h1 class="mt-1 text-3xl font-bold text-slate-900">商品購入履歴</h1>
+      <p class="mt-2 text-sm text-slate-600">買うタイミングごとに一覧しながら、購入済み更新と検索ができます。</p>
+    </div>
 
-  <div class="mb-4">
-    <%= link_to "＋ 新規登録", new_item_path, class: "inline-block px-4 py-2 bg-black text-white rounded-xl" %>
+    <%= link_to "＋ 新規登録", new_item_path, class: "inline-flex items-center justify-center rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-700" %>
   </div>
 
-  <!-- 🔍 検索 -->
-  <div class="mb-4">
+  <div class="mb-6">
     <%= form_with url: items_path, method: :get,
-      data: { 
+      data: {
         turbo_frame: "items",
         controller: "autosubmit"
       } do %>
       <%= text_field_tag :q, params[:q],
         placeholder: "検索（例：コーヒー）",
-        class: "w-full p-3 border rounded-xl",
+        class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-base shadow-sm outline-none transition placeholder:text-slate-400 focus:border-slate-500 focus:ring-2 focus:ring-slate-200",
         data: {
           action: "input->autosubmit#submit"
         } %>
     <% end %>
   </div>
 
-  <!-- 📦 一覧 -->
   <%= turbo_frame_tag "items" do %>
     <%= render "list", items: @items %>
   <% end %>
