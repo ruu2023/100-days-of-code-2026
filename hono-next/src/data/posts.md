@@ -1,3 +1,20 @@
+## 2026-04-03
+
+【Day 093/100】Rails 購入トラッカー 🛠️✨
+
+定期的に買うものを日付が近い順に並べるアプリです。
+
+✅ Railsのturbo frameで軽快
+✅ 次回購入日を計算
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/items)
+
+[Original Post](https://x.com/ruu_web/status/2040065228172624119)
+
+---
+
 ## 2026-04-02
 
 【Day 092/100】Rails Othelo 🛠️✨

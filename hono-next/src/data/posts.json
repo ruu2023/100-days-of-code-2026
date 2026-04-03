@@ -1,5 +1,21 @@
 [
   {
+    "day": 93,
+    "date": "2026-04-03",
+    "title": "Rails 購入トラッカー 🛠️✨",
+    "description": "【Day 093/100】Rails 購入トラッカー 🛠️✨",
+    "features": [
+      "Railsのturbo frameで軽快",
+      "次回購入日を計算"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2040065228172624119",
+    "demoLink": "https://rails.ruu-dev.com/items"
+  },
+  {
     "day": 92,
     "date": "2026-04-02",
     "title": "Rails Othelo 🛠️✨",

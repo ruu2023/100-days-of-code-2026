@@ -165,6 +165,7 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 090 | 03/31 | Rails 3 tasks               | “消化しないインプットは娯楽” / YouTube埋め込み | [View](./rails8)                                                          |
 | 091 | 04/01 | Rails Ruby Editor           | Rubyを簡単に実行 / Railsで動作                  | [View](./rails8) [Demo](https://rails.ruu-dev.com/editor)                 |
 | 092 | 04/02 | Rails Othelo                | アニメーションなしオセロ / Stimulus            | [View](./rails8) [Demo](https://rails.ruu-dev.com/day092)                 |
+| 093 | 04/03 | Rails 購入トラッカー        | Turbo Frame / 次回購入日を計算                  | [View](./rails8) [Demo](https://rails.ruu-dev.com/items)                  |
 
 ## 📬 Links
 
