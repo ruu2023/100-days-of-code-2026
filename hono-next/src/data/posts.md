@@ -1,3 +1,20 @@
+## 2026-04-04
+
+【Day 094/100】Rails CSV インポート🛠️✨
+
+CSV取り込み＋SQL検索できるアプリを作りました。
+
+✅ RailsでCSV解析
+✅ 100万件でも一瞬でフィルタ
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/csv-imports)
+
+[Original Post](https://x.com/ruu_web/status/2040375257413177530)
+
+---
+
 ## 2026-04-03
 
 【Day 093/100】Rails 購入トラッカー 🛠️✨
