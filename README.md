@@ -160,12 +160,22 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 085 | 03/26 | Rails サブスク管理           | Rails / サブスク管理 / 月額年額管理              | [View](./rails8)                                                          |
 | 086 | 03/27 | Rails マスタ管理             | ActiveAdmin / 商品マスタデモ                     | [View](./rails8)                                                          |
 | 087 | 03/28 | Rails AgencyAgents紹介ページ | AgencyAgents の専門家検索 / グループ一覧表示     | [View](./rails8)                                                          |
-| 088 | 03/29 | Rails csv to MD & Excel     | CSV to MD 自動整形 / Excelようにtable整形       | [View](./rails8)                                                          |
-| 089 | 03/30 | YouTube sleep extension     | Chrome Extension / Sleep Mode UI                | [View](./html/youtube-sleep-mode)                                         |
-| 090 | 03/31 | Rails 3 tasks               | “消化しないインプットは娯楽” / YouTube埋め込み | [View](./rails8)                                                          |
-| 091 | 04/01 | Rails Ruby Editor           | Rubyを簡単に実行 / Railsで動作                  | [View](./rails8) [Demo](https://rails.ruu-dev.com/editor)                 |
-| 092 | 04/02 | Rails Othelo                | アニメーションなしオセロ / Stimulus            | [View](./rails8) [Demo](https://rails.ruu-dev.com/day092)                 |
-| 093 | 04/03 | Rails 購入トラッカー        | Turbo Frame / 次回購入日を計算                  | [View](./rails8) [Demo](https://rails.ruu-dev.com/items)                  |
+| 088 | 03/29 | Rails csv to MD & Excel      | CSV to MD 自動整形 / Excelようにtable整形        | [View](./rails8)                                                          |
+| 089 | 03/30 | YouTube sleep extension      | Chrome Extension / Sleep Mode UI                 | [View](./html/youtube-sleep-mode)                                         |
+| 090 | 03/31 | Rails 3 tasks                | “消化しないインプットは娯楽” / YouTube埋め込み   | [View](./rails8)                                                          |
+| 091 | 04/01 | Rails Ruby Editor            | Rubyを簡単に実行 / Railsで動作                   | [View](./rails8) [Demo](https://rails.ruu-dev.com/editor)                 |
+| 092 | 04/02 | Rails Othelo                 | アニメーションなしオセロ / Stimulus              | [View](./rails8) [Demo](https://rails.ruu-dev.com/day092)                 |
+| 093 | 04/03 | Rails 購入トラッカー         | Turbo Frame / 次回購入日を計算                   | [View](./rails8) [Demo](https://rails.ruu-dev.com/items)                  |
+| 094 | 04/04 | Rails CSV インポート         | RailsでCSV解析 / 100万件でも一瞬でフィルタ       | [View](./rails8) [Demo](https://rails.ruu-dev.com/csv-imports)            |
+
+## 🆕 Latest Post
+
+- **Day 094:** Rails CSV インポート 🛠️✨
+- **Date:** 2026-04-04
+- **Summary:** Rails で CSV を解析し、大量データでも一瞬でフィルタできる CSV インポート機能を作成。
+- **Features:** RailsでCSV解析 / 100万件でも一瞬でフィルタ
+- **Post:** https://x.com/ruu_web/status/2040375257413177530
+- **Demo:** https://rails.ruu-dev.com/csv-imports
 
 ## 📬 Links
 

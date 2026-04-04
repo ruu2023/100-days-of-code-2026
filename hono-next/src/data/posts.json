@@ -1,5 +1,21 @@
 [
   {
+    "day": 94,
+    "date": "2026-04-04",
+    "title": "Rails CSV インポート🛠️✨",
+    "description": "【Day 094/100】Rails CSV インポート🛠️✨",
+    "features": [
+      "RailsでCSV解析",
+      "100万件でも一瞬でフィルタ"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2040375257413177530",
+    "demoLink": "https://rails.ruu-dev.com/csv-imports"
+  },
+  {
     "day": 93,
     "date": "2026-04-03",
     "title": "Rails 購入トラッカー 🛠️✨",
