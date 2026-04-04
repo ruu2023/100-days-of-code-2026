@@ -67,7 +67,8 @@ module CsvImports
       batch = []
 
       @csv_import.source_file.open do |file|
-        parser = CSV.new(file, headers: @csv_import.header_row, col_sep: @csv_import.col_sep, skip_blanks: true)
+        csv_text = CsvImports::EncodedFileReader.new(file).read
+        parser = CSV.new(csv_text, headers: @csv_import.header_row, col_sep: @csv_import.col_sep, skip_blanks: true)
 
         parser.each do |entry|
           values = @csv_import.header_row ? entry.fields : entry

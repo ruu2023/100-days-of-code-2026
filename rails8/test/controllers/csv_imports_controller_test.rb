@@ -37,11 +37,11 @@ class CsvImportsControllerTest < ActionDispatch::IntegrationTest
 
   test "should import csv and search rows" do
     post csv_imports_url, params: {
-        csv_import: {
-          name: "顧客検索",
-          source_file: fixture_file_upload("customers.csv", "text/csv")
-        }
+      csv_import: {
+        name: "顧客検索",
+        source_file: fixture_file_upload("customers.csv", "text/csv")
       }
+    }
 
     csv_import = CsvImport.order(:created_at).last
 
@@ -56,5 +56,29 @@ class CsvImportsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_includes @response.body, "Alice"
     assert_includes @response.body, "Tokyo"
+  end
+
+  test "should analyze and import cp932 csv" do
+    post csv_imports_url, params: {
+      csv_import: {
+        name: "日本語顧客",
+        source_file: fixture_file_upload("customers_cp932.csv", "text/csv")
+      }
+    }
+
+    csv_import = CsvImport.order(:created_at).last
+
+    assert_redirected_to csv_import_url(csv_import)
+    assert_equal ["customer_name", "city"], csv_import.column_names_for_search
+    assert_equal "東京", csv_import.sample_rows_for_preview.first["city"]
+
+    post run_import_csv_import_url(csv_import)
+    assert_predicate csv_import.reload, :ready?
+
+    get csv_import_url(csv_import), params: { q: "大阪" }
+
+    assert_response :success
+    assert_includes @response.body, "鈴木"
+    assert_includes @response.body, "大阪"
   end
 end

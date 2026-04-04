@@ -11,19 +11,16 @@ module CsvImports
       raise ArgumentError, "CSVファイルを選択してください" unless @csv_import.source_file.attached?
 
       @csv_import.source_file.open do |file|
-        sample_text = file.read(16.kilobytes)
-        raise ArgumentError, "CSVファイルが空です" if sample_text.blank?
+        csv_text = CsvImports::EncodedFileReader.new(file).read
+        sample_text = csv_text.first(16.kilobytes)
 
         col_sep = detect_separator(sample_text)
-        file.rewind
-
-        preview_rows = read_preview_rows(file, col_sep)
+        preview_rows = read_preview_rows(csv_text, col_sep)
         raise ArgumentError, "CSVファイルが空です" if preview_rows.empty?
 
         header_row = detect_header_row(preview_rows)
-        file.rewind
 
-        analysis = analyze_rows(file, col_sep, header_row)
+        analysis = analyze_rows(csv_text, col_sep, header_row)
         table_name = CsvImport.build_target_table_name(@csv_import.name.presence || @csv_import.source_filename, @csv_import.id)
 
         @csv_import.update!(
@@ -49,9 +46,9 @@ module CsvImports
       end
     end
 
-    def read_preview_rows(file, col_sep)
+    def read_preview_rows(csv_text, col_sep)
       rows = []
-      csv = CSV.new(file, col_sep: col_sep, skip_blanks: true)
+      csv = CSV.new(csv_text, col_sep: col_sep, skip_blanks: true)
 
       SAMPLE_LIMIT.times do
         row = csv.shift
@@ -78,8 +75,8 @@ module CsvImports
       first_data_like_count < (first_row.length / 2.0)
     end
 
-    def analyze_rows(file, col_sep, header_row)
-      parser = CSV.new(file, headers: header_row, col_sep: col_sep, skip_blanks: true)
+    def analyze_rows(csv_text, col_sep, header_row)
+      parser = CSV.new(csv_text, headers: header_row, col_sep: col_sep, skip_blanks: true)
       first_entry = parser.shift
       return empty_analysis if first_entry.nil?
 
