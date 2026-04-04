@@ -97,19 +97,88 @@
 
   <% if @csv_import.ready? %>
     <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <h2 class="text-xl font-semibold text-slate-900">取り込み済みデータを検索</h2>
-          <p class="mt-1 text-sm text-slate-600">全カラム横断の部分一致検索です。上位100件まで表示します。</p>
+          <p class="mt-1 text-sm text-slate-600">制限付きの where 条件と order by を安全に組み立てます。自由SQLは受けません。</p>
         </div>
-
-        <%= form_with url: csv_import_path(@csv_import), method: :get, class: "flex w-full max-w-xl gap-3" do %>
-          <%= text_field_tag :q, @search_query, placeholder: "例: 東京 / A123 / 株式会社", class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
-          <%= submit_tag "検索", class: "rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-700" %>
-        <% end %>
       </div>
 
-      <% if @search_query.present? %>
+      <%= form_with url: csv_import_path(@csv_import), method: :get, class: "mt-5 space-y-6" do %>
+        <div class="grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">全文検索</label>
+            <%= text_field_tag "search[keyword]", @search_form["keyword"], placeholder: "例: 東京 / A123 / 株式会社", class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">並び替え</label>
+              <%= select_tag "search[order_by]", options_for_select([["id", "id"]] + @csv_import.column_names_for_search.map { |name| [name, name] }, @search_form["order_by"].presence || "id"), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">方向</label>
+              <%= select_tag "search[direction]", options_for_select([["DESC", "desc"], ["ASC", "asc"]], @search_form["direction"]), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-3 flex items-center justify-between gap-3">
+            <h3 class="text-sm font-semibold text-slate-900">Where 条件</h3>
+            <p class="text-xs text-slate-500">AND 条件で最大3行</p>
+          </div>
+
+          <div class="space-y-3">
+            <% @search_form["filters"].each_with_index do |filter, index| %>
+              <div class="grid gap-3 lg:grid-cols-[1fr_1fr_1.2fr]">
+                <%= select_tag "search[filters][#{index}][column]",
+                  options_for_select([["カラムを選択", ""]] + @csv_import.column_names_for_search.map { |name| [name, name] }, filter["column"]),
+                  class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+
+                <%= select_tag "search[filters][#{index}][operator]",
+                  options_for_select([
+                    ["条件なし", ""],
+                    ["=", "eq"],
+                    ["!=", "not_eq"],
+                    ["contains", "contains"],
+                    [">", "gt"],
+                    [">=", "gte"],
+                    ["<", "lt"],
+                    ["<=", "lte"],
+                    ["IS NULL", "is_null"],
+                    ["IS NOT NULL", "is_not_null"]
+                  ], filter["operator"]),
+                  class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+
+                <%= text_field_tag "search[filters][#{index}][value]", filter["value"], placeholder: "値", class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="w-full max-w-xs">
+            <label class="mb-2 block text-sm font-medium text-slate-700">件数上限</label>
+            <%= number_field_tag "search[limit]", @search_form["limit"], min: 1, max: 500, class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+          </div>
+
+          <div class="flex gap-3">
+            <%= submit_tag "検索", class: "rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-700" %>
+            <%= link_to "条件をクリア", csv_import_path(@csv_import), class: "rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-900" %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @search_sql.present? %>
+        <div class="mt-5 rounded-2xl bg-slate-950 p-4 text-xs text-slate-100">
+          <p class="mb-2 font-semibold text-slate-300">生成されるSQL</p>
+          <pre class="overflow-auto whitespace-pre-wrap"><%= @search_sql %></pre>
+        </div>
+      <% end %>
+
+      <% if @search_sql.present? %>
         <div class="mt-5 overflow-auto rounded-2xl border border-slate-200">
           <table class="min-w-full divide-y divide-slate-200 text-sm">
             <thead class="bg-slate-50">

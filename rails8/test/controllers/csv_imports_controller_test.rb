@@ -51,11 +51,24 @@ class CsvImportsControllerTest < ActionDispatch::IntegrationTest
     assert_predicate csv_import.reload, :ready?
     assert ActiveRecord::Base.connection.data_source_exists?(csv_import.target_table_name)
 
-    get csv_import_url(csv_import), params: { q: "Tokyo" }
+    get csv_import_url(csv_import), params: {
+      search: {
+        keyword: "Tokyo",
+        order_by: "name",
+        direction: "asc",
+        limit: "20",
+        filters: [
+          { column: "", operator: "", value: "" },
+          { column: "", operator: "", value: "" },
+          { column: "", operator: "", value: "" }
+        ]
+      }
+    }
 
     assert_response :success
     assert_includes @response.body, "Alice"
     assert_includes @response.body, "Tokyo"
+    assert_includes @response.body, "ORDER BY &quot;name&quot; ASC"
   end
 
   test "should analyze and import cp932 csv" do
@@ -75,10 +88,23 @@ class CsvImportsControllerTest < ActionDispatch::IntegrationTest
     post run_import_csv_import_url(csv_import)
     assert_predicate csv_import.reload, :ready?
 
-    get csv_import_url(csv_import), params: { q: "大阪" }
+    get csv_import_url(csv_import), params: {
+      search: {
+        keyword: "",
+        order_by: "customer_name",
+        direction: "asc",
+        limit: "20",
+        filters: [
+          { column: "city", operator: "eq", value: "大阪" },
+          { column: "", operator: "", value: "" },
+          { column: "", operator: "", value: "" }
+        ]
+      }
+    }
 
     assert_response :success
     assert_includes @response.body, "鈴木"
     assert_includes @response.body, "大阪"
+    assert_includes @response.body, "WHERE &quot;city&quot; = &#39;大阪&#39;"
   end
 end
