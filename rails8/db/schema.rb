@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_03_032124) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_04_090000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -62,6 +62,24 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_03_032124) do
     t.integer "user_id", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "csv_imports", force: :cascade do |t|
+    t.string "col_sep", default: ",", null: false
+    t.datetime "created_at", null: false
+    t.text "error_message"
+    t.boolean "header_row", default: true, null: false
+    t.datetime "imported_at"
+    t.text "inferred_columns"
+    t.string "name", null: false
+    t.integer "row_count", default: 0, null: false
+    t.text "sample_rows"
+    t.string "source_filename", null: false
+    t.integer "status", default: 0, null: false
+    t.string "target_table_name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_csv_imports_on_status"
+    t.index ["target_table_name"], name: "index_csv_imports_on_target_table_name", unique: true
   end
 
   create_table "day006_memos", force: :cascade do |t|

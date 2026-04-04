@@ -160,6 +160,9 @@ Rails.application.routes.draw do
 
   # CSV Tables - Convert CSV to Markdown and Excel table
   get "csv_tables", to: "csv_tables#index"
+  resources :csv_imports, only: [:index, :show, :create] do
+    post :run_import, on: :member
+  end
 
   # Day093 商品購入履歴
   resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do
