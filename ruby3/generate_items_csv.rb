@@ -4,7 +4,7 @@ require "securerandom"
 require "date"
 
 OUTPUT_PATH = "items_sample_1000.csv"
-COUNT = 100000
+COUNT = 1_000_000
 
 statuses = %w[todo doing done]
 categories = ["学習", "買い物", "発信", "仕事", "趣味"]
