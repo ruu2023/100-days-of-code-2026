@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-11-26/0403.html",
-    "title": "約12兆トークンの良質なコーパスで学習した新たな国産LLM「LLM-jp-4 8Bモデル」「LLM-jp-4 32B-A3Bモデル」をオープンソースライセンスで公開～一部ベンチマークでGPT-4oやQwen3-8Bを上回る性能を達成～ - 国立情報学研究所 / National Institute of Informatics",
-    "url": "https://www.nii.ac.jp/news/release/2026/0403.html",
+    "id": "hatebu-it-24-mo-20260403/",
+    "title": "思いつきを手軽にメモ。Claudeでアイデアを残し、広げる仕組みを作ってみた。 | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/claudememo-20260403/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-04T03:19:42.613Z",
-    "summary": "国立情報学研究所は、大規模な自然言語処理モデルを学習し、約12兆トークンの良質\u001b[K\nなデータコーパスを活用した新たな国産LLM「LLM-jp-4 8Bモデル」と「LLM-jp-4 32\u001b[2D\u001b[K\n32B-A3Bモデル」を公開しました。この2つのモデルは、GPT-4oやQwen3-8Bを上回るベ\u001b[K\nンチマークで高い性能を示しており、特に「LLM-jp-4 32B-A3Bモデル」は32Bのアー\u001b[K\nキテクチャで約6.8兆パラメータを有し、英語の「MT-Bench」や多言語能力の「GPT-\u001b[4D\u001b[K\nGPT-4o」を上回る結果を達成しました。オープンソースで提供されるこのモデル群は\u001b[K\n、日本語学習やAI技術の国際競争力向上に貢献するものとされています。",
-    "bookmarkCount": 202,
-    "audioFile": "../audio/hatebu-it-11-26_0403_html.wav"
+    "date": "2026-04-05T03:41:40.700Z",
+    "summary": "思いつきのメモ先や整理を全てClaudeに任せることで、日常のストレスが減り、アイ\u001b[K\nデアの発展が自然と進む仕組みを作った。ClaudeのメモはMarkdown形式で自動保存さ\u001b[K\nれ、保存先もGitHubのプライベートリポジトリに統一することで、ツール間の切り替\u001b[K\nえが不要となり、アイデアの流れをスムーズに保てる。さらに、Claude CodeやCowo\u001b[4D\u001b[K\nCowork、Artifact Storageなど複数のインターフェースに対応し、git操作やタイム\u001b[K\nラグの問題もなく、日々のアイデアを継続的に育成できる。",
+    "bookmarkCount": 371,
+    "audioFile": "../audio/hatebu-it-24-mo-20260403_.wav"
   },
   {
-    "id": "hatebu-it-0-387/4387155/",
-    "title": "NEC「Aterm」シリーズに複数の脆弱性　アップデートまたは買い換えを推奨",
-    "url": "https://ascii.jp/elem/000/004/387/4387155/",
+    "id": "hatebu-it-3-les/-/110970",
+    "title": "参考書代も受講料もかからない…独学の資格勉強を根本から変える｢Googleの最新無料ツール｣のスゴい使い方",
+    "url": "https://president.jp/articles/-/110970",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-04T03:20:01.175Z",
-    "summary": "NEC製「Aterm」Wi-Fiルーターの複数のセキュリティ脆弱性が公開され、1.3.2以降の\u001b[K\n製品で修正版ファームウェアを提供している。",
-    "bookmarkCount": 12,
-    "audioFile": "../audio/hatebu-it-0-387_4387155_.wav"
+    "date": "2026-04-05T03:41:59.863Z",
+    "summary": "独学の資格勉強は時間と労力がかかるが、Googleの新ツール「NotebookLM」を活用す\u001b[K\nれば効率的に学習できる。AIが学習計画を提案し、音声解説やマインドマップで理解\u001b[K\nを深め、Geminiと連携して疑問を解決。24時間いつでも利用可能なAI学習コーチとし\u001b[K\nて、資格取得やキャリアアップを目指すビジネスマンに最適。",
+    "bookmarkCount": 426,
+    "audioFile": "../audio/hatebu-it-3-les_-_110970.wav"
   }
 ]
