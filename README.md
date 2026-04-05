@@ -167,15 +167,16 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 092 | 04/02 | Rails Othelo                 | アニメーションなしオセロ / Stimulus              | [View](./rails8) [Demo](https://rails.ruu-dev.com/day092)                 |
 | 093 | 04/03 | Rails 購入トラッカー         | Turbo Frame / 次回購入日を計算                   | [View](./rails8) [Demo](https://rails.ruu-dev.com/items)                  |
 | 094 | 04/04 | Rails CSV インポート         | RailsでCSV解析 / 100万件でも一瞬でフィルタ       | [View](./rails8) [Demo](https://rails.ruu-dev.com/csv-imports)            |
+| 095 | 04/05 | Rails CSV インポート ver2    | 複数CSV解析 / カード明細を1年分取り込んでSQL検索 | [View](./rails8) [Demo](https://rails.ruu-dev.com/statement_csv_import_datasets) |
 
 ## 🆕 Latest Post
 
-- **Day 094:** Rails CSV インポート 🛠️✨
-- **Date:** 2026-04-04
-- **Summary:** Rails で CSV を解析し、大量データでも一瞬でフィルタできる CSV インポート機能を作成。
-- **Features:** RailsでCSV解析 / 100万件でも一瞬でフィルタ
-- **Post:** https://x.com/ruu_web/status/2040375257413177530
-- **Demo:** https://rails.ruu-dev.com/csv-imports
+- **Day 095:** Rails CSV インポート ver2 🛠️✨
+- **Date:** 2026-04-05
+- **Summary:** Rails の CSV インポートを拡張し、複数ファイルの明細をまとめて取り込んで SQL 検索できるように改善。
+- **Features:** Railsで複数CSV解析 / カード明細を1年分取り込んでSQL検索
+- **Post:** https://x.com/ruu_web/status/2040733768248676605
+- **Demo:** https://rails.ruu-dev.com/statement_csv_import_datasets
 
 ## 📬 Links
 
