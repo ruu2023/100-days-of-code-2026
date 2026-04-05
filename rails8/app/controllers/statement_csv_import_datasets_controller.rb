@@ -16,6 +16,13 @@ class StatementCsvImportDatasetsController < ApplicationController
     @search_sql = searcher.sql
   end
 
+  def update
+    @statement_csv_import_dataset.assign_display_names!(display_name_params)
+    redirect_to @statement_csv_import_dataset.statement_csv_import, notice: "表示名を更新しました。"
+  rescue StandardError => e
+    redirect_to @statement_csv_import_dataset.statement_csv_import, alert: "表示名の更新に失敗しました: #{e.message}"
+  end
+
   private
 
   def set_statement_csv_import_dataset
@@ -66,5 +73,10 @@ class StatementCsvImportDatasetsController < ApplicationController
       "direction" => raw["direction"].to_s.presence || raw[:direction].to_s || "desc",
       "limit" => raw["limit"].to_s.presence || raw[:limit].to_s || CsvImports::Searcher::DEFAULT_LIMIT.to_s
     }
+  end
+
+  def display_name_params
+    raw = params.fetch(:display_names, {})
+    raw.respond_to?(:to_unsafe_h) ? raw.to_unsafe_h : raw.to_h
   end
 end

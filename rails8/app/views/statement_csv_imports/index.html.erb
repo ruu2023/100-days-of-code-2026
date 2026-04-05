@@ -32,7 +32,7 @@
         </div>
       <% end %>
 
-      <%= form_with model: @statement_csv_import, class: "mt-5 space-y-4" do |f| %>
+      <%= form_with model: @statement_csv_import, html: { multipart: true }, class: "mt-5 space-y-4" do |f| %>
         <div>
           <%= f.label :name, "表示名", class: "mb-2 block text-sm font-medium text-slate-700" %>
           <%= f.text_field :name, class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200", placeholder: "例: クレカ明細 2026 春" %>

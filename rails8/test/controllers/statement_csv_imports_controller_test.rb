@@ -15,6 +15,7 @@ class StatementCsvImportsControllerTest < ActionDispatch::IntegrationTest
     get statement_csv_imports_url
 
     assert_response :success
+    assert_includes @response.body, 'enctype="multipart/form-data"'
   end
 
   test "should analyze multiple files into grouped datasets" do
@@ -84,6 +85,35 @@ class StatementCsvImportsControllerTest < ActionDispatch::IntegrationTest
     assert_includes @response.body, "Coffee"
     assert_includes @response.body, "2026-02-02"
     assert_includes @response.body, "ORDER BY &quot;date&quot; ASC"
+  end
+
+  test "should update dataset display names before import" do
+    post statement_csv_imports_url, params: {
+      statement_csv_import: {
+        name: "表示名編集",
+        source_files: [fixture_file_upload("statement_other_card.csv", "text/csv")]
+      }
+    }
+
+    statement_csv_import = StatementCsvImport.order(:created_at).last
+    dataset = statement_csv_import.statement_csv_import_datasets.first
+
+    patch statement_csv_import_dataset_url(dataset), params: {
+      display_names: {
+        "used_on" => "利用日",
+        "shop_name" => "店舗名",
+        "total" => "利用金額"
+      }
+    }
+
+    assert_redirected_to statement_csv_import_url(statement_csv_import)
+    assert_equal "利用日", dataset.reload.display_name_for("used_on")
+
+    get statement_csv_import_url(statement_csv_import)
+
+    assert_response :success
+    assert_includes @response.body, "利用日"
+    assert_includes @response.body, "店舗名"
   end
 
   test "should append to an existing grouped table when header matches" do

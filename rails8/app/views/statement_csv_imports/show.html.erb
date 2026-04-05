@@ -66,25 +66,57 @@
               </ul>
             </div>
 
-            <div class="overflow-auto rounded-2xl border border-slate-200">
-              <table class="min-w-full divide-y divide-slate-200 text-sm">
-                <thead class="bg-slate-50">
-                  <tr>
-                    <% dataset.column_names_for_search.each do |column_name| %>
-                      <th class="px-4 py-3 text-left font-medium text-slate-600"><%= column_name %></th>
-                    <% end %>
-                  </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 bg-white">
-                  <% dataset.sample_rows_for_preview.first(5).each do |row| %>
+            <div class="space-y-4">
+              <div class="rounded-2xl border border-slate-200 p-4">
+                <div class="mb-3 flex items-center justify-between gap-3">
+                  <p class="text-sm font-semibold text-slate-900">取り込み前の表示名</p>
+                  <p class="text-xs text-slate-500">内部カラム名は固定、画面表示だけ変更します</p>
+                </div>
+
+                <%= form_with url: statement_csv_import_dataset_path(dataset), method: :patch, class: "space-y-3" do %>
+                  <% dataset.columns_with_labels.each do |column| %>
+                    <div class="grid gap-3 lg:grid-cols-[0.8fr_1fr_1.2fr]">
+                      <div class="rounded-2xl bg-slate-50 px-4 py-3">
+                        <p class="text-xs uppercase tracking-[0.15em] text-slate-500">内部名</p>
+                        <p class="mt-1 font-mono text-xs text-slate-800"><%= column["name"] %></p>
+                      </div>
+
+                      <div class="rounded-2xl bg-slate-50 px-4 py-3">
+                        <p class="text-xs uppercase tracking-[0.15em] text-slate-500">元ヘッダー</p>
+                        <p class="mt-1 text-sm text-slate-700"><%= column["original_header"] %></p>
+                      </div>
+
+                      <div>
+                        <label class="mb-2 block text-xs uppercase tracking-[0.15em] text-slate-500">表示名</label>
+                        <%= text_field_tag "display_names[#{column["name"]}]", column["display_name"], class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+                      </div>
+                    </div>
+                  <% end %>
+
+                  <%= submit_tag "表示名を保存", class: "rounded-2xl border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-900" %>
+                <% end %>
+              </div>
+
+              <div class="overflow-auto rounded-2xl border border-slate-200">
+                <table class="min-w-full divide-y divide-slate-200 text-sm">
+                  <thead class="bg-slate-50">
                     <tr>
                       <% dataset.column_names_for_search.each do |column_name| %>
-                        <td class="max-w-xs px-4 py-3 align-top text-slate-700"><%= row[column_name] %></td>
+                        <th class="px-4 py-3 text-left font-medium text-slate-600"><%= dataset.display_name_for(column_name) %></th>
                       <% end %>
                     </tr>
-                  <% end %>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100 bg-white">
+                    <% dataset.sample_rows_for_preview.first(5).each do |row| %>
+                      <tr>
+                        <% dataset.column_names_for_search.each do |column_name| %>
+                          <td class="max-w-xs px-4 py-3 align-top text-slate-700"><%= row[column_name] %></td>
+                        <% end %>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

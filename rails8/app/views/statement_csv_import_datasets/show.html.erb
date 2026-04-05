@@ -54,9 +54,13 @@
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100 bg-white">
-            <% @statement_csv_import_dataset.inferred_columns.each do |column| %>
+            <% @statement_csv_import_dataset.columns_with_labels.each do |column| %>
               <tr>
-                <td class="px-4 py-3 font-mono text-xs text-slate-800"><%= column["name"] %></td>
+                <td class="px-4 py-3">
+                  <p class="text-sm text-slate-900"><%= column["display_name"] %></p>
+                  <p class="font-mono text-xs text-slate-500"><%= column["name"] %></p>
+                  <p class="mt-1 text-xs text-slate-500">元: <%= column["original_header"] %></p>
+                </td>
                 <td class="px-4 py-3 text-slate-700"><%= column["type"] %></td>
                 <td class="px-4 py-3 text-slate-700"><%= column["nullable"] ? "許可" : "不可" %></td>
               </tr>
@@ -73,7 +77,7 @@
           <thead class="bg-slate-50">
             <tr>
               <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
-                <th class="px-4 py-3 text-left font-medium text-slate-600"><%= column_name %></th>
+                <th class="px-4 py-3 text-left font-medium text-slate-600"><%= @statement_csv_import_dataset.display_name_for(column_name) %></th>
               <% end %>
             </tr>
           </thead>
@@ -110,7 +114,7 @@
           <div class="grid gap-4 sm:grid-cols-2">
             <div>
               <label class="mb-2 block text-sm font-medium text-slate-700">並び替え</label>
-              <%= select_tag "search[order_by]", options_for_select([["id", "id"]] + @statement_csv_import_dataset.column_names_for_search.map { |name| [name, name] }, @search_form["order_by"].presence || "id"), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+              <%= select_tag "search[order_by]", options_for_select([["id", "id"]] + @statement_csv_import_dataset.search_column_options, @search_form["order_by"].presence || "id"), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
             </div>
 
             <div>
@@ -130,7 +134,7 @@
             <% @search_form["filters"].each_with_index do |filter, index| %>
               <div class="grid gap-3 lg:grid-cols-[1fr_1fr_1.2fr]">
                 <%= select_tag "search[filters][#{index}][column]",
-                  options_for_select([["カラムを選択", ""]] + @statement_csv_import_dataset.column_names_for_search.map { |name| [name, name] }, filter["column"]),
+                  options_for_select([["カラムを選択", ""]] + @statement_csv_import_dataset.search_column_options, filter["column"]),
                   class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
 
                 <%= select_tag "search[filters][#{index}][operator]",
@@ -180,7 +184,7 @@
             <thead class="bg-slate-50">
               <tr>
                 <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
-                  <th class="px-4 py-3 text-left font-medium text-slate-600"><%= column_name %></th>
+                  <th class="px-4 py-3 text-left font-medium text-slate-600"><%= @statement_csv_import_dataset.display_name_for(column_name) %></th>
                 <% end %>
               </tr>
             </thead>

@@ -162,8 +162,9 @@ module StatementCsvImports
           [generated_headers(first_entry.length), first_entry]
         end
 
+      original_headers = headers.map(&:to_s)
       normalized_headers = normalize_headers(headers)
-      trackers = normalized_headers.map { |header| initial_tracker(header) }
+      trackers = normalized_headers.each_with_index.map { |header, index| initial_tracker(header, original_headers[index]) }
       row_count = 0
       sample_rows = []
 
@@ -218,9 +219,11 @@ module StatementCsvImports
       end
     end
 
-    def initial_tracker(name)
+    def initial_tracker(name, original_header)
       {
         "name" => name,
+        "original_header" => original_header.to_s.presence || name,
+        "display_name" => original_header.to_s.presence || name,
         "type_candidates" => {
           "integer" => true,
           "decimal" => true,
@@ -251,6 +254,8 @@ module StatementCsvImports
       trackers.map do |tracker|
         {
           "name" => tracker["name"],
+          "original_header" => tracker["original_header"],
+          "display_name" => tracker["display_name"],
           "type" => inferred_type_for(tracker),
           "nullable" => tracker["nullable"]
         }
