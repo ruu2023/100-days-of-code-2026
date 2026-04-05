@@ -163,6 +163,10 @@ Rails.application.routes.draw do
   resources :csv_imports, only: [:index, :show, :create] do
     post :run_import, on: :member
   end
+  resources :statement_csv_imports, only: [:index, :show, :create] do
+    post :run_import, on: :member
+  end
+  resources :statement_csv_import_datasets, only: [:show]
 
   # Day093 商品購入履歴
   resources :items, only: [:index, :new, :create, :edit, :update, :destroy] do

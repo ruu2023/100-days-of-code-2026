@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_04_090000) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_05_093000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -293,6 +293,57 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_04_090000) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "statement_csv_import_datasets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "error_message"
+    t.string "header_signature", null: false
+    t.datetime "imported_at"
+    t.text "inferred_columns"
+    t.string "name", null: false
+    t.text "normalized_headers"
+    t.integer "row_count", default: 0, null: false
+    t.text "sample_rows"
+    t.text "source_filenames"
+    t.integer "statement_csv_import_id", null: false
+    t.integer "status", default: 0, null: false
+    t.string "target_mode", default: "new_table", null: false
+    t.string "target_table_name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["header_signature"], name: "index_statement_csv_import_datasets_on_header_signature"
+    t.index ["statement_csv_import_id"], name: "index_statement_csv_import_datasets_on_statement_csv_import_id"
+    t.index ["status"], name: "index_statement_csv_import_datasets_on_status"
+    t.index ["target_table_name"], name: "index_statement_csv_import_datasets_on_target_table_name"
+  end
+
+  create_table "statement_csv_import_files", force: :cascade do |t|
+    t.string "col_sep", default: ",", null: false
+    t.datetime "created_at", null: false
+    t.text "error_message"
+    t.boolean "header_row", default: true, null: false
+    t.text "inferred_columns"
+    t.text "normalized_headers"
+    t.integer "row_count", default: 0, null: false
+    t.text "sample_rows"
+    t.string "source_filename", null: false
+    t.integer "statement_csv_import_dataset_id"
+    t.integer "statement_csv_import_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["statement_csv_import_dataset_id"], name: "idx_on_statement_csv_import_dataset_id_0de9f89d0a"
+    t.index ["statement_csv_import_id"], name: "index_statement_csv_import_files_on_statement_csv_import_id"
+    t.index ["status"], name: "index_statement_csv_import_files_on_status"
+  end
+
+  create_table "statement_csv_imports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "error_message"
+    t.datetime "imported_at"
+    t.string "name", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["status"], name: "index_statement_csv_imports_on_status"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "avatar_url"
     t.datetime "created_at", null: false
@@ -323,4 +374,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_04_090000) do
   add_foreign_key "master_products", "master_suppliers", column: "supplier_ref_id"
   add_foreign_key "posts", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "statement_csv_import_datasets", "statement_csv_imports"
+  add_foreign_key "statement_csv_import_files", "statement_csv_import_datasets"
+  add_foreign_key "statement_csv_import_files", "statement_csv_imports"
 end

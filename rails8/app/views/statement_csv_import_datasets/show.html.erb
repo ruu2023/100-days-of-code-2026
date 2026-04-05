@@ -1,0 +1,205 @@
+<div class="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  <div class="mb-6 flex flex-col gap-4 rounded-3xl bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200 lg:flex-row lg:items-start lg:justify-between">
+    <div>
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-slate-500">Statement Dataset</p>
+      <h1 class="mt-1 text-3xl font-bold text-slate-900"><%= @statement_csv_import_dataset.name %></h1>
+      <p class="mt-2 text-sm text-slate-600"><%= @statement_csv_import_dataset.source_filenames.join(", ") %></p>
+      <p class="mt-2 text-xs text-slate-500">テーブル名: <code><%= @statement_csv_import_dataset.target_table_name %></code></p>
+    </div>
+
+    <div class="flex flex-col items-start gap-3 lg:items-end">
+      <span class="rounded-full px-3 py-1 text-xs font-medium <%= @statement_csv_import_dataset.ready? ? "bg-emerald-100 text-emerald-800" : @statement_csv_import_dataset.failed? ? "bg-red-100 text-red-800" : "bg-slate-200 text-slate-700" %>">
+        <%= @statement_csv_import_dataset.status %>
+      </span>
+
+      <%= link_to "セッションへ戻る", statement_csv_import_path(@statement_csv_import_dataset.statement_csv_import), class: "text-sm font-medium text-slate-600 hover:text-slate-900" %>
+    </div>
+  </div>
+
+  <% if @statement_csv_import_dataset.error_message.present? %>
+    <div class="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+      <%= @statement_csv_import_dataset.error_message %>
+    </div>
+  <% end %>
+
+  <div class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+    <section class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-xl font-semibold text-slate-900">推定結果</h2>
+      <dl class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <dt class="text-xs uppercase tracking-[0.15em] text-slate-500">取込モード</dt>
+          <dd class="mt-1 text-sm font-medium text-slate-900"><%= @statement_csv_import_dataset.append_target? ? "既存テーブルへ追記" : "新規テーブル" %></dd>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <dt class="text-xs uppercase tracking-[0.15em] text-slate-500">推定行数</dt>
+          <dd class="mt-1 text-sm font-medium text-slate-900"><%= @statement_csv_import_dataset.row_count %>行</dd>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <dt class="text-xs uppercase tracking-[0.15em] text-slate-500">ファイル数</dt>
+          <dd class="mt-1 text-sm font-medium text-slate-900"><%= @statement_csv_import_dataset.statement_csv_import_files.count %>件</dd>
+        </div>
+        <div class="rounded-2xl bg-slate-50 p-4">
+          <dt class="text-xs uppercase tracking-[0.15em] text-slate-500">取込日時</dt>
+          <dd class="mt-1 text-sm font-medium text-slate-900"><%= @statement_csv_import_dataset.imported_at&.strftime("%Y-%m-%d %H:%M") || "未実行" %></dd>
+        </div>
+      </dl>
+
+      <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <table class="min-w-full divide-y divide-slate-200 text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <th class="px-4 py-3 text-left font-medium text-slate-600">カラム名</th>
+              <th class="px-4 py-3 text-left font-medium text-slate-600">型</th>
+              <th class="px-4 py-3 text-left font-medium text-slate-600">NULL</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 bg-white">
+            <% @statement_csv_import_dataset.inferred_columns.each do |column| %>
+              <tr>
+                <td class="px-4 py-3 font-mono text-xs text-slate-800"><%= column["name"] %></td>
+                <td class="px-4 py-3 text-slate-700"><%= column["type"] %></td>
+                <td class="px-4 py-3 text-slate-700"><%= column["nullable"] ? "許可" : "不可" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <h2 class="text-xl font-semibold text-slate-900">サンプルプレビュー</h2>
+      <div class="mt-5 overflow-auto rounded-2xl border border-slate-200">
+        <table class="min-w-full divide-y divide-slate-200 text-sm">
+          <thead class="bg-slate-50">
+            <tr>
+              <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
+                <th class="px-4 py-3 text-left font-medium text-slate-600"><%= column_name %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 bg-white">
+            <% @statement_csv_import_dataset.sample_rows_for_preview.each do |row| %>
+              <tr>
+                <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
+                  <td class="max-w-xs px-4 py-3 align-top text-slate-700"><%= row[column_name] %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <% if @statement_csv_import_dataset.ready? %>
+    <section class="mt-6 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <h2 class="text-xl font-semibold text-slate-900">取り込み済みデータを検索</h2>
+          <p class="mt-1 text-sm text-slate-600">既存のCSV検索UIを流用し、データセット単位で検索します。</p>
+        </div>
+      </div>
+
+      <%= form_with url: statement_csv_import_dataset_path(@statement_csv_import_dataset), method: :get, class: "mt-5 space-y-6" do %>
+        <div class="grid gap-4 lg:grid-cols-[1.4fr_0.8fr]">
+          <div>
+            <label class="mb-2 block text-sm font-medium text-slate-700">全文検索</label>
+            <%= text_field_tag "search[keyword]", @search_form["keyword"], placeholder: "例: Tokyo / Amazon / 2026-04", class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">並び替え</label>
+              <%= select_tag "search[order_by]", options_for_select([["id", "id"]] + @statement_csv_import_dataset.column_names_for_search.map { |name| [name, name] }, @search_form["order_by"].presence || "id"), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+            </div>
+
+            <div>
+              <label class="mb-2 block text-sm font-medium text-slate-700">方向</label>
+              <%= select_tag "search[direction]", options_for_select([["DESC", "desc"], ["ASC", "asc"]], @search_form["direction"]), class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-3 flex items-center justify-between gap-3">
+            <h3 class="text-sm font-semibold text-slate-900">Where 条件</h3>
+            <p class="text-xs text-slate-500">AND 条件で最大3行</p>
+          </div>
+
+          <div class="space-y-3">
+            <% @search_form["filters"].each_with_index do |filter, index| %>
+              <div class="grid gap-3 lg:grid-cols-[1fr_1fr_1.2fr]">
+                <%= select_tag "search[filters][#{index}][column]",
+                  options_for_select([["カラムを選択", ""]] + @statement_csv_import_dataset.column_names_for_search.map { |name| [name, name] }, filter["column"]),
+                  class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+
+                <%= select_tag "search[filters][#{index}][operator]",
+                  options_for_select([
+                    ["条件なし", ""],
+                    ["=", "eq"],
+                    ["!=", "not_eq"],
+                    ["contains", "contains"],
+                    [">", "gt"],
+                    [">=", "gte"],
+                    ["<", "lt"],
+                    ["<=", "lte"],
+                    ["IS NULL", "is_null"],
+                    ["IS NOT NULL", "is_not_null"]
+                  ], filter["operator"]),
+                  class: "w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+
+                <%= text_field_tag "search[filters][#{index}][value]", filter["value"], placeholder: "値", class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="w-full max-w-xs">
+            <label class="mb-2 block text-sm font-medium text-slate-700">件数上限</label>
+            <%= number_field_tag "search[limit]", @search_form["limit"], min: 1, max: 500, class: "w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm shadow-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200" %>
+          </div>
+
+          <div class="flex gap-3">
+            <%= submit_tag "検索", class: "rounded-2xl bg-slate-900 px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-slate-700" %>
+            <%= link_to "条件をクリア", statement_csv_import_dataset_path(@statement_csv_import_dataset), class: "rounded-2xl border border-slate-300 px-5 py-3 text-sm font-medium text-slate-700 transition hover:border-slate-500 hover:text-slate-900" %>
+          </div>
+        </div>
+      <% end %>
+
+      <% if @search_sql.present? %>
+        <div class="mt-5 rounded-2xl bg-slate-950 p-4 text-xs text-slate-100">
+          <p class="mb-2 font-semibold text-slate-300">生成されるSQL</p>
+          <pre class="overflow-auto whitespace-pre-wrap"><%= @search_sql %></pre>
+        </div>
+      <% end %>
+
+      <% if @search_sql.present? %>
+        <div class="mt-5 overflow-auto rounded-2xl border border-slate-200">
+          <table class="min-w-full divide-y divide-slate-200 text-sm">
+            <thead class="bg-slate-50">
+              <tr>
+                <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
+                  <th class="px-4 py-3 text-left font-medium text-slate-600"><%= column_name %></th>
+                <% end %>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 bg-white">
+              <% @search_results.each do |row| %>
+                <tr>
+                  <% @statement_csv_import_dataset.column_names_for_search.each do |column_name| %>
+                    <td class="max-w-xs px-4 py-3 align-top text-slate-700"><%= row[column_name] %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <% if @search_results.empty? %>
+          <p class="mt-4 text-sm text-slate-500">一致するデータは見つかりませんでした。</p>
+        <% end %>
+      <% end %>
+    </section>
+  <% end %>
+</div>
