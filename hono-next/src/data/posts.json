@@ -1,5 +1,21 @@
 [
   {
+    "day": 95,
+    "date": "2026-04-05",
+    "title": "Rails CSV インポート ver2 🛠️✨",
+    "description": "【Day 095/100】Rails CSV インポート ver2 🛠️✨",
+    "features": [
+      "Railsで複数CSV解析",
+      "カード明細を1年分取り込んでSQL検索"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2040733768248676605",
+    "demoLink": "https://rails.ruu-dev.com/statement_csv_import_datasets"
+  },
+  {
     "day": 94,
     "date": "2026-04-04",
     "title": "Rails CSV インポート🛠️✨",

@@ -1,3 +1,20 @@
+## 2026-04-05
+
+【Day 095/100】Rails CSV インポート ver2 🛠️✨
+
+複数CSV取り込み＋SQL検索できます。カードの明細を探すの楽です。
+
+✅ Railsで複数CSV解析
+✅ カード明細を1年分取り込んでSQL検索
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/statement_csv_import_datasets)
+
+[Original Post](https://x.com/ruu_web/status/2040733768248676605)
+
+---
+
 ## 2026-04-04
 
 【Day 094/100】Rails CSV インポート🛠️✨
