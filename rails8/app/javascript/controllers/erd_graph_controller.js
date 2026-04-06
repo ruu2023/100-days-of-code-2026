@@ -8,6 +8,7 @@ const CARD_WIDTH = 620;
 const HEADER_HEIGHT = 82;
 const ROW_HEIGHT = 46;
 const FOOTER_HEIGHT = 26;
+const CARD_WORLD_SCALE = 0.24;
 
 export default class extends Controller {
   static targets = ["detail"];
@@ -74,20 +75,20 @@ export default class extends Controller {
       .graphData(this.graphData)
       .nodeLabel((node) => this.nodeTooltip(node))
       .nodeOpacity(0.92)
-      .linkOpacity(0.8)
+      .linkOpacity(0.06)
       .linkColor(() => "#0f172a")
-      .linkWidth(2.2)
+      .linkWidth(7)
       .linkDirectionalArrowLength(8)
       .linkDirectionalArrowRelPos(0.15)
       .linkDirectionalArrowColor(() => "#0f172a")
-      .linkDirectionalParticles(1)
+      .linkDirectionalParticles(0)
       .linkDirectionalParticleWidth(2.2)
       .linkDirectionalParticleColor(() => "#f97316")
       .linkLabel((link) => this.linkTooltip(link))
       .nodeThreeObject((node) => this.buildNodeObject(node))
       .linkThreeObjectExtend(true)
-      .linkThreeObject((link) => this.buildLinkLabel(link))
-      .linkPositionUpdate((sprite, { start, end }) => this.positionLinkLabel(sprite, start, end))
+      .linkThreeObject((link) => this.buildLinkObject(link))
+      .linkPositionUpdate((group, { start, end }) => this.updateLinkObject(group, start, end))
       .onNodeHover((node) => this.showNodeDetail(node))
       .onLinkHover((link) => this.showLinkDetail(link))
       .onBackgroundClick(() => this.resetDetail())
@@ -95,10 +96,10 @@ export default class extends Controller {
       .warmupTicks(160)
       .cooldownTicks(220);
 
-    this.graph.d3Force("charge").strength(-520);
-    this.graph.d3Force("link").distance(220).strength(0.65);
+    this.graph.d3Force("charge").strength(-180);
+    this.graph.d3Force("link").distance(240).strength(0.15);
     this.graph.d3Force("center").strength(0.12);
-    this.graph.d3Force("collision", this.forceCollide((node) => this.nodeRadius(node) + 20));
+    this.graph.d3Force("collision", this.forceCollide((node) => this.nodeRadius(node) + 55));
 
     this.handleResize = () => {
       window.clearTimeout(this.resizeTimer);
@@ -168,8 +169,7 @@ export default class extends Controller {
     texture.colorSpace = this.THREE.SRGBColorSpace;
     const material = new this.THREE.SpriteMaterial({ map: texture, transparent: true });
     const sprite = new this.THREE.Sprite(material);
-    const scale = 0.24;
-    sprite.scale.set(width * scale, height * scale, 1);
+    sprite.scale.set(width * CARD_WORLD_SCALE, height * CARD_WORLD_SCALE, 1);
     sprite.center.set(0.5, 0.5);
     return sprite;
   }
@@ -191,23 +191,98 @@ export default class extends Controller {
   }
 
   buildLinkLabel(link) {
-    const sprite = new this.SpriteText(`[${link.cardinality_badge}] ${link.direction_label}`);
+    const sprite = new this.SpriteText(`${link.cardinality_badge}\n${link.direction_label}`);
     sprite.backgroundColor = "rgba(248, 250, 252, 0.95)";
     sprite.color = "#0f172a";
-    sprite.textHeight = 4.5;
+    sprite.textHeight = 4;
     sprite.padding = 2.5;
     sprite.borderRadius = 4;
     return sprite;
   }
 
   positionLinkLabel(sprite, start, end) {
-    const middlePos = {
-      x: start.x + (end.x - start.x) * 0.5,
-      y: start.y + (end.y - start.y) * 0.5 + 12,
-      z: start.z + (end.z - start.z) * 0.5,
-    };
+    const link = sprite.userData.link;
+    const points = this.linkPoints(link, start, end);
+    const pivot = points[Math.floor(points.length / 2)];
+    const offset = 16 + (link.target_link_order % 3) * 8;
+    const middlePos = { x: pivot.x, y: pivot.y + offset, z: pivot.z + offset * 0.15 };
 
     Object.assign(sprite.position, middlePos);
+  }
+
+  buildLinkObject(link) {
+    const group = new this.THREE.Group();
+    const lineMaterial = new this.THREE.LineBasicMaterial({ color: "#0f172a", transparent: true, opacity: 0.88 });
+    const geometry = new this.THREE.BufferGeometry();
+    const line = new this.THREE.Line(geometry, lineMaterial);
+    group.add(line);
+
+    const fkBadge = new this.SpriteText("N");
+    fkBadge.color = "#7c2d12";
+    fkBadge.backgroundColor = "rgba(255,255,255,0.96)";
+    fkBadge.textHeight = 4.4;
+    fkBadge.padding = 1.6;
+    fkBadge.borderRadius = 4;
+    group.add(fkBadge);
+
+    const pkBadge = new this.SpriteText("1");
+    pkBadge.color = "#075985";
+    pkBadge.backgroundColor = "rgba(255,255,255,0.96)";
+    pkBadge.textHeight = 4.4;
+    pkBadge.padding = 1.6;
+    pkBadge.borderRadius = 4;
+    group.add(pkBadge);
+
+    const label = this.buildLinkLabel(link);
+    label.userData.link = link;
+    group.add(label);
+
+    group.userData = { line, fkBadge, pkBadge, label, link };
+    return group;
+  }
+
+  linkPoints(link, start, end) {
+    const sourceYOffset = this.rowOffsetFor(link.source_row_index);
+    const targetYOffset = this.rowOffsetFor(link.target_row_index);
+    const sourceShift = this.sideOffsetFor(link.source_link_order);
+    const targetShift = this.sideOffsetFor(link.target_link_order);
+    const startPoint = new this.THREE.Vector3(start.x + sourceShift, start.y + sourceYOffset, start.z);
+    const endPoint = new this.THREE.Vector3(end.x - targetShift, end.y + targetYOffset, end.z);
+    const deltaX = endPoint.x - startPoint.x;
+    const bendX = startPoint.x + deltaX * 0.5;
+
+    return [
+      startPoint,
+      new this.THREE.Vector3(startPoint.x + Math.sign(deltaX || 1) * 34, startPoint.y, startPoint.z),
+      new this.THREE.Vector3(bendX, startPoint.y, startPoint.z),
+      new this.THREE.Vector3(bendX, endPoint.y, endPoint.z),
+      new this.THREE.Vector3(endPoint.x - Math.sign(deltaX || 1) * 34, endPoint.y, endPoint.z),
+      endPoint
+    ];
+  }
+
+  updateLinkObject(group, start, end) {
+    const { line, fkBadge, pkBadge, label, link } = group.userData;
+    const points = this.linkPoints(link, start, end);
+    line.geometry.setFromPoints(points);
+
+    const first = points[0];
+    const second = points[1];
+    const last = points[points.length - 1];
+    const beforeLast = points[points.length - 2];
+    fkBadge.position.set(first.x + (second.x - first.x) * 0.55, first.y + 8, first.z);
+    pkBadge.position.set(last.x + (beforeLast.x - last.x) * 0.55, last.y + 8, last.z);
+    this.positionLinkLabel(label, start, end);
+  }
+
+  rowOffsetFor(rowIndex) {
+    const topPadding = 54;
+    const pixelOffset = topPadding + rowIndex * ROW_HEIGHT + ROW_HEIGHT / 2;
+    return (HEADER_HEIGHT / 2 - pixelOffset) * CARD_WORLD_SCALE;
+  }
+
+  sideOffsetFor(orderIndex) {
+    return (orderIndex % 5) * 8;
   }
 
   showNodeDetail(node) {
@@ -265,7 +340,7 @@ export default class extends Controller {
   }
 
   nodeRadius(node) {
-    return 52 + node.columns.length * 8;
+    return 82 + node.columns.length * 10;
   }
 
   async persistNodePosition(node) {
