@@ -228,8 +228,7 @@ export default class extends Controller {
     const link = sprite.userData.link;
     const path = route || this.linkRoute(link, start, end);
     const pivot = path.curve.getPoint(0.5);
-    const offset = 16 + (link.target_link_order % 3) * 8;
-    const middlePos = { x: pivot.x, y: pivot.y + offset, z: pivot.z + offset * 0.15 };
+    const middlePos = { x: pivot.x, y: pivot.y, z: pivot.z };
 
     Object.assign(sprite.position, middlePos);
   }
@@ -269,21 +268,19 @@ export default class extends Controller {
     const horizontalDirection = end.x >= start.x ? 1 : -1;
     const sourceEdgeX = start.x + horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
     const targetEdgeX = end.x - horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
-    const laneOffset = ((link.target_link_order % 5) - 2) * 8;
-    const zOffset = ((link.target_link_order % 3) - 1) * 0.2;
-    const startPoint = new this.THREE.Vector3(sourceEdgeX, start.y + sourceYOffset, zOffset);
-    const endPoint = new this.THREE.Vector3(targetEdgeX, end.y + targetYOffset, zOffset);
+    const startPoint = new this.THREE.Vector3(sourceEdgeX, start.y + sourceYOffset, 0);
+    const endPoint = new this.THREE.Vector3(targetEdgeX, end.y + targetYOffset, 0);
     const deltaX = endPoint.x - startPoint.x;
     const curvePull = Math.max(Math.abs(deltaX) * 0.32, 42);
     const control1 = new this.THREE.Vector3(
       startPoint.x + horizontalDirection * curvePull,
-      startPoint.y + laneOffset * 0.3,
-      zOffset
+      startPoint.y,
+      0
     );
     const control2 = new this.THREE.Vector3(
       endPoint.x - horizontalDirection * curvePull,
-      endPoint.y - laneOffset * 0.3,
-      zOffset
+      endPoint.y,
+      0
     );
 
     return {
