@@ -224,10 +224,10 @@ export default class extends Controller {
     return sprite;
   }
 
-  positionLinkLabel(sprite, start, end) {
+  positionLinkLabel(sprite, start, end, route = null) {
     const link = sprite.userData.link;
-    const points = this.linkPoints(link, start, end);
-    const pivot = points[Math.floor(points.length / 2)];
+    const path = route || this.linkRoute(link, start, end);
+    const pivot = path.curve.getPoint(0.5);
     const offset = 16 + (link.target_link_order % 3) * 8;
     const middlePos = { x: pivot.x, y: pivot.y + offset, z: pivot.z + offset * 0.15 };
 
@@ -236,9 +236,21 @@ export default class extends Controller {
 
   buildLinkObject(link) {
     const group = new this.THREE.Group();
-    const lineMaterial = new this.THREE.LineBasicMaterial({ color: "#0f172a", transparent: true, opacity: 0.88 });
-    const geometry = new this.THREE.BufferGeometry();
-    const line = new this.THREE.Line(geometry, lineMaterial);
+    const lineMaterial = new this.THREE.MeshBasicMaterial({
+      color: "#0f172a",
+      transparent: true,
+      opacity: 0.94,
+    });
+    const line = new this.THREE.Mesh(
+      new this.THREE.TubeGeometry(
+        new this.THREE.LineCurve3(new this.THREE.Vector3(0, 0, 0), new this.THREE.Vector3(1, 0, 0)),
+        2,
+        1.8,
+        12,
+        false
+      ),
+      lineMaterial
+    );
     group.add(line);
 
     const label = this.buildLinkLabel(link);
@@ -251,34 +263,43 @@ export default class extends Controller {
     return group;
   }
 
-  linkPoints(link, start, end) {
+  linkRoute(link, start, end) {
     const sourceYOffset = this.rowOffsetFor(link.source_row_index);
     const targetYOffset = this.rowOffsetFor(link.target_row_index);
     const horizontalDirection = end.x >= start.x ? 1 : -1;
     const sourceEdgeX = start.x + horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
     const targetEdgeX = end.x - horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
-    const laneOffset = ((link.target_link_order % 5) - 2) * 6;
-    const zOffset = 0;
+    const laneOffset = ((link.target_link_order % 5) - 2) * 8;
+    const zOffset = ((link.target_link_order % 3) - 1) * 0.2;
     const startPoint = new this.THREE.Vector3(sourceEdgeX, start.y + sourceYOffset, zOffset);
     const endPoint = new this.THREE.Vector3(targetEdgeX, end.y + targetYOffset, zOffset);
     const deltaX = endPoint.x - startPoint.x;
-    const bendX = startPoint.x + deltaX * 0.5 + laneOffset;
+    const curvePull = Math.max(Math.abs(deltaX) * 0.32, 42);
+    const control1 = new this.THREE.Vector3(
+      startPoint.x + horizontalDirection * curvePull,
+      startPoint.y + laneOffset * 0.3,
+      zOffset
+    );
+    const control2 = new this.THREE.Vector3(
+      endPoint.x - horizontalDirection * curvePull,
+      endPoint.y - laneOffset * 0.3,
+      zOffset
+    );
 
-    return [
+    return {
       startPoint,
-      new this.THREE.Vector3(startPoint.x + Math.sign(deltaX || 1) * 24, startPoint.y, startPoint.z),
-      new this.THREE.Vector3(bendX, startPoint.y, startPoint.z),
-      new this.THREE.Vector3(bendX, endPoint.y, endPoint.z),
-      new this.THREE.Vector3(endPoint.x - Math.sign(deltaX || 1) * 24, endPoint.y, endPoint.z),
-      endPoint
-    ];
+      endPoint,
+      curve: new this.THREE.CubicBezierCurve3(startPoint, control1, control2, endPoint),
+    };
   }
 
   updateLinkObject(group, start, end) {
     const { line, label, link } = group.userData;
-    const points = this.linkPoints(link, start, end);
-    line.geometry.setFromPoints(points);
-    this.positionLinkLabel(label, start, end);
+    const route = this.linkRoute(link, start, end);
+    const nextGeometry = new this.THREE.TubeGeometry(route.curve, 28, 1.8, 12, false);
+    line.geometry.dispose();
+    line.geometry = nextGeometry;
+    this.positionLinkLabel(label, start, end, route);
   }
 
   rowOffsetFor(rowIndex) {
@@ -349,7 +370,8 @@ export default class extends Controller {
   applyEmphasis(linkIds, nodeIds) {
     this.linkObjects?.forEach((group, id) => {
       const active = !linkIds || linkIds.has(id);
-      group.userData.line.material.opacity = active ? 1 : 0.08;
+      group.userData.line.material.opacity = active ? 1 : 0.12;
+      group.userData.line.material.color.set(active ? "#0f172a" : "#64748b");
       group.userData.label.material.opacity = active ? 1 : 0.12;
     });
 
