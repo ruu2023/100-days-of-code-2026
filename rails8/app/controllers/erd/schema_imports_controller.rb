@@ -2,7 +2,7 @@ module Erd
   class SchemaImportsController < ApplicationController
     def create
       result = ::Erd::SchemaImporter.new(
-        schema_path: import_params[:schema_path],
+        uploaded_schema: import_params[:schema_file],
         diagram_name: import_params[:diagram_name]
       ).import!
 
@@ -15,7 +15,7 @@ module Erd
     private
 
     def import_params
-      params.require(:schema_import).permit(:schema_path, :diagram_name)
+      params.require(:schema_import).permit(:schema_file, :diagram_name)
     end
   end
 end

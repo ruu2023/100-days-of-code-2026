@@ -1,4 +1,5 @@
 require "test_helper"
+require "rack/test"
 
 class Erd::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -55,12 +56,15 @@ class Erd::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should import schema file" do
-    schema_path = Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb")
+    schema_file = Rack::Test::UploadedFile.new(
+      Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb"),
+      "text/plain"
+    )
 
     assert_difference("ErdDiagram.count") do
       post erd_schema_imports_path, params: {
         schema_import: {
-          schema_path: schema_path,
+          schema_file: schema_file,
           diagram_name: "Fixture Import"
         }
       }

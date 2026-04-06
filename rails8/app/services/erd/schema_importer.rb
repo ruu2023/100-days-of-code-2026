@@ -8,15 +8,15 @@ module Erd
 
     class ImportError < StandardError; end
 
-    def initialize(schema_path:, diagram_name: nil)
-      @schema_path = Pathname.new(schema_path.to_s).expand_path
+    def initialize(uploaded_schema:, diagram_name: nil)
+      @uploaded_schema = uploaded_schema
       @diagram_name = diagram_name.to_s.strip
     end
 
     def import!
-      validate_schema_path!
+      validate_uploaded_schema!
 
-      schema = parse_schema(@schema_path.read)
+      schema = parse_schema(schema_content)
       raise ImportError, "create_table が見つかりませんでした" if schema[:tables].empty?
 
       diagram = nil
@@ -24,7 +24,7 @@ module Erd
       ActiveRecord::Base.transaction do
         diagram = ErdDiagram.create!(
           name: @diagram_name.presence || default_diagram_name,
-          description: "Imported from #{@schema_path}"
+          description: "Imported from #{source_name}"
         )
 
         table_map = build_tables!(diagram, schema[:tables])
@@ -40,14 +40,30 @@ module Erd
 
     private
 
-    def validate_schema_path!
-      raise ImportError, "schema.rb が見つかりません" unless @schema_path.file?
-      raise ImportError, "schema.rb を指定してください" unless @schema_path.basename.to_s == "schema.rb"
+    def validate_uploaded_schema!
+      raise ImportError, "schema.rb ファイルを選択してください" if @uploaded_schema.blank?
+      raise ImportError, "schema.rb を選択してください" unless source_name == "schema.rb"
     end
 
     def default_diagram_name
-      parent_name = @schema_path.parent.parent.basename.to_s
-      "#{parent_name.presence || 'rails'} schema"
+      "imported schema"
+    end
+
+    def source_name
+      @source_name ||= if @uploaded_schema.respond_to?(:original_filename)
+                         @uploaded_schema.original_filename.to_s
+                       else
+                         File.basename(@uploaded_schema.to_s)
+                       end
+    end
+
+    def schema_content
+      @schema_content ||= if @uploaded_schema.respond_to?(:read)
+                            @uploaded_schema.rewind if @uploaded_schema.respond_to?(:rewind)
+                            @uploaded_schema.read
+                          else
+                            Pathname.new(@uploaded_schema.to_s).expand_path.read
+                          end
     end
 
     def parse_schema(content)
@@ -165,7 +181,7 @@ module Erd
       definitions.each_with_object({}) do |table_def, map|
         table = diagram.erd_tables.create!(
           name: table_def.name,
-          description: "Imported from #{@schema_path.basename}"
+          description: "Imported from #{source_name}"
         )
 
         add_primary_key_column!(table, table_def) unless idless_table?(table_def)

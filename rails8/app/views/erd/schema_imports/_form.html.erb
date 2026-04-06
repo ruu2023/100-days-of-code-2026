@@ -1,12 +1,12 @@
-<%= form_with url: erd_schema_imports_path, scope: :schema_import, class: "erd-form" do |form| %>
+<%= form_with url: erd_schema_imports_path, scope: :schema_import, class: "erd-form", multipart: true do |form| %>
   <label class="erd-field">
-    <span>schema.rb のパス</span>
-    <%= form.text_field :schema_path, required: true, placeholder: "/path/to/rails/db/schema.rb" %>
+    <span>schema.rb ファイル</span>
+    <%= form.file_field :schema_file, required: true, accept: ".rb" %>
   </label>
 
   <label class="erd-field">
     <span>図の名前</span>
-    <%= form.text_field :diagram_name, placeholder: "省略時は schema から自動生成" %>
+    <%= form.text_field :diagram_name, placeholder: "省略時は imported schema" %>
   </label>
 
   <%= form.submit "schema.rb を取り込む", class: "erd-button erd-button--primary" %>

@@ -1,11 +1,15 @@
 require "test_helper"
+require "rack/test"
 
 class Erd::SchemaImporterTest < ActiveSupport::TestCase
   test "imports tables columns and foreign keys from schema.rb" do
-    schema_path = Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb")
+    schema_file = Rack::Test::UploadedFile.new(
+      Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb"),
+      "text/plain"
+    )
 
     result = Erd::SchemaImporter.new(
-      schema_path: schema_path,
+      uploaded_schema: schema_file,
       diagram_name: "Imported Blog"
     ).import!
 
@@ -27,9 +31,22 @@ class Erd::SchemaImporterTest < ActiveSupport::TestCase
 
   test "rejects non schema file" do
     error = assert_raises(Erd::SchemaImporter::ImportError) do
-      Erd::SchemaImporter.new(schema_path: Rails.root.join("README.md")).import!
+      Erd::SchemaImporter.new(
+        uploaded_schema: Rack::Test::UploadedFile.new(
+          Rails.root.join("test/fixtures/files/customers.csv"),
+          "text/csv"
+        )
+      ).import!
     end
 
-    assert_equal "schema.rb を指定してください", error.message
+    assert_equal "schema.rb を選択してください", error.message
+  end
+
+  test "rejects empty upload" do
+    error = assert_raises(Erd::SchemaImporter::ImportError) do
+      Erd::SchemaImporter.new(uploaded_schema: nil).import!
+    end
+
+    assert_equal "schema.rb ファイルを選択してください", error.message
   end
 end
