@@ -50,6 +50,7 @@ class Erd::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
     assert_equal @posts.id, link["source"]
     assert_equal @users.id, link["target"]
     assert_equal "posts.user_id -> users.id", link["direction_label"]
+    assert_equal "N:1", link["cardinality_badge"]
   end
 
   test "should persist node position" do

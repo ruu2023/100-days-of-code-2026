@@ -131,6 +131,7 @@
           <li><strong>FK</strong> 外部キー。別テーブルの PK を参照します。</li>
           <li><strong>線</strong> テーブル間の参照関係です。</li>
           <li><strong>矢印</strong> FK を持つテーブルから、参照先テーブルへ向きます。</li>
+          <li><strong>N:1</strong> FK 側が多、参照先 PK 側が 1 です。`comments -> users` のような関係を示します。</li>
           <li><strong>線ラベル</strong> `comments.user_id -> users.id` のように列の対応を示します。</li>
         </ul>
       </section>
@@ -140,7 +141,7 @@
         data-controller="erd-graph"
         data-erd-graph-graph-url-value="<%= graph_api_erd_erd_diagram_path(@diagram) %>"
         data-erd-graph-position-base-value="/api/erd/erd_tables">
-        <div class="erd-hover-card" data-erd-graph-target="detail">
+        <div class="erd-hover-modal" data-erd-graph-target="detail">
           ノードや線にホバーすると詳細が表示されます。
         </div>
         <div class="erd-canvas"></div>

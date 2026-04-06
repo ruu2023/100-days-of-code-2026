@@ -43,6 +43,21 @@ class ErdRelationship < ApplicationRecord
     end
   end
 
+  def cardinality_badge
+    case cardinality
+    when "one_to_many"
+      "N:1"
+    when "many_to_one"
+      "1:N"
+    when "one_to_one"
+      "1:1"
+    when "many_to_many"
+      "N:N"
+    else
+      cardinality.humanize
+    end
+  end
+
   private
 
   def sync_diagram_from_source_table

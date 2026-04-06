@@ -187,11 +187,11 @@ export default class extends Controller {
   }
 
   linkTooltip(link) {
-    return `<strong>${link.direction_label}</strong><br>${link.semantic_label}<br>${link.cardinality}`;
+    return `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>${link.cardinality}`;
   }
 
   buildLinkLabel(link) {
-    const sprite = new this.SpriteText(link.direction_label);
+    const sprite = new this.SpriteText(`[${link.cardinality_badge}] ${link.direction_label}`);
     sprite.backgroundColor = "rgba(248, 250, 252, 0.95)";
     sprite.color = "#0f172a";
     sprite.textHeight = 4.5;
@@ -231,7 +231,7 @@ export default class extends Controller {
     if (!link) return this.resetDetail();
 
     if (this.hasDetailTarget) {
-      this.detailTarget.innerHTML = `<strong>${link.direction_label}</strong><br>${link.semantic_label}<br>${link.cardinality}<br>参照元(FK): ${link.target_table_name}.${link.target_column}<br>参照先(PK): ${link.source_table_name}.${link.source_column}`;
+      this.detailTarget.innerHTML = `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>多重度: ${link.cardinality_badge}<br>参照元(FK): ${link.target_table_name}.${link.target_column}<br>参照先(PK): ${link.source_table_name}.${link.source_column}`;
     }
   }
 

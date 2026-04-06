@@ -216,9 +216,7 @@ button {
 }
 
 .erd-graph-stage {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 1rem;
+  position: relative;
   min-height: 0;
 }
 
@@ -247,17 +245,26 @@ button {
   line-height: 1.5;
 }
 
-.erd-hover-card {
+.erd-hover-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+  width: min(28rem, calc(100% - 2rem));
+  max-height: 18rem;
+  overflow: auto;
   padding: 0.9rem 1rem;
   border-radius: 1rem;
   border: 1px solid rgba(148, 163, 184, 0.24);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.94);
   color: #334155;
-  min-height: 4.25rem;
   line-height: 1.6;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
 }
 
-.erd-hover-card strong {
+.erd-hover-modal strong {
   color: #0f172a;
 }
 

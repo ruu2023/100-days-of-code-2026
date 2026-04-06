@@ -55,6 +55,7 @@ module Erd
             label: relationship.label,
             direction_label: relationship.direction_label,
             semantic_label: relationship.semantic_label,
+            cardinality_badge: relationship.cardinality_badge,
             cardinality: relationship.cardinality,
             source_column: relationship.source_column,
             target_column: relationship.target_column,
