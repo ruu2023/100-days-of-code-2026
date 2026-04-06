@@ -8,6 +8,7 @@ const CARD_WIDTH = 620;
 const HEADER_HEIGHT = 82;
 const ROW_HEIGHT = 46;
 const FOOTER_HEIGHT = 26;
+const CARD_WORLD_SCALE = 0.24;
 
 export default class extends Controller {
   static targets = ["detail"];
@@ -62,6 +63,14 @@ export default class extends Controller {
     }
 
     const data = await response.json();
+    data.nodes = data.nodes.map((node) => ({
+      ...node,
+      fx: node.x,
+      fy: node.y,
+      fz: 0,
+      z: 0,
+    }));
+    data.links = data.links.map((link) => ({ ...link, source: link.source, target: link.target }));
     this.graphData = data;
     this.renderGraph();
   }
@@ -74,30 +83,30 @@ export default class extends Controller {
       .graphData(this.graphData)
       .nodeLabel((node) => this.nodeTooltip(node))
       .nodeOpacity(0.92)
-      .linkOpacity(0.8)
+      .linkOpacity(0)
       .linkColor(() => "#0f172a")
-      .linkWidth(2.2)
-      .linkDirectionalArrowLength(8)
+      .linkWidth(0)
+      .linkDirectionalArrowLength(0)
       .linkDirectionalArrowRelPos(0.15)
       .linkDirectionalArrowColor(() => "#0f172a")
-      .linkDirectionalParticles(1)
+      .linkDirectionalParticles(0)
       .linkDirectionalParticleWidth(2.2)
       .linkDirectionalParticleColor(() => "#f97316")
       .linkLabel((link) => this.linkTooltip(link))
       .nodeThreeObject((node) => this.buildNodeObject(node))
       .linkThreeObjectExtend(true)
-      .linkThreeObject((link) => this.buildLinkLabel(link))
-      .linkPositionUpdate((sprite, { start, end }) => this.positionLinkLabel(sprite, start, end))
+      .linkThreeObject((link) => this.buildLinkObject(link))
+      .linkPositionUpdate((group, { start, end }) => this.updateLinkObject(group, start, end))
       .onNodeHover((node) => this.showNodeDetail(node))
       .onLinkHover((link) => this.showLinkDetail(link))
       .onBackgroundClick(() => this.resetDetail())
       .onNodeDragEnd((node) => this.persistNodePosition(node))
-      .warmupTicks(160)
-      .cooldownTicks(220);
+      .warmupTicks(0)
+      .cooldownTicks(0);
 
-    this.graph.d3Force("charge").strength(-520);
-    this.graph.d3Force("link").distance(220).strength(0.65);
-    this.graph.d3Force("center").strength(0.12);
+    this.graph.d3Force("charge").strength(0);
+    this.graph.d3Force("link").strength(0);
+    this.graph.d3Force("center").strength(0);
     this.graph.d3Force("collision", this.forceCollide((node) => this.nodeRadius(node) + 20));
 
     this.handleResize = () => {
@@ -106,7 +115,20 @@ export default class extends Controller {
     };
 
     this.resizeGraph();
-    this.graph.cameraPosition({ x: 0, y: 120, z: 540 }, { x: 0, y: 0, z: 0 }, 0);
+    this.graph.cameraPosition({ x: 0, y: 0, z: 820 }, { x: 0, y: 0, z: 0 }, 0);
+    const controls = this.graph.controls?.();
+    if (controls) {
+      controls.enableRotate = false;
+      controls.enablePan = true;
+      controls.enableZoom = true;
+      controls.screenSpacePanning = true;
+      if (this.THREE?.MOUSE) {
+        controls.mouseButtons.LEFT = this.THREE.MOUSE.PAN;
+        controls.mouseButtons.RIGHT = this.THREE.MOUSE.PAN;
+        controls.mouseButtons.MIDDLE = this.THREE.MOUSE.DOLLY;
+      }
+    }
+    this.graph.showNavInfo?.(false);
     this.resetDetail();
     window.addEventListener("resize", this.handleResize);
   }
@@ -168,9 +190,11 @@ export default class extends Controller {
     texture.colorSpace = this.THREE.SRGBColorSpace;
     const material = new this.THREE.SpriteMaterial({ map: texture, transparent: true });
     const sprite = new this.THREE.Sprite(material);
-    const scale = 0.24;
-    sprite.scale.set(width * scale, height * scale, 1);
+    sprite.scale.set(width * CARD_WORLD_SCALE, height * CARD_WORLD_SCALE, 1);
     sprite.center.set(0.5, 0.5);
+    sprite.userData.nodeId = node.id;
+    this.nodeObjects ||= new Map();
+    this.nodeObjects.set(node.id, sprite);
     return sprite;
   }
 
@@ -187,31 +211,107 @@ export default class extends Controller {
   }
 
   linkTooltip(link) {
-    return `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>${link.cardinality}`;
+    return `<strong>${link.cardinality_phrase}</strong><br>${link.direction_label}<br>${link.semantic_label}`;
   }
 
   buildLinkLabel(link) {
-    const sprite = new this.SpriteText(`[${link.cardinality_badge}] ${link.direction_label}`);
+    const sprite = new this.SpriteText(`${link.cardinality_phrase}\n${link.direction_label}`);
     sprite.backgroundColor = "rgba(248, 250, 252, 0.95)";
     sprite.color = "#0f172a";
-    sprite.textHeight = 4.5;
+    sprite.textHeight = 4;
     sprite.padding = 2.5;
     sprite.borderRadius = 4;
     return sprite;
   }
 
-  positionLinkLabel(sprite, start, end) {
-    const middlePos = {
-      x: start.x + (end.x - start.x) * 0.5,
-      y: start.y + (end.y - start.y) * 0.5 + 12,
-      z: start.z + (end.z - start.z) * 0.5,
-    };
+  positionLinkLabel(sprite, start, end, route = null) {
+    const link = sprite.userData.link;
+    const path = route || this.linkRoute(link, start, end);
+    const pivot = path.curve.getPoint(0.5);
+    const middlePos = { x: pivot.x, y: pivot.y, z: pivot.z };
 
     Object.assign(sprite.position, middlePos);
   }
 
+  buildLinkObject(link) {
+    const group = new this.THREE.Group();
+    const lineMaterial = new this.THREE.MeshBasicMaterial({
+      color: "#0f172a",
+      transparent: true,
+      opacity: 0.94,
+    });
+    const line = new this.THREE.Mesh(
+      new this.THREE.TubeGeometry(
+        new this.THREE.LineCurve3(new this.THREE.Vector3(0, 0, 0), new this.THREE.Vector3(1, 0, 0)),
+        2,
+        1.8,
+        12,
+        false
+      ),
+      lineMaterial
+    );
+    group.add(line);
+
+    const label = this.buildLinkLabel(link);
+    label.userData.link = link;
+    group.add(label);
+
+    group.userData = { line, label, link };
+    this.linkObjects ||= new Map();
+    this.linkObjects.set(link.id, group);
+    return group;
+  }
+
+  linkRoute(link, start, end) {
+    const sourceYOffset = this.rowOffsetFor(link.source_row_index);
+    const targetYOffset = this.rowOffsetFor(link.target_row_index);
+    const horizontalDirection = end.x >= start.x ? 1 : -1;
+    const sourceEdgeX = start.x + horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
+    const targetEdgeX = end.x - horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
+    const startPoint = new this.THREE.Vector3(sourceEdgeX, start.y + sourceYOffset, 0);
+    const endPoint = new this.THREE.Vector3(targetEdgeX, end.y + targetYOffset, 0);
+    const deltaX = endPoint.x - startPoint.x;
+    const curvePull = Math.max(Math.abs(deltaX) * 0.32, 42);
+    const control1 = new this.THREE.Vector3(
+      startPoint.x + horizontalDirection * curvePull,
+      startPoint.y,
+      0
+    );
+    const control2 = new this.THREE.Vector3(
+      endPoint.x - horizontalDirection * curvePull,
+      endPoint.y,
+      0
+    );
+
+    return {
+      startPoint,
+      endPoint,
+      curve: new this.THREE.CubicBezierCurve3(startPoint, control1, control2, endPoint),
+    };
+  }
+
+  updateLinkObject(group, start, end) {
+    const { line, label, link } = group.userData;
+    const route = this.linkRoute(link, start, end);
+    const nextGeometry = new this.THREE.TubeGeometry(route.curve, 28, 1.8, 12, false);
+    line.geometry.dispose();
+    line.geometry = nextGeometry;
+    this.positionLinkLabel(label, start, end, route);
+  }
+
+  rowOffsetFor(rowIndex) {
+    const topPadding = 54;
+    const pixelOffset = topPadding + rowIndex * ROW_HEIGHT + ROW_HEIGHT / 2;
+    return (HEADER_HEIGHT / 2 - pixelOffset) * CARD_WORLD_SCALE;
+  }
+
+  sideOffsetFor(orderIndex) {
+    return (orderIndex % 5) * 8;
+  }
+
   showNodeDetail(node) {
     if (!node) return this.resetDetail();
+    this.emphasizeForNode(node.id);
 
     const columnLines = node.columns
       .map((column) => {
@@ -229,16 +329,56 @@ export default class extends Controller {
 
   showLinkDetail(link) {
     if (!link) return this.resetDetail();
+    this.emphasizeForLink(link.id);
 
     if (this.hasDetailTarget) {
-      this.detailTarget.innerHTML = `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>多重度: ${link.cardinality_badge}<br>参照元(FK): ${link.target_table_name}.${link.target_column}<br>参照先(PK): ${link.source_table_name}.${link.source_column}`;
+      this.detailTarget.innerHTML = `<strong>${link.cardinality_phrase}</strong><br>${link.direction_label}<br>${link.semantic_label}<br>FK: ${link.target_table_name}.${link.target_column}<br>PK: ${link.source_table_name}.${link.source_column}`;
     }
   }
 
   resetDetail() {
+    this.clearEmphasis();
     if (this.hasDetailTarget) {
       this.detailTarget.innerHTML = "ノードや線にホバーすると詳細が表示されます。";
     }
+  }
+
+  emphasizeForNode(nodeId) {
+    const connectedLinkIds = new Set(
+      this.graphData.links
+        .filter((link) => this.linkNodeId(link.source) === nodeId || this.linkNodeId(link.target) === nodeId)
+        .map((link) => link.id)
+    );
+
+    this.applyEmphasis(connectedLinkIds, new Set([nodeId]));
+  }
+
+  emphasizeForLink(linkId) {
+    const link = this.graphData.links.find((item) => item.id === linkId);
+    if (!link) return;
+
+    this.applyEmphasis(new Set([linkId]), new Set([this.linkNodeId(link.source), this.linkNodeId(link.target)]));
+  }
+
+  clearEmphasis() {
+    this.applyEmphasis(null, null);
+  }
+
+  applyEmphasis(linkIds, nodeIds) {
+    this.linkObjects?.forEach((group, id) => {
+      const active = !linkIds || linkIds.has(id);
+      group.userData.line.material.opacity = active ? 1 : 0.12;
+      group.userData.line.material.color.set(active ? "#0f172a" : "#64748b");
+      group.userData.label.material.opacity = active ? 1 : 0.12;
+    });
+
+    this.nodeObjects?.forEach((sprite, id) => {
+      sprite.material.opacity = !nodeIds || nodeIds.has(id) ? 1 : 0.35;
+    });
+  }
+
+  linkNodeId(nodeRef) {
+    return typeof nodeRef === "object" ? nodeRef.id : nodeRef;
   }
 
   drawRoundedRect(context, x, y, width, height, radius, fillStyle, topOnly = false) {
@@ -265,7 +405,7 @@ export default class extends Controller {
   }
 
   nodeRadius(node) {
-    return 52 + node.columns.length * 8;
+    return 82 + node.columns.length * 10;
   }
 
   async persistNodePosition(node) {

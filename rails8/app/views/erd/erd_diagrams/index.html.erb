@@ -118,10 +118,6 @@
           <h2><%= @diagram.name %></h2>
           <p><%= @diagram.description.presence || "右ドラッグで回転、ホイールでズーム、ノードドラッグで位置調整。" %></p>
         </div>
-        <div class="erd-api-note">
-          GET <code>/api/erd/erd_diagrams/<%= @diagram.id %>/graph</code><br>
-          PATCH <code>/api/erd/erd_tables/:id/position</code>
-        </div>
       </div>
 
       <section class="erd-panel erd-panel--legend">
@@ -141,9 +137,6 @@
         data-controller="erd-graph"
         data-erd-graph-graph-url-value="<%= graph_api_erd_erd_diagram_path(@diagram) %>"
         data-erd-graph-position-base-value="/api/erd/erd_tables">
-        <div class="erd-hover-modal" data-erd-graph-target="detail">
-          ノードや線にホバーすると詳細が表示されます。
-        </div>
         <div class="erd-canvas"></div>
       </div>
     <% else %>
