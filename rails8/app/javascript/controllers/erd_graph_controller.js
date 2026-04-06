@@ -83,10 +83,10 @@ export default class extends Controller {
       .graphData(this.graphData)
       .nodeLabel((node) => this.nodeTooltip(node))
       .nodeOpacity(0.92)
-      .linkOpacity(0.06)
+      .linkOpacity(0)
       .linkColor(() => "#0f172a")
-      .linkWidth(7)
-      .linkDirectionalArrowLength(8)
+      .linkWidth(0)
+      .linkDirectionalArrowLength(0)
       .linkDirectionalArrowRelPos(0.15)
       .linkDirectionalArrowColor(() => "#0f172a")
       .linkDirectionalParticles(0)
@@ -241,17 +241,11 @@ export default class extends Controller {
     const line = new this.THREE.Line(geometry, lineMaterial);
     group.add(line);
 
-    const crowFoot = this.buildCrowFootMark();
-    group.add(crowFoot);
-
-    const oneMark = this.buildOneMark();
-    group.add(oneMark);
-
     const label = this.buildLinkLabel(link);
     label.userData.link = link;
     group.add(label);
 
-    group.userData = { line, crowFoot, oneMark, label, link };
+    group.userData = { line, label, link };
     this.linkObjects ||= new Map();
     this.linkObjects.set(link.id, group);
     return group;
@@ -260,35 +254,30 @@ export default class extends Controller {
   linkPoints(link, start, end) {
     const sourceYOffset = this.rowOffsetFor(link.source_row_index);
     const targetYOffset = this.rowOffsetFor(link.target_row_index);
-    const sourceShift = this.sideOffsetFor(link.source_link_order);
-    const targetShift = this.sideOffsetFor(link.target_link_order);
-    const zOffset = ((link.target_link_order % 5) - 2) * 0.8;
-    const startPoint = new this.THREE.Vector3(start.x + sourceShift, start.y + sourceYOffset, zOffset);
-    const endPoint = new this.THREE.Vector3(end.x - targetShift, end.y + targetYOffset, zOffset);
+    const horizontalDirection = end.x >= start.x ? 1 : -1;
+    const sourceEdgeX = start.x + horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
+    const targetEdgeX = end.x - horizontalDirection * (CARD_WIDTH * CARD_WORLD_SCALE / 2);
+    const laneOffset = ((link.target_link_order % 5) - 2) * 6;
+    const zOffset = 0;
+    const startPoint = new this.THREE.Vector3(sourceEdgeX, start.y + sourceYOffset, zOffset);
+    const endPoint = new this.THREE.Vector3(targetEdgeX, end.y + targetYOffset, zOffset);
     const deltaX = endPoint.x - startPoint.x;
-    const bendX = startPoint.x + deltaX * 0.5;
+    const bendX = startPoint.x + deltaX * 0.5 + laneOffset;
 
     return [
       startPoint,
-      new this.THREE.Vector3(startPoint.x + Math.sign(deltaX || 1) * 34, startPoint.y, startPoint.z),
+      new this.THREE.Vector3(startPoint.x + Math.sign(deltaX || 1) * 24, startPoint.y, startPoint.z),
       new this.THREE.Vector3(bendX, startPoint.y, startPoint.z),
       new this.THREE.Vector3(bendX, endPoint.y, endPoint.z),
-      new this.THREE.Vector3(endPoint.x - Math.sign(deltaX || 1) * 34, endPoint.y, endPoint.z),
+      new this.THREE.Vector3(endPoint.x - Math.sign(deltaX || 1) * 24, endPoint.y, endPoint.z),
       endPoint
     ];
   }
 
   updateLinkObject(group, start, end) {
-    const { line, crowFoot, oneMark, label, link } = group.userData;
+    const { line, label, link } = group.userData;
     const points = this.linkPoints(link, start, end);
     line.geometry.setFromPoints(points);
-
-    const first = points[0];
-    const second = points[1];
-    const last = points[points.length - 1];
-    const beforeLast = points[points.length - 2];
-    crowFoot.position.set(first.x + (second.x - first.x) * 0.35, first.y, first.z);
-    oneMark.position.set(last.x + (beforeLast.x - last.x) * 0.35, last.y, last.z);
     this.positionLinkLabel(label, start, end);
   }
 
@@ -360,41 +349,13 @@ export default class extends Controller {
   applyEmphasis(linkIds, nodeIds) {
     this.linkObjects?.forEach((group, id) => {
       const active = !linkIds || linkIds.has(id);
-      const muted = !!linkIds && !active;
       group.userData.line.material.opacity = active ? 1 : 0.08;
       group.userData.label.material.opacity = active ? 1 : 0.12;
-      group.userData.crowFoot.children.forEach((child) => { child.material.opacity = active ? 1 : 0.12; });
-      group.userData.oneMark.children.forEach((child) => { child.material.opacity = active ? 1 : 0.12; });
     });
 
     this.nodeObjects?.forEach((sprite, id) => {
       sprite.material.opacity = !nodeIds || nodeIds.has(id) ? 1 : 0.35;
     });
-  }
-
-  buildCrowFootMark() {
-    const group = new this.THREE.Group();
-    [
-      [[0, 0, 0], [7, 0, 0]],
-      [[0, 0, 0], [7, 5, 0]],
-      [[0, 0, 0], [7, -5, 0]],
-    ].forEach(([from, to]) => group.add(this.buildSegment(from, to, "#7c2d12")));
-    return group;
-  }
-
-  buildOneMark() {
-    const group = new this.THREE.Group();
-    group.add(this.buildSegment([0, -6, 0], [0, 6, 0], "#075985"));
-    return group;
-  }
-
-  buildSegment(from, to, color) {
-    const material = new this.THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.95 });
-    const geometry = new this.THREE.BufferGeometry().setFromPoints([
-      new this.THREE.Vector3(...from),
-      new this.THREE.Vector3(...to),
-    ]);
-    return new this.THREE.Line(geometry, material);
   }
 
   linkNodeId(nodeRef) {
