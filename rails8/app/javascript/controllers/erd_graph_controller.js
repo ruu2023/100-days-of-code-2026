@@ -63,6 +63,14 @@ export default class extends Controller {
     }
 
     const data = await response.json();
+    data.nodes = data.nodes.map((node) => ({
+      ...node,
+      fx: node.x,
+      fy: node.y,
+      fz: 0,
+      z: 0,
+    }));
+    data.links = data.links.map((link) => ({ ...link, source: link.source, target: link.target }));
     this.graphData = data;
     this.renderGraph();
   }
@@ -93,13 +101,13 @@ export default class extends Controller {
       .onLinkHover((link) => this.showLinkDetail(link))
       .onBackgroundClick(() => this.resetDetail())
       .onNodeDragEnd((node) => this.persistNodePosition(node))
-      .warmupTicks(160)
-      .cooldownTicks(220);
+      .warmupTicks(0)
+      .cooldownTicks(0);
 
-    this.graph.d3Force("charge").strength(-180);
-    this.graph.d3Force("link").distance(240).strength(0.15);
-    this.graph.d3Force("center").strength(0.12);
-    this.graph.d3Force("collision", this.forceCollide((node) => this.nodeRadius(node) + 55));
+    this.graph.d3Force("charge").strength(0);
+    this.graph.d3Force("link").strength(0);
+    this.graph.d3Force("center").strength(0);
+    this.graph.d3Force("collision", this.forceCollide((node) => this.nodeRadius(node) + 20));
 
     this.handleResize = () => {
       window.clearTimeout(this.resizeTimer);
@@ -107,7 +115,20 @@ export default class extends Controller {
     };
 
     this.resizeGraph();
-    this.graph.cameraPosition({ x: 0, y: 120, z: 540 }, { x: 0, y: 0, z: 0 }, 0);
+    this.graph.cameraPosition({ x: 0, y: 0, z: 820 }, { x: 0, y: 0, z: 0 }, 0);
+    const controls = this.graph.controls?.();
+    if (controls) {
+      controls.enableRotate = false;
+      controls.enablePan = true;
+      controls.enableZoom = true;
+      controls.screenSpacePanning = true;
+      if (this.THREE?.MOUSE) {
+        controls.mouseButtons.LEFT = this.THREE.MOUSE.PAN;
+        controls.mouseButtons.RIGHT = this.THREE.MOUSE.PAN;
+        controls.mouseButtons.MIDDLE = this.THREE.MOUSE.DOLLY;
+      }
+    }
+    this.graph.showNavInfo?.(false);
     this.resetDetail();
     window.addEventListener("resize", this.handleResize);
   }
@@ -171,6 +192,9 @@ export default class extends Controller {
     const sprite = new this.THREE.Sprite(material);
     sprite.scale.set(width * CARD_WORLD_SCALE, height * CARD_WORLD_SCALE, 1);
     sprite.center.set(0.5, 0.5);
+    sprite.userData.nodeId = node.id;
+    this.nodeObjects ||= new Map();
+    this.nodeObjects.set(node.id, sprite);
     return sprite;
   }
 
@@ -187,11 +211,11 @@ export default class extends Controller {
   }
 
   linkTooltip(link) {
-    return `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>${link.cardinality}`;
+    return `<strong>${link.cardinality_phrase}</strong><br>${link.direction_label}<br>${link.semantic_label}`;
   }
 
   buildLinkLabel(link) {
-    const sprite = new this.SpriteText(`${link.cardinality_badge}\n${link.direction_label}`);
+    const sprite = new this.SpriteText(`${link.cardinality_phrase}\n${link.direction_label}`);
     sprite.backgroundColor = "rgba(248, 250, 252, 0.95)";
     sprite.color = "#0f172a";
     sprite.textHeight = 4;
@@ -217,27 +241,19 @@ export default class extends Controller {
     const line = new this.THREE.Line(geometry, lineMaterial);
     group.add(line);
 
-    const fkBadge = new this.SpriteText("N");
-    fkBadge.color = "#7c2d12";
-    fkBadge.backgroundColor = "rgba(255,255,255,0.96)";
-    fkBadge.textHeight = 4.4;
-    fkBadge.padding = 1.6;
-    fkBadge.borderRadius = 4;
-    group.add(fkBadge);
+    const crowFoot = this.buildCrowFootMark();
+    group.add(crowFoot);
 
-    const pkBadge = new this.SpriteText("1");
-    pkBadge.color = "#075985";
-    pkBadge.backgroundColor = "rgba(255,255,255,0.96)";
-    pkBadge.textHeight = 4.4;
-    pkBadge.padding = 1.6;
-    pkBadge.borderRadius = 4;
-    group.add(pkBadge);
+    const oneMark = this.buildOneMark();
+    group.add(oneMark);
 
     const label = this.buildLinkLabel(link);
     label.userData.link = link;
     group.add(label);
 
-    group.userData = { line, fkBadge, pkBadge, label, link };
+    group.userData = { line, crowFoot, oneMark, label, link };
+    this.linkObjects ||= new Map();
+    this.linkObjects.set(link.id, group);
     return group;
   }
 
@@ -246,8 +262,9 @@ export default class extends Controller {
     const targetYOffset = this.rowOffsetFor(link.target_row_index);
     const sourceShift = this.sideOffsetFor(link.source_link_order);
     const targetShift = this.sideOffsetFor(link.target_link_order);
-    const startPoint = new this.THREE.Vector3(start.x + sourceShift, start.y + sourceYOffset, start.z);
-    const endPoint = new this.THREE.Vector3(end.x - targetShift, end.y + targetYOffset, end.z);
+    const zOffset = ((link.target_link_order % 5) - 2) * 0.8;
+    const startPoint = new this.THREE.Vector3(start.x + sourceShift, start.y + sourceYOffset, zOffset);
+    const endPoint = new this.THREE.Vector3(end.x - targetShift, end.y + targetYOffset, zOffset);
     const deltaX = endPoint.x - startPoint.x;
     const bendX = startPoint.x + deltaX * 0.5;
 
@@ -262,7 +279,7 @@ export default class extends Controller {
   }
 
   updateLinkObject(group, start, end) {
-    const { line, fkBadge, pkBadge, label, link } = group.userData;
+    const { line, crowFoot, oneMark, label, link } = group.userData;
     const points = this.linkPoints(link, start, end);
     line.geometry.setFromPoints(points);
 
@@ -270,8 +287,8 @@ export default class extends Controller {
     const second = points[1];
     const last = points[points.length - 1];
     const beforeLast = points[points.length - 2];
-    fkBadge.position.set(first.x + (second.x - first.x) * 0.55, first.y + 8, first.z);
-    pkBadge.position.set(last.x + (beforeLast.x - last.x) * 0.55, last.y + 8, last.z);
+    crowFoot.position.set(first.x + (second.x - first.x) * 0.35, first.y, first.z);
+    oneMark.position.set(last.x + (beforeLast.x - last.x) * 0.35, last.y, last.z);
     this.positionLinkLabel(label, start, end);
   }
 
@@ -287,6 +304,7 @@ export default class extends Controller {
 
   showNodeDetail(node) {
     if (!node) return this.resetDetail();
+    this.emphasizeForNode(node.id);
 
     const columnLines = node.columns
       .map((column) => {
@@ -304,16 +322,83 @@ export default class extends Controller {
 
   showLinkDetail(link) {
     if (!link) return this.resetDetail();
+    this.emphasizeForLink(link.id);
 
     if (this.hasDetailTarget) {
-      this.detailTarget.innerHTML = `<strong>[${link.cardinality_badge}] ${link.direction_label}</strong><br>${link.semantic_label}<br>多重度: ${link.cardinality_badge}<br>参照元(FK): ${link.target_table_name}.${link.target_column}<br>参照先(PK): ${link.source_table_name}.${link.source_column}`;
+      this.detailTarget.innerHTML = `<strong>${link.cardinality_phrase}</strong><br>${link.direction_label}<br>${link.semantic_label}<br>FK: ${link.target_table_name}.${link.target_column}<br>PK: ${link.source_table_name}.${link.source_column}`;
     }
   }
 
   resetDetail() {
+    this.clearEmphasis();
     if (this.hasDetailTarget) {
       this.detailTarget.innerHTML = "ノードや線にホバーすると詳細が表示されます。";
     }
+  }
+
+  emphasizeForNode(nodeId) {
+    const connectedLinkIds = new Set(
+      this.graphData.links
+        .filter((link) => this.linkNodeId(link.source) === nodeId || this.linkNodeId(link.target) === nodeId)
+        .map((link) => link.id)
+    );
+
+    this.applyEmphasis(connectedLinkIds, new Set([nodeId]));
+  }
+
+  emphasizeForLink(linkId) {
+    const link = this.graphData.links.find((item) => item.id === linkId);
+    if (!link) return;
+
+    this.applyEmphasis(new Set([linkId]), new Set([this.linkNodeId(link.source), this.linkNodeId(link.target)]));
+  }
+
+  clearEmphasis() {
+    this.applyEmphasis(null, null);
+  }
+
+  applyEmphasis(linkIds, nodeIds) {
+    this.linkObjects?.forEach((group, id) => {
+      const active = !linkIds || linkIds.has(id);
+      const muted = !!linkIds && !active;
+      group.userData.line.material.opacity = active ? 1 : 0.08;
+      group.userData.label.material.opacity = active ? 1 : 0.12;
+      group.userData.crowFoot.children.forEach((child) => { child.material.opacity = active ? 1 : 0.12; });
+      group.userData.oneMark.children.forEach((child) => { child.material.opacity = active ? 1 : 0.12; });
+    });
+
+    this.nodeObjects?.forEach((sprite, id) => {
+      sprite.material.opacity = !nodeIds || nodeIds.has(id) ? 1 : 0.35;
+    });
+  }
+
+  buildCrowFootMark() {
+    const group = new this.THREE.Group();
+    [
+      [[0, 0, 0], [7, 0, 0]],
+      [[0, 0, 0], [7, 5, 0]],
+      [[0, 0, 0], [7, -5, 0]],
+    ].forEach(([from, to]) => group.add(this.buildSegment(from, to, "#7c2d12")));
+    return group;
+  }
+
+  buildOneMark() {
+    const group = new this.THREE.Group();
+    group.add(this.buildSegment([0, -6, 0], [0, 6, 0], "#075985"));
+    return group;
+  }
+
+  buildSegment(from, to, color) {
+    const material = new this.THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.95 });
+    const geometry = new this.THREE.BufferGeometry().setFromPoints([
+      new this.THREE.Vector3(...from),
+      new this.THREE.Vector3(...to),
+    ]);
+    return new this.THREE.Line(geometry, material);
+  }
+
+  linkNodeId(nodeRef) {
+    return typeof nodeRef === "object" ? nodeRef.id : nodeRef;
   }
 
   drawRoundedRect(context, x, y, width, height, radius, fillStyle, topOnly = false) {

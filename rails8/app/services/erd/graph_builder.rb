@@ -42,8 +42,8 @@ module Erd
             primary_key_count: ordered_columns.count { |column| column[:primary_key] },
             foreign_key_count: ordered_columns.count { |column| column[:foreign_key] },
             x: table.x || table_layout[:x],
-            y: table.y || 0,
-            z: table.z || table_layout[:z],
+            y: table.y || table_layout[:y],
+            z: table.z || 0,
             card_height: 82 + ordered_columns.size * 46 + 26,
             val: 1.4 + (ordered_columns.size * 0.15)
           }
@@ -61,6 +61,7 @@ module Erd
             direction_label: relationship.direction_label,
             semantic_label: relationship.semantic_label,
             cardinality_badge: relationship.cardinality_badge,
+            cardinality_phrase: relationship.cardinality_phrase,
             cardinality: relationship.cardinality,
             source_column: relationship.source_column,
             target_column: relationship.target_column,
@@ -113,11 +114,11 @@ module Erd
         max_level = groups.keys.max || 0
 
         groups.each_with_object({}) do |(level, tables), hash|
-          x = (level - max_level / 2.0) * 260
-          start_z = -((tables.size - 1) * 170) / 2.0
+          y = ((max_level / 2.0) - level) * 220
+          start_x = -((tables.size - 1) * 260) / 2.0
 
           tables.each_with_index do |table, index|
-            hash[table.id] = { x: x, z: start_z + index * 170 }
+            hash[table.id] = { x: start_x + index * 260, y: y }
           end
         end
       end
