@@ -37,6 +37,14 @@
       <%= render "diagram_form", diagram: @new_diagram, url: erd_erd_diagrams_path, submit_label: "図を作成" %>
     </section>
 
+    <section class="erd-panel">
+      <div class="erd-section__title">schema.rb 取り込み</div>
+      <p class="erd-panel__body">
+        Rails の <code>db/schema.rb</code> を読み込み、新しい ER 図を生成します。
+      </p>
+      <%= render "day094/schema_imports/form" %>
+    </section>
+
     <% if @diagram.present? %>
       <section class="erd-panel">
         <div class="erd-section__title">テーブル追加</div>

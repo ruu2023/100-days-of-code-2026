@@ -53,4 +53,23 @@ class Day094::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
     assert_equal(-3.0, @users.y)
     assert_equal 42.0, @users.z
   end
+
+  test "should import schema file" do
+    schema_path = Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb")
+
+    assert_difference("ErdDiagram.count") do
+      post erd_schema_imports_path, params: {
+        schema_import: {
+          schema_path: schema_path,
+          diagram_name: "Fixture Import"
+        }
+      }
+    end
+
+    diagram = ErdDiagram.order(:id).last
+    assert_redirected_to erd_path(diagram_id: diagram.id)
+    assert_equal "Fixture Import", diagram.name
+    assert diagram.erd_tables.exists?(name: "users")
+    assert diagram.erd_relationships.exists?
+  end
 end

@@ -118,6 +118,7 @@ Rails.application.routes.draw do
   scope "/erd", as: :erd do
     get "/" => "day094/erd_diagrams#index"
     resources :erd_diagrams, controller: "day094/erd_diagrams", except: :show
+    resources :schema_imports, controller: "day094/schema_imports", only: :create
     resources :erd_tables, controller: "day094/erd_tables", except: %i[index new show]
     resources :erd_columns, controller: "day094/erd_columns", except: %i[index new show]
     resources :erd_relationships, controller: "day094/erd_relationships", except: %i[index new show]
