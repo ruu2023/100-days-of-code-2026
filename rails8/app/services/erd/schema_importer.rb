@@ -227,9 +227,13 @@ module Erd
           source_column: foreign_key.primary_key,
           target_column: foreign_key.column,
           cardinality: :one_to_many,
-          name: "#{foreign_key.to_table}_to_#{foreign_key.from_table}"
+          name: relationship_name_for(foreign_key)
         )
       end
+    end
+
+    def relationship_name_for(foreign_key)
+      "#{foreign_key.to_table}_#{foreign_key.primary_key}_to_#{foreign_key.from_table}_#{foreign_key.column}"
     end
   end
 end
