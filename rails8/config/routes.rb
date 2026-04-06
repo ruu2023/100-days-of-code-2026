@@ -114,8 +114,8 @@ Rails.application.routes.draw do
     get "/" => "day092/othello#index"
   end
 
-  # Day094 - Rails + Three.js ER Diagram
-  scope "/day094", as: :day094 do
+  # ER Diagram - Rails + Three.js
+  scope "/erd", as: :erd do
     get "/" => "day094/erd_diagrams#index"
     resources :erd_diagrams, controller: "day094/erd_diagrams", except: :show
     resources :erd_tables, controller: "day094/erd_tables", except: %i[index new show]
@@ -124,7 +124,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    namespace :day094 do
+    namespace :erd, module: :day094 do
       resources :erd_diagrams, only: [] do
         member do
           get :graph

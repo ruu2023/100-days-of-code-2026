@@ -18,7 +18,7 @@ class Day094::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get day094_path
+    get erd_path
 
     assert_response :success
     assert_match "Rails + Three.js ER 図", response.body
@@ -26,14 +26,14 @@ class Day094::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create diagram" do
     assert_difference("ErdDiagram.count") do
-      post day094_erd_diagrams_path, params: { erd_diagram: { name: "Shop", description: "EC schema" } }
+      post erd_erd_diagrams_path, params: { erd_diagram: { name: "Shop", description: "EC schema" } }
     end
 
-    assert_redirected_to day094_path(diagram_id: ErdDiagram.order(:id).last.id)
+    assert_redirected_to erd_path(diagram_id: ErdDiagram.order(:id).last.id)
   end
 
   test "should render graph api" do
-    get graph_api_day094_erd_diagram_path(@diagram), as: :json
+    get graph_api_erd_erd_diagram_path(@diagram), as: :json
 
     assert_response :success
     payload = JSON.parse(response.body)
@@ -44,7 +44,7 @@ class Day094::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should persist node position" do
-    patch position_api_day094_erd_table_path(@users),
+    patch position_api_erd_erd_table_path(@users),
           params: { erd_table: { x: 12.5, y: -3.0, z: 42.0 } },
           as: :json
 

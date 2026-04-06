@@ -1,4 +1,4 @@
 <div class="mx-auto w-full max-w-2xl py-10">
   <h1 class="mb-6 text-3xl font-semibold">カラムを編集</h1>
-  <%= render "form", column: @column, url: day094_erd_column_path(@column), submit_label: "カラムを更新", tables: @column.erd_table.erd_diagram.erd_tables.order(:name) %>
+  <%= render "form", column: @column, url: erd_erd_column_path(@column), submit_label: "カラムを更新", tables: @column.erd_table.erd_diagram.erd_tables.order(:name) %>
 </div>

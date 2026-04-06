@@ -14,7 +14,7 @@ module Day094
       @diagram = ErdDiagram.new(diagram_params)
 
       if @diagram.save
-        redirect_to day094_path(diagram_id: @diagram.id), notice: "ER 図を作成しました。"
+        redirect_to erd_path(diagram_id: @diagram.id), notice: "ER 図を作成しました。"
       else
         set_index_state(new_diagram: @diagram)
         render :index, status: :unprocessable_entity
@@ -26,7 +26,7 @@ module Day094
 
     def update
       if @diagram.update(diagram_params)
-        redirect_to day094_path(diagram_id: @diagram.id), notice: "ER 図を更新しました。"
+        redirect_to erd_path(diagram_id: @diagram.id), notice: "ER 図を更新しました。"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -34,7 +34,7 @@ module Day094
 
     def destroy
       @diagram.destroy!
-      redirect_to day094_path, notice: "ER 図を削除しました。"
+      redirect_to erd_path, notice: "ER 図を削除しました。"
     end
 
     private

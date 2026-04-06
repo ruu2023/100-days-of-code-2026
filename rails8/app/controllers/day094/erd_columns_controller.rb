@@ -6,9 +6,9 @@ module Day094
       @column = ErdColumn.new(column_params)
 
       if @column.save
-        redirect_to day094_path(diagram_id: @column.erd_table.erd_diagram_id), notice: "カラムを追加しました。"
+        redirect_to erd_path(diagram_id: @column.erd_table.erd_diagram_id), notice: "カラムを追加しました。"
       else
-        redirect_to day094_path(diagram_id: diagram_id_from_column_params), alert: @column.errors.full_messages.to_sentence
+        redirect_to erd_path(diagram_id: diagram_id_from_column_params), alert: @column.errors.full_messages.to_sentence
       end
     end
 
@@ -17,7 +17,7 @@ module Day094
 
     def update
       if @column.update(column_params)
-        redirect_to day094_path(diagram_id: @column.erd_table.erd_diagram_id), notice: "カラムを更新しました。"
+        redirect_to erd_path(diagram_id: @column.erd_table.erd_diagram_id), notice: "カラムを更新しました。"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Day094
     def destroy
       diagram_id = @column.erd_table.erd_diagram_id
       @column.destroy!
-      redirect_to day094_path(diagram_id: diagram_id), notice: "カラムを削除しました。"
+      redirect_to erd_path(diagram_id: diagram_id), notice: "カラムを削除しました。"
     end
 
     private

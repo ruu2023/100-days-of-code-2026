@@ -52,7 +52,7 @@ export default class extends Controller {
   renderGraph() {
     this.element.innerHTML = "";
     this.graph = this.GraphFactory()(this.element)
-      .backgroundColor("#081121")
+      .backgroundColor("#8793a1")
       .graphData(this.graphData)
       .nodeLabel((node) => this.nodeTooltip(node))
       .nodeOpacity(0.92)

@@ -1,4 +1,4 @@
-<% content_for :title, "Day094 | 3D ER Diagram" %>
+<% content_for :title, "ERD | 3D ER Diagram" %>
 <% content_for :full_bleed, true %>
 
 <div class="erd-studio">
@@ -9,7 +9,7 @@
           <p class="erd-kicker">MVP</p>
           <h1>Rails + Three.js ER 図</h1>
         </div>
-        <%= link_to "新規図", new_day094_erd_diagram_path, class: "erd-button" %>
+        <%= link_to "新規図", new_erd_erd_diagram_path, class: "erd-button" %>
       </div>
       <p class="erd-panel__body">
         テーブル・カラム・リレーションを Rails で管理し、右側で 3D グラフとして確認します。
@@ -22,35 +22,35 @@
         <% @diagrams.each do |diagram| %>
           <div class="erd-card <%= "is-active" if @diagram == diagram %>">
             <div>
-              <strong><%= link_to diagram.name, day094_path(diagram_id: diagram.id) %></strong>
+              <strong><%= link_to diagram.name, erd_path(diagram_id: diagram.id) %></strong>
               <p><%= diagram.description.presence || "説明なし" %></p>
             </div>
             <div class="erd-card__actions">
-              <%= link_to "編集", edit_day094_erd_diagram_path(diagram), class: "erd-link" %>
-              <%= button_to "削除", day094_erd_diagram_path(diagram), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "ER 図を削除しますか？" } } %>
+              <%= link_to "編集", edit_erd_erd_diagram_path(diagram), class: "erd-link" %>
+              <%= button_to "削除", erd_erd_diagram_path(diagram), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "ER 図を削除しますか？" } } %>
             </div>
           </div>
         <% end %>
       </div>
 
       <div class="erd-section__title">ER 図を追加</div>
-      <%= render "diagram_form", diagram: @new_diagram, url: day094_erd_diagrams_path, submit_label: "図を作成" %>
+      <%= render "diagram_form", diagram: @new_diagram, url: erd_erd_diagrams_path, submit_label: "図を作成" %>
     </section>
 
     <% if @diagram.present? %>
       <section class="erd-panel">
         <div class="erd-section__title">テーブル追加</div>
-        <%= render "day094/erd_tables/form", table: @erd_table, url: day094_erd_tables_path, submit_label: "テーブルを追加" %>
+        <%= render "day094/erd_tables/form", table: @erd_table, url: erd_erd_tables_path, submit_label: "テーブルを追加" %>
       </section>
 
       <section class="erd-panel">
         <div class="erd-section__title">カラム追加</div>
-        <%= render "day094/erd_columns/form", column: @erd_column, url: day094_erd_columns_path, submit_label: "カラムを追加", tables: @diagram.erd_tables.order(:name) %>
+        <%= render "day094/erd_columns/form", column: @erd_column, url: erd_erd_columns_path, submit_label: "カラムを追加", tables: @diagram.erd_tables.order(:name) %>
       </section>
 
       <section class="erd-panel">
         <div class="erd-section__title">リレーション追加</div>
-        <%= render "day094/erd_relationships/form", relationship: @erd_relationship.tap { |item| item.erd_diagram_id = @diagram.id }, url: day094_erd_relationships_path, submit_label: "リレーションを追加", tables: @diagram.erd_tables.order(:name) %>
+        <%= render "day094/erd_relationships/form", relationship: @erd_relationship.tap { |item| item.erd_diagram_id = @diagram.id }, url: erd_erd_relationships_path, submit_label: "リレーションを追加", tables: @diagram.erd_tables.order(:name) %>
       </section>
 
       <section class="erd-panel">
@@ -64,8 +64,8 @@
                   <p><%= table.description.presence || "説明なし" %></p>
                 </div>
                 <div class="erd-card__actions">
-                  <%= link_to "編集", edit_day094_erd_table_path(table), class: "erd-link" %>
-                  <%= button_to "削除", day094_erd_table_path(table), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "テーブルを削除しますか？" } } %>
+                  <%= link_to "編集", edit_erd_erd_table_path(table), class: "erd-link" %>
+                  <%= button_to "削除", erd_erd_table_path(table), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "テーブルを削除しますか？" } } %>
                 </div>
               </div>
               <ul class="erd-list">
@@ -74,8 +74,8 @@
                     <span><%= column.primary_key? ? "PK " : "" %><%= column.name %> : <%= column.data_type %></span>
                     <span class="erd-list__meta"><%= column.null_allowed? ? "NULL" : "NOT NULL" %></span>
                     <span class="erd-list__actions">
-                      <%= link_to "編集", edit_day094_erd_column_path(column), class: "erd-link" %>
-                      <%= button_to "削除", day094_erd_column_path(column), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "カラムを削除しますか？" } } %>
+                      <%= link_to "編集", edit_erd_erd_column_path(column), class: "erd-link" %>
+                      <%= button_to "削除", erd_erd_column_path(column), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "カラムを削除しますか？" } } %>
                     </span>
                   </li>
                 <% end %>
@@ -92,8 +92,8 @@
             <li>
               <span><%= relationship.label %> (<%= relationship.cardinality.humanize %>)</span>
               <span class="erd-list__actions">
-                <%= link_to "編集", edit_day094_erd_relationship_path(relationship), class: "erd-link" %>
-                <%= button_to "削除", day094_erd_relationship_path(relationship), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "リレーションを削除しますか？" } } %>
+                <%= link_to "編集", edit_erd_erd_relationship_path(relationship), class: "erd-link" %>
+                <%= button_to "削除", erd_erd_relationship_path(relationship), method: :delete, class: "erd-link erd-link--danger", form: { data: { turbo_confirm: "リレーションを削除しますか？" } } %>
               </span>
             </li>
           <% end %>
@@ -111,16 +111,16 @@
           <p><%= @diagram.description.presence || "右ドラッグで回転、ホイールでズーム、ノードドラッグで位置調整。" %></p>
         </div>
         <div class="erd-api-note">
-          GET <code>/api/day094/erd_diagrams/<%= @diagram.id %>/graph</code><br>
-          PATCH <code>/api/day094/erd_tables/:id/position</code>
+          GET <code>/api/erd/erd_diagrams/<%= @diagram.id %>/graph</code><br>
+          PATCH <code>/api/erd/erd_tables/:id/position</code>
         </div>
       </div>
 
       <div
         class="erd-canvas"
         data-controller="erd-graph"
-        data-erd-graph-graph-url-value="<%= graph_api_day094_erd_diagram_path(@diagram) %>"
-        data-erd-graph-position-base-value="/api/day094/erd_tables">
+        data-erd-graph-graph-url-value="<%= graph_api_erd_erd_diagram_path(@diagram) %>"
+        data-erd-graph-position-base-value="/api/erd/erd_tables">
       </div>
     <% else %>
       <div class="erd-empty">

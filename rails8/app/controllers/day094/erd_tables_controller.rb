@@ -6,9 +6,9 @@ module Day094
       @table = ErdTable.new(table_params)
 
       if @table.save
-        redirect_to day094_path(diagram_id: @table.erd_diagram_id), notice: "テーブルを追加しました。"
+        redirect_to erd_path(diagram_id: @table.erd_diagram_id), notice: "テーブルを追加しました。"
       else
-        redirect_to day094_path(diagram_id: @table.erd_diagram_id), alert: @table.errors.full_messages.to_sentence
+        redirect_to erd_path(diagram_id: @table.erd_diagram_id), alert: @table.errors.full_messages.to_sentence
       end
     end
 
@@ -17,7 +17,7 @@ module Day094
 
     def update
       if @table.update(table_params)
-        redirect_to day094_path(diagram_id: @table.erd_diagram_id), notice: "テーブルを更新しました。"
+        redirect_to erd_path(diagram_id: @table.erd_diagram_id), notice: "テーブルを更新しました。"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Day094
     def destroy
       diagram_id = @table.erd_diagram_id
       @table.destroy!
-      redirect_to day094_path(diagram_id: diagram_id), notice: "テーブルを削除しました。"
+      redirect_to erd_path(diagram_id: diagram_id), notice: "テーブルを削除しました。"
     end
 
     private

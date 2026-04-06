@@ -6,9 +6,9 @@ module Day094
       @relationship = ErdRelationship.new(relationship_params)
 
       if @relationship.save
-        redirect_to day094_path(diagram_id: @relationship.erd_diagram_id), notice: "リレーションを追加しました。"
+        redirect_to erd_path(diagram_id: @relationship.erd_diagram_id), notice: "リレーションを追加しました。"
       else
-        redirect_to day094_path(diagram_id: params.dig(:erd_relationship, :erd_diagram_id)), alert: @relationship.errors.full_messages.to_sentence
+        redirect_to erd_path(diagram_id: params.dig(:erd_relationship, :erd_diagram_id)), alert: @relationship.errors.full_messages.to_sentence
       end
     end
 
@@ -17,7 +17,7 @@ module Day094
 
     def update
       if @relationship.update(relationship_params)
-        redirect_to day094_path(diagram_id: @relationship.erd_diagram_id), notice: "リレーションを更新しました。"
+        redirect_to erd_path(diagram_id: @relationship.erd_diagram_id), notice: "リレーションを更新しました。"
       else
         render :edit, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ module Day094
     def destroy
       diagram_id = @relationship.erd_diagram_id
       @relationship.destroy!
-      redirect_to day094_path(diagram_id: diagram_id), notice: "リレーションを削除しました。"
+      redirect_to erd_path(diagram_id: diagram_id), notice: "リレーションを削除しました。"
     end
 
     private
