@@ -24,6 +24,25 @@ class ErdRelationship < ApplicationRecord
     [name, "#{source_column.presence || source_table.name} -> #{target_column.presence || target_table.name}"].compact.join(" ")
   end
 
+  def direction_label
+    "#{target_table.name}.#{target_column.presence || 'id'} -> #{source_table.name}.#{source_column.presence || 'id'}"
+  end
+
+  def semantic_label
+    case cardinality
+    when "one_to_many"
+      "#{target_table.name} belongs_to #{source_table.name} / #{source_table.name} has_many #{target_table.name}"
+    when "many_to_one"
+      "#{target_table.name} has_many #{source_table.name} / #{source_table.name} belongs_to #{target_table.name}"
+    when "one_to_one"
+      "#{target_table.name} has_one #{source_table.name}"
+    when "many_to_many"
+      "#{target_table.name} has_and_belongs_to_many #{source_table.name}"
+    else
+      cardinality.humanize
+    end
+  end
+
   private
 
   def sync_diagram_from_source_table

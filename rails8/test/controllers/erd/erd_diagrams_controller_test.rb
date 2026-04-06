@@ -38,10 +38,18 @@ class Erd::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     payload = JSON.parse(response.body)
+    users_node = payload["nodes"].find { |node| node["name"] == "users" }
+    posts_node = payload["nodes"].find { |node| node["name"] == "posts" }
+    link = payload["links"].first
 
     assert_equal @diagram.name, payload.dig("diagram", "name")
     assert_equal 2, payload["nodes"].size
     assert_equal 1, payload["links"].size
+    assert users_node["columns"].find { |column| column["name"] == "id" }["primary_key"]
+    assert posts_node["columns"].find { |column| column["name"] == "user_id" }["foreign_key"]
+    assert_equal @posts.id, link["source"]
+    assert_equal @users.id, link["target"]
+    assert_equal "posts.user_id -> users.id", link["direction_label"]
   end
 
   test "should persist node position" do

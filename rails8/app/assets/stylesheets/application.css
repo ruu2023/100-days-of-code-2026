@@ -210,9 +210,16 @@ button {
 .erd-canvas-panel {
   padding: 1.5rem;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto auto auto minmax(0, 1fr);
   gap: 1rem;
   min-width: 0;
+}
+
+.erd-graph-stage {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 0;
 }
 
 .erd-canvas {
@@ -224,6 +231,34 @@ button {
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.5), transparent 24rem),
     linear-gradient(180deg, #b8c2cc 0%, #8c98a6 100%);
+}
+
+.erd-panel--legend {
+  padding: 0.9rem 1rem;
+}
+
+.erd-legend {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.erd-hover-card {
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(255, 255, 255, 0.78);
+  color: #334155;
+  min-height: 4.25rem;
+  line-height: 1.6;
+}
+
+.erd-hover-card strong {
+  color: #0f172a;
 }
 
 .erd-api-note {
