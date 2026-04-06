@@ -1,0 +1,41 @@
+<%= form_with model: relationship, url: url, class: "erd-form" do |form| %>
+  <% if relationship.errors.any? %>
+    <div class="erd-errors">
+      <%= relationship.errors.full_messages.to_sentence %>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :erd_diagram_id %>
+
+  <label class="erd-field">
+    <span>名前</span>
+    <%= form.text_field :name, placeholder: "users has many posts" %>
+  </label>
+
+  <label class="erd-field">
+    <span>元テーブル</span>
+    <%= form.collection_select :source_table_id, tables, :id, :name, { prompt: "選択してください" }, { required: true } %>
+  </label>
+
+  <label class="erd-field">
+    <span>先テーブル</span>
+    <%= form.collection_select :target_table_id, tables, :id, :name, { prompt: "選択してください" }, { required: true } %>
+  </label>
+
+  <label class="erd-field">
+    <span>元カラム</span>
+    <%= form.text_field :source_column, placeholder: "id" %>
+  </label>
+
+  <label class="erd-field">
+    <span>先カラム</span>
+    <%= form.text_field :target_column, placeholder: "user_id" %>
+  </label>
+
+  <label class="erd-field">
+    <span>多重度</span>
+    <%= form.select :cardinality, ErdRelationship.cardinalities.keys.map { |key| [key.humanize, key] }, {}, { required: true } %>
+  </label>
+
+  <%= form.submit submit_label, class: "erd-button erd-button--primary" %>
+<% end %>

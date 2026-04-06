@@ -1,0 +1,4 @@
+<div class="mx-auto w-full max-w-2xl py-10">
+  <h1 class="mb-6 text-3xl font-semibold">リレーションを編集</h1>
+  <%= render "form", relationship: @relationship, url: day094_erd_relationship_path(@relationship), submit_label: "リレーションを更新", tables: @relationship.erd_diagram.erd_tables.order(:name) %>
+</div>

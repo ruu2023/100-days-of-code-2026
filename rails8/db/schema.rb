@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_05_093000) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_06_090000) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -142,6 +142,55 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_05_093000) do
     t.datetime "created_at", null: false
     t.date "scheduled_on"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "erd_columns", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "data_type", null: false
+    t.string "default_value"
+    t.integer "erd_table_id", null: false
+    t.string "name", null: false
+    t.boolean "null_allowed", default: true, null: false
+    t.boolean "primary_key", default: false, null: false
+    t.datetime "updated_at", null: false
+    t.index ["erd_table_id", "name"], name: "index_erd_columns_on_erd_table_id_and_name", unique: true
+    t.index ["erd_table_id"], name: "index_erd_columns_on_erd_table_id"
+  end
+
+  create_table "erd_diagrams", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "erd_relationships", force: :cascade do |t|
+    t.integer "cardinality", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.integer "erd_diagram_id", null: false
+    t.string "name"
+    t.string "source_column"
+    t.integer "source_table_id", null: false
+    t.string "target_column"
+    t.integer "target_table_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["erd_diagram_id", "source_table_id", "target_table_id", "name"], name: "index_erd_relationships_on_diagram_and_tables", unique: true
+    t.index ["erd_diagram_id"], name: "index_erd_relationships_on_erd_diagram_id"
+    t.index ["source_table_id"], name: "index_erd_relationships_on_source_table_id"
+    t.index ["target_table_id"], name: "index_erd_relationships_on_target_table_id"
+  end
+
+  create_table "erd_tables", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "erd_diagram_id", null: false
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.float "x"
+    t.float "y"
+    t.float "z"
+    t.index ["erd_diagram_id", "name"], name: "index_erd_tables_on_erd_diagram_id_and_name", unique: true
+    t.index ["erd_diagram_id"], name: "index_erd_tables_on_erd_diagram_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -293,6 +342,48 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_05_093000) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "statement_csv_import_1_column_1_5334_91_column_3_group", force: :cascade do |t|
+    t.string "5334_91"
+    t.date "column_1"
+    t.integer "column_3"
+    t.string "column_4"
+    t.string "column_5"
+    t.integer "column_6", null: false
+    t.boolean "column_7"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statement_csv_import_2_column_1_column_2_column_3", force: :cascade do |t|
+    t.integer "1", null: false
+    t.boolean "2", null: false
+    t.date "column_1", null: false
+    t.string "column_10", null: false
+    t.string "column_2", null: false
+    t.string "column_3", null: false
+    t.string "column_4", null: false
+    t.integer "column_5", null: false
+    t.boolean "column_6", null: false
+    t.integer "column_7", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statement_csv_import_3_column_1_column_2_column_3", force: :cascade do |t|
+    t.integer "2"
+    t.boolean "3"
+    t.date "column_1"
+    t.string "column_10"
+    t.string "column_2", null: false
+    t.string "column_3"
+    t.string "column_4"
+    t.integer "column_5"
+    t.boolean "column_6"
+    t.integer "column_7"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "statement_csv_import_datasets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "error_message"
@@ -364,6 +455,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_05_093000) do
   add_foreign_key "comments", "users"
   add_foreign_key "day085_subscriptions", "day085_categories", column: "category_id"
   add_foreign_key "day085_subscriptions", "users"
+  add_foreign_key "erd_columns", "erd_tables"
+  add_foreign_key "erd_relationships", "erd_diagrams"
+  add_foreign_key "erd_relationships", "erd_tables", column: "source_table_id"
+  add_foreign_key "erd_relationships", "erd_tables", column: "target_table_id"
+  add_foreign_key "erd_tables", "erd_diagrams"
   add_foreign_key "journal_entries", "journal_entries", column: "reversal_of_id"
   add_foreign_key "journal_entries", "parties"
   add_foreign_key "journal_entries", "users", column: "created_by_id"

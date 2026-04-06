@@ -1,0 +1,39 @@
+<%= form_with model: column, url: url, class: "erd-form" do |form| %>
+  <% if column.errors.any? %>
+    <div class="erd-errors">
+      <%= column.errors.full_messages.to_sentence %>
+    </div>
+  <% end %>
+
+  <label class="erd-field">
+    <span>対象テーブル</span>
+    <%= form.collection_select :erd_table_id, tables, :id, :name, { prompt: "選択してください" }, { required: true } %>
+  </label>
+
+  <label class="erd-field">
+    <span>カラム名</span>
+    <%= form.text_field :name, required: true, placeholder: "id" %>
+  </label>
+
+  <label class="erd-field">
+    <span>型</span>
+    <%= form.text_field :data_type, required: true, placeholder: "bigint" %>
+  </label>
+
+  <label class="erd-field">
+    <span>デフォルト値</span>
+    <%= form.text_field :default_value, placeholder: "CURRENT_TIMESTAMP" %>
+  </label>
+
+  <label class="erd-check">
+    <%= form.check_box :primary_key %>
+    <span>主キー</span>
+  </label>
+
+  <label class="erd-check">
+    <%= form.check_box :null_allowed %>
+    <span>NULL を許可</span>
+  </label>
+
+  <%= form.submit submit_label, class: "erd-button erd-button--primary" %>
+<% end %>

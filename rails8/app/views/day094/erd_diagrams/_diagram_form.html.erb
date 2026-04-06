@@ -1,0 +1,19 @@
+<%= form_with model: diagram, url: url, class: "erd-form" do |form| %>
+  <% if diagram.errors.any? %>
+    <div class="erd-errors">
+      <%= diagram.errors.full_messages.to_sentence %>
+    </div>
+  <% end %>
+
+  <label class="erd-field">
+    <span>図の名前</span>
+    <%= form.text_field :name, required: true %>
+  </label>
+
+  <label class="erd-field">
+    <span>説明</span>
+    <%= form.text_area :description, rows: 3 %>
+  </label>
+
+  <%= form.submit submit_label, class: "erd-button erd-button--primary" %>
+<% end %>

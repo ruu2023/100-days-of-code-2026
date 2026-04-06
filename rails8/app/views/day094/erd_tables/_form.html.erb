@@ -1,0 +1,21 @@
+<%= form_with model: table, url: url, class: "erd-form" do |form| %>
+  <% if table.errors.any? %>
+    <div class="erd-errors">
+      <%= table.errors.full_messages.to_sentence %>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :erd_diagram_id %>
+
+  <label class="erd-field">
+    <span>テーブル名</span>
+    <%= form.text_field :name, required: true, placeholder: "users" %>
+  </label>
+
+  <label class="erd-field">
+    <span>説明</span>
+    <%= form.text_area :description, rows: 3, placeholder: "ユーザーの基本情報" %>
+  </label>
+
+  <%= form.submit submit_label, class: "erd-button erd-button--primary" %>
+<% end %>

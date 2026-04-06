@@ -16,6 +16,242 @@ body {
   font-family: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
 }
 
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+.erd-studio {
+  display: grid;
+  grid-template-columns: minmax(24rem, 30rem) minmax(0, 1fr);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 26rem),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.14), transparent 24rem),
+    #dbeafe;
+}
+
+.erd-sidebar {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(248, 250, 252, 0.84);
+  backdrop-filter: blur(16px);
+}
+
+.erd-panel,
+.erd-empty {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 1.25rem;
+  padding: 1rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.erd-panel__header,
+.erd-canvas-panel__header,
+.erd-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.erd-panel h1,
+.erd-canvas-panel h2,
+.erd-empty h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.erd-panel p,
+.erd-canvas-panel p,
+.erd-card p,
+.erd-empty p {
+  margin: 0.35rem 0 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.erd-kicker,
+.erd-section__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #0369a1;
+}
+
+.erd-stack {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.erd-card {
+  padding: 0.9rem;
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(241, 245, 249, 0.95), rgba(226, 232, 240, 0.72));
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.erd-card.is-active {
+  border-color: rgba(14, 165, 233, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(56, 189, 248, 0.35);
+}
+
+.erd-card__actions,
+.erd-list__actions {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.erd-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.erd-field {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.erd-field span {
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+.erd-field input,
+.erd-field textarea,
+.erd-field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.9rem;
+  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.erd-check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: #334155;
+}
+
+.erd-button,
+.erd-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.erd-button--primary {
+  background: #0f172a;
+  border-color: #0f172a;
+  color: #f8fafc;
+}
+
+.erd-link {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #0369a1;
+}
+
+.erd-link--danger {
+  color: #b91c1c;
+}
+
+.erd-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.erd-list li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.erd-list__meta {
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.erd-errors {
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.9rem;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.erd-canvas-panel {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 1rem;
+  min-width: 0;
+}
+
+.erd-canvas {
+  min-height: 34rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+}
+
+.erd-api-note {
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.75);
+  color: #334155;
+  line-height: 1.6;
+}
+
+.erd-graph-error {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  min-height: 34rem;
+  color: #f8fafc;
+  background: #0f172a;
+}
+
+@media (max-width: 1080px) {
+  .erd-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .erd-sidebar {
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+}
+
 .editor-workbench {
   min-height: 100vh;
   display: grid;

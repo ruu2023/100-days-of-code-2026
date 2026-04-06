@@ -114,6 +114,31 @@ Rails.application.routes.draw do
     get "/" => "day092/othello#index"
   end
 
+  # Day094 - Rails + Three.js ER Diagram
+  scope "/day094", as: :day094 do
+    get "/" => "day094/erd_diagrams#index"
+    resources :erd_diagrams, controller: "day094/erd_diagrams", except: :show
+    resources :erd_tables, controller: "day094/erd_tables", except: %i[index new show]
+    resources :erd_columns, controller: "day094/erd_columns", except: %i[index new show]
+    resources :erd_relationships, controller: "day094/erd_relationships", except: %i[index new show]
+  end
+
+  namespace :api do
+    namespace :day094 do
+      resources :erd_diagrams, only: [] do
+        member do
+          get :graph
+        end
+      end
+
+      resources :erd_tables, only: [] do
+        member do
+          patch :position
+        end
+      end
+    end
+  end
+
   # Curl Prompt Maker
   get "/curl_prompt" => "curl_prompt#index"
   post "/curl_prompt" => "curl_prompt#create"
