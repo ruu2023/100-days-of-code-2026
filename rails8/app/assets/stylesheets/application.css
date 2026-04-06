@@ -213,14 +213,21 @@ button {
   grid-template-rows: auto auto auto minmax(0, 1fr);
   gap: 1rem;
   min-width: 0;
+  overflow: hidden;
 }
 
 .erd-graph-stage {
   position: relative;
   min-height: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .erd-canvas {
+  width: 100%;
+  max-width: 100%;
   min-height: 34rem;
   border-radius: 1.5rem;
   overflow: hidden;
@@ -243,37 +250,6 @@ button {
   gap: 0.45rem;
   color: #334155;
   line-height: 1.5;
-}
-
-.erd-hover-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 5;
-  width: min(28rem, calc(100% - 2rem));
-  max-height: 18rem;
-  overflow: auto;
-  padding: 0.9rem 1rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  background: rgba(255, 255, 255, 0.94);
-  color: #334155;
-  line-height: 1.6;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-  backdrop-filter: blur(8px);
-  pointer-events: none;
-}
-
-.erd-hover-modal strong {
-  color: #0f172a;
-}
-
-.erd-api-note {
-  padding: 0.85rem 1rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.75);
-  color: #334155;
-  line-height: 1.6;
 }
 
 .erd-graph-error {
