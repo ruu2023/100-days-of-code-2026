@@ -116,16 +116,16 @@ Rails.application.routes.draw do
 
   # ER Diagram - Rails + Three.js
   scope "/erd", as: :erd do
-    get "/" => "day094/erd_diagrams#index"
-    resources :erd_diagrams, controller: "day094/erd_diagrams", except: :show
-    resources :schema_imports, controller: "day094/schema_imports", only: :create
-    resources :erd_tables, controller: "day094/erd_tables", except: %i[index new show]
-    resources :erd_columns, controller: "day094/erd_columns", except: %i[index new show]
-    resources :erd_relationships, controller: "day094/erd_relationships", except: %i[index new show]
+    get "/" => "erd/erd_diagrams#index"
+    resources :erd_diagrams, controller: "erd/erd_diagrams", except: :show
+    resources :schema_imports, controller: "erd/schema_imports", only: :create
+    resources :erd_tables, controller: "erd/erd_tables", except: %i[index new show]
+    resources :erd_columns, controller: "erd/erd_columns", except: %i[index new show]
+    resources :erd_relationships, controller: "erd/erd_relationships", except: %i[index new show]
   end
 
   namespace :api do
-    namespace :erd, module: :day094 do
+    namespace :erd, module: :erd do
       resources :erd_diagrams, only: [] do
         member do
           get :graph

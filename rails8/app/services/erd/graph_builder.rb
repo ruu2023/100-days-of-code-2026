@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class GraphBuilder
     def initialize(diagram)
       @diagram = diagram

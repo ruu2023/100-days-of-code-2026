@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class SchemaImporter
     Result = Struct.new(:diagram, :table_count, :relationship_count, keyword_init: true)
 

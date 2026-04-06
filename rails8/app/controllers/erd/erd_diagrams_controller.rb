@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class ErdDiagramsController < ApplicationController
     before_action :set_diagram, only: %i[edit update destroy]
     before_action :set_index_state, only: :index

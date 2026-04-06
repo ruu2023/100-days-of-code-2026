@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Day094::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
+class Erd::ErdDiagramsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @diagram = ErdDiagram.create!(name: "Blog")
     @users = @diagram.erd_tables.create!(name: "users", description: "ユーザー")

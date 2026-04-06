@@ -42,23 +42,23 @@
       <p class="erd-panel__body">
         Rails の <code>db/schema.rb</code> を読み込み、新しい ER 図を生成します。
       </p>
-      <%= render "day094/schema_imports/form" %>
+      <%= render "erd/schema_imports/form" %>
     </section>
 
     <% if @diagram.present? %>
       <section class="erd-panel">
         <div class="erd-section__title">テーブル追加</div>
-        <%= render "day094/erd_tables/form", table: @erd_table, url: erd_erd_tables_path, submit_label: "テーブルを追加" %>
+        <%= render "erd/erd_tables/form", table: @erd_table, url: erd_erd_tables_path, submit_label: "テーブルを追加" %>
       </section>
 
       <section class="erd-panel">
         <div class="erd-section__title">カラム追加</div>
-        <%= render "day094/erd_columns/form", column: @erd_column, url: erd_erd_columns_path, submit_label: "カラムを追加", tables: @diagram.erd_tables.order(:name) %>
+        <%= render "erd/erd_columns/form", column: @erd_column, url: erd_erd_columns_path, submit_label: "カラムを追加", tables: @diagram.erd_tables.order(:name) %>
       </section>
 
       <section class="erd-panel">
         <div class="erd-section__title">リレーション追加</div>
-        <%= render "day094/erd_relationships/form", relationship: @erd_relationship.tap { |item| item.erd_diagram_id = @diagram.id }, url: erd_erd_relationships_path, submit_label: "リレーションを追加", tables: @diagram.erd_tables.order(:name) %>
+        <%= render "erd/erd_relationships/form", relationship: @erd_relationship.tap { |item| item.erd_diagram_id = @diagram.id }, url: erd_erd_relationships_path, submit_label: "リレーションを追加", tables: @diagram.erd_tables.order(:name) %>
       </section>
 
       <section class="erd-panel">

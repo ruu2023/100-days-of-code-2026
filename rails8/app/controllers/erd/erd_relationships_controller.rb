@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class ErdRelationshipsController < ApplicationController
     before_action :set_relationship, only: %i[edit update destroy]
 

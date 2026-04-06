@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class ErdColumnsController < ApplicationController
     before_action :set_column, only: %i[edit update destroy]
 

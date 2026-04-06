@@ -1,4 +1,4 @@
-module Day094
+module Erd
   class ErdTablesController < ApplicationController
     before_action :set_table, only: %i[edit update destroy]
 

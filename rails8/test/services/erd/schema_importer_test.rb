@@ -1,10 +1,10 @@
 require "test_helper"
 
-class Day094::SchemaImporterTest < ActiveSupport::TestCase
+class Erd::SchemaImporterTest < ActiveSupport::TestCase
   test "imports tables columns and foreign keys from schema.rb" do
     schema_path = Rails.root.join("test/fixtures/files/schema_import_sample/schema.rb")
 
-    result = Day094::SchemaImporter.new(
+    result = Erd::SchemaImporter.new(
       schema_path: schema_path,
       diagram_name: "Imported Blog"
     ).import!
@@ -26,8 +26,8 @@ class Day094::SchemaImporterTest < ActiveSupport::TestCase
   end
 
   test "rejects non schema file" do
-    error = assert_raises(Day094::SchemaImporter::ImportError) do
-      Day094::SchemaImporter.new(schema_path: Rails.root.join("README.md")).import!
+    error = assert_raises(Erd::SchemaImporter::ImportError) do
+      Erd::SchemaImporter.new(schema_path: Rails.root.join("README.md")).import!
     end
 
     assert_equal "schema.rb を指定してください", error.message
