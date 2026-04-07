@@ -10,7 +10,7 @@ Rails で予約管理とメールするアプリを作りました
 
 [Demo](https://rails.ruu-dev.com/booking/admin/owners)
 
-[Original Post](https://x.com/ruu_web/status/2040733768248676605)
+[Original Post](https://x.com/ruu_web/status/2041487067130237115)
 
 ---
 

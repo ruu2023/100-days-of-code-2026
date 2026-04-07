@@ -169,15 +169,16 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 094 | 04/04 | Rails CSV インポート         | RailsでCSV解析 / 100万件でも一瞬でフィルタ       | [View](./rails8) [Demo](https://rails.ruu-dev.com/csv-imports)            |
 | 095 | 04/05 | Rails CSV インポート ver2    | 複数CSV解析 / カード明細を1年分取り込んでSQL検索 | [View](./rails8) [Demo](https://rails.ruu-dev.com/statement_csv_import_datasets) |
 | 096 | 04/06 | Rails Three ER               | Railsのschemaをとり込み / Three.jsでリレーションを表示 | [View](./rails8) [Demo](https://rails.ruu-dev.com/statement_csv_import_datasets) |
+| 097 | 04/07 | Rails 予約管理アプリ         | Resend で予約完了メール / カレンダーで空き日表示 | [View](./rails8) [Demo](https://rails.ruu-dev.com/booking/admin/owners)   |
 
 ## 🆕 Latest Post
 
-- **Day 096:** Rails Three ER 🛠️✨
-- **Date:** 2026-04-06
-- **Summary:** Rails の schema 取り込みと Three.js のリレーション表示で、ER 図をブラウザ上で確認できるようにした。
-- **Features:** Railsのschemaをとり込み / Three.jsでリレーションを表示
-- **Post:** https://x.com/ruu_web/status/2041150528730857815
-- **Demo:** https://rails.ruu-dev.com/statement_csv_import_datasets
+- **Day 097:** Rails 予約管理アプリ 🛠️✨
+- **Date:** 2026-04-07
+- **Summary:** Rails で予約管理アプリを作成し、Resend の予約完了メールとカレンダー上の空き日表示までつなげた。
+- **Features:** Resend で予約完了メール / カレンダーで空いてる日がわかる
+- **Post:** https://x.com/ruu_web/status/2041487067130237115
+- **Demo:** https://rails.ruu-dev.com/booking/admin/owners
 
 ## 📬 Links
 
