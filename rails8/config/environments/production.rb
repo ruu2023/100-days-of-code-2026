@@ -45,12 +45,16 @@ Rails.application.configure do
   config.active_storage.variant_processor = :mini_magick
   config.active_job.queue_adapter = :async
   config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "booking.ruu-dev.com"), protocol: "https" }
-  config.action_mailer.delivery_method = :resend_api
-  config.action_mailer.resend_api_settings = {
-    api_key: ENV.fetch("RESEND_API_KEY"),
-    from: "#{ENV.fetch('MAILER_FROM_NAME', 'Ruu Dev Booking')} <#{ENV.fetch('MAILER_FROM_EMAIL', 'no-reply@ruu-dev.com')}>",
-    reply_to: ENV["MAILER_REPLY_TO"]
-  }
+  if ENV["RESEND_API_KEY"].present?
+    config.action_mailer.delivery_method = :resend_api
+    config.action_mailer.resend_api_settings = {
+      api_key: ENV["RESEND_API_KEY"],
+      from: "#{ENV.fetch('MAILER_FROM_NAME', 'Ruu Dev Booking')} <#{ENV.fetch('MAILER_FROM_EMAIL', 'no-reply@ruu-dev.com')}>",
+      reply_to: ENV["MAILER_REPLY_TO"]
+    }
+  else
+    config.action_mailer.delivery_method = :test
+  end
 
   # Don't log any deprecations.
   config.active_support.report_deprecations = false
