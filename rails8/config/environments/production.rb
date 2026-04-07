@@ -28,7 +28,7 @@ Rails.application.configure do
   config.force_ssl = true
 
   # Skip http-to-https redirect for the default health check endpoint.
-  config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
+  # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   # Log to STDOUT with the current request id as a default log tag.
   config.log_tags = [ :request_id ]
@@ -47,11 +47,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "booking.ruu-dev.com"), protocol: "https" }
   if ENV["RESEND_API_KEY"].present?
     config.action_mailer.delivery_method = :resend_api
-    config.action_mailer.resend_api_settings = {
-      api_key: ENV["RESEND_API_KEY"],
-      from: "#{ENV.fetch('MAILER_FROM_NAME', 'Ruu Dev Booking')} <#{ENV.fetch('MAILER_FROM_EMAIL', 'no-reply@ruu-dev.com')}>",
-      reply_to: ENV["MAILER_REPLY_TO"]
-    }
   else
     config.action_mailer.delivery_method = :test
   end
