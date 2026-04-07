@@ -54,6 +54,11 @@ env:
     - OLLAMA_API_KEY
     - OLLAMA_BASE_URL
     - OLLAMA_MODEL
+    - MAILER_FROM_EMAIL
+    - MAILER_FROM_NAME
+    - MAILER_REPLY_TO
+    - APP_HOST
+    - RESEND_API_KEY
   clear:
     PORT: 80
 
