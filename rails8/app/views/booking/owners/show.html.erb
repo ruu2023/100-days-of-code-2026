@@ -1,0 +1,109 @@
+<div class="min-h-screen w-full bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.18),_transparent_35%),linear-gradient(180deg,_#f8fafc_0%,_#e2e8f0_100%)]">
+  <div class="mx-auto grid max-w-7xl gap-6 px-4 py-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:items-start">
+    <aside class="rounded-[2rem] border border-white/70 bg-white/90 p-4 shadow-lg backdrop-blur">
+      <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-700">Monthly Calendar</p>
+      <h1 class="mt-2 text-2xl font-semibold text-slate-900"><%= @owner.name %></h1>
+      <p class="mt-1 text-sm text-slate-500">日付を選ぶと、右側に空き時間が出ます。</p>
+
+      <div class="mt-5 rounded-[1.5rem] bg-slate-950 p-4 text-white">
+        <div class="mb-3 flex items-center justify-between text-sm">
+          <%= link_to "‹", booking_owner_path(@owner.slug, date: (@month_anchor.prev_month).iso8601), class: "rounded-full border border-white/20 px-3 py-1" %>
+          <span class="font-semibold"><%= @month_anchor.strftime("%Y/%m") %></span>
+          <%= link_to "›", booking_owner_path(@owner.slug, date: (@month_anchor.next_month).iso8601), class: "rounded-full border border-white/20 px-3 py-1" %>
+        </div>
+        <div class="grid grid-cols-7 gap-1 text-center text-[11px] uppercase text-slate-400">
+          <% %w[Sun Mon Tue Wed Thu Fri Sat].each do |day_name| %>
+            <div><%= day_name %></div>
+          <% end %>
+        </div>
+        <div class="mt-2 grid grid-cols-7 gap-1 text-center text-sm">
+          <% @calendar_days.each do |day| %>
+            <% selected = day == @selected_date %>
+            <% in_month = day.month == @month_anchor.month %>
+            <%= link_to booking_owner_path(@owner.slug, date: day.iso8601),
+                class: "rounded-xl px-0 py-2 #{selected ? 'bg-sky-400 text-slate-950 font-bold' : in_month ? 'bg-white/10 text-white' : 'bg-transparent text-slate-500'}" do %>
+              <span><%= day.day %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </aside>
+
+    <section class="grid gap-6">
+      <div class="rounded-[2rem] border border-white/70 bg-white/92 p-6 shadow-lg backdrop-blur">
+        <div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-700">Daily Booking</p>
+            <h2 class="mt-2 text-3xl font-semibold text-slate-900"><%= @selected_date.strftime("%Y年%m月%d日") %></h2>
+          </div>
+          <p class="text-sm text-slate-500">スマホでは1日1画面で見やすい縦並びです。</p>
+        </div>
+
+        <div class="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <% if @slots.any? %>
+            <% @slots.each do |slot| %>
+              <% selected = @selected_slot == slot %>
+              <% available = slot.available? %>
+              <%= link_to booking_owner_path(@owner.slug, date: @selected_date.iso8601, slot_id: slot.id),
+                  class: "rounded-[1.5rem] border px-4 py-4 transition #{selected ? 'border-sky-500 bg-sky-50' : 'border-slate-200 bg-slate-50'} #{available ? 'hover:border-sky-300 hover:bg-white' : 'pointer-events-none opacity-50'}" do %>
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-lg font-semibold text-slate-900"><%= slot.display_label %></p>
+                    <p class="mt-1 text-sm text-slate-500"><%= slot.starts_at.strftime("%H:%M") %> - <%= slot.ends_at.strftime("%H:%M") %></p>
+                  </div>
+                  <span class="rounded-full px-3 py-1 text-xs font-semibold <%= available ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-200 text-slate-600' %>">
+                    <%= available ? "予約可" : "受付不可" %>
+                  </span>
+                </div>
+              <% end %>
+            <% end %>
+          <% else %>
+            <div class="rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-500">
+              この日はまだ予約枠が登録されていません。
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="rounded-[2rem] border border-white/70 bg-white/92 p-6 shadow-lg backdrop-blur">
+        <p class="text-xs font-semibold uppercase tracking-[0.35em] text-sky-700">Contact Form</p>
+        <% if @selected_slot.present? %>
+          <h3 class="mt-2 text-2xl font-semibold text-slate-900"><%= @selected_slot.display_label %> を予約する</h3>
+          <p class="mt-1 text-sm text-slate-500"><%= l @selected_slot.starts_at, format: :long %> - <%= @selected_slot.ends_at.strftime("%H:%M") %></p>
+
+          <%= form_with model: @reservation, url: booking_owner_reservations_path(@owner.slug), class: "mt-5 grid gap-4 md:grid-cols-2" do |form| %>
+            <%= form.hidden_field :booking_slot_id, value: @selected_slot.id %>
+            <div>
+              <%= form.label :name, "お名前", class: "mb-1 block text-sm font-medium text-slate-700" %>
+              <%= form.text_field :name, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+            </div>
+            <div>
+              <%= form.label :email, "メールアドレス", class: "mb-1 block text-sm font-medium text-slate-700" %>
+              <%= form.email_field :email, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+            </div>
+            <div>
+              <%= form.label :phone, "電話番号", class: "mb-1 block text-sm font-medium text-slate-700" %>
+              <%= form.text_field :phone, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+            </div>
+            <div class="md:col-span-2">
+              <%= form.label :note, "連絡事項", class: "mb-1 block text-sm font-medium text-slate-700" %>
+              <%= form.text_area :note, rows: 4, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+            </div>
+            <% if @reservation.errors.any? %>
+              <div class="rounded-2xl bg-rose-50 px-4 py-3 text-sm text-rose-700 md:col-span-2">
+                <%= @reservation.errors.full_messages.join(", ") %>
+              </div>
+            <% end %>
+            <div class="md:col-span-2">
+              <%= form.submit "予約を確定する", class: "w-full rounded-2xl bg-slate-950 px-4 py-3 font-semibold text-white" %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="mt-4 rounded-[1.5rem] border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-500">
+            右上の時間帯をタップすると、ここに連絡先フォームが表示されます。
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

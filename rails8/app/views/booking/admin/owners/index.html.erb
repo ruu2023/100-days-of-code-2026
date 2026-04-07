@@ -1,0 +1,52 @@
+<div class="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8">
+  <header class="space-y-2">
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-sky-700">Booking Admin</p>
+    <h1 class="text-3xl font-semibold text-slate-900">Owners</h1>
+    <p class="max-w-2xl text-sm text-slate-600">Create an owner first, then register reservable slots from the owner detail page.</p>
+  </header>
+
+  <div class="grid gap-8 lg:grid-cols-[minmax(0,360px)_1fr]">
+    <section class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-semibold text-slate-900">New owner</h2>
+      <%= form_with model: @owner, url: booking_admin_owners_path, class: "mt-5 space-y-4" do |form| %>
+        <div>
+          <%= form.label :name, class: "mb-1 block text-sm font-medium text-slate-700" %>
+          <%= form.text_field :name, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+        </div>
+        <div>
+          <%= form.label :slug, class: "mb-1 block text-sm font-medium text-slate-700" %>
+          <%= form.text_field :slug, class: "w-full rounded-2xl border border-slate-300 px-4 py-3", placeholder: "salon-aoyama" %>
+        </div>
+        <div>
+          <%= form.label :notification_email, class: "mb-1 block text-sm font-medium text-slate-700" %>
+          <%= form.email_field :notification_email, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+        </div>
+        <div>
+          <%= form.label :time_zone, class: "mb-1 block text-sm font-medium text-slate-700" %>
+          <%= form.text_field :time_zone, class: "w-full rounded-2xl border border-slate-300 px-4 py-3" %>
+        </div>
+        <%= form.submit "Create owner", class: "w-full rounded-2xl bg-sky-600 px-4 py-3 font-semibold text-white" %>
+      <% end %>
+    </section>
+
+    <section class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+      <h2 class="text-lg font-semibold text-slate-900">Existing owners</h2>
+      <div class="mt-5 grid gap-4">
+        <% @owners.each do |owner| %>
+          <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h3 class="text-lg font-semibold text-slate-900"><%= owner.name %></h3>
+                <p class="text-sm text-slate-500">/<%= owner.slug %> ・ <%= owner.notification_email %></p>
+              </div>
+              <div class="flex gap-3">
+                <%= link_to "Public page", booking_owner_path(owner.slug), class: "rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700" %>
+                <%= link_to "Manage slots", booking_admin_owner_slots_path(owner), class: "rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white" %>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </section>
+  </div>
+</div>

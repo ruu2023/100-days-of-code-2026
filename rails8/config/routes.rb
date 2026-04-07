@@ -200,4 +200,14 @@ Rails.application.routes.draw do
       patch :mark_purchased
     end
   end
+
+  scope "/booking", as: :booking, module: :booking do
+    get "/admin/owners", to: "admin/owners#index", as: :admin_owners
+    post "/admin/owners", to: "admin/owners#create"
+    get "/admin/owners/:owner_id/slots", to: "admin/slots#index", as: :admin_owner_slots
+    post "/admin/owners/:owner_id/slots", to: "admin/slots#create"
+
+    get "/:slug", to: "owners#show", as: :owner
+    post "/:owner_slug/reservations", to: "reservations#create", as: :owner_reservations
+  end
 end

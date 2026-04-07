@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_06_090000) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_07_093200) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -52,6 +52,41 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_06_090000) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "booking_owners", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.string "notification_email", null: false
+    t.string "slug", null: false
+    t.string "time_zone", default: "Asia/Tokyo", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_booking_owners_on_slug", unique: true
+  end
+
+  create_table "booking_reservations", force: :cascade do |t|
+    t.integer "booking_slot_id", null: false
+    t.datetime "created_at", null: false
+    t.string "email", null: false
+    t.string "name", null: false
+    t.text "note"
+    t.string "phone"
+    t.integer "status", default: 0, null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_slot_id"], name: "index_booking_reservations_on_booking_slot_id", unique: true
+  end
+
+  create_table "booking_slots", force: :cascade do |t|
+    t.boolean "active", default: true, null: false
+    t.integer "booking_owner_id", null: false
+    t.integer "capacity", default: 1, null: false
+    t.datetime "created_at", null: false
+    t.datetime "ends_at", null: false
+    t.string "label"
+    t.datetime "starts_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_owner_id", "starts_at"], name: "index_booking_slots_on_booking_owner_id_and_starts_at", unique: true
+    t.index ["booking_owner_id"], name: "index_booking_slots_on_booking_owner_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -451,6 +486,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_06_090000) do
   add_foreign_key "accounts", "accounts", column: "parent_id"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "booking_reservations", "booking_slots"
+  add_foreign_key "booking_slots", "booking_owners"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "day085_subscriptions", "day085_categories", column: "category_id"

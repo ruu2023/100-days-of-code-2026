@@ -1,0 +1,5 @@
+salon:
+  name: Tokyo Salon
+  slug: tokyo-salon
+  notification_email: owner@example.com
+  time_zone: Asia/Tokyo

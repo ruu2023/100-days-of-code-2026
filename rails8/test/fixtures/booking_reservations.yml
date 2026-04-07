@@ -1,0 +1,7 @@
+confirmed:
+  booking_slot: tomorrow_noon
+  name: Reserved User
+  email: reserved@example.com
+  phone: "09000000000"
+  note: Existing reservation
+  status: confirmed

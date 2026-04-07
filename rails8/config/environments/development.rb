@@ -58,4 +58,8 @@ Rails.application.configure do
   # Active Storage
   config.active_storage.service = :local
   config.active_storage.variant_processor = :mini_magick
+  config.active_job.queue_adapter = :async
+  config.action_mailer.delivery_method = :file
+  config.action_mailer.file_settings = { location: Rails.root.join("tmp/mails") }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 end
