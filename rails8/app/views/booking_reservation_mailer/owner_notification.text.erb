@@ -1,0 +1,10 @@
+<%= @owner.name %> に新しい予約が入りました。
+
+日時: <%= l @slot.starts_at, format: :long %> - <%= @slot.ends_at.strftime("%H:%M") %>
+名前: <%= @reservation.name %>
+メール: <%= @reservation.email %>
+電話: <%= @reservation.phone.presence || "未入力" %>
+
+<% if @reservation.note.present? %>
+備考: <%= @reservation.note %>
+<% end %>

@@ -22,6 +22,7 @@ module Booking
 
       assert_redirected_to booking_owner_path(@owner.slug, date: @slot.starts_at.to_date.iso8601)
       assert_equal "New Guest", @slot.reload.booking_reservation.name
+      assert_equal "guest@example.com", @slot.booking_reservation.email
     end
 
     test "rejects an already reserved slot" do
