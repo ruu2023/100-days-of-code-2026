@@ -41,7 +41,7 @@ Rails + Three.js で ER図を表示するアプリです。
 
 #100DaysOfCode #Rails
 
-[Demo](https://rails.ruu-dev.com/statement_csv_import_datasets)
+[Demo](https://rails.ruu-dev.com/statement_csv_imports)
 
 [Original Post](https://x.com/ruu_web/status/2040733768248676605)
 
@@ -58,7 +58,7 @@ CSV取り込み＋SQL検索できるアプリを作りました。
 
 #100DaysOfCode #Rails
 
-[Demo](https://rails.ruu-dev.com/csv-imports)
+[Demo](https://rails.ruu-dev.com/csv_imports)
 
 [Original Post](https://x.com/ruu_web/status/2040375257413177530)
 
