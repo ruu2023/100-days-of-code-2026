@@ -14,6 +14,7 @@ module Booking
         @selected_slot = @slot
         @month_anchor = Date.new(@selected_date.year, @selected_date.month, 1)
         @calendar_days = calendar_days_for(@month_anchor)
+        @available_dates = available_dates_for(@owner, @calendar_days)
         @slots = @owner.booking_slots.active.for_day(@selected_date)
         render "booking/owners/show", status: :unprocessable_entity
       end
@@ -31,6 +32,18 @@ module Booking
         last = month_anchor.end_of_month.end_of_week(:sunday)
 
         (first..last).to_a
+      end
+
+      def available_dates_for(owner, calendar_days)
+        owner.booking_slots
+          .active
+          .left_outer_joins(:booking_reservation)
+          .where(booking_reservations: { id: nil })
+          .where(starts_at: calendar_days.first.beginning_of_day..calendar_days.last.end_of_day)
+          .where("starts_at >= ?", Time.current)
+          .pluck(:starts_at)
+          .map(&:to_date)
+          .uniq
       end
   end
 end

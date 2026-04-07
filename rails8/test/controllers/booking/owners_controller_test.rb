@@ -9,6 +9,7 @@ module Booking
       assert_response :success
       assert_includes response.body, "Tokyo Salon"
       assert_includes response.body, "Morning"
+      assert_includes response.body, "bg-emerald-400"
     end
   end
 end

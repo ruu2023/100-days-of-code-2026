@@ -20,9 +20,11 @@
           <% @calendar_days.each do |day| %>
             <% selected = day == @selected_date %>
             <% in_month = day.month == @month_anchor.month %>
+            <% available_on_day = @available_dates.include?(day) %>
             <%= link_to booking_owner_path(@owner.slug, date: day.iso8601),
-                class: "rounded-xl px-0 py-2 #{selected ? 'bg-sky-400 text-slate-950 font-bold' : in_month ? 'bg-white/10 text-white' : 'bg-transparent text-slate-500'}" do %>
+                class: "flex min-h-12 flex-col items-center justify-center rounded-xl px-0 py-2 #{selected ? 'bg-sky-400 text-slate-950 font-bold' : in_month ? 'bg-white/10 text-white' : 'bg-transparent text-slate-500'}" do %>
               <span><%= day.day %></span>
+              <span class="mt-1 h-2 w-2 rounded-full <%= available_on_day ? 'bg-emerald-400' : 'bg-transparent' %>"></span>
             <% end %>
           <% end %>
         </div>
