@@ -1,5 +1,37 @@
 [
   {
+    "day": 97,
+    "date": "2026-04-07",
+    "title": "Rails 予約管理アプリ 🛠️✨",
+    "description": "【Day 097/100】Rails 予約管理アプリ 🛠️✨",
+    "features": [
+      "Resend で予約完了メール",
+      "カレンダーで空いてる日がわかる"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2040733768248676605",
+    "demoLink": "https://rails.ruu-dev.com/booking/admin/owners"
+  },
+  {
+    "day": 96,
+    "date": "2026-04-06",
+    "title": "Rails Three ER 🛠️✨",
+    "description": "【Day 096/100】Rails Three ER 🛠️✨",
+    "features": [
+      "Railsのschemaをとり込み",
+      "Three.jsでリレーションを表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2040733768248676605",
+    "demoLink": "https://rails.ruu-dev.com/erd"
+  },
+  {
     "day": 95,
     "date": "2026-04-05",
     "title": "Rails CSV インポート ver2 🛠️✨",

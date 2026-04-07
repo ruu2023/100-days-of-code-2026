@@ -1,3 +1,35 @@
+## 2026-04-07
+
+【Day 097/100】Rails 予約管理アプリ 🛠️✨
+Rails で予約管理とメールするアプリを作りました
+
+✅ Resend で予約完了メール
+✅ カレンダーで空いてる日がわかる
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/booking/admin/owners)
+
+[Original Post](https://x.com/ruu_web/status/2040733768248676605)
+
+---
+
+## 2026-04-06
+
+【Day 096/100】Rails Three ER 🛠️✨
+Rails + Three.js で ER図を表示するアプリです。
+
+✅ Railsのschemaをとり込み
+✅ Three.jsでリレーションを表示
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/erd)
+
+[Original Post](https://x.com/ruu_web/status/2040733768248676605)
+
+---
+
 ## 2026-04-05
 
 【Day 095/100】Rails CSV インポート ver2 🛠️✨
