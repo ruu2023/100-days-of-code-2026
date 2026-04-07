@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-6-2834a3ac77f6",
-    "title": "AITuber奮闘記：ローカルLLMでゲーム実況、モデル選定と配信テストの記録｜与野",
-    "url": "https://note.com/yono_f4ll/n/n2834a3ac77f6",
+    "id": "hatebu-it-0-260407065857",
+    "title": "AIに個人情報を入れまくってたら人生が終わりかけた話",
+    "url": "https://anond.hatelabo.jp/20260407065857",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-06T03:44:54.753Z",
-    "summary": "ゲーム実況をローカルLLMで実現しようとした実験で、AITuberKit のシステムプロン\u001b[K\nプトとカメラ制御に依存していましたが、ローカルモデルはゲーム固有の情報がなく\u001b[K\n、誤った情報を提供するリスクがありました。Qwen 4B は情報がないタイトルを否定\u001b[K\n的に答えましたが、Gemma 4 は画面から状況を判断して説明しました。配信で2時間\u001b[K\nの配信を実施し、エラーなくゲームタイトルを触らず、大きな誤情報の返答もなく、\u001b[K\n遅延も許容範囲でした。システムプロンプトの調整や26Bモデルでの再挑戦を今後の\u001b[K\n課題として挙げています。",
-    "bookmarkCount": 56,
-    "audioFile": "../audio/hatebu-it-6-2834a3ac77f6.wav"
+    "date": "2026-04-07T03:34:36.313Z",
+    "summary": "34歳のITエンジニアが、ChatGPTを業務や私生活でマスクなしで使用していたことが\u001b[K\n発覚し、転職先の内定取り消しやクライアントからの損害賠償請求、さらに元サービ\u001b[K\nスのURLがGoogleキャッシュに残るなど、デジタル上で永久に情報が残る問題に直面\u001b[K\n。さらに、AIサービスを無料で利用する際に会話ログが検索エンジンにインデックス\u001b[K\nされる仕様が知られ、職務経歴書にそのまま情報が公開されていた事実を明らかにし\u001b[K\n、離婚した妻や子供との連絡を断つなど、精神的にも大きな打撃を受けた。",
+    "bookmarkCount": 354,
+    "audioFile": "../audio/hatebu-it-0-260407065857.wav"
   },
   {
-    "id": "hatebu-it-0-l-mcp-server",
-    "title": "【朗報】国土交通省、MCPサーバー公開 - すまほん!!",
-    "url": "https://smhn.info/202604-mlit-geospatial-mcp-server",
+    "id": "hatebu-it-1-news018.html",
+    "title": "通勤「44分」がメンタルヘルスの分岐点　それ以上は苦痛、それ以下は息抜き効果　共働き労働者500人以上を調査　米国チームが研究発表",
+    "url": "https://www.itmedia.co.jp/news/articles/2604/07/news018.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-06T03:45:22.101Z",
-    "summary": "国土交通省は、AIを活用した地理空間情報の取得を可能にする「地理空間MCP Serve\u001b[5D\u001b[K\nServer – MLIT Geospatial MCP Server -」の開発を発表しました。コードはGitHub\u001b[6D\u001b[K\nGitHubで公開され、不動産情報ライブラリのAPIが扱う35種類のデータのうち25種類\u001b[K\nに対応。LLMと外部データを接続するオープン標準の「Model Context Protocol (MC\u001b[3D\u001b[K\n(MCP)」を活用し、自然言語で不動産データを取得できるようになる予定です。APIキ\u001b[K\nー取得で利用可能。地価公示や防災情報、周辺施設など多岐にわたるデータにアクセ\u001b[K\nスし、LLMとの対話だけでデータ取得が可能になる。API利用申請が必要。2025年11月\u001b[K\nには「MLIT DATA PLATFORM MCP Server」も公開予定。官公庁データ活用がAPIからA\u001b[1D\u001b[K\nAIエージェント連携へ移行する中、自然言語検索の利便性向上が期待される。",
-    "bookmarkCount": 255,
-    "audioFile": "../audio/hatebu-it-0-l-mcp-server.wav"
+    "date": "2026-04-07T03:35:22.352Z",
+    "summary": "米国で5万5千人以上の共働き労働者を対象に、通勤時間が心理的苦痛に与える影響を\u001b[K\n解明した調査結果を発表した。通勤時間が44分を超えると、心理的苦痛が「息抜き効\u001b[K\n果」を示す一方、44分未満では「苦痛の分岐点」と位置づけられることが分かった。\u001b[K\n米国チームは本研究を発表した。",
+    "bookmarkCount": 110,
+    "audioFile": "../audio/hatebu-it-1-news018_html.wav"
   }
 ]
