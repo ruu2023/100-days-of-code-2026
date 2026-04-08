@@ -2,6 +2,19 @@
   <h1 class="text-2xl font-bold mb-4">WebPush Test Admin</h1>
   
   <div class="space-y-4">
+    <div>
+      <label class="block text-sm font-medium text-gray-700">通知タイトル</label>
+      <input type="text" id="notification-title" 
+             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" 
+             placeholder="Test WebPush">
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-gray-700">通知メッセージ</label>
+      <input type="text" id="notification-message" 
+             class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" 
+             placeholder="This is a test notification from Rails!">
+    </div>
+
     <button id="permission-btn" class="bg-blue-500 text-white px-4 py-2 rounded">
       通知許可
     </button>
@@ -21,6 +34,8 @@
   const statusDiv = document.getElementById('status');
   const permissionBtn = document.getElementById('permission-btn');
   const sendBtn = document.getElementById('test-send-btn');
+  const titleInput = document.getElementById('notification-title');
+  const messageInput = document.getElementById('notification-message');
 
   function updateStatus(message) {
     statusDiv.textContent = `Status: ${message}`;
@@ -103,7 +118,11 @@
         headers: {
           'Content-Type': 'application/json',
           'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-        }
+        },
+        body: JSON.stringify({
+          title: titleInput.value || "Test WebPush",
+          message: messageInput.value || "This is a test notification from Rails!"
+        })
       });
 
       if (response.ok) {

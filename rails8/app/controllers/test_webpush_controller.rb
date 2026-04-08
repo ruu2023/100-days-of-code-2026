@@ -29,9 +29,9 @@ class TestWebpushController < ApplicationController
 
     begin
       message = {
-        title: "Test WebPush",
+        title: params[:title].presence || "Test WebPush",
         options: {
-          body: "This is a test notification from Rails!",
+          body: params[:message].presence || "This is a test notification from Rails!",
           icon: "/icon.png",
           data: { path: "/test_webpush" }
         }
