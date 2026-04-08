@@ -1,3 +1,5 @@
+require "web-push"
+
 class TestWebpushController < ApplicationController
   include Authentication
   allow_unauthenticated_access only: [:show] # Allow viewing page, but subscribe/send need auth
@@ -35,7 +37,7 @@ class TestWebpushController < ApplicationController
         }
       }.to_json
 
-      Webpush.payload_send(
+      WebPush.payload_send(
         message: message,
         endpoint: subscription.endpoint,
         p256dh: subscription.p256dh_key,
@@ -46,7 +48,7 @@ class TestWebpushController < ApplicationController
         }
       )
       render json: { message: "Test notification sent!" }, status: :ok
-    rescue Webpush::Error => e
+    rescue WebPush::Error => e
       render json: { error: e.message }, status: :internal_server_error
     end
   end
