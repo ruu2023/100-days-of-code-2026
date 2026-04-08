@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
   private
 
   def after_authentication_url
-    session[:oauth_redirect_to] || day085_path
+    session[:oauth_redirect_to] || test_webpush_path
   end
 end

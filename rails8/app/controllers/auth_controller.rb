@@ -28,7 +28,7 @@ class AuthController < ApplicationController
 
     start_new_session_for(user)
 
-    redirect_to day085_path, notice: "Signed in with Google!"
+    redirect_to test_webpush_path, notice: "Signed in with Google!"
   rescue StandardError => e
     Rails.logger.error "OAuth Error: #{e.message}"
     redirect_to new_session_path, alert: "Failed to sign in with Google."
