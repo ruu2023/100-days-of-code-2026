@@ -98,7 +98,7 @@ export default class extends Controller {
     if (!("serviceWorker" in navigator)) return
 
     try {
-      this.serviceWorkerRegistration = await navigator.serviceWorker.register("/service-worker.js")
+      this.serviceWorkerRegistration = await navigator.serviceWorker.register("/service-worker")
     } catch (error) {
       console.error("Failed to register service worker", error)
     }
