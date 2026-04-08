@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_07_093200) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_08_114131) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -483,6 +483,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_07_093200) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
+  create_table "webpush_subscriptions", force: :cascade do |t|
+    t.string "auth_key"
+    t.datetime "created_at", null: false
+    t.string "endpoint"
+    t.string "p256dh_key"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_webpush_subscriptions_on_user_id"
+  end
+
   add_foreign_key "accounts", "accounts", column: "parent_id"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
@@ -510,4 +520,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_07_093200) do
   add_foreign_key "statement_csv_import_datasets", "statement_csv_imports"
   add_foreign_key "statement_csv_import_files", "statement_csv_import_datasets"
   add_foreign_key "statement_csv_import_files", "statement_csv_imports"
+  add_foreign_key "webpush_subscriptions", "users"
 end

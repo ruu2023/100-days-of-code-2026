@@ -251,6 +251,7 @@ GEM
     omniauth-rails_csrf_protection (2.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
+    openssl (4.0.1)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -374,6 +375,9 @@ GEM
     uri (1.1.1)
     useragent (0.16.11)
     version_gem (1.1.9)
+    web-push (3.1.0)
+      jwt (~> 3.0)
+      openssl (>= 3.0)
     webrick (1.9.2)
     websocket-driver (0.8.0)
       base64
@@ -417,6 +421,7 @@ DEPENDENCIES
   tailwindcss-rails
   turbo-rails
   tzinfo-data
+  web-push
 
 BUNDLED WITH
    2.6.9

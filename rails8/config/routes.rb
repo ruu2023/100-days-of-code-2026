@@ -114,6 +114,11 @@ Rails.application.routes.draw do
     get "/" => "day092/othello#index"
   end
 
+  # WebPush Test
+  get "test_webpush", to: "test_webpush#show"
+  post "test_webpush/subscribe", to: "test_webpush#subscribe"
+  post "test_webpush/send", to: "test_webpush#send_test"
+
   # ER Diagram - Rails + Three.js
   scope "/erd", as: :erd do
     get "/" => "erd/erd_diagrams#index"
