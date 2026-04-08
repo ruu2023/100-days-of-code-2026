@@ -1,3 +1,22 @@
+## 2026-04-08
+
+【Day 098/100】Rails WebPush
+
+いつか作ると言った Rails プッシュ通知（本物）実装しました（1hかかりました）
+
+✅ Rails WebPush
+✅ 管理者がメッセージを送付すると、iPhoneで通知表示
+
+次、学習習慣アプリ作りたいです。
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/test_webpush)
+
+[Original Post](https://x.com/ruu_web/status/2041869582022144122)
+
+---
+
 ## 2026-04-07
 
 【Day 097/100】Rails 予約管理アプリ 🛠️✨

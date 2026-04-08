@@ -1,5 +1,21 @@
 [
   {
+    "day": 98,
+    "date": "2026-04-08",
+    "title": "Rails WebPush",
+    "description": "【Day 098/100】Rails WebPush",
+    "features": [
+      "Rails WebPush",
+      "管理者がメッセージを送付すると、iPhoneで通知表示"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2041869582022144122",
+    "demoLink": "https://rails.ruu-dev.com/test_webpush"
+  },
+  {
     "day": 97,
     "date": "2026-04-07",
     "title": "Rails 予約管理アプリ 🛠️✨",
