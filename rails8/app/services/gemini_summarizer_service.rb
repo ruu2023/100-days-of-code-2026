@@ -24,7 +24,8 @@ class GeminiSummarizerService
       response = HTTParty.post(
         BRIDGE_API_URL,
         body: { prompt: prompt }.to_json,
-        headers: { 'Content-Type' => 'application/json' }
+        headers: { 'Content-Type' => 'application/json' },
+        read_timeout: 300
       )
 
       unless response.success?

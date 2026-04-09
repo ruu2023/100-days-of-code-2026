@@ -59,6 +59,7 @@ env:
     - MAILER_REPLY_TO
     - APP_HOST
     - RESEND_API_KEY
+    - SLACK_WEBHOOK_URL
   clear:
     PORT: 80
 
