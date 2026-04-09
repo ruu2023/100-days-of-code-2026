@@ -215,4 +215,7 @@ Rails.application.routes.draw do
     get "/:slug", to: "owners#show", as: :owner
     post "/:owner_slug/reservations", to: "reservations#create", as: :owner_reservations
   end
+
+  # Day099 CVE news notification
+  resources :vulnerabilities
 end

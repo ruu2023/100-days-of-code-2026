@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_08_114131) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_09_113402) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -481,6 +481,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_08_114131) do
     t.string "uid"
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  end
+
+  create_table "vulnerabilities", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "japanese_summary"
+    t.datetime "published_at"
+    t.string "source"
+    t.text "summary"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.string "url"
+    t.index ["url"], name: "index_vulnerabilities_on_url"
   end
 
   create_table "webpush_subscriptions", force: :cascade do |t|

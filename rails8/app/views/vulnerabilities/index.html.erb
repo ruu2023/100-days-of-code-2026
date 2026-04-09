@@ -1,0 +1,18 @@
+<table class="vulnerability-table">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>ソース</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @vulnerabilities.each do |v| %>
+      <tr>
+        <td><%= v.title %></td>
+        <td><%= v.source %></td>
+        <td><%= link_to "Link", v.url, target: "_blank" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
