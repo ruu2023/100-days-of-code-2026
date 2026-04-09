@@ -21,18 +21,15 @@ class GeminiSummarizerService
     # Gemini CLI の実行
     stdout, stderr, status = Open3.capture3("gemini", stdin_data: prompt)
 
-    
-    if status.success?
-      result = stdout.strip
-      # SKIP と返ってきたら保存しない
-      return nil if result == "SKIP"
-    else
+    unless status.success?
       # 失敗したらログにエラーを残す
       Rails.logger.error("Gemini CLI Error: #{stderr}")
       nil
     end
 
-    result
+    result = stdout.strip
+    # SKIP と返ってきたら保存しない
+    result == "SKIP" ? nil : result
   end
 
   # 未要約の記事を一括処理するメソッド
@@ -49,7 +46,8 @@ class GeminiSummarizerService
       
       if summary
         v.update(japanese_summary: summary)
-        # ここで Slack 通知を呼ぶ（次のステップ）
+        # 要約したら slack 通知
+        SlackNotifierService.send(v)
       else
         # CVEではなかった、あるいはエラー
         v.update(japanese_summary: "SKIPPED")
