@@ -1,7 +1,7 @@
 require 'open3'
 
 class GeminiSummarizerService
-  BRIDGE_API_URL = "http://172.17.0.1:5001/summarize"
+  BRIDGE_API_URL = "http://172.18.0.1:5001/summarize"
 
   def self.summarize(vulnerability)
     # プロンプトの組み立て
