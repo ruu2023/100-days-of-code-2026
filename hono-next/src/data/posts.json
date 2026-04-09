@@ -1,5 +1,21 @@
 [
   {
+    "day": 99,
+    "date": "2026-04-09",
+    "title": "Rails CVE notifier",
+    "description": "【Day 099/100】Rails CVE notifier",
+    "features": [
+      "Rails で hackernews を RSS パース",
+      "gemini api を使用し日本語で要約"
+    ],
+    "tags": [
+      "#100DaysOfCode",
+      "#Rails"
+    ],
+    "url": "https://x.com/ruu_web/status/2042237573201031590",
+    "demoLink": "https://rails.ruu-dev.com/vulnerabilities"
+  },
+  {
     "day": 98,
     "date": "2026-04-08",
     "title": "Rails WebPush",

@@ -171,15 +171,16 @@ curl -o slf4j-simple-2.0.16.jar https://repo1.maven.org/maven2/org/slf4j/slf4j-s
 | 096 | 04/06 | Rails Three ER               | Railsのschemaをとり込み / Three.jsでリレーションを表示 | [View](./rails8) [Demo](https://rails.ruu-dev.com/statement_csv_import_datasets) |
 | 097 | 04/07 | Rails 予約管理アプリ         | Resend で予約完了メール / カレンダーで空き日表示 | [View](./rails8) [Demo](https://rails.ruu-dev.com/booking/admin/owners)   |
 | 098 | 04/08 | Rails WebPush                | 管理者がメッセージを送付すると、iPhoneで通知表示 | [View](./rails8) [Demo](https://rails.ruu-dev.com/test_webpush)          |
+| 099 | 04/09 | Rails CVE notifier           | Rails で hackernews を RSS パース / gemini api を使用し日本語で要約 | [View](./rails8) [Demo](https://rails.ruu-dev.com/vulnerabilities) |
 
 ## 🆕 Latest Post
 
-- **Day 098:** Rails WebPush
-- **Date:** 2026-04-08
-- **Summary:** Rails WebPush を実装。管理者がメッセージを送付すると、iPhoneで通知が表示される。
-- **Features:** Rails WebPush / 管理者がメッセージを送付すると、iPhoneで通知表示
-- **Post:** https://x.com/ruu_web/status/2041869582022144122
-- **Demo:** https://rails.ruu-dev.com/test_webpush
+- **Day 099:** Rails CVE notifier
+- **Date:** 2026-04-09
+- **Summary:** Rails で CVE のニュースを Slack へ通知するアプリを作成。
+- **Features:** Rails で hackernews を RSS パース / gemini api を使用し日本語で要約
+- **Post:** https://x.com/ruu_web/status/2042237573201031590
+- **Demo:** https://rails.ruu-dev.com/vulnerabilities
 
 ## 📬 Links
 
