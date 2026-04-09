@@ -1,7 +1,7 @@
 require 'open3'
 
 class GeminiSummarizerService
-  GEMINI_PATH = Rails.env.production? ? "/home/linuxbrew/.linuxbrew/bin/gemini" : "gemini"
+  BRIDGE_API_URL = "http://172.17.0.1:5001/summarize"
 
   def self.summarize(vulnerability)
     # プロンプトの組み立て
@@ -20,18 +20,36 @@ class GeminiSummarizerService
       内容: #{vulnerability.summary}
     PROMPT
 
-    # Gemini CLI の実行
-    stdout, stderr, status = Open3.capture3(GEMINI_PATH, stdin_data: prompt)
+    if Rails.env.production?
+      response = HTTParty.post(
+        BRIDGE_API_URL,
+        body: { prompt: prompt }.to_json,
+        headers: { 'Content-Type' => 'application/json' }
+      )
 
-    unless status.success?
-      # 失敗したらログにエラーを残す
-      Rails.logger.error("Gemini CLI Error: #{stderr}")
-      nil
+      unless response.success?
+        Rails.logger.error("Bridge API Error: #{response.code}")
+        nil
+      end
+      
+      result = response.body.strip
+      # SKIP と返ってきたら保存しない
+      result == "SKIP" ? nil : result
+    else
+      # Gemini CLI の実行
+      stdout, stderr, status = Open3.capture3('gemini', stdin_data: prompt)
+
+      unless status.success?
+        # 失敗したらログにエラーを残す
+        Rails.logger.error("Gemini CLI Error: #{stderr}")
+        nil
+      end
+
+      result = stdout.strip
+
+      # SKIP と返ってきたら保存しない
+      result == "SKIP" ? nil : result
     end
-
-    result = stdout.strip
-    # SKIP と返ってきたら保存しない
-    result == "SKIP" ? nil : result
   end
 
   # 未要約の記事を一括処理するメソッド
