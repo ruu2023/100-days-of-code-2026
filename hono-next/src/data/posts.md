@@ -1,5 +1,22 @@
 ## 2026-04-08
 
+【Day 098/100】Rails CVE notifier
+
+Rails で CVE のニュースをslackへ通知するアプリを作りました。
+
+✅ Rails で hackernews を RSS パース
+✅ gemini api を使用し日本語で要約
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/)
+
+[Original Post](https://x.com/ruu_web/status/2041869582022144122)
+
+---
+
+## 2026-04-08
+
 【Day 098/100】Rails WebPush
 
 いつか作ると言った Rails プッシュ通知（本物）実装しました（1hかかりました）

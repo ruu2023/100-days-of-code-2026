@@ -2,7 +2,7 @@
 require 'feedjira'
 require 'httparty'
 
-class FeedParserService
+class RssParserService
   SOURCES = {
     "The Hacker News" => { url: "https://feeds.feedburner.com/TheHackersNews", type: :rss },
     "Socket.dev"      => { url: "https://socket.dev/api/blog/feed.json", type: :json }
