@@ -1,6 +1,6 @@
-## 2026-04-08
+## 2026-04-09
 
-【Day 098/100】Rails CVE notifier
+【Day 099/100】Rails CVE notifier
 
 Rails で CVE のニュースをslackへ通知するアプリを作りました。
 
