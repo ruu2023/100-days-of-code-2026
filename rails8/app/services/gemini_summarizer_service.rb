@@ -1,6 +1,8 @@
 require 'open3'
 
 class GeminiSummarizerService
+  GEMINI_PATH = Rails.env.production? ? "/home/linuxbrew/.linuxbrew/bin/gemini" : "gemini"
+
   def self.summarize(vulnerability)
     # プロンプトの組み立て
     # ヒアドキュメント(<<~PROMPT)
@@ -19,7 +21,7 @@ class GeminiSummarizerService
     PROMPT
 
     # Gemini CLI の実行
-    stdout, stderr, status = Open3.capture3("gemini", stdin_data: prompt)
+    stdout, stderr, status = Open3.capture3(GEMINI_PATH, stdin_data: prompt)
 
     unless status.success?
       # 失敗したらログにエラーを残す
