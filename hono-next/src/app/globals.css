@@ -122,3 +122,13 @@
     @apply bg-background text-foreground;
     }
 }
+
+@keyframes move-x {
+  from {
+    transform: translateX(var(--move-x-from));
+  }
+
+  to {
+    transform: translateX(var(--move-x-to));
+  }
+}

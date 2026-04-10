@@ -7,9 +7,11 @@
   },
   "dependencies": {
     "@mozilla/readability": "^0.6.0",
+    "@playwright/test": "^1.59.1",
     "he": "^1.2.0",
     "jsdom": "^28.1.0",
     "openai": "^6.27.0",
+    "playwright": "^1.59.1",
     "rss-parser": "^3.13.0"
   }
 }

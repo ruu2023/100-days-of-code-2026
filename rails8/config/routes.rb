@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "/history" => "timeline#index", as: :history
   get "items/index"
   resources :mice
   get "agency_agents", to: "agency_agents#index"

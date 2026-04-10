@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_09_113402) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_10_095610) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -226,6 +226,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_09_113402) do
     t.float "z"
     t.index ["erd_diagram_id", "name"], name: "index_erd_tables_on_erd_diagram_id_and_name", unique: true
     t.index ["erd_diagram_id"], name: "index_erd_tables_on_erd_diagram_id"
+  end
+
+  create_table "history_events", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.string "side"
+    t.string "title"
+    t.datetime "updated_at", null: false
+    t.integer "year"
   end
 
   create_table "images", force: :cascade do |t|
