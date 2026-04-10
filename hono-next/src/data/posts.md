@@ -8,15 +8,16 @@ Rails で主要言語の年表ページを作成しました。
 アプリ100個つくれました。
 
 大塚あみさんに影響されて始めましたが、
-現代のAIでWebアプリは作り放題だと思います。
+現代のAIでアプリは作り放題だと思います。
 
 時間を使って挑戦したいことも増えました。
+100日。感謝。
 
 #100DaysOfCode #Rails
 
-[Demo](https://rails.ruu-dev.com/vulnerabilities)
+[Demo](https://rails.ruu-dev.com/timelines)
 
-[Original Post](https://x.com/ruu_web/status/2042237573201031590)
+[Original Post](https://x.com/ruu_web/status/2042573607092785269)
 
 ---
 

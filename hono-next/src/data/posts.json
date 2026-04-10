@@ -2,20 +2,15 @@
   {
     "day": 100,
     "date": "2026-04-10",
-    "title": "Programming Language History Timeline",
-    "description": "【Day 100/100】プログラミング言語の歴史年表",
-    "features": [
-      "FORTRAN から TypeScript までの登場年を可視化",
-      "LogoTimeline コンポーネントを shadcn/ui 配下へ統合",
-      "Tailwind 4 と Motion で横断アニメーション"
-    ],
+    "title": "プログラミング言語の歴史",
+    "description": "【Day 100/100】プログラミング言語の歴史",
+    "features": [],
     "tags": [
       "#100DaysOfCode",
-      "#Nextjs",
-      "#TypeScript"
+      "#Rails"
     ],
-    "url": "https://github.com/ruu2023/100-days-of-code-2026",
-    "demoLink": "./day100"
+    "url": "https://x.com/ruu_web/status/2042573607092785269",
+    "demoLink": "https://rails.ruu-dev.com/timelines"
   },
   {
     "day": 99,
