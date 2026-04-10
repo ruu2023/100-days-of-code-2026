@@ -12,6 +12,7 @@ type TimelineItem = (typeof programmingLanguageHistory)[number] & {
 
 export function Day100ThreeTimeline() {
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const itemRefs = useRef<Array<HTMLElement | null>>([])
   const items = useMemo<TimelineItem[]>(
     () =>
       [...programmingLanguageHistory]
@@ -23,6 +24,7 @@ export function Day100ThreeTimeline() {
     []
   )
   const [activeName, setActiveName] = useState(items[0]?.name ?? null)
+  const [visibleNames, setVisibleNames] = useState<Record<string, boolean>>({})
 
   const activeItem = items.find((item) => item.name === activeName) ?? items[0]
   const minYear = items[0]?.year ?? 1951
@@ -45,6 +47,14 @@ export function Day100ThreeTimeline() {
     const rootGroup = new THREE.Group()
     scene.add(rootGroup)
 
+    scene.add(new THREE.AmbientLight("#ffffff", 1.8))
+    const directionalLight = new THREE.DirectionalLight("#ffffff", 1.1)
+    directionalLight.position.set(3, 2, 6)
+    scene.add(directionalLight)
+    const rimLight = new THREE.PointLight("#7dd3fc", 6, 18, 2)
+    rimLight.position.set(-3, -1, 4)
+    scene.add(rimLight)
+
     const points = Array.from({ length: 12 }, (_, index) => {
       const progress = index / 11
       return new THREE.Vector3(
@@ -57,23 +67,57 @@ export function Day100ThreeTimeline() {
 
     const ribbon = new THREE.Mesh(
       new THREE.TubeGeometry(curve, 300, 0.045, 12, false),
-      new THREE.MeshBasicMaterial({
+      new THREE.MeshPhysicalMaterial({
         color: "#0f172a",
         transparent: true,
-        opacity: 0.08,
+        opacity: 0.12,
+        roughness: 0.3,
+        metalness: 0.05,
+        clearcoat: 1,
+        clearcoatRoughness: 0.2,
       })
     )
     rootGroup.add(ribbon)
 
     const ribbonGlow = new THREE.Mesh(
       new THREE.TubeGeometry(curve, 300, 0.12, 12, false),
-      new THREE.MeshBasicMaterial({
+      new THREE.MeshPhysicalMaterial({
         color: "#38bdf8",
         transparent: true,
         opacity: 0.06,
+        roughness: 0.5,
+        metalness: 0,
+        transmission: 0.2,
       })
     )
     rootGroup.add(ribbonGlow)
+
+    const glassLayers = [-1.8, 1.9].map((xOffset, index) => {
+      const layerCurve = curve.clone()
+      const offsetPoints = layerCurve.points.map(
+        (point, pointIndex) =>
+          new THREE.Vector3(
+            point.x + xOffset,
+            point.y + Math.sin(pointIndex * 0.7) * 0.25,
+            point.z - 1.2 - index * 0.8
+          )
+      )
+      const mesh = new THREE.Mesh(
+        new THREE.TubeGeometry(new THREE.CatmullRomCurve3(offsetPoints), 220, 0.026, 10, false),
+        new THREE.MeshPhysicalMaterial({
+          color: index === 0 ? "#bae6fd" : "#cbd5e1",
+          transparent: true,
+          opacity: 0.12,
+          roughness: 0.2,
+          metalness: 0.05,
+          transmission: 0.55,
+          clearcoat: 1,
+          clearcoatRoughness: 0.15,
+        })
+      )
+      rootGroup.add(mesh)
+      return mesh
+    })
 
     const particleCount = 160
     const particlePositions = new Float32Array(particleCount * 3)
@@ -81,7 +125,7 @@ export function Day100ThreeTimeline() {
     particleGeometry.setAttribute("position", new THREE.BufferAttribute(particlePositions, 3))
     const particleMaterial = new THREE.PointsMaterial({
       color: "#0f172a",
-      size: 0.04,
+      size: 0.05,
       transparent: true,
       opacity: 0.18,
       depthWrite: false,
@@ -113,12 +157,17 @@ export function Day100ThreeTimeline() {
         const point = curve.getPointAt(t)
         particlePositions[index * 3] = point.x + Math.sin(elapsed + index) * 0.04
         particlePositions[index * 3 + 1] = point.y
-        particlePositions[index * 3 + 2] = point.z + Math.cos(elapsed * 0.7 + index) * 0.06
+        particlePositions[index * 3 + 2] = point.z + Math.cos(elapsed * 0.7 + index) * 0.28
       }
 
       particleGeometry.attributes.position.needsUpdate = true
       rootGroup.rotation.y = THREE.MathUtils.lerp(rootGroup.rotation.y, pointer.x * 0.1, 0.03)
       rootGroup.rotation.x = THREE.MathUtils.lerp(rootGroup.rotation.x, pointer.y * 0.05, 0.03)
+      rootGroup.position.y = Math.sin(elapsed * 0.35) * 0.12
+      rimLight.position.x = Math.sin(elapsed * 0.8) * 4
+      glassLayers.forEach((mesh, index) => {
+        mesh.rotation.z = Math.sin(elapsed * 0.25 + index) * 0.06
+      })
       renderer.render(scene, camera)
     }
 
@@ -147,6 +196,47 @@ export function Day100ThreeTimeline() {
       container.removeChild(renderer.domElement)
     }
   }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setVisibleNames((current) => {
+          const next = { ...current }
+          let changed = false
+
+          entries.forEach((entry) => {
+            const name = entry.target.getAttribute("data-name")
+            if (!name) {
+              return
+            }
+
+            if (entry.isIntersecting && !next[name]) {
+              next[name] = true
+              changed = true
+            }
+
+            if (entry.isIntersecting) {
+              setActiveName(name)
+            }
+          })
+
+          return changed ? next : current
+        })
+      },
+      {
+        threshold: 0.35,
+        rootMargin: "-10% 0px -25% 0px",
+      }
+    )
+
+    itemRefs.current.forEach((element) => {
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => observer.disconnect()
+  }, [items])
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-white text-slate-950">
@@ -195,7 +285,14 @@ export function Day100ThreeTimeline() {
               return (
                 <article
                   key={item.name}
-                  className="group relative pb-10 last:pb-0"
+                  ref={(element) => {
+                    itemRefs.current[index] = element
+                  }}
+                  data-name={item.name}
+                  className={[
+                    "group relative pb-10 transition-all duration-700 ease-out last:pb-0",
+                    visibleNames[item.name] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0",
+                  ].join(" ")}
                   onMouseEnter={() => setActiveName(item.name)}
                   onFocus={() => setActiveName(item.name)}
                 >
@@ -212,10 +309,10 @@ export function Day100ThreeTimeline() {
                   <button
                     type="button"
                     className={[
-                      "w-full rounded-[1.75rem] border bg-white/92 p-5 text-left shadow-[0_18px_48px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-200",
+                      "w-full rounded-[1.75rem] border bg-white/92 p-5 text-left shadow-[0_18px_48px_rgba(15,23,42,0.05)] backdrop-blur-sm transition duration-300",
                       isActive
                         ? "border-sky-300 shadow-[0_24px_60px_rgba(14,165,233,0.14)]"
-                        : "border-slate-200 hover:border-sky-200",
+                        : "border-slate-200 hover:border-sky-200 hover:shadow-[0_20px_56px_rgba(15,23,42,0.08)]",
                     ].join(" ")}
                     onMouseEnter={() => setActiveName(item.name)}
                     onFocus={() => setActiveName(item.name)}
