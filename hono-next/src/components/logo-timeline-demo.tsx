@@ -379,6 +379,13 @@ const programmingLanguageTimeline: LogoItem[] = programmingLanguageHistory.map((
   animationDelay: item.animationDelay,
   animationDuration: item.animationDuration,
   row: item.row,
+  detailEyebrow: item.period,
+  detailTitle: item.name,
+  detailSections: [
+    { label: "誰が", value: item.creator },
+    { label: "なぜ", value: item.purpose },
+    { label: "対抗馬・比較対象", value: item.comparison },
+  ],
 }))
 
 export function LogoTimelineDemo() {
@@ -390,6 +397,7 @@ export function LogoTimelineDemo() {
         height="h-[420px] sm:h-[520px]"
         iconSize={18}
         showRowSeparator
+        animateOnHover={false}
       />
     </div>
   )

@@ -11,6 +11,12 @@ export interface LogoItem {
   animationDelay: number
   animationDuration: number
   row: number
+  detailTitle?: string
+  detailEyebrow?: string
+  detailSections?: Array<{
+    label: string
+    value: string
+  }>
 }
 
 export interface LogoTimelineProps {
@@ -33,6 +39,7 @@ export function LogoTimeline({
   animateOnHover = false,
 }: LogoTimelineProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const [activeItemKey, setActiveItemKey] = useState<string | null>(null)
 
   const rowsMap = new Map<number, LogoItem[]>()
   items.forEach((item) => {
@@ -66,10 +73,14 @@ export function LogoTimeline({
   return (
     <section className={cn("w-full", height, className)}>
       <motion.div
-        aria-hidden="true"
         className="bg-background relative h-full w-full overflow-hidden py-24 ring-inset sm:py-32"
         onMouseEnter={() => animateOnHover && setIsHovered(true)}
-        onMouseLeave={() => animateOnHover && setIsHovered(false)}
+        onMouseLeave={() => {
+          if (animateOnHover) {
+            setIsHovered(false)
+          }
+          setActiveItemKey(null)
+        }}
       >
         {title && (
           <div className="absolute top-1/2 left-1/2 mx-auto w-full max-w-[90%] -translate-x-1/2 -translate-y-1/2 text-center">
@@ -97,21 +108,60 @@ export function LogoTimeline({
                 <div
                   key={`${logo.row}-${logo.label}`}
                   className={cn(
-                    "absolute top-1/2 flex -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full px-3 py-1.5",
-                    "ring-background/10 rounded-full bg-linear-to-t from-white/50 from-50% to-white/50 ring-1 ring-inset backdrop-blur-sm dark:from-neutral-900 dark:to-gray-900 dark:ring-foreground/10",
-                    "repeat-[infinite] [--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-name:move-x] [animation-timing-function:linear]",
-                    "shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-none"
+                    "absolute top-1/2 [--move-x-from:-110%] [--move-x-to:calc(100vw+8rem)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-timing-function:linear]"
                   )}
                   style={{
                     animationDelay: `${logo.animationDelay}s`,
                     animationDuration: `${logo.animationDuration}s`,
-                    animationPlayState,
+                    animationPlayState: activeItemKey === `${logo.row}-${logo.label}` ? "paused" : animationPlayState,
                   }}
                 >
-                  {renderIcon(logo.icon)}
-                  <span className="text-foreground text-sm/6 font-medium">
-                    {logo.label}
-                  </span>
+                  <div className="relative -translate-y-1/2">
+                    <button
+                      type="button"
+                      className={cn(
+                        "relative flex items-center gap-2 whitespace-nowrap rounded-full px-3 py-1.5 text-left",
+                        "ring-background/10 bg-linear-to-t from-white/70 from-50% to-white/60 ring-1 ring-inset backdrop-blur-sm dark:from-neutral-900 dark:to-gray-900 dark:ring-foreground/10",
+                        "shadow-[0_0_15px_rgba(0,0,0,0.1)] transition-transform duration-200 hover:scale-[1.02] focus-visible:scale-[1.02] focus-visible:outline-none dark:shadow-none"
+                      )}
+                      onMouseEnter={() => setActiveItemKey(`${logo.row}-${logo.label}`)}
+                      onMouseLeave={() => setActiveItemKey((current) => (current === `${logo.row}-${logo.label}` ? null : current))}
+                      onFocus={() => setActiveItemKey(`${logo.row}-${logo.label}`)}
+                      onBlur={() => setActiveItemKey((current) => (current === `${logo.row}-${logo.label}` ? null : current))}
+                    >
+                      {renderIcon(logo.icon)}
+                      <span className="text-foreground text-sm/6 font-medium">
+                        {logo.label}
+                      </span>
+                    </button>
+
+                    {logo.detailSections?.length && activeItemKey === `${logo.row}-${logo.label}` ? (
+                      <div
+                        className="absolute top-0 left-1/2 z-20 w-[min(22rem,calc(100vw-3rem))] -translate-x-1/2 -translate-y-[calc(100%+1rem)] rounded-2xl border border-border/70 bg-background/95 p-4 text-left shadow-xl backdrop-blur-md"
+                        onMouseEnter={() => setActiveItemKey(`${logo.row}-${logo.label}`)}
+                        onMouseLeave={() => setActiveItemKey((current) => (current === `${logo.row}-${logo.label}` ? null : current))}
+                      >
+                        <div className="space-y-1">
+                          {logo.detailEyebrow ? (
+                            <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+                              {logo.detailEyebrow}
+                            </p>
+                          ) : null}
+                          {logo.detailTitle ? (
+                            <p className="text-base font-semibold text-foreground">{logo.detailTitle}</p>
+                          ) : null}
+                        </div>
+                        <div className="mt-3 space-y-3 text-sm">
+                          {logo.detailSections.map((section) => (
+                            <div key={`${logo.label}-${section.label}`} className="space-y-1">
+                              <p className="font-medium text-foreground">{section.label}</p>
+                              <p className="text-muted-foreground">{section.value}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               ))}
             </div>
