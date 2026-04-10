@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "timelines/index"
   get "/history" => "timeline#index", as: :history
   get "items/index"
   resources :mice
@@ -219,4 +220,6 @@ Rails.application.routes.draw do
 
   # Day099 CVE news notification
   resources :vulnerabilities
+
+  resources :timelines
 end

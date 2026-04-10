@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* タイムラインの中央の線 */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: #cbd5e1; /* slate-300 */
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 768px) {
+      .timeline-container::before {
+        left: 20px;
+      }
+    }
+
+    /* 左右からのスライドアニメーション */
+    .slide-in {
+      opacity: 0;
+      transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* 左側のカードは左からスライド */
+    .slide-from-left {
+      transform: translateX(-50px);
+    }
+
+    /* 右側のカードは右からスライド */
+    .slide-from-right {
+      transform: translateX(50px);
+    }
+
+    .slide-in.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* 年数の強調（フラッシュ効果） */
+    .year-badge {
+      transition: all 0.3s ease-in-out;
+      transition-delay: 0.4s;
+      transform: scale(0.9);
+      opacity: 0;
+    }
+
+    .is-visible .year-badge {
+      transform: scale(1);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4 py-20 relative timeline-container">
+  
+    <% prev_year = nil %>
+    <% @languages.each_with_index do |lang, index| %>
+      <% 
+        # 同時期（同じ年）の場合はマージンを小さくして「激戦区」を表現
+        is_same_period = prev_year.present? && lang.appeared.to_s.include?(prev_year.to_s[0..3])
+        margin_class = is_same_period ? 'mb-0' : 'mb-20'
+        prev_year = lang.appeared
+        
+        # 偶数・奇数で配置とスライド方向を決定
+        is_even = index.even?
+        position_class = is_even ? 'flex-row-reverse' : ''
+        slide_direction = is_even ? 'slide-from-left' : 'slide-from-right'
+      %>
+
+      <div class="slide-in <%= slide_direction %> <%= margin_class %> flex justify-between items-center w-full <%= position_class %>">
+        
+        <!-- スペーサー（デスクトップでの左右交互配置用） -->
+        <div class="hidden md:block w-5/12"></div>
+
+        <!-- タイムラインのドット -->
+        <div class="z-20 flex items-center order-1 bg-indigo-600 shadow-[0_0_15px_rgba(79,70,229,0.5)] w-6 h-6 rounded-full border-4 border-white">
+        </div>
+
+        <!-- コンテンツカード -->
+        <div class="order-1 bg-white rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 w-full md:w-5/12 px-8 py-7 border border-gray-100 relative overflow-hidden">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="font-black text-slate-800 text-2xl tracking-tight"><%= lang.name %></h3>
+              <p class="text-xs font-bold text-indigo-500 mt-1 uppercase tracking-tighter">Dev: <%= lang.developer %></p>
+            </div>
+            <div class="year-badge bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+              <span class="text-sm font-black text-slate-600 italic"><%= lang.appeared %></span>
+            </div>
+          </div>
+          
+          <div class="relative">
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              <%= lang.purpose %>
+            </p>
+          </div>
+          
+          <div class="pt-4 border-t border-dashed border-gray-200 flex items-center gap-3">
+            <span class="shrink-0 text-[10px] bg-slate-800 text-white px-2 py-0.5 rounded font-bold">VS</span>
+            <p class="text-xs text-slate-400 font-medium truncate"><%= lang.competitors %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+  <script>
+    // スクロール検知して要素を表示させるアニメーション
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, { 
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    document.querySelectorAll('.slide-in').forEach((section) => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

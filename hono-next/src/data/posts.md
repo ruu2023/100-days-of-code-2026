@@ -1,3 +1,25 @@
+## 2026-04-10
+
+【Day 100/100】プログラミング言語の歴史
+
+Rails で主要言語の年表ページを作成しました。
+
+今日で元日から100日。
+アプリ100個つくれました。
+
+大塚あみさんに影響されて始めましたが、
+現代のAIでWebアプリは作り放題だと思います。
+
+時間を使って挑戦したいことも増えました。
+
+#100DaysOfCode #Rails
+
+[Demo](https://rails.ruu-dev.com/vulnerabilities)
+
+[Original Post](https://x.com/ruu_web/status/2042237573201031590)
+
+---
+
 ## 2026-04-09
 
 【Day 099/100】Rails CVE notifier

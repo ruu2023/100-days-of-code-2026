@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_10_095610) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_10_112319) do
   create_table "accounts", force: :cascade do |t|
     t.integer "account_type", null: false
     t.boolean "active", default: true
@@ -281,6 +281,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_10_095610) do
     t.index ["party_id"], name: "index_journal_entries_on_party_id"
     t.index ["posted"], name: "index_journal_entries_on_posted"
     t.index ["reversal_of_id"], name: "index_journal_entries_on_reversal_of_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "appeared"
+    t.text "competitors"
+    t.datetime "created_at", null: false
+    t.string "developer"
+    t.string "name"
+    t.text "purpose"
+    t.datetime "updated_at", null: false
   end
 
   create_table "line_items", force: :cascade do |t|
