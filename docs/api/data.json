@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-fc317c1336c2",
-    "title": "社内業務をAIに開放 — 自社MCPサーバー群一挙公開！",
-    "url": "https://zenn.dev/aircloset/articles/d9fc317c1336c2",
+    "id": "hatebu-it-7-04/09/085051",
+    "title": "11億件の応募を却下したAI ー Workday訴訟が突きつける「意図のない差別」の正体 - Nothing ventured, nothing gained.",
+    "url": "https://takoratta.hatenablog.com/entry/2026/04/09/085051",
     "source": "Hatena:it",
-    "bookmarkCount": 155,
-    "summary": "社内で運用する多種多様なMCPサーバーを一括公開し、AI から全業務領域を操作でき\u001b[K\nるようにしたことが紹介されました。DB グラフ以外のサーバー群も含め、17 台の \u001b[K\nMCP サーバーが構築され、データ、インフラ、ドキュメント、プロジェクト管理、可\u001b[K\n観測性、CI/CD、コード修正・デプロイまで、社内業務と幅広い領域をカバーしてい\u001b[K\nます。AI は全サーバーを同一モノレポで管理し、認証スコープを分離して権限の暴\u001b[K\n発を防ぎ、Grafana ダッシュボードやアラートルールもコードから定義して同一リポ\u001b[K\nジトリで管理。非エンジニアでも GitHub アカウントなしでコードを修正・デプロイ\u001b[K\n可能で、データ・コード・インフラ・可観測性のデータを AI がアクセスできる形で\u001b[K\n外部化するという共通テーマが示されました。",
+    "bookmarkCount": 108,
+    "summary": "WorkdayのAIが、過去のテック業界の採用データを学習し、「女性であること」を採\u001b[K\n用の成功要因として重みづけさせ、結果として女性の応募者を低く評価するという構\u001b[K\n造的な差別を引き起こした。AIそのものは差別意図を持たず、ただ過去のデータを再\u001b[K\n現していたが、そのデータに男性が多数含まれていたため、間接的な性別シグナルが\u001b[K\nスコアを下げる仕組みが生じた。Amazonの事例と同様、AIの「意図」はなく、設計段\u001b[K\n階からデータの偏り（代理変数）を修正せずに放置した結果、差別が構造化された。\u001b[K\nApple Card事件やCOMPAS事件と同様に、裁判所はAIを「受動的なツール」ではなく「\u001b[K\n能動的な採用判断の代理人」として扱う「代理人理論」に基づき、法的責任を認めた\u001b[K\n。この訴訟は、精度と公正性の両立が不可能であることを明らかにし、AI開発者には\u001b[K\n設計段階からの倫理的リスク検証と、継続的な透明性の確保が求められている。",
     "category": "AI",
-    "date": "2026-04-09T03:32:00.498Z"
+    "date": "2026-04-10T03:45:45.597Z"
   },
   {
-    "id": "hatebu-it-5-data-breach/",
-    "title": "SUUMO, CHINTAI, At Home, HOME'S Suffer Data Breach - Daily Dark Web",
-    "url": "https://dailydarkweb.net/suumo-chintai-at-home-homes-suffer-data-breach/",
+    "id": "hatebu-it-16-news043.html",
+    "title": "Windowsに未修正ゼロデイ脆弱性「BlueHammer」　正規機能の組み合わせでSYSTEM権限を奪取",
+    "url": "https://www.itmedia.co.jp/enterprise/articles/2604/10/news043.html",
     "source": "Hatena:it",
-    "bookmarkCount": 213,
-    "summary": "日本の不動産・住宅情報プラットフォームが複数、データ漏洩が疑われる（SUUMO、\u001b[K\nCHINTAI、At Home、HOME'S、O-uccino、Rent EX/Chintai EX）。当該サイトで管理し\u001b[K\nている2.78GBのデータベースには、約240万件のユーザー情報が収録されており、ユ\u001b[K\nーザーID、氏名、電話番号、メールアドレス、収入や家族構成などの個人情報、物件\u001b[K\nの種類や価格、ステーションや築年数といった物件情報が含まれる。漏洩した情報に\u001b[K\nは、ユーザー登録日や現住居の住所、次期入居の理由が含まれ、現在は2,400,000件\u001b[K\n以上のメールアドレスが対象となっている。要するに：日本の主要不動産プラットフ\u001b[K\nォームのデータが一斉に流出したとみられ、ユーザー情報から賃貸物件の詳細までが\u001b[K\n不正取得の対象となった。",
+    "bookmarkCount": 4,
+    "summary": "Microsoft Windowsに新たなゼロデイ脆弱性「BlueHammer」が発見され、正規機能の\u001b[K\n組み合わせでシステム権限を奪取できることが明らかになった。Windows 7からWind\u001b[4D\u001b[K\nWindows 10まで、正規のポリシー制御を組み合わせた攻撃でSYSTEM権限を奪取する脆\u001b[K\n弱性である。Microsoftはこの脆弱性について公に言及し、詳細を公開する予定はな\u001b[K\nい。",
     "category": "Security",
-    "date": "2026-04-09T03:32:20.315Z"
+    "date": "2026-04-10T03:46:35.206Z"
   }
 ]
