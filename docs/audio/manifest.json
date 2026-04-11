@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-7-04/09/085051",
-    "title": "11億件の応募を却下したAI ー Workday訴訟が突きつける「意図のない差別」の正体 - Nothing ventured, nothing gained.",
-    "url": "https://takoratta.hatenablog.com/entry/2026/04/09/085051",
+    "id": "hatebu-it-6-news057.html",
+    "title": "無料で読めるAIエージェントの実践ガイド、Googleが公開　基礎から本番実装まで学べる",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2604/10/news057.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-10T03:45:45.597Z",
-    "summary": "WorkdayのAIが、過去のテック業界の採用データを学習し、「女性であること」を採\u001b[K\n用の成功要因として重みづけさせ、結果として女性の応募者を低く評価するという構\u001b[K\n造的な差別を引き起こした。AIそのものは差別意図を持たず、ただ過去のデータを再\u001b[K\n現していたが、そのデータに男性が多数含まれていたため、間接的な性別シグナルが\u001b[K\nスコアを下げる仕組みが生じた。Amazonの事例と同様、AIの「意図」はなく、設計段\u001b[K\n階からデータの偏り（代理変数）を修正せずに放置した結果、差別が構造化された。\u001b[K\nApple Card事件やCOMPAS事件と同様に、裁判所はAIを「受動的なツール」ではなく「\u001b[K\n能動的な採用判断の代理人」として扱う「代理人理論」に基づき、法的責任を認めた\u001b[K\n。この訴訟は、精度と公正性の両立が不可能であることを明らかにし、AI開発者には\u001b[K\n設計段階からの倫理的リスク検証と、継続的な透明性の確保が求められている。",
-    "bookmarkCount": 108,
-    "audioFile": "../audio/hatebu-it-7-04_09_085051.wav"
+    "date": "2026-04-11T03:23:28.407Z",
+    "summary": "Googleは今週、無料で読める「AIエージェントの実践ガイド」を公開した。基礎から\u001b[K\n本番実装までを網羅する内容で、基礎から本番実装まで学べる。",
+    "bookmarkCount": 271,
+    "audioFile": "../audio/hatebu-it-6-news057_html.wav"
   },
   {
-    "id": "hatebu-it-16-news043.html",
-    "title": "Windowsに未修正ゼロデイ脆弱性「BlueHammer」　正規機能の組み合わせでSYSTEM権限を奪取",
-    "url": "https://www.itmedia.co.jp/enterprise/articles/2604/10/news043.html",
+    "id": "hatebu-it-7-4/10/170921/",
+    "title": "病院でマイナンバーカードを読み取るやつをLinuxから叩く - 点と接線。",
+    "url": "https://riq0h.jp/2026/04/10/170921/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-10T03:46:35.206Z",
-    "summary": "Microsoft Windowsに新たなゼロデイ脆弱性「BlueHammer」が発見され、正規機能の\u001b[K\n組み合わせでシステム権限を奪取できることが明らかになった。Windows 7からWind\u001b[4D\u001b[K\nWindows 10まで、正規のポリシー制御を組み合わせた攻撃でSYSTEM権限を奪取する脆\u001b[K\n弱性である。Microsoftはこの脆弱性について公に言及し、詳細を公開する予定はな\u001b[K\nい。",
-    "bookmarkCount": 4,
-    "audioFile": "../audio/hatebu-it-16-news043_html.wav"
+    "date": "2026-04-11T03:24:13.256Z",
+    "summary": "病院でマイナンバーカードを読み取るための端末にLinuxから操作し、端末本体にCP\u001b[2D\u001b[K\nCPUやストレージがないことを確認した。ドライバを無効にすると単なるUSBハブとし\u001b[K\nて扱われ、Windows側の管理ソフトウェアが各種情報を処理する構成となっているこ\u001b[K\nとが判明した。Windows上のSDKや評価版ソフトウェアはC#で書かれており、Linuxで\u001b[K\nはハードウェアを叩いて機能を最大限に引き出せる可能性がある。実際に、Windows\u001b[7D\u001b[K\nWindows上でマニュアル通りに動作する例も見つかったが、Linuxユーザーとしてドラ\u001b[K\nイバを使用せずにハードウェアを操作する実験も行った。結果として、電源を入れた\u001b[K\n後、レジスタにアクセスし、lsusbを実行すると、SONY RC-S634やIntel RealSense \u001b[K\nD415などのデバイスが認識され、端末が単なるUSBハブの先に接続されたタッチパネ\u001b[K\nルに近いことが分かった。Linuxでの認識はWindowsに近い。",
+    "bookmarkCount": 143,
+    "audioFile": "../audio/hatebu-it-7-4_10_170921_.wav"
   }
 ]
