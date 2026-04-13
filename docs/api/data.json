@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-d57493a04f88",
-    "title": "Claudeトークン消費を抑えて５倍使う: 「原始人」口調が80%削減",
-    "url": "https://zenn.dev/mikana0918/articles/7ad57493a04f88",
+    "id": "hatebu-it-1-aclinux.html",
+    "title": "マイクロソフト、ローカルAI環境をインストーラで配布できる「Foundry Local」正式リリース。MacやLinuxにも対応",
+    "url": "https://www.publickey1.jp/blog/26/aifoundry_localmaclinux.html",
     "source": "Hatena:it",
-    "bookmarkCount": 536,
-    "summary": "Claudeトークン消費を80%削減する手法を解説\n\ncaveman（358トークン）：Claudeの英語圧縮で、敬語・前置き・フィラーを削除する\u001b[K\nとトークン約68%減。genshijin（217トークン）は英語の冗長性（冠詞・助詞・前置\u001b[K\nき）を削ることでさらに38%削減。両者はClaudeのトークナイザと日本語の言語構造\u001b[K\nの違いを突いたシンプルなテクニックだ。\n\ncavemanは「原始人みたいに喋れ、装飾はそのまま残す」という指針で、Claudeの出\u001b[K\n力トークンをそのまま残しつつ冗長な日本語を削除する。\n\ngenshijinは英語の冗長性を日本語の構造に合わせて圧縮し、トークン約80%削減。C\u001b[1D\u001b[K\nClaudeのトークン消費を抑える鍵は「日本語の冗長性構造」への対応だ。\n\ncaveman／genshijinの核心は、Claudeのトークナイザが日本語の文法特性を認識して\u001b[K\nいないため、原始人風の口調にすると「無駄な表現」だけが削除され、技術的内容は\u001b[K\n残るという点にある。",
+    "bookmarkCount": 203,
+    "summary": "マイクロソフトは、アプリケーションにバンドルしてインストーラで配布できる「F\u001b[1D\u001b[K\nFoundry Local」（ローカルAI環境）を正式リリースしました。ハードウェアに最適\u001b[K\n化されたAIモデルをONNX RuntimeとWindows MLで実行し、OpenAI RESTful APIを含む\u001b[K\n「Foundry Local Core API」で推論処理を提供。対応OSはWindows、Mac、Linuxで、\u001b[K\nMacはMetalを通じてGPUにアクセス。対応モデルにはGPT OSS、Qwen Family、Deepse\u001b[6D\u001b[K\nDeepseek、Whisper、Mistral、Phiなど多数あり、JavaScript、C#、Python、Rustで\u001b[K\n利用可能。",
     "category": "AI",
-    "date": "2026-04-12T03:49:50.350Z"
+    "date": "2026-04-13T03:55:54.590Z"
   },
   {
-    "id": "hatebu-it-0-6c504db2ac3b",
-    "title": "エンジニア歴20年の私が、素人バイブコーディング勢に物申す - Qiita",
-    "url": "https://qiita.com/Akira-Isegawa/items/00f23d206c504db2ac3b",
+    "id": "hatebu-it-11-2098901.html",
+    "title": "VRAM消費60%減の衝撃。App ModeとGeForce RTXでComfyUIがさらに身近に ～初級者もつまずかないComfyUI完全導入ガイド[Sponsored]",
+    "url": "https://pc.watch.impress.co.jp/docs/topic/special/2098901.html",
     "source": "Hatena:it",
-    "bookmarkCount": 197,
-    "summary": "20年のエンジニア経験を持つ著者が、素人バイブコーディングの波に乗る人々に厳し\u001b[K\nい注意を促す記事が公開された。著者は、AIが1週間でアプリを作ったり、100時間か\u001b[K\nかる作業を5時間で自動化したりするなど、技術の進歩に驚きつつも、「売れたプロ\u001b[K\nダクトはすべて正しい」「品質が問題なければ障害は許容する」といった業界の風潮\u001b[K\nを批判する。\n\n特に、AI生成コードの本番リリースや、IaaSの無謀な利用、PaaSの未熟な選択、デー\u001b[K\nタモデルの誤設定、トランザクションの不適切な設計など、セキュリティやアーキテ\u001b[K\nクチャの基本を無視した「AI驚き屋」への警鐘を鳴らす。著者は、単なる慎重さでは\u001b[K\nなく、失敗を繰り返しながら学び、修正する「実践的なエンジニアリング」の重要性\u001b[K\nを強調。\n\n「AIに頼るなら、責任の所在が明確で、確実に責任を取れるレベルのコードを書け」\u001b[K\nという原則を提唱し、開発者は無謀な挑戦を避け、仮説を立てて試し、壊して学び、\u001b[K\n直すことを繰り返すことで、ソフトウェアの信頼性を築くべきだと呼びかける。\n\n「これがソフトウェアという長い営みの本質だ」と著者は締めくくっている。初心者\u001b[K\nでも、AIに頼りながらも、基本的な作法を守ることで、真に価値のあるサービスを提\u001b[K\n供できると信じている。",
+    "bookmarkCount": 42,
+    "summary": "ローカル生成AIの定番ツール「ComfyUI」に、ノードグラフが不要な「App Mode」が\u001b[K\n3月に導入された。GeForce RTXでNVFP4を使用するとVRAM消費が最大60%削減され、生\u001b[K\n成速度は従来の2.5倍になる。App Modeはプロンプト入力だけで出力ボタンを押すだ\u001b[K\nけのシンプルなインターフェイスで、初心者でも使いやすいとされている。",
     "category": "Security",
-    "date": "2026-04-12T03:50:47.373Z"
+    "date": "2026-04-13T03:56:35.848Z"
   }
 ]
