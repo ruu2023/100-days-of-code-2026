@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-aclinux.html",
-    "title": "マイクロソフト、ローカルAI環境をインストーラで配布できる「Foundry Local」正式リリース。MacやLinuxにも対応",
-    "url": "https://www.publickey1.jp/blog/26/aifoundry_localmaclinux.html",
+    "id": "hatebu-it-6-tgpt-claude/",
+    "title": "ChatGPTから乗り換え急増中。「Claude」を専属エージェントにして仕事を自動化するコツ3選 | ライフハッカー・ジャパン",
+    "url": "https://www.lifehacker.jp/article/2604-matome-chatgpt-claude/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-13T03:55:54.590Z",
-    "summary": "マイクロソフトは、アプリケーションにバンドルしてインストーラで配布できる「F\u001b[1D\u001b[K\nFoundry Local」（ローカルAI環境）を正式リリースしました。ハードウェアに最適\u001b[K\n化されたAIモデルをONNX RuntimeとWindows MLで実行し、OpenAI RESTful APIを含む\u001b[K\n「Foundry Local Core API」で推論処理を提供。対応OSはWindows、Mac、Linuxで、\u001b[K\nMacはMetalを通じてGPUにアクセス。対応モデルにはGPT OSS、Qwen Family、Deepse\u001b[6D\u001b[K\nDeepseek、Whisper、Mistral、Phiなど多数あり、JavaScript、C#、Python、Rustで\u001b[K\n利用可能。",
-    "bookmarkCount": 203,
-    "audioFile": "../audio/hatebu-it-1-aclinux_html.wav"
+    "date": "2026-04-14T03:46:35.468Z",
+    "summary": "Claudeを仕事のパートナーとして活用する方法が注目を集めている。ClaudeはChatG\u001b[5D\u001b[K\nChatGPTよりも高度な「人間らしい会話」や「読解力」を備えており、特に「空気が\u001b[K\n読める」優れた会話力で仕事を効率化できるとされる。仕事にAIを活用する方法をま\u001b[K\nとめた記事では、Claudeの優れた「自然な会話」と「読解力」を活かし、Googleドキ\u001b[K\nュメントやGmailとの連携、遠隔操作などに活用できると紹介している。",
+    "bookmarkCount": 201,
+    "audioFile": "../audio/hatebu-it-6-tgpt-claude_.wav"
   },
   {
-    "id": "hatebu-it-11-2098901.html",
-    "title": "VRAM消費60%減の衝撃。App ModeとGeForce RTXでComfyUIがさらに身近に ～初級者もつまずかないComfyUI完全導入ガイド[Sponsored]",
-    "url": "https://pc.watch.impress.co.jp/docs/topic/special/2098901.html",
+    "id": "hatebu-it-1-umpc/112325/",
+    "title": "Raspberry Pi 5搭載ポータブルLinux端末「PocketTerm35」が149ドルで発売！USB 3.0もEthernetもそのまま使える",
+    "url": "https://daily-gadget.net/umpc/112325/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-13T03:56:35.848Z",
-    "summary": "ローカル生成AIの定番ツール「ComfyUI」に、ノードグラフが不要な「App Mode」が\u001b[K\n3月に導入された。GeForce RTXでNVFP4を使用するとVRAM消費が最大60%削減され、生\u001b[K\n成速度は従来の2.5倍になる。App Modeはプロンプト入力だけで出力ボタンを押すだ\u001b[K\nけのシンプルなインターフェイスで、初心者でも使いやすいとされている。",
-    "bookmarkCount": 42,
-    "audioFile": "../audio/hatebu-it-11-2098901_html.wav"
+    "date": "2026-04-14T03:47:17.834Z",
+    "summary": "Waveshareの新しいLinuxターミナル「PocketTerm35」が149ドルで登場。Raspberry \u001b[K\nPi 5本体とmicroSD、5,000mAhバッテリーを標準搭載。3.5インチIPSディスプレイと\u001b[K\nRaspberry Pi 5（1GB RAM）またはPi 4（2GB RAM）をそのまま内蔵し、GigabitEthe\u001b[11D\u001b[K\nGigabitEthernetやUSB 3.0といったフルサイズポートがそのまま利用できる。ポート\u001b[K\nがすべて使える完成品は高価で稀少なため、価格と構成の違いが明確なこのデバイス\u001b[K\nはコストパフォーマンスに優れている。",
+    "bookmarkCount": 147,
+    "audioFile": "../audio/hatebu-it-1-umpc_112325_.wav"
   }
 ]
