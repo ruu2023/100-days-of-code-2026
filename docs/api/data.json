@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-6-tgpt-claude/",
-    "title": "ChatGPTから乗り換え急増中。「Claude」を専属エージェントにして仕事を自動化するコツ3選 | ライフハッカー・ジャパン",
-    "url": "https://www.lifehacker.jp/article/2604-matome-chatgpt-claude/",
+    "id": "hatebu-it-1-ticle/99605/",
+    "title": "書類を撮影→テキストを抽出して「メモ」に保存。iPhoneの「ショートカット」便利レシピ。Apple Intelligenceのアクションを活用しよう– iPhone AI Hack 第3回",
+    "url": "https://macfan.book.mynavi.jp/article/99605/",
     "source": "Hatena:it",
-    "bookmarkCount": 201,
-    "summary": "Claudeを仕事のパートナーとして活用する方法が注目を集めている。ClaudeはChatG\u001b[5D\u001b[K\nChatGPTよりも高度な「人間らしい会話」や「読解力」を備えており、特に「空気が\u001b[K\n読める」優れた会話力で仕事を効率化できるとされる。仕事にAIを活用する方法をま\u001b[K\nとめた記事では、Claudeの優れた「自然な会話」と「読解力」を活かし、Googleドキ\u001b[K\nュメントやGmailとの連携、遠隔操作などに活用できると紹介している。",
+    "bookmarkCount": 156,
+    "summary": "Apple Intelligenceの新しいアクション「ショートカット」をiPhoneに搭載し、紙の\u001b[K\n書類を撮影するだけでテキストを抽出して「メモ」に保存できる便利な機能が、iOS\u001b[3D\u001b[K\niOS 26でリリースされた。iPhoneのカメラでレシートや領収書を撮影し、プロンプト\u001b[K\nを入力してメモに自動記録するだけで、毎日の書類管理を簡単に行える。ショートカ\u001b[K\nットをホーム画面に配置すれば、起動の手間を省ける。",
     "category": "AI",
-    "date": "2026-04-14T03:46:35.468Z"
+    "date": "2026-04-15T03:45:10.998Z"
   },
   {
-    "id": "hatebu-it-1-umpc/112325/",
-    "title": "Raspberry Pi 5搭載ポータブルLinux端末「PocketTerm35」が149ドルで発売！USB 3.0もEthernetもそのまま使える",
-    "url": "https://daily-gadget.net/umpc/112325/",
+    "id": "hatebu-it-14-erforce-rce/",
+    "title": "Composer CVE-2026-40261/40176｜Perforceドライバ起因のRCE、2.9.6/2.2.27で修正済み",
+    "url": "https://ai-heartland.com/news/news-composer-cve-2026-40261-perforce-rce/",
     "source": "Hatena:it",
-    "bookmarkCount": 147,
-    "summary": "Waveshareの新しいLinuxターミナル「PocketTerm35」が149ドルで登場。Raspberry \u001b[K\nPi 5本体とmicroSD、5,000mAhバッテリーを標準搭載。3.5インチIPSディスプレイと\u001b[K\nRaspberry Pi 5（1GB RAM）またはPi 4（2GB RAM）をそのまま内蔵し、GigabitEthe\u001b[11D\u001b[K\nGigabitEthernetやUSB 3.0といったフルサイズポートがそのまま利用できる。ポート\u001b[K\nがすべて使える完成品は高価で稀少なため、価格と構成の違いが明確なこのデバイス\u001b[K\nはコストパフォーマンスに優れている。",
+    "bookmarkCount": 5,
+    "summary": "Perforce 連携ドライバを備えた Composer に 2 件の深刻なコマンドインジェクショ\u001b[K\nン脆弱性（CVE-2026-40261 と CVE-2026-40176）が発見された。CVE-2026-40261 は\u001b[K\n CVSS 8.8（ネットワーク攻撃可）という高リスク度で、Composer 2.2.27 以降や 2\u001b[1D\u001b[K\n2.9.6 以降の mainline 系、mainline LTS 系に影響する。攻撃者は Composer 自体\u001b[K\nやリポジトリを介して任意コマンドを実行でき、Perforce が未インストールでも -\u001b[1D\u001b[K\n--prefer-source や dev-prefix といったオプションで実行される。影響を受けたの\u001b[K\nは Composer 2.0〜2.2.26、2.3〜2.9.5 で、LTS 系は 2.2.27、2.9.6 以降が修正済\u001b[K\nみ。修正は GHSA がパッチ版 2.2.27/2.9.6（または 2.9.7 の regression fix）と\u001b[K\nして提供。PHP の主要パッケージ（Laravel、Symfony、WordPress など）に脆弱性が\u001b[K\n含まれるという報告はなく、現時点で実際の攻撃は確認されていない。",
     "category": "Security",
-    "date": "2026-04-14T03:47:17.834Z"
+    "date": "2026-04-15T03:46:00.626Z"
   }
 ]
