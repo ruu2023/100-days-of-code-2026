@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-ticle/99605/",
-    "title": "書類を撮影→テキストを抽出して「メモ」に保存。iPhoneの「ショートカット」便利レシピ。Apple Intelligenceのアクションを活用しよう– iPhone AI Hack 第3回",
-    "url": "https://macfan.book.mynavi.jp/article/99605/",
+    "id": "hatebu-it-0-ffa8cf88dfa2",
+    "title": "Claude Code を Level 5 まで育てたら、開発が「指示と確認だけ」になった — 実ファイル構成で解説 - Qiita",
+    "url": "https://qiita.com/teppei19980914/items/8da88b33ffa8cf88dfa2",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-15T03:45:10.998Z",
-    "summary": "Apple Intelligenceの新しいアクション「ショートカット」をiPhoneに搭載し、紙の\u001b[K\n書類を撮影するだけでテキストを抽出して「メモ」に保存できる便利な機能が、iOS\u001b[3D\u001b[K\niOS 26でリリースされた。iPhoneのカメラでレシートや領収書を撮影し、プロンプト\u001b[K\nを入力してメモに自動記録するだけで、毎日の書類管理を簡単に行える。ショートカ\u001b[K\nットをホーム画面に配置すれば、起動の手間を省ける。",
-    "bookmarkCount": 156,
-    "audioFile": "../audio/hatebu-it-1-ticle_99605_.wav"
+    "date": "2026-04-16T03:51:47.122Z",
+    "summary": "Claude Code は AI 搭載のコード自動生成ツールで、開発者は指示を書き、Claude \u001b[K\nがルールを適用しながら自動でデプロイできるようになる。記事では、Claude Code\u001b[4D\u001b[K\nCode を用いて「何を作るか指示する」から「動作確認する」だけに変わり、人間の\u001b[K\n作業は「何を作るか決める」へとシフトした実例が紹介されている。Level 2 でルー\u001b[K\nルを CLAUDE.md に記載し、Level 3 で手順書を Skills に分離、Level 4 で品質チ\u001b[K\nェックの Hooks を設定、Level 5 で並行レビューの Agents を導入すれば、品質保\u001b[K\n証が自動化され、開発者は AI を活用してコードの品質を担保しつつ、創造的な作業\u001b[K\nに集中できるようになる。",
+    "bookmarkCount": 484,
+    "audioFile": "../audio/hatebu-it-0-ffa8cf88dfa2.wav"
   },
   {
-    "id": "hatebu-it-14-erforce-rce/",
-    "title": "Composer CVE-2026-40261/40176｜Perforceドライバ起因のRCE、2.9.6/2.2.27で修正済み",
-    "url": "https://ai-heartland.com/news/news-composer-cve-2026-40261-perforce-rce/",
+    "id": "hatebu-it-18-ity-warnings",
+    "title": "リモート デスクトップ (RDP) ファイルを開くときのセキュリティ警告について",
+    "url": "https://learn.microsoft.com/ja-jp/windows-server/remote/remote-desktop-services/remotepc/understanding-security-warnings",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-15T03:46:00.626Z",
-    "summary": "Perforce 連携ドライバを備えた Composer に 2 件の深刻なコマンドインジェクショ\u001b[K\nン脆弱性（CVE-2026-40261 と CVE-2026-40176）が発見された。CVE-2026-40261 は\u001b[K\n CVSS 8.8（ネットワーク攻撃可）という高リスク度で、Composer 2.2.27 以降や 2\u001b[1D\u001b[K\n2.9.6 以降の mainline 系、mainline LTS 系に影響する。攻撃者は Composer 自体\u001b[K\nやリポジトリを介して任意コマンドを実行でき、Perforce が未インストールでも -\u001b[1D\u001b[K\n--prefer-source や dev-prefix といったオプションで実行される。影響を受けたの\u001b[K\nは Composer 2.0〜2.2.26、2.3〜2.9.5 で、LTS 系は 2.2.27、2.9.6 以降が修正済\u001b[K\nみ。修正は GHSA がパッチ版 2.2.27/2.9.6（または 2.9.7 の regression fix）と\u001b[K\nして提供。PHP の主要パッケージ（Laravel、Symfony、WordPress など）に脆弱性が\u001b[K\n含まれるという報告はなく、現時点で実際の攻撃は確認されていない。",
-    "bookmarkCount": 5,
-    "audioFile": "../audio/hatebu-it-14-erforce-rce_.wav"
+    "date": "2026-04-16T03:52:28.035Z",
+    "summary": "Microsoft は 2026 年 4 月のセキュリティ更新プログラム以降、リモート デスクト\u001b[K\nップ接続 (RDP) ファイルを開くと新たなセキュリティ警告が表示されると発表しま\u001b[K\nした。警告の内容や対応方法を説明した記事では、以下の点が強調されています。\n\n### RDP ファイルとリスク\nRDP ファイルは、リモート コンピューターに接続するためのファイルであり、設定\u001b[K\nによってはクリップボードやドライブ、カメラなどのローカル リソースを共有でき\u001b[K\nます。フィッシングメールで送信された悪意のある RDP ファイルを開くと、攻撃者\u001b[K\nはローカル デバイスを制御し、攻撃者が制御するサーバーにサイレントモードで接\u001b[K\n続して、ファイルや資格情報などのアクセス権を奪取します。\n\n### 警告への対応方法\n- **警告に安全に対応する**：予期しない RDP ファイルを開かないこと。不明な場\u001b[K\n合は IT 部門に連絡。\n- **接続ダイアログを確認**：リモート コンピューターのアドレスや共有デバイス\u001b[K\nが認識されない場合は接続を拒否。必要なリダイレクトのみを有効にし、ダイアログ\u001b[K\nや発行元を確認。\n- **フィッシング対策**：教育用ダイアログが表示される場合は、信頼できるメール\u001b[K\n経由で送信者を確認し、誤って接続しない。\n\n### 予防策\n- **警告ダイアログの動作を一時的に元に戻す**：Windows のレジストリ編集を誤る\u001b[K\nと、システムの再インストールが必要になるリスクがあります。レジストリ 値を設\u001b[K\n定して以前のダイアログを復元可能にしますが、新しい Windows バージョンではサ\u001b[K\nポートが削除される可能性があるため、環境の移行を計画する必要があります。\n\n### 注意点\n- 更新プログラムを無視すると、古いバージョンの Windows 環境で問題が発生する\u001b[K\nリスクがあります。セキュリティ ダイアログの動作を変更する前に、Microsoft の\u001b[K\n更新プログラムを確認することを推奨します。",
+    "bookmarkCount": 8,
+    "audioFile": "../audio/hatebu-it-18-ity-warnings.wav"
   }
 ]
