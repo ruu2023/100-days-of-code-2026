@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-2102378.html",
-    "title": "「Claude Opus 4.7」公開　指示追従性や画像認識を高めた上位モデル",
-    "url": "https://www.watch.impress.co.jp/docs/news/2102378.html",
+    "id": "hatebu-it-0-010aff542625",
+    "title": "設計書・コード・テストを全部AIに書かせて半年間開発してみたよ",
+    "url": "https://zenn.dev/nttdata_tech/articles/8a010aff542625",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-17T03:49:03.246Z",
-    "summary": "Anthropicは16日、最新AIモデル「Claude Opus 4.7」を提供開始した。Opus 4.7は指\u001b[K\n示に従う能力が向上し、タスク実行時のスライドやドキュメント生成も強化された。\u001b[K\nさらに、画像認識能力が向上し、より高解像度の画像やスクリーンショットの読み取\u001b[K\nりが可能になった。価格はOpus 4.6と同等で、CyberSecurity機能が追加された。",
-    "bookmarkCount": 73,
-    "audioFile": "../audio/hatebu-it-3-2102378_html.wav"
+    "date": "2026-04-18T03:33:52.982Z",
+    "summary": "ルール: 設計書・コード・テストを全てAIに書かせて半年間開発してみた\n本文: 【冒頭】私たちのチームは半年間、設計書・コード・テストを全部AIに書かせ\u001b[K\nて開発しました。\n【自己紹介】名前は茂呂範（エグゼクティブITアーキテクト）で、株式会社NTTデー\u001b[K\nタ第三公共事業本部のプロジェクト推進担当を務めています。AI開発を３０年続けて\u001b[K\nおり、AIのおかげでコードを書くのがさらに楽しくなりました。\n【前提】当社はAIネイティブ開発を全社的に行っているわけではなく、弊社標準のT\u001b[1D\u001b[K\nTerasolunaアーキテクチャをAWS上で使用し、GitHub Copilotを生成AIとして利用し\u001b[K\nました。社員３名が全ての開発を行いました。\n【工程別】モックベースで要件定義を行い、ChatGPTを用いて２時間で画面を作成し\u001b[K\nました。その後、GitHub Copilotに切り替えて画面を増やし、HTMLモックから要件定\u001b[K\n義書を生成しました。テストケースは動作が繰り返しになるなど、DOM操作の不具合\u001b[K\nが次工程に持ち越される問題がありました。総合テストでも人間がテストケースを作\u001b[K\n成し、AIエージェントに生成させる形が取られなかったため、人間がテストケースを\u001b[K\n作成し、AIが生成する形になっていました。\n【結論】社員が自分たちで開発できるようになり、生産性が向上したことに加え、品\u001b[K\n質分析も行いました。今後はOpenAIのハーネスエンジニアリングに負けないよう、A\u001b[1D\u001b[K\nAIネイティブ開発を１００万行規模で進めていきたいと考えます。\n要するに：AIネイティブ開発を試み、半年間で生産性と自信が向上したが、テストケ\u001b[K\nースの不足が課題となっている。",
+    "bookmarkCount": 300,
+    "audioFile": "../audio/hatebu-it-0-010aff542625.wav"
   },
   {
-    "id": "hatebu-it-6-news034.html",
-    "title": "NIST、ついに“脆弱性の全件分析”を断念　CVE爆増でパンク状態、方針転換",
-    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2604/17/news034.html",
+    "id": "hatebu-it-12-news126.html",
+    "title": "「MCPにシステム的な脆弱性」とセキュリティ企業が指摘　Anthropicは仕様として修正を拒否",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2604/17/news126.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-17T03:50:01.093Z",
-    "summary": "NIST（米国情報システム局）は、世界で最も重要な脆弱性データベースであるCVE（\u001b[K\nCommon Vulnerabilities and Exposures）にCVEの全件分析を断念しました。CVEは、\u001b[K\nさまざまな情報セキュリティ専門家が使用する重要な情報源で、特に政府、軍、教育\u001b[K\n機関などで重要です。NISTは、CVEの全件分析は「パンク状態」であり、情報セキュ\u001b[K\nリティの専門家がそれを頼りにできなくなったと述べています。NISTは、CVEデータ\u001b[K\nベースに全件分析を収めることはできなくなると述べています。CVEは2026年にリリ\u001b[K\nースされました。",
-    "bookmarkCount": 11,
-    "audioFile": "../audio/hatebu-it-6-news034_html.wav"
+    "date": "2026-04-18T03:34:43.490Z",
+    "summary": "AI企業のAnthropicは、MCP（Microsoft Cloud Pricing）の仕様に、システム的な脆\u001b[K\n弱性があると指摘しました。Microsoftはこれを受け、仕様の修正を拒否しました。\u001b[K\nこの指摘により、セキュリティ企業のOX Securityは、問題の解決策を提案し、ANTH\u001b[4D\u001b[K\nANTHROPICに仕様の修正を認めてもらうよう働きかけました。",
+    "bookmarkCount": 20,
+    "audioFile": "../audio/hatebu-it-12-news126_html.wav"
   }
 ]
