@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-0_month.html",
-    "title": "｢AIを使えばアプリが作れる｣ってホント？文系が10ヶ月やってみた",
-    "url": "https://www.gizmodo.jp/2026/04/ai_coding_10_month.html",
+    "id": "hatebu-it-1-mation-tasks",
+    "title": "Claude Codeで日常のタスクを45個自動化した東大院生の全記録",
+    "url": "https://zenn.dev/shunya_sudo/articles/claude-code-45-automation-tasks",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-19T03:53:50.855Z",
-    "summary": "この記事は、プログラミングがわからなくてもAIを使えばアプリが作れるかという疑\u001b[K\n問に答える内容です。AIがアプリ開発を支援するツールやアプリを10ヶ月間使用して\u001b[K\nみた結果、AIを用いたアプリ制作が実際に可能で、驚くべきことがあったと語ってい\u001b[K\nます。特に、AIコーディングツール「Cursor」を使ってAIアプリを作り、翻訳アプリ\u001b[K\n「Cursor」を使って日本語に翻訳するアプリを作ったと述べています。記事では、A\u001b[1D\u001b[K\nAIを活用して非エンジニアでもアプリを作れるようになったこと、AIがアプリ制作を\u001b[K\nどのように助けてくれるのかを解説しています。",
-    "bookmarkCount": 254,
-    "audioFile": "../audio/hatebu-it-0-0_month_html.wav"
+    "date": "2026-04-20T03:55:25.355Z",
+    "summary": "Claude Codeを使った日常のタスク45個の自動化が公開され、メール処理、日程調整\u001b[K\n、論文監視など、研究生活に大きな変化をもたらしたことが分かります。",
+    "bookmarkCount": 432,
+    "audioFile": "../audio/hatebu-it-1-mation-tasks.wav"
   },
   {
-    "id": "hatebu-it-1-m/li/2687456",
-    "title": "地下鉄に乗るなりノートPCを開いてガンガン仕事しだしたお姉さんが、取引先の人で、かつ超秘密事項と思われる情報を見ていてビビり倒した→「公共交通機関でPC作業してる人本当に怖い」",
-    "url": "https://togetter.com/li/2687456",
+    "id": "hatebu-it-16-ity-incident",
+    "title": "Vercel April 2026 security incident | Vercel Knowledge Base",
+    "url": "https://vercel.com/kb/bulletin/vercel-april-2026-security-incident",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-19T03:54:32.259Z",
-    "summary": "ルールに従い、電車内でPCを開いたお姉さんが、取引先の超秘密事項とみられる情報\u001b[K\nにビビり倒したという体験談が複数語り継がれている。駅前で見かけた男性は、会社\u001b[K\nのPCから共有フォルダを覗き込み、競合企業の同業他社のロゴを見つけてPCを閉じた\u001b[K\nという。ホテルでのエピソードでは、ホテル内で共有ドライブに「御行幸」というタ\u001b[K\nイトルのWordファイルが存在し、閲覧者が見て回線を切ったという。ネット接続可能\u001b[K\nなホテルでも、Cドライブの共有や同乗客のPCから他社の機密情報が漏れる事例が報\u001b[K\n告されている。人材派遣や不動産関係の案件で、仕事熱中すると公共の場で秘密事項\u001b[K\nを開くリスクがあると指摘された。ルールとして、公共交通機関でPC作業をする際は\u001b[K\n、USBの持ち込み禁止、社外メールの確認、社用PCは社外メールの宛先確認、社外サ\u001b[K\nイトの閲覧禁止、席を離れる際はWindows+Lでロックするなどの注意が推奨されてい\u001b[K\nる。",
-    "bookmarkCount": 237,
-    "audioFile": "../audio/hatebu-it-1-m_li_2687456.wav"
+    "date": "2026-04-20T03:55:48.026Z",
+    "summary": "2026年4月、VercelはGoogle Workspace OAuthアプリを介した第三者AIツールContex\u001b[6D\u001b[K\nContext.aiの侵害を原因とするセキュリティインシデントを特定しました。攻撃者は\u001b[K\nVercelのGoogle Workspaceアカウントを乗っ取り、一部のVercel環境と「機密」とし\u001b[K\nてマークされていない環境変数にアクセスしました。Vercelは迅速な対応を開始し、\u001b[K\n影響を受けた顧客に直ちに認証情報のローテーションを推奨しました。攻撃者はCon\u001b[3D\u001b[K\nContext.aiのGoogle Workspaceアカウントを乗っ取り、VercelのGoogle Workspaceア\u001b[K\nカウントのセキュリティと機密性を損なう可能性がありました。",
+    "bookmarkCount": 30,
+    "audioFile": "../audio/hatebu-it-16-ity-incident.wav"
   }
 ]
