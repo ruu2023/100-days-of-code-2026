@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-mation-tasks",
-    "title": "Claude Codeで日常のタスクを45個自動化した東大院生の全記録",
-    "url": "https://zenn.dev/shunya_sudo/articles/claude-code-45-automation-tasks",
+    "id": "hatebu-it-2-cont1/184362",
+    "title": "【Copilot】レポート作成の常識が激変…GPTとClaudeの「合わせ技」が想像を超えた",
+    "url": "https://www.sbbit.jp/article/cont1/184362",
     "source": "Hatena:it",
-    "bookmarkCount": 432,
-    "summary": "Claude Codeを使った日常のタスク45個の自動化が公開され、メール処理、日程調整\u001b[K\n、論文監視など、研究生活に大きな変化をもたらしたことが分かります。",
+    "bookmarkCount": 121,
+    "summary": "レポート作成の常識が激変するAIツール「Copilot」の最新機能「Critique」と「Co\u001b[2D\u001b[K\nCouncil」が登場しました。リサーチツールエージェントでは、従来1つのモデルが調\u001b[K\n査・要約・文章化までを一気通貫でこなしていたのが、GPTが調査・初稿作成、Clau\u001b[4D\u001b[K\nClaudeがレビュー・改善を行う「Critique」と、Claudeが論点整理・視点拡張を行う\u001b[K\n「Council」へと役割が分かれ、使い分けがレポート品質を向上させる鍵になると指\u001b[K\n摘されています。筆者は、画面表示が従来と変わらず「Critique」モードでも同様の\u001b[K\n出力が得られる一方、GPTとClaudeの両方の利用を確認した「Council」モードは、ユ\u001b[K\nーザーの意図に沿った厳格なチェックが行われ、より信頼性の高いアウトプットが期\u001b[K\n待できると述べています。会員限定のAIコンテンツが無料で利用可能で、ビジネス・\u001b[K\nITの専門的なナレッジも含まれており、実務での継続的な利用が求められます。",
     "category": "AI",
-    "date": "2026-04-20T03:55:25.355Z"
+    "date": "2026-04-21T03:49:45.587Z"
   },
   {
-    "id": "hatebu-it-16-ity-incident",
-    "title": "Vercel April 2026 security incident | Vercel Knowledge Base",
-    "url": "https://vercel.com/kb/bulletin/vercel-april-2026-security-incident",
+    "id": "hatebu-it-23-2000422.html",
+    "title": "総務省｜報道資料｜「地方公共団体におけるサイバーセキュリティに関する支援策及び実効性確保の検討に係るワーキンググループ　報告書」の公表",
+    "url": "https://www.soumu.go.jp/menu_news/s-news/01gyosei02_02000422.html",
     "source": "Hatena:it",
-    "bookmarkCount": 30,
-    "summary": "2026年4月、VercelはGoogle Workspace OAuthアプリを介した第三者AIツールContex\u001b[6D\u001b[K\nContext.aiの侵害を原因とするセキュリティインシデントを特定しました。攻撃者は\u001b[K\nVercelのGoogle Workspaceアカウントを乗っ取り、一部のVercel環境と「機密」とし\u001b[K\nてマークされていない環境変数にアクセスしました。Vercelは迅速な対応を開始し、\u001b[K\n影響を受けた顧客に直ちに認証情報のローテーションを推奨しました。攻撃者はCon\u001b[3D\u001b[K\nContext.aiのGoogle Workspaceアカウントを乗っ取り、VercelのGoogle Workspaceア\u001b[K\nカウントのセキュリティと機密性を損なう可能性がありました。",
+    "bookmarkCount": 4,
+    "summary": "総務省は、地方公共団体向けのサイバーセキュリティ支援策と実効性の検討に関する\u001b[K\nワーキンググループの報告書を公表した。報告書では、支援策の内容とその効果の検\u001b[K\n証を明らかにしている。",
     "category": "Security",
-    "date": "2026-04-20T03:55:48.026Z"
+    "date": "2026-04-21T03:50:05.045Z"
   }
 ]
