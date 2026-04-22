@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-2-cont1/184362",
-    "title": "【Copilot】レポート作成の常識が激変…GPTとClaudeの「合わせ技」が想像を超えた",
-    "url": "https://www.sbbit.jp/article/cont1/184362",
+    "id": "hatebu-it-0-ocal-ai.html",
+    "title": "とほほのローカルAI入門 - とほほのWWW入門",
+    "url": "https://www.tohoho-web.com/ai/local-ai.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-21T03:49:45.587Z",
-    "summary": "レポート作成の常識が激変するAIツール「Copilot」の最新機能「Critique」と「Co\u001b[2D\u001b[K\nCouncil」が登場しました。リサーチツールエージェントでは、従来1つのモデルが調\u001b[K\n査・要約・文章化までを一気通貫でこなしていたのが、GPTが調査・初稿作成、Clau\u001b[4D\u001b[K\nClaudeがレビュー・改善を行う「Critique」と、Claudeが論点整理・視点拡張を行う\u001b[K\n「Council」へと役割が分かれ、使い分けがレポート品質を向上させる鍵になると指\u001b[K\n摘されています。筆者は、画面表示が従来と変わらず「Critique」モードでも同様の\u001b[K\n出力が得られる一方、GPTとClaudeの両方の利用を確認した「Council」モードは、ユ\u001b[K\nーザーの意図に沿った厳格なチェックが行われ、より信頼性の高いアウトプットが期\u001b[K\n待できると述べています。会員限定のAIコンテンツが無料で利用可能で、ビジネス・\u001b[K\nITの専門的なナレッジも含まれており、実務での継続的な利用が求められます。",
-    "bookmarkCount": 121,
-    "audioFile": "../audio/hatebu-it-2-cont1_184362.wav"
+    "date": "2026-04-22T03:46:01.725Z",
+    "summary": "「とほほのローカルAI入門 - とほほのWWW入門」では、ローカルAIの概要として、P\u001b[1D\u001b[K\nPCやサーバーに LLM をインストールして使用する方法を解説しています。8GB RAM \u001b[K\nでは GPU なしでも試せるが、実務では 32GB RAM/GPU 程度が必要とされ、軽量モデ\u001b[K\nル（Llama.cpp、Gemma、Qwen など）や Ollama、Foundry Local といったサービスが\u001b[K\n紹介されます。Hugging Face ではモデルやデータセットの検索・ダウンロードが可\u001b[K\n能で、Ollama は Docker コンテナのようにモデルをダウンロード・実行・管理でき\u001b[K\nるツールとして紹介されています。Microsoft の Foundry Local では Windows 環境\u001b[K\n向けにローカルでモデルを実行する方法が示されています。",
+    "bookmarkCount": 320,
+    "audioFile": "../audio/hatebu-it-0-ocal-ai_html.wav"
   },
   {
-    "id": "hatebu-it-23-2000422.html",
-    "title": "総務省｜報道資料｜「地方公共団体におけるサイバーセキュリティに関する支援策及び実効性確保の検討に係るワーキンググループ　報告書」の公表",
-    "url": "https://www.soumu.go.jp/menu_news/s-news/01gyosei02_02000422.html",
+    "id": "hatebu-it-10-details.html",
+    "title": "SCS評価制度の詳細情報 | 情報セキュリティ | IPA 独立行政法人 情報処理推進機構",
+    "url": "https://www.ipa.go.jp/security/scs/details.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-21T03:50:05.045Z",
-    "summary": "総務省は、地方公共団体向けのサイバーセキュリティ支援策と実効性の検討に関する\u001b[K\nワーキンググループの報告書を公表した。報告書では、支援策の内容とその効果の検\u001b[K\n証を明らかにしている。",
-    "bookmarkCount": 4,
-    "audioFile": "../audio/hatebu-it-23-2000422_html.wav"
+    "date": "2026-04-22T03:46:48.181Z",
+    "summary": "本制度は経済産業省と内閣官房国家サイバー統括室が公表した「サプライチェーン強\u001b[K\n化に向けたセキュリティ対策評価制度に関する制度構築方針」に基づき構築され、独\u001b[K\n立行政法人情報処理推進機構（IPA）が運営します。経済産業省・内閣官房国家サイ\u001b[K\nバー統括室の監督の下、運営審議委員会が運営方針を審議し、事務局が運営管理を担\u001b[K\n当します。評価機関や技術検証事業者、研修事業者の指定・監督等を行う指定委員会\u001b[K\nが設置されています。評価スキームは★3・★4・★5に分かれ、★3では自己評価の確認・\u001b[K\n助言、★4では第三者評価と技術検証、★5では高度な攻撃対応策の実施を求めます。各\u001b[K\n段階の評価結果は事務局が台帳に登録し、公開される予定です。",
+    "bookmarkCount": 62,
+    "audioFile": "../audio/hatebu-it-10-details_html.wav"
   }
 ]
