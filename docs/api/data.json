@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-ocal-ai.html",
-    "title": "とほほのローカルAI入門 - とほほのWWW入門",
-    "url": "https://www.tohoho-web.com/ai/local-ai.html",
+    "id": "hatebu-it-14-396/4396995/",
+    "title": "すごすぎて笑う、なにこれ　OpenAI、漫画や広告に強い画像生成AI「ChatGPT Images 2.0」正式発表",
+    "url": "https://ascii.jp/elem/000/004/396/4396995/",
     "source": "Hatena:it",
-    "bookmarkCount": 320,
-    "summary": "「とほほのローカルAI入門 - とほほのWWW入門」では、ローカルAIの概要として、P\u001b[1D\u001b[K\nPCやサーバーに LLM をインストールして使用する方法を解説しています。8GB RAM \u001b[K\nでは GPU なしでも試せるが、実務では 32GB RAM/GPU 程度が必要とされ、軽量モデ\u001b[K\nル（Llama.cpp、Gemma、Qwen など）や Ollama、Foundry Local といったサービスが\u001b[K\n紹介されます。Hugging Face ではモデルやデータセットの検索・ダウンロードが可\u001b[K\n能で、Ollama は Docker コンテナのようにモデルをダウンロード・実行・管理でき\u001b[K\nるツールとして紹介されています。Microsoft の Foundry Local では Windows 環境\u001b[K\n向けにローカルでモデルを実行する方法が示されています。",
+    "bookmarkCount": 711,
+    "summary": "OpenAIは画像生成AI「ChatGPT Images 2.0」を4月22日に正式発表し、画像の「細部\u001b[K\nまで指示どおりに作れるか」を重点にアップデートした。細かい指示やオブジェクト\u001b[K\nの位置関係、文字描写が改善され、非ラテン文字圏でのテキスト表現も強化されてい\u001b[K\nる。",
     "category": "AI",
-    "date": "2026-04-22T03:46:01.725Z"
+    "date": "2026-04-23T03:51:14.142Z"
   },
   {
-    "id": "hatebu-it-10-details.html",
-    "title": "SCS評価制度の詳細情報 | 情報セキュリティ | IPA 独立行政法人 情報処理推進機構",
-    "url": "https://www.ipa.go.jp/security/scs/details.html",
+    "id": "hatebu-it-8-e54f15721837",
+    "title": "Claude Codeで開発を自動化するSkills 5選 - Qiita",
+    "url": "https://qiita.com/kamome_susume/items/3b9b18e7e54f15721837",
     "source": "Hatena:it",
-    "bookmarkCount": 62,
-    "summary": "本制度は経済産業省と内閣官房国家サイバー統括室が公表した「サプライチェーン強\u001b[K\n化に向けたセキュリティ対策評価制度に関する制度構築方針」に基づき構築され、独\u001b[K\n立行政法人情報処理推進機構（IPA）が運営します。経済産業省・内閣官房国家サイ\u001b[K\nバー統括室の監督の下、運営審議委員会が運営方針を審議し、事務局が運営管理を担\u001b[K\n当します。評価機関や技術検証事業者、研修事業者の指定・監督等を行う指定委員会\u001b[K\nが設置されています。評価スキームは★3・★4・★5に分かれ、★3では自己評価の確認・\u001b[K\n助言、★4では第三者評価と技術検証、★5では高度な攻撃対応策の実施を求めます。各\u001b[K\n段階の評価結果は事務局が台帳に登録し、公開される予定です。",
+    "bookmarkCount": 211,
+    "summary": "Claude CodeのSkills は、開発の自動化に非常に役立つツールで、特に「毎回同じプ\u001b[K\nロンプトを書いている」「チームの開発フローを統一したい」エンジニアに有用です\u001b[K\n。具体的には、プルリクエストの要約やコードベースの深掘り、コミット作業の自動\u001b[K\n化、コミットメッセージのフォーマット統一などに活用できます。",
     "category": "Security",
-    "date": "2026-04-22T03:46:48.181Z"
+    "date": "2026-04-23T03:51:52.555Z"
   }
 ]
