@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-14-396/4396995/",
-    "title": "すごすぎて笑う、なにこれ　OpenAI、漫画や広告に強い画像生成AI「ChatGPT Images 2.0」正式発表",
-    "url": "https://ascii.jp/elem/000/004/396/4396995/",
+    "id": "hatebu-it-0-rity-basics/",
+    "title": "Claude Code を安全に使おう【社内勉強会スライド】 | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/claude-code-security-basics/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-23T03:51:14.142Z",
-    "summary": "OpenAIは画像生成AI「ChatGPT Images 2.0」を4月22日に正式発表し、画像の「細部\u001b[K\nまで指示どおりに作れるか」を重点にアップデートした。細かい指示やオブジェクト\u001b[K\nの位置関係、文字描写が改善され、非ラテン文字圏でのテキスト表現も強化されてい\u001b[K\nる。",
-    "bookmarkCount": 711,
-    "audioFile": "../audio/hatebu-it-14-396_4396995_.wav"
+    "date": "2026-04-24T03:55:46.745Z",
+    "summary": "社内の開発者向けに、Claude Code の安全な使い方と権限管理・隔離の基本を解説し\u001b[K\nた勉強会スライドを作成しました。クラウド事業本部コンサルティング部で開催され\u001b[K\nたセッションでは、agenticループの仕組みや権限/サンドボックスの活用方法、権限\u001b[K\nルールや Hooks での追加制御、Dev Container によるより強固な隔離の選択肢など\u001b[K\nが紹介されました。さらに、推奨設定のサンプルやシークレット管理、.gitignore \u001b[K\nなどの周辺環境整備のポイントも併せて提示しています。要するに、Claude Code を\u001b[K\n「だしお守り程度」のリスクに抑えつつ、必要に応じて高度な隔離や権限制御でガー\u001b[K\nドレールを敷く、というアプローチを推奨しています。",
+    "bookmarkCount": 539,
+    "audioFile": "../audio/hatebu-it-0-rity-basics_.wav"
   },
   {
-    "id": "hatebu-it-8-e54f15721837",
-    "title": "Claude Codeで開発を自動化するSkills 5選 - Qiita",
-    "url": "https://qiita.com/kamome_susume/items/3b9b18e7e54f15721837",
+    "id": "hatebu-it-4-n_compromise",
+    "title": "Bitwarden ソフトウェアサプライチェーン攻撃の概要と対応指針 - GMO Flatt Security Blog",
+    "url": "https://blog.flatt.tech/entry/bitwarden_compromise",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-23T03:51:52.555Z",
-    "summary": "Claude CodeのSkills は、開発の自動化に非常に役立つツールで、特に「毎回同じプ\u001b[K\nロンプトを書いている」「チームの開発フローを統一したい」エンジニアに有用です\u001b[K\n。具体的には、プルリクエストの要約やコードベースの深掘り、コミット作業の自動\u001b[K\n化、コミットメッセージのフォーマット統一などに活用できます。",
-    "bookmarkCount": 211,
-    "audioFile": "../audio/hatebu-it-8-e54f15721837.wav"
+    "date": "2026-04-24T03:56:30.749Z",
+    "summary": "Bitwarden の CLI パッケージが 2026.4.0 に侵害され、preinstall フックを通じて\u001b[K\nマルウェアが配布されました。攻撃者はこのバージョンとその復旧版（プロバンス付\u001b[K\nき）をインストールすると情報窃取が可能と警告しています。影響を受けたのは 20\u001b[2D\u001b[K\n2026.4.0 のみで、2026.3.0 と 2026.4.1 は安全です。\n\n対象バージョンを使用している場合は、最新のアップグレードまたはダウングレード\u001b[K\nを推奨し、すぐにクレデンシャルをローテーションすべきです。npm install 時点で\u001b[K\n npm の preinstall フックを通過したペイロードが既に存在する点が重要です。\n\nネットワークログには C2 ドメイン 94.154.172.43 への接続が記録されており、漏\u001b[K\n洩の可能性が示唆されています。また、攻撃者に似たリポジトリが新規作成されてい\u001b[K\nないか確認し、未知のブランチや .github/workflows/ 配下に新規ファイルが追加さ\u001b[K\nれていないかも点検してください。\n\nBitwarden 社や Vault 本体が侵害されたという報告は現時点でなく、本件は CLI の\u001b[K\n preinstall フックに関連する攻撃と考えられます。\n\nGit コミットの author が全 5 件とも Bitwarden 社員 Isaiah Inuwa に偽装されて\u001b[K\nいますが、全件が verified である一方、5 件は unsigned です。これは author フ\u001b[K\nィールドを書き換えた結果と推測されます。\n\n後半の 3 コミットは Reapply を実行する時間差があり、publish wor に関連するバ\u001b[K\nックドア配布の可能性が示唆されています。4 分刻みの Reapply 試行は公開リポジ\u001b[K\nトリのアクセス制御やプロビジョニングの検証が必要です。\n\n要するに：2026.4.0 のインストールは即座にアップグレードするかダウングレード\u001b[K\nし、クレデンシャルをローテーションし、npm の preinstall フックの有無を確認し\u001b[K\nてから作業を開始してください。さらに、C2 ドメインの接続と Git コミットの不自\u001b[K\n然な author 設定、公開リポジトリへの Reapply 試行を調査してください。",
+    "bookmarkCount": 100,
+    "audioFile": "../audio/hatebu-it-4-n_compromise.wav"
   }
 ]
