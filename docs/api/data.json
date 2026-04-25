@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-rity-basics/",
-    "title": "Claude Code を安全に使おう【社内勉強会スライド】 | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/claude-code-security-basics/",
+    "id": "hatebu-it-0-41a34a910c53",
+    "title": "Opus4.7の登場により、Claude Codeの開発者と公式が「これはもうやめろ」と言い始めた6つのこと - Qiita",
+    "url": "https://qiita.com/ot12/items/06420caf41a34a910c53",
     "source": "Hatena:it",
-    "bookmarkCount": 539,
-    "summary": "社内の開発者向けに、Claude Code の安全な使い方と権限管理・隔離の基本を解説し\u001b[K\nた勉強会スライドを作成しました。クラウド事業本部コンサルティング部で開催され\u001b[K\nたセッションでは、agenticループの仕組みや権限/サンドボックスの活用方法、権限\u001b[K\nルールや Hooks での追加制御、Dev Container によるより強固な隔離の選択肢など\u001b[K\nが紹介されました。さらに、推奨設定のサンプルやシークレット管理、.gitignore \u001b[K\nなどの周辺環境整備のポイントも併せて提示しています。要するに、Claude Code を\u001b[K\n「だしお守り程度」のリスクに抑えつつ、必要に応じて高度な隔離や権限制御でガー\u001b[K\nドレールを敷く、というアプローチを推奨しています。",
+    "bookmarkCount": 271,
+    "summary": "2026年4月16日、AnthropicはClaude Opus 4.7をリリースし、Claude Codeの使い方を\u001b[K\n一新しました。公式ブログ「Best Practices for Using Claude Opus 4.7 with Cla\u001b[3D\u001b[K\nClaude Code」とBoris ChernyのX投稿で、過去に「細かく指示する」や「max（過剰\u001b[K\nな努力レベル）」の使い方が逆効果になることが明らかになりました。Opus 4.7は、\u001b[K\nプロンプトにGoal（目的）・Constraints（制約）・Acceptance criteria（完了条件\u001b[K\n）を全て組み込み、途中介入を減らすことで自律実行の性能を最大化します。また、\u001b[K\nClaude CodeのEffort Levelを「max」に設定するのは過剰な努力であり、公式は「x\u001b[1D\u001b[K\nxhigh」を推奨しています。さらに、過去の「ペアプロ」や「--dangerously-skip-p\u001b[20D\u001b[K\n--dangerously-skip-permissions」などの習慣も全て廃止され、Claudeを独立したエ\u001b[K\nンジンとして扱い、途中介入を最小限に抑える運用にシフトしました。これらの「6\u001b[1D\u001b[K\n6つの新技」は、Claude Codeを単なるコーディングツールから、誰もがアプリで稼げ\u001b[K\nる収益化ツールへと変貌させる鍵となります。",
     "category": "AI",
-    "date": "2026-04-24T03:55:46.745Z"
+    "date": "2026-04-25T03:36:18.777Z"
   },
   {
-    "id": "hatebu-it-4-n_compromise",
-    "title": "Bitwarden ソフトウェアサプライチェーン攻撃の概要と対応指針 - GMO Flatt Security Blog",
-    "url": "https://blog.flatt.tech/entry/bitwarden_compromise",
+    "id": "hatebu-it-18-871088ba195f",
+    "title": "セキュリティ監査は死んだ｜gohan",
+    "url": "https://note.com/grandchildrice/n/n871088ba195f",
     "source": "Hatena:it",
-    "bookmarkCount": 100,
-    "summary": "Bitwarden の CLI パッケージが 2026.4.0 に侵害され、preinstall フックを通じて\u001b[K\nマルウェアが配布されました。攻撃者はこのバージョンとその復旧版（プロバンス付\u001b[K\nき）をインストールすると情報窃取が可能と警告しています。影響を受けたのは 20\u001b[2D\u001b[K\n2026.4.0 のみで、2026.3.0 と 2026.4.1 は安全です。\n\n対象バージョンを使用している場合は、最新のアップグレードまたはダウングレード\u001b[K\nを推奨し、すぐにクレデンシャルをローテーションすべきです。npm install 時点で\u001b[K\n npm の preinstall フックを通過したペイロードが既に存在する点が重要です。\n\nネットワークログには C2 ドメイン 94.154.172.43 への接続が記録されており、漏\u001b[K\n洩の可能性が示唆されています。また、攻撃者に似たリポジトリが新規作成されてい\u001b[K\nないか確認し、未知のブランチや .github/workflows/ 配下に新規ファイルが追加さ\u001b[K\nれていないかも点検してください。\n\nBitwarden 社や Vault 本体が侵害されたという報告は現時点でなく、本件は CLI の\u001b[K\n preinstall フックに関連する攻撃と考えられます。\n\nGit コミットの author が全 5 件とも Bitwarden 社員 Isaiah Inuwa に偽装されて\u001b[K\nいますが、全件が verified である一方、5 件は unsigned です。これは author フ\u001b[K\nィールドを書き換えた結果と推測されます。\n\n後半の 3 コミットは Reapply を実行する時間差があり、publish wor に関連するバ\u001b[K\nックドア配布の可能性が示唆されています。4 分刻みの Reapply 試行は公開リポジ\u001b[K\nトリのアクセス制御やプロビジョニングの検証が必要です。\n\n要するに：2026.4.0 のインストールは即座にアップグレードするかダウングレード\u001b[K\nし、クレデンシャルをローテーションし、npm の preinstall フックの有無を確認し\u001b[K\nてから作業を開始してください。さらに、C2 ドメインの接続と Git コミットの不自\u001b[K\n然な author 設定、公開リポジトリへの Reapply 試行を調査してください。",
+    "bookmarkCount": 200,
+    "summary": "2026年4月、AnthropicはAIモデルClaude Mythosを公開したが、公開はAppleやAmazo\u001b[5D\u001b[K\nAmazon、Microsoftなどを含む限定的なグループに先行して行われ、Mozilla Firefo\u001b[6D\u001b[K\nFirefox 150はこのモデルで発見された271件の脆弱性を一括パッチした。一方、AI自\u001b[K\n動ペンテスト企業XBOWはHackerOneのリーダーボードを席巻している。AIを活用した\u001b[K\nモデルの発見・パッチ速度の向上は、コードの脆弱性探しというセキュリティ商品の\u001b[K\n多くが数年以内に「ほぼ自動化可能な問題」となることを意味する。しかし、この進\u001b[K\n展はセキュリティ業界にとって「勝利」ではなく、売られているセキュリティ商品を\u001b[K\n多くが「意味を失う」ことを意味している。AIはセキュリティを静的な検査から、実\u001b[K\n行時も含めた継続的な監視へと変革させる。",
     "category": "Security",
-    "date": "2026-04-24T03:56:30.749Z"
+    "date": "2026-04-25T03:37:03.165Z"
   }
 ]
