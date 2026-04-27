@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-41a34a910c53",
-    "title": "Opus4.7の登場により、Claude Codeの開発者と公式が「これはもうやめろ」と言い始めた6つのこと - Qiita",
-    "url": "https://qiita.com/ot12/items/06420caf41a34a910c53",
+    "id": "hatebu-it-17-b28796592d38",
+    "title": "PdMの仕事の半分は、AIに奪われた。残り半分で、私は病院に通い始めた｜oyamadashokiti",
+    "url": "https://note.com/oyamadashokiti/n/nb28796592d38",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-25T03:36:18.777Z",
-    "summary": "2026年4月16日、AnthropicはClaude Opus 4.7をリリースし、Claude Codeの使い方を\u001b[K\n一新しました。公式ブログ「Best Practices for Using Claude Opus 4.7 with Cla\u001b[3D\u001b[K\nClaude Code」とBoris ChernyのX投稿で、過去に「細かく指示する」や「max（過剰\u001b[K\nな努力レベル）」の使い方が逆効果になることが明らかになりました。Opus 4.7は、\u001b[K\nプロンプトにGoal（目的）・Constraints（制約）・Acceptance criteria（完了条件\u001b[K\n）を全て組み込み、途中介入を減らすことで自律実行の性能を最大化します。また、\u001b[K\nClaude CodeのEffort Levelを「max」に設定するのは過剰な努力であり、公式は「x\u001b[1D\u001b[K\nxhigh」を推奨しています。さらに、過去の「ペアプロ」や「--dangerously-skip-p\u001b[20D\u001b[K\n--dangerously-skip-permissions」などの習慣も全て廃止され、Claudeを独立したエ\u001b[K\nンジンとして扱い、途中介入を最小限に抑える運用にシフトしました。これらの「6\u001b[1D\u001b[K\n6つの新技」は、Claude Codeを単なるコーディングツールから、誰もがアプリで稼げ\u001b[K\nる収益化ツールへと変貌させる鍵となります。",
-    "bookmarkCount": 271,
-    "audioFile": "../audio/hatebu-it-0-41a34a910c53.wav"
+    "date": "2026-04-27T04:04:16.946Z",
+    "summary": "AIが医療現場の生成AIプロダクトを開発しているPdMの仕事の半分が、代替されてし\u001b[K\nまっている。AIは要件の整理、プロダクト仮説の検証、データ分析、ドキュメント作\u001b[K\n成、ロードマップのドラフトなど、さまざまな作業をこなす。だが、AIが代替されて\u001b[K\nしまっても、AIには代えられないのは現場の空気や、まだ言葉になっていない願いで\u001b[K\nある。そこで、医師の現場に通い、業務の再設計とAIワークフローの構築を一気通貫\u001b[K\nで進め、顧客の現場で拾った「一次情報」の解像度を形にする仕事が、今の自分の仕\u001b[K\n事の半分を占めている。こうした一次情報をAIで何倍にもレバレッジすることで、よ\u001b[K\nり価値を生むPdMのあり方を見つめ直し、医療事務文書の作成支援など、新たなプロ\u001b[K\nダクト開発へと進む予定である。",
+    "bookmarkCount": 264,
+    "audioFile": "../audio/hatebu-it-17-b28796592d38.wav"
   },
   {
-    "id": "hatebu-it-18-871088ba195f",
-    "title": "セキュリティ監査は死んだ｜gohan",
-    "url": "https://note.com/grandchildrice/n/n871088ba195f",
+    "id": "hatebu-it-1-00/p/7kwNEeh",
+    "title": "ナイジェリアから質問 『日本語は単なる「文字の言語」でなく、一種の「情報圧縮システム」のように感じるようになりました。』",
+    "url": "https://posfie.com/@Count_Down_000/p/7kwNEeh",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-25T03:37:03.165Z",
-    "summary": "2026年4月、AnthropicはAIモデルClaude Mythosを公開したが、公開はAppleやAmazo\u001b[5D\u001b[K\nAmazon、Microsoftなどを含む限定的なグループに先行して行われ、Mozilla Firefo\u001b[6D\u001b[K\nFirefox 150はこのモデルで発見された271件の脆弱性を一括パッチした。一方、AI自\u001b[K\n動ペンテスト企業XBOWはHackerOneのリーダーボードを席巻している。AIを活用した\u001b[K\nモデルの発見・パッチ速度の向上は、コードの脆弱性探しというセキュリティ商品の\u001b[K\n多くが数年以内に「ほぼ自動化可能な問題」となることを意味する。しかし、この進\u001b[K\n展はセキュリティ業界にとって「勝利」ではなく、売られているセキュリティ商品を\u001b[K\n多くが「意味を失う」ことを意味している。AIはセキュリティを静的な検査から、実\u001b[K\n行時も含めた継続的な監視へと変革させる。",
-    "bookmarkCount": 200,
-    "audioFile": "../audio/hatebu-it-18-871088ba195f.wav"
+    "date": "2026-04-27T04:05:05.147Z",
+    "summary": "ナイジェリアから見た日本語の特異な特徴が注目されている。単なる複雑さではなく\u001b[K\n、ひらがな・カタカナ・漢字という三層構造が日本語を「情報圧縮システム」として\u001b[K\n機能していると指摘。漢字は意味を一瞬で圧縮するデータパケット、ひらがなは音を\u001b[K\n運ぶ流れる骨格、カタカナは翻訳ツールのような役割を持つ。学習者にとって最も難\u001b[K\nしいのは漢字の暗記で、音や文法の流れも考慮する必要がある。日本語は「完成させ\u001b[K\nる言語」ではなく「意味を共有する言語」と考えられ、文そのものよりも聞き手の理\u001b[K\n解力や社会的立場を読み取る能力が求められると指摘。ナイジェリアからは日本語が\u001b[K\n「人」によって意味が決まる言語として学ばれているという見方も示唆され、流暢さ\u001b[K\nは言語能力だけでなく高度な社会的認識力の現れとされる。",
+    "bookmarkCount": 309,
+    "audioFile": "../audio/hatebu-it-1-00_p_7kwNEeh.wav"
   }
 ]
