@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-21d34ad604ba",
-    "title": "Claude Codeにレビューを任せてチームの負担を減らす",
-    "url": "https://zenn.dev/wwwave/articles/4d21d34ad604ba",
+    "id": "hatebu-it-8-c38cdd9bedc6",
+    "title": "【Claude Code】CLAUDE.md・skills・agents を整備して開発体験が劇的に変わった話",
+    "url": "https://zenn.dev/linkedge/articles/27c38cdd9bedc6",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-04-30T04:09:08.573Z",
-    "summary": "Claude Code の review-backend を作成し、Claude Code がレビュー時に自動的に確\u001b[K\n認すべきルールや出力形式を設定しました。コードレビューの負担を軽減し、正確な\u001b[K\nレビューを促進することを目的としています。",
-    "bookmarkCount": 145,
-    "audioFile": "../audio/hatebu-it-3-21d34ad604ba.wav"
+    "date": "2026-05-01T04:33:48.972Z",
+    "summary": "Claude Code（Anthropiの AI コーディングエージェント）を使い始めましたが、設\u001b[K\n定を整備しなかったと効率が上がらないという問題がありました。\n\nそこで、CLAUDE.md でプロジェクトの前提知識を渡し、skills/ でタスクごとのやり\u001b[K\n方を定義し、agents/ でサブエージェントを用意してコンテキストを圧迫せず作業を\u001b[K\n委譲するように整備しました。\n\nその結果、開発体験が劇的に向上し、Claude Code の育成の重要性が実感できました\u001b[K\n。\n\n要するに、Claude Code を最大限に活用するためには、CLAUDE.md、skills/、agent\u001b[5D\u001b[K\nagents/ を整備し、必要に応じて具体的な例をスキルやエージェントに書き換えるこ\u001b[K\nとがポイントです。",
+    "bookmarkCount": 199,
+    "audioFile": "../audio/hatebu-it-8-c38cdd9bedc6.wav"
   },
   {
-    "id": "hatebu-it-0-ce2f82c62f1f",
-    "title": "【完全版】Claude Code運用40選｜KAWAI",
-    "url": "https://note.com/kawaidesign/n/nce2f82c62f1f",
+    "id": "hatebu-it-4-m/li/2691501",
+    "title": "以前付き合っていた女性に振られた人、その理由に様々な意見「超少数派という自覚は持った方が良い」「わたしも具だけ食べる派でした...」",
+    "url": "https://togetter.com/li/2691501",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-04-30T04:10:04.032Z",
-    "summary": "Claude Codeは、チャットツールではなく作業環境として設計されており、Claude C\u001b[1D\u001b[K\nCode運用メモを土台に公式ドキュメント、Claude Help Center、GitHub Actions、M\u001b[1D\u001b[K\nMCP、Hooks、Skills、Subagents、非対話モード、情報収集ワークフローまで整理し\u001b[K\nた記事が無料で閲覧可能です。この記事では、Claude Codeを「会話相手」ではなく\u001b[K\n「作業環境」として活用するための重要な6つの軸（探索と実装の分離、CLAUDE.mdに\u001b[K\nよる文脈外化、HooksやPermissionsによる制御、Subagentsや並列化、蓄積ナレッジ\u001b[K\n化）を解説しています。Claude Codeを効果的に使うためには、プロンプトの質では\u001b[K\nなく、作業環境を設計することが鍵です。Claude Codeは「お願い」を「仕組み」に\u001b[K\n変える力があり、探索と実装の分離、CLAUDE.mdによる外部化、Hooksによる制御、S\u001b[1D\u001b[K\nSubagentsによる並列化、蓄積ナレッジ化の5つのベストプラクティスが推奨されてい\u001b[K\nます。また、CLAUDE.mdはプロジェクトごとに分けて管理し、モノレポでは親子CLAU\u001b[4D\u001b[K\nCLAUDE.mdを分けることで全体と局所の規約を両立させます。さらに、`/memory`と`\u001b[1D\u001b[K\n`/permissions`を活用して安全な作業を事前承認し、`npm test`や`npm run lint`な\u001b[K\nどのHooksでCI/CDやコード品質を自動化することで、Claude Codeの強みを最大限に\u001b[K\n引き出すことができます。",
-    "bookmarkCount": 141,
-    "audioFile": "../audio/hatebu-it-0-ce2f82c62f1f.wav"
+    "date": "2026-05-01T04:34:18.619Z",
+    "summary": "以前付き合っていた女性に味噌汁の汁を捨てたことをきっかけに、価値観の違いで関\u001b[K\n係がぎくしゃくするバトルが続いている。味噌汁の汁を残して捨てるという自分の普\u001b[K\n通が相手に非難され、自分の「汁は捨てない」ことが失礼だと指摘される。価値観の\u001b[K\n違いが大きいと感じているが、どちらが正しいかは未だに明確ではない。要するに：\u001b[K\n少数派の価値観が交錯し、価値観の違いが関係に大きな影を落とす。",
+    "bookmarkCount": 247,
+    "audioFile": "../audio/hatebu-it-4-m_li_2691501.wav"
   }
 ]
