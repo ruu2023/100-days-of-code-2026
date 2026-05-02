@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-8-c38cdd9bedc6",
-    "title": "【Claude Code】CLAUDE.md・skills・agents を整備して開発体験が劇的に変わった話",
-    "url": "https://zenn.dev/linkedge/articles/27c38cdd9bedc6",
+    "id": "hatebu-it-2-atin_quality",
+    "title": "品質の言語化のススメー早期テストの原則をClaude Code Agent Skillsで実現する試み - LayerX エンジニアブログ",
+    "url": "https://tech.layerx.co.jp/entry/articulatin_quality",
     "source": "Hatena:it",
-    "bookmarkCount": 199,
-    "summary": "Claude Code（Anthropiの AI コーディングエージェント）を使い始めましたが、設\u001b[K\n定を整備しなかったと効率が上がらないという問題がありました。\n\nそこで、CLAUDE.md でプロジェクトの前提知識を渡し、skills/ でタスクごとのやり\u001b[K\n方を定義し、agents/ でサブエージェントを用意してコンテキストを圧迫せず作業を\u001b[K\n委譲するように整備しました。\n\nその結果、開発体験が劇的に向上し、Claude Code の育成の重要性が実感できました\u001b[K\n。\n\n要するに、Claude Code を最大限に活用するためには、CLAUDE.md、skills/、agent\u001b[5D\u001b[K\nagents/ を整備し、必要に応じて具体的な例をスキルやエージェントに書き換えるこ\u001b[K\nとがポイントです。",
+    "bookmarkCount": 63,
+    "summary": "LayerX QAエンジニアが早期テストの原則をClaude Code Agent Skillsに統合したこ\u001b[K\nとを紹介。AIはコードと共にフェーズ判断とリスク評価を行い、欠陥の予防と品質の\u001b[K\n早期確保に貢献する。JSTQB FLの「早期テストで時間とコストを節約する」原則に沿\u001b[K\nった内容で、スキルベースの自動テストとリスクに応じた自動テスト範囲を明確に定\u001b[K\n義している。Claude Codeに統合することで、品質目標に合わせたテスト戦略をコー\u001b[K\nドレベルで実行し、テストと開発のコスト・時間を大幅に削減する可能性を示した。",
     "category": "AI",
-    "date": "2026-05-01T04:33:48.972Z"
+    "date": "2026-05-02T03:56:33.168Z"
   },
   {
-    "id": "hatebu-it-4-m/li/2691501",
-    "title": "以前付き合っていた女性に振られた人、その理由に様々な意見「超少数派という自覚は持った方が良い」「わたしも具だけ食べる派でした...」",
-    "url": "https://togetter.com/li/2691501",
+    "id": "hatebu-it-6-015112951000",
+    "title": "IT関連会社「はてな」11億円流出 警察官かたる詐欺被害か | NHKニュース",
+    "url": "https://news.web.nhk/newsweb/na/na-k10015112951000",
     "source": "Hatena:it",
-    "bookmarkCount": 247,
-    "summary": "以前付き合っていた女性に味噌汁の汁を捨てたことをきっかけに、価値観の違いで関\u001b[K\n係がぎくしゃくするバトルが続いている。味噌汁の汁を残して捨てるという自分の普\u001b[K\n通が相手に非難され、自分の「汁は捨てない」ことが失礼だと指摘される。価値観の\u001b[K\n違いが大きいと感じているが、どちらが正しいかは未だに明確ではない。要するに：\u001b[K\n少数派の価値観が交錯し、価値観の違いが関係に大きな影を落とす。",
+    "bookmarkCount": 674,
+    "summary": "IT関連会社「はてな」から約11億円が不正流出したと警察は発表し、はてな警察署長\u001b[K\nらが詐欺被害かと指摘された。警察は被害届を提出するよう呼びかけ、流出元が警察\u001b[K\n官かたるかどうかを調査中だ。",
     "category": "Security",
-    "date": "2026-05-01T04:34:18.619Z"
+    "date": "2026-05-02T03:56:49.916Z"
   }
 ]
