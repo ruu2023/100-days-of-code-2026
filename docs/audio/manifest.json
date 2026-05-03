@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-2-atin_quality",
-    "title": "品質の言語化のススメー早期テストの原則をClaude Code Agent Skillsで実現する試み - LayerX エンジニアブログ",
-    "url": "https://tech.layerx.co.jp/entry/articulatin_quality",
+    "id": "hatebu-it-25-gemma_4.html",
+    "title": "けっこう実用的。｢OpenCode｣×ローカルLLMで“無料Claude Code”してみた",
+    "url": "https://www.gizmodo.jp/2026/05/opencode_google_gemma_4.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-02T03:56:33.168Z",
-    "summary": "LayerX QAエンジニアが早期テストの原則をClaude Code Agent Skillsに統合したこ\u001b[K\nとを紹介。AIはコードと共にフェーズ判断とリスク評価を行い、欠陥の予防と品質の\u001b[K\n早期確保に貢献する。JSTQB FLの「早期テストで時間とコストを節約する」原則に沿\u001b[K\nった内容で、スキルベースの自動テストとリスクに応じた自動テスト範囲を明確に定\u001b[K\n義している。Claude Codeに統合することで、品質目標に合わせたテスト戦略をコー\u001b[K\nドレベルで実行し、テストと開発のコスト・時間を大幅に削減する可能性を示した。",
-    "bookmarkCount": 63,
-    "audioFile": "../audio/hatebu-it-2-atin_quality.wav"
+    "date": "2026-05-03T04:15:43.680Z",
+    "summary": "AIコーディングエージェント｢OpenCode｣とGoogleの最新ローカルLLM｢Gemma 4｣を組み\u001b[K\n合わせたことで、低コストで実用的なAIコーディングアプリが実現できると、OpenC\u001b[5D\u001b[K\nOpenCodeの開発者かみやまたくみが語ります。無料のクラウドベースのAIでは料金が\u001b[K\nかかるため、導入や試作にコストがかかりがちでしたが、OpenCodeはローカルLLMを\u001b[K\n活用して、複数ファイルを生成・管理しつつ、日常的な開発タスクを自動化し、開発\u001b[K\n者の作業時間を短縮します。",
+    "bookmarkCount": 258,
+    "audioFile": "../audio/hatebu-it-25-gemma_4_html.wav"
   },
   {
-    "id": "hatebu-it-6-015112951000",
-    "title": "IT関連会社「はてな」11億円流出 警察官かたる詐欺被害か | NHKニュース",
-    "url": "https://news.web.nhk/newsweb/na/na-k10015112951000",
+    "id": "hatebu-it-20-260502101208",
+    "title": "何度でも書くがデータセンターはセキュリティ無罪を止めろ",
+    "url": "https://anond.hatelabo.jp/20260502101208",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-02T03:56:49.916Z",
-    "summary": "IT関連会社「はてな」から約11億円が不正流出したと警察は発表し、はてな警察署長\u001b[K\nらが詐欺被害かと指摘された。警察は被害届を提出するよう呼びかけ、流出元が警察\u001b[K\n官かたるかどうかを調査中だ。",
-    "bookmarkCount": 674,
-    "audioFile": "../audio/hatebu-it-6-015112951000.wav"
+    "date": "2026-05-03T04:16:20.232Z",
+    "summary": "GoogleやX、TikTok、Instagramなど、世界的なデジタルサービスは国内にサーバーを\u001b[K\n置かず、日本国内のデータセンターに依存している。データセンターは米国のGoogl\u001b[5D\u001b[K\nGoogle、X、TikTok、Instagramのデータセンターが日本国内に建設され、日本に利益\u001b[K\nをもたらしている。データセンターの建設は、日本国内のサーバー建設を促進する可\u001b[K\n能性がある。国内にデータセンターを置くことで、データの送受信に国内サーバーが\u001b[K\n利用でき、国内企業の競争力が高まる。また、データセンターの建設は、従来のIT産\u001b[K\n業が日本に根付くための足掛かりにもなる。国内にデータセンターを置くことで、国\u001b[K\n内企業がグローバル市場で優位に立つための土台が整う。データセンターの建設は、\u001b[K\n日本国内の技術者育成にもつながる。国内にデータセンターを置くことで、データの\u001b[K\n処理・送信が国内で行われ、国内企業がグローバル市場で優位に立つための土台が整\u001b[K\nう。データセンターの建設は、日本国内の技術者育成にもつながる。",
+    "bookmarkCount": 97,
+    "audioFile": "../audio/hatebu-it-20-260502101208.wav"
   }
 ]
