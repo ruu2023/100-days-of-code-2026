@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-25-gemma_4.html",
-    "title": "けっこう実用的。｢OpenCode｣×ローカルLLMで“無料Claude Code”してみた",
-    "url": "https://www.gizmodo.jp/2026/05/opencode_google_gemma_4.html",
+    "id": "hatebu-it-11-99258fe1da3c",
+    "title": "AIは速度を前払いし、失敗を後払いにする｜Kosuke Kuzuoka",
+    "url": "https://note.com/kkosukeee/n/n99258fe1da3c",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-03T04:15:43.680Z",
-    "summary": "AIコーディングエージェント｢OpenCode｣とGoogleの最新ローカルLLM｢Gemma 4｣を組み\u001b[K\n合わせたことで、低コストで実用的なAIコーディングアプリが実現できると、OpenC\u001b[5D\u001b[K\nOpenCodeの開発者かみやまたくみが語ります。無料のクラウドベースのAIでは料金が\u001b[K\nかかるため、導入や試作にコストがかかりがちでしたが、OpenCodeはローカルLLMを\u001b[K\n活用して、複数ファイルを生成・管理しつつ、日常的な開発タスクを自動化し、開発\u001b[K\n者の作業時間を短縮します。",
-    "bookmarkCount": 258,
-    "audioFile": "../audio/hatebu-it-25-gemma_4_html.wav"
+    "date": "2026-05-04T04:14:22.791Z",
+    "summary": "AIがコーディング速度を30〜58%向上させた一方で、バグ数や開発者あたりのレビュ\u001b[K\nー数を増加させ、品質コストが跳ね上がっていることが明らかになっている。Stanf\u001b[5D\u001b[K\nStanfordやProxify、Opseraなど、個人レベルではAI活用により生産性が大幅に向上\u001b[K\nしたが、組織レベルではレビュー件数が14%増加し、Rework Rateが2.6倍に上昇する\u001b[K\nなど、速度向上の代償として品質低下が顕在化している。AIは「速く作る力」を提供\u001b[K\nするが、「深く理解する力」や設計判断・トレードオフの説明といった「なぜそうな\u001b[K\nるのか」を学ぶ力を育まない。AIの効果を定量的に測定しない企業が多数存在し、組\u001b[K\n織のエンジニア評価がAIの「乗数効果」を制御できる方向に分岐する可能性が指摘さ\u001b[K\nれている。",
+    "bookmarkCount": 227,
+    "audioFile": "../audio/hatebu-it-11-99258fe1da3c.wav"
   },
   {
-    "id": "hatebu-it-20-260502101208",
-    "title": "何度でも書くがデータセンターはセキュリティ無罪を止めろ",
-    "url": "https://anond.hatelabo.jp/20260502101208",
+    "id": "hatebu-it-12-9cb8ff86c298",
+    "title": "【緊急】Cursorに「git clone」するだけでPCが乗っ取られる脆弱性！CVSS 9.9のヤバすぎる攻撃手法 - Qiita",
+    "url": "https://qiita.com/emi_ndk/items/8e6607a09cb8ff86c298",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-03T04:16:20.232Z",
-    "summary": "GoogleやX、TikTok、Instagramなど、世界的なデジタルサービスは国内にサーバーを\u001b[K\n置かず、日本国内のデータセンターに依存している。データセンターは米国のGoogl\u001b[5D\u001b[K\nGoogle、X、TikTok、Instagramのデータセンターが日本国内に建設され、日本に利益\u001b[K\nをもたらしている。データセンターの建設は、日本国内のサーバー建設を促進する可\u001b[K\n能性がある。国内にデータセンターを置くことで、データの送受信に国内サーバーが\u001b[K\n利用でき、国内企業の競争力が高まる。また、データセンターの建設は、従来のIT産\u001b[K\n業が日本に根付くための足掛かりにもなる。国内にデータセンターを置くことで、国\u001b[K\n内企業がグローバル市場で優位に立つための土台が整う。データセンターの建設は、\u001b[K\n日本国内の技術者育成にもつながる。国内にデータセンターを置くことで、データの\u001b[K\n処理・送信が国内で行われ、国内企業がグローバル市場で優位に立つための土台が整\u001b[K\nう。データセンターの建設は、日本国内の技術者育成にもつながる。",
-    "bookmarkCount": 97,
-    "audioFile": "../audio/hatebu-it-20-260502101208.wav"
+    "date": "2026-05-04T04:17:10.048Z",
+    "summary": "AIコーディングツール「Cursor」のセキュリティは、特に「便利さ」がセキュリティ\u001b[K\nリスクに直結する重要な課題です。CVE-2026-26268では、ユーザーがリポジトリをc\u001b[1D\u001b[K\ncloneするだけでAIエージェントが自動実行し、隠しGit Hookが発火して任意コード\u001b[K\nを実行できるという脆弱性が発見されました。CVSS 9.9の攻撃手法は、CVE-2026-26\u001b[11D\u001b[K\nCVE-2026-26268と同様に、AIエージェントの自律的操作が攻撃面を拡大させることを\u001b[K\n示しています。対策として、Cursor 2.5以降へのアップデートと、信頼できないリポ\u001b[K\nジトリのclone禁止、.git/hooks の監査、AIエージェントの自動実行制限を推奨しま\u001b[K\nす。この脆弱性は、AIエージェントの「便利さ」が同時に攻撃リスクを高める新たな\u001b[K\nセキュリティパラダイムを示しており、AIツールを日常的に利用するすべてのユーザ\u001b[K\nーがセキュリティ意識を高める必要があります。",
+    "bookmarkCount": 202,
+    "audioFile": "../audio/hatebu-it-12-9cb8ff86c298.wav"
   }
 ]
