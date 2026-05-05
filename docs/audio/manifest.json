@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-11-99258fe1da3c",
-    "title": "AIは速度を前払いし、失敗を後払いにする｜Kosuke Kuzuoka",
-    "url": "https://note.com/kkosukeee/n/n99258fe1da3c",
+    "id": "hatebu-it-1-o-speech-ai/",
+    "title": "好きな声で好きなセリフを喋らせられるローカルAI「Irodori-TTS」の使い方、日本語特化でローカル動作するので無制限に生成し放題",
+    "url": "https://gigazine.net/news/20260504-irodori-tts-text-to-speech-ai/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-04T04:14:22.791Z",
-    "summary": "AIがコーディング速度を30〜58%向上させた一方で、バグ数や開発者あたりのレビュ\u001b[K\nー数を増加させ、品質コストが跳ね上がっていることが明らかになっている。Stanf\u001b[5D\u001b[K\nStanfordやProxify、Opseraなど、個人レベルではAI活用により生産性が大幅に向上\u001b[K\nしたが、組織レベルではレビュー件数が14%増加し、Rework Rateが2.6倍に上昇する\u001b[K\nなど、速度向上の代償として品質低下が顕在化している。AIは「速く作る力」を提供\u001b[K\nするが、「深く理解する力」や設計判断・トレードオフの説明といった「なぜそうな\u001b[K\nるのか」を学ぶ力を育まない。AIの効果を定量的に測定しない企業が多数存在し、組\u001b[K\n織のエンジニア評価がAIの「乗数効果」を制御できる方向に分岐する可能性が指摘さ\u001b[K\nれている。",
-    "bookmarkCount": 227,
-    "audioFile": "../audio/hatebu-it-11-99258fe1da3c.wav"
+    "date": "2026-05-05T03:54:47.243Z",
+    "summary": "【ルール】好きな声で好きなセリフを喋らせられるローカルAI「Irodori-TTS」の使\u001b[K\nい方、日本語特化でローカル動作するので無制限に生成し放題\n\nIrodori-TTSは日本語特化の音声合成AIモデル(TTSモデル)で、ローカルで動作する軽\u001b[K\n量モデルとして「セリフ」「声」「感情」を自由に指定して音声を生成できます。P\u001b[1D\u001b[K\nPCにNVIDIA製GPUがあれば数秒で生成可能で、GPU非搭載PCでもCPUを使って生成でき\u001b[K\nます。インストール手順や使い方を詳しくまとめました。",
+    "bookmarkCount": 314,
+    "audioFile": "../audio/hatebu-it-1-o-speech-ai_.wav"
   },
   {
-    "id": "hatebu-it-12-9cb8ff86c298",
-    "title": "【緊急】Cursorに「git clone」するだけでPCが乗っ取られる脆弱性！CVSS 9.9のヤバすぎる攻撃手法 - Qiita",
-    "url": "https://qiita.com/emi_ndk/items/8e6607a09cb8ff86c298",
+    "id": "hatebu-it-18-04/30/120000",
+    "title": "大規模オートスケーリング環境でAWS Configのコストを抑えてセキュリティチェックを実現する - Adwaysエンジニアブログ",
+    "url": "https://blog.engineer.adways.net/entry/2026/04/30/120000",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-04T04:17:10.048Z",
-    "summary": "AIコーディングツール「Cursor」のセキュリティは、特に「便利さ」がセキュリティ\u001b[K\nリスクに直結する重要な課題です。CVE-2026-26268では、ユーザーがリポジトリをc\u001b[1D\u001b[K\ncloneするだけでAIエージェントが自動実行し、隠しGit Hookが発火して任意コード\u001b[K\nを実行できるという脆弱性が発見されました。CVSS 9.9の攻撃手法は、CVE-2026-26\u001b[11D\u001b[K\nCVE-2026-26268と同様に、AIエージェントの自律的操作が攻撃面を拡大させることを\u001b[K\n示しています。対策として、Cursor 2.5以降へのアップデートと、信頼できないリポ\u001b[K\nジトリのclone禁止、.git/hooks の監査、AIエージェントの自動実行制限を推奨しま\u001b[K\nす。この脆弱性は、AIエージェントの「便利さ」が同時に攻撃リスクを高める新たな\u001b[K\nセキュリティパラダイムを示しており、AIツールを日常的に利用するすべてのユーザ\u001b[K\nーがセキュリティ意識を高める必要があります。",
-    "bookmarkCount": 202,
-    "audioFile": "../audio/hatebu-it-12-9cb8ff86c298.wav"
+    "date": "2026-05-05T03:55:28.308Z",
+    "summary": "大規模なAWSオートスケーリング環境で、AWS Configのコストを抑えつつセキュリテ\u001b[K\nィチェックを実現する取り組みを紹介。チェック方式の使い分けやスポット有効化、\u001b[K\n時間制限を組み合わせ、コストを大幅に抑えながらセキュリティレベルを維持。コス\u001b[K\nトが課題だった環境でも、セキュリティチェックを有効化に踏み切れるよう具体的な\u001b[K\n方法を提案。EC2以外のリソースにも応用可能で、他の環境での運用にも参考になる\u001b[K\nとしています。",
+    "bookmarkCount": 9,
+    "audioFile": "../audio/hatebu-it-18-04_30_120000.wav"
   }
 ]
