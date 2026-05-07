@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-3-05/05/151623",
-    "title": "AIエージェントに認証情報を安全に渡したい：1Passwordで試して、用途で使い分けに着地した話 - プログラマでありたい",
-    "url": "https://blog.takuros.net/entry/2026/05/05/151623",
+    "id": "hatebu-it-4-_cc_to_codex",
+    "title": "Claude CodeユーザーのためのCodex入門",
+    "url": "https://zenn.dev/k9i/articles/20260504_cc_to_codex",
     "source": "Hatena:it",
-    "bookmarkCount": 117,
-    "summary": "AWS など外部 API へ認証情報を渡す際のリスクを考慮し、AI エージェントに認証情\u001b[K\n報を直接渡さず、必要な操作だけを実行させる「セミオーガナイゼーション（半オー\u001b[K\nガナイゼーション）」方式を提案。設計の選択肢は4段階に分け、①は認証情報を直接\u001b[K\n渡す（最大リスク）、② は AI が .env を読み、認証情報は IAM ロールや Bedrock\u001b[7D\u001b[K\nBedrock が裏で処理（現実的な選択肢）、③ は IAM ロールや Bedrock が認証情報を\u001b[K\n一度も見ず SDK が裏で処理、④ は AI 用途に特化した環境で認証情報を渡さない（\u001b[K\n組織導入の最終的な選択肢）。1Password が候補として有望に見える理由は、AI 用\u001b[K\n途に特化した .env の参照機能を備え、AWS 認証情報の安全な渡し方を実現できるこ\u001b[K\nと。結論から言うと、用途を区分すれば現在も 1Password を利用しつつ、無人化し\u001b[K\nたい段階になると壁にぶつかる、という話です。",
+    "bookmarkCount": 290,
+    "summary": "Claude Codeのユーザーのうち、Codexを個人利用に移行した人が増えている。Claud\u001b[5D\u001b[K\nClaude Code派のユーザーは、Claude CodeはOpus 4.6以降で性能が低下し、Codexの\u001b[K\nほうが使用しやすさや性能で優れていると感じている。モバイルアプリCodex Appが\u001b[K\nユーザーに好まれており、Codexの設定ファイルはグローバルではなく、プロジェク\u001b[K\nト配下の.codexに個別に設定する。",
     "category": "AI",
-    "date": "2026-05-06T04:11:12.633Z"
+    "date": "2026-05-07T04:10:16.716Z"
   },
   {
-    "id": "hatebu-it-0-330f7759eba4",
-    "title": "外部からアクセス可能なhttpsサイトはドメイン設定後「即」攻撃にさらされる件",
-    "url": "https://zenn.dev/kusuke/articles/25330f7759eba4",
+    "id": "hatebu-it-0-ranking2025/",
+    "title": "全国治安ワーストランキング2025　治安が懸念される都道府県は？｜HOME ALSOK研究所｜ホームセキュリティのALSOK",
+    "url": "https://www.alsok.co.jp/person/recommend/dangerous-ranking2025/",
     "source": "Hatena:it",
-    "bookmarkCount": 580,
-    "summary": "新規公開されたHTTPSサイトにbotが大量アクセスし、アクセス数に応じて課金される\u001b[K\nインフラを攻撃する攻撃が、公開後すぐだけでなく定期的に発生する可能性があると\u001b[K\nの指摘がなされています。攻撃者は、.envファイルや/adminディレクトリなど、アク\u001b[K\nセス数をコントロールできる箇所を狙ってアクセスします。攻撃が発生すると、サイ\u001b[K\nトのアクセス数は大幅に増加し、サーバ代が定額のインフラを購入していない場合、\u001b[K\nサーバのリソースをほぼ全て消費されてしまう可能性があります。",
+    "bookmarkCount": 295,
+    "summary": "治安が懸念される都道府県はどこか？治安の悪化を指摘する人々が増え、2024年に犯\u001b[K\n罪が3年連続で増加し、2025年に入っても特殊詐欺や子ども被害などのニュースが相\u001b[K\n次いだ。全国治安ワーストランキング2025の結果は、警察庁が発表した2024年犯罪動\u001b[K\n向と、刑法犯の認知件数、発生件数、検挙率を元に、人口に対する犯罪発生率を比較\u001b[K\nして決定された。",
     "category": "Security",
-    "date": "2026-05-06T04:11:41.385Z"
+    "date": "2026-05-07T04:10:53.506Z"
   }
 ]
