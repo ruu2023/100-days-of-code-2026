@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-4-_cc_to_codex",
-    "title": "Claude CodeユーザーのためのCodex入門",
-    "url": "https://zenn.dev/k9i/articles/20260504_cc_to_codex",
+    "id": "hatebu-it-1-2106943.html",
+    "title": "Google Fitbit Air発表。画面なし/約1.6万円の軽量ヘルストラッカー",
+    "url": "https://pc.watch.impress.co.jp/docs/news/2106943.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-07T04:10:16.716Z",
-    "summary": "Claude Codeのユーザーのうち、Codexを個人利用に移行した人が増えている。Claud\u001b[5D\u001b[K\nClaude Code派のユーザーは、Claude CodeはOpus 4.6以降で性能が低下し、Codexの\u001b[K\nほうが使用しやすさや性能で優れていると感じている。モバイルアプリCodex Appが\u001b[K\nユーザーに好まれており、Codexの設定ファイルはグローバルではなく、プロジェク\u001b[K\nト配下の.codexに個別に設定する。",
-    "bookmarkCount": 290,
-    "audioFile": "../audio/hatebu-it-4-_cc_to_codex.wav"
+    "date": "2026-05-08T03:57:36.284Z",
+    "summary": "Googleは5月26日、画面のないヘルストラッカー「Google Fitbit Air」を発表した。\u001b[K\n従来のヘルストラッカーが高価でかさばるという課題を解決するため、Androidおよ\u001b[K\nびiOSに対応し、ペブル形状の小型本体に心拍数、安静時および変動時の心拍数、血\u001b[K\n中酸素ウェルネス（SpO2）などを測定する高精度センサーを搭載している。画面を省\u001b[K\nき、バッテリー駆動時間が最大1週間で急速充電が可能。ペブルを交換することで外\u001b[K\n観を簡単に変更でき、バンド価格は5,499円から。さらに、Google Fitbit Airの予約\u001b[K\n購入で次回のGoogleストアでの買い物に使えるポイントが付与され、Fitbitアプリを\u001b[K\n「Google Health」へ進化させる。",
+    "bookmarkCount": 169,
+    "audioFile": "../audio/hatebu-it-1-2106943_html.wav"
   },
   {
-    "id": "hatebu-it-0-ranking2025/",
-    "title": "全国治安ワーストランキング2025　治安が懸念される都道府県は？｜HOME ALSOK研究所｜ホームセキュリティのALSOK",
-    "url": "https://www.alsok.co.jp/person/recommend/dangerous-ranking2025/",
+    "id": "hatebu-it-26-isables_edr/",
+    "title": "EDRを無効化するBYOVDについて | セキュリティナレッジ | NTTセキュリティ・ジャパン株式会社",
+    "url": "https://jp.security.ntt/insights_resources/tech_blog/byovd_disables_edr/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-07T04:10:53.506Z",
-    "summary": "治安が懸念される都道府県はどこか？治安の悪化を指摘する人々が増え、2024年に犯\u001b[K\n罪が3年連続で増加し、2025年に入っても特殊詐欺や子ども被害などのニュースが相\u001b[K\n次いだ。全国治安ワーストランキング2025の結果は、警察庁が発表した2024年犯罪動\u001b[K\n向と、刑法犯の認知件数、発生件数、検挙率を元に、人口に対する犯罪発生率を比較\u001b[K\nして決定された。",
-    "bookmarkCount": 295,
-    "audioFile": "../audio/hatebu-it-0-ranking2025_.wav"
+    "date": "2026-05-08T03:58:21.822Z",
+    "summary": "プロフェッショナルサービス部の鈴木氏が、EDRを無効化する攻撃手法「BYOVD（Bri\u001b[3D\u001b[K\nBring Your Own Vulnerable Driver）」を紹介。攻撃者は管理者権限を取得した端末\u001b[K\nに脆弱性のあるドライバを持ち込み、OSと同じカーネル空間で動作するため、EDRの\u001b[K\n検知・無効化が可能とされる。本稿では、攻撃者が無効化されたドライバを用いてM\u001b[1D\u001b[K\nMDE（Memory Data Dump）とEDRを停止させ、サーバで「mimikatz.exe」を展開する攻\u001b[K\n撃シナリオを検証。通常のアプリケーションでは無効化できないドライバをカーネル\u001b[K\n空間から利用し、Windows SecurityとMDEを無効化した上で「mimikatz」をカーネル\u001b[K\n空間で実行する。結果として、通常のアプリケーションでは停止できないプロセスが\u001b[K\n無効化され、攻撃が成功することを実演。対策としては、管理者権限の制限やHyper\u001b[5D\u001b[K\nHyperVisor Code Integrity（HVCI）の有効化によるドライバの検証が推奨される。",
+    "bookmarkCount": 8,
+    "audioFile": "../audio/hatebu-it-26-isables_edr_.wav"
   }
 ]
