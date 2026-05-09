@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-2106943.html",
-    "title": "Google Fitbit Air発表。画面なし/約1.6万円の軽量ヘルストラッカー",
-    "url": "https://pc.watch.impress.co.jp/docs/news/2106943.html",
+    "id": "hatebu-it-19-ature/30921/",
+    "title": "『システム思考の世界へ』に学ぶ、AI時代にエンジニアが「技術に詳しくあるべき」理由【nwiizo】 - エンジニアtype | 転職type",
+    "url": "https://type.jp/et/feature/30921/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-08T03:57:36.284Z",
-    "summary": "Googleは5月26日、画面のないヘルストラッカー「Google Fitbit Air」を発表した。\u001b[K\n従来のヘルストラッカーが高価でかさばるという課題を解決するため、Androidおよ\u001b[K\nびiOSに対応し、ペブル形状の小型本体に心拍数、安静時および変動時の心拍数、血\u001b[K\n中酸素ウェルネス（SpO2）などを測定する高精度センサーを搭載している。画面を省\u001b[K\nき、バッテリー駆動時間が最大1週間で急速充電が可能。ペブルを交換することで外\u001b[K\n観を簡単に変更でき、バンド価格は5,499円から。さらに、Google Fitbit Airの予約\u001b[K\n購入で次回のGoogleストアでの買い物に使えるポイントが付与され、Fitbitアプリを\u001b[K\n「Google Health」へ進化させる。",
-    "bookmarkCount": 169,
-    "audioFile": "../audio/hatebu-it-1-2106943_html.wav"
+    "date": "2026-05-09T04:01:25.146Z",
+    "summary": "AI時代にエンジニアが技術に詳しくあるべき理由を問う、『システム思考の世界へ』\u001b[K\nで著名エンジニア・nwiizoが本書を紹介。書籍はシステム思考を解説し、個々の要素\u001b[K\nを切り分けて最適化するだけでなく、全体を健全に機能させる視点や実践を提供。生\u001b[K\n成AIの台頭で「コードを書く量」が減る今でも、エンジニアが技術の手触りを持つべ\u001b[K\nき理由が本書にあると指摘。Kubernetesの設定例やマイクロサービスの分割手順など\u001b[K\n、現場で即実用的なプラクティスが豊富に掲載され、システム思考を身につけること\u001b[K\nで判断力を高め、技術と組織の流れを設計できると主張。",
+    "bookmarkCount": 125,
+    "audioFile": "../audio/hatebu-it-19-ature_30921_.wav"
   },
   {
-    "id": "hatebu-it-26-isables_edr/",
-    "title": "EDRを無効化するBYOVDについて | セキュリティナレッジ | NTTセキュリティ・ジャパン株式会社",
-    "url": "https://jp.security.ntt/insights_resources/tech_blog/byovd_disables_edr/",
+    "id": "hatebu-it-0-98f1989c2a15",
+    "title": "Claude Codeを120%使いこなす設定3選【ECC・Memory.md・Obsidian連携】 - Qiita",
+    "url": "https://qiita.com/manchan/items/63745b9198f1989c2a15",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-08T03:58:21.822Z",
-    "summary": "プロフェッショナルサービス部の鈴木氏が、EDRを無効化する攻撃手法「BYOVD（Bri\u001b[3D\u001b[K\nBring Your Own Vulnerable Driver）」を紹介。攻撃者は管理者権限を取得した端末\u001b[K\nに脆弱性のあるドライバを持ち込み、OSと同じカーネル空間で動作するため、EDRの\u001b[K\n検知・無効化が可能とされる。本稿では、攻撃者が無効化されたドライバを用いてM\u001b[1D\u001b[K\nMDE（Memory Data Dump）とEDRを停止させ、サーバで「mimikatz.exe」を展開する攻\u001b[K\n撃シナリオを検証。通常のアプリケーションでは無効化できないドライバをカーネル\u001b[K\n空間から利用し、Windows SecurityとMDEを無効化した上で「mimikatz」をカーネル\u001b[K\n空間で実行する。結果として、通常のアプリケーションでは停止できないプロセスが\u001b[K\n無効化され、攻撃が成功することを実演。対策としては、管理者権限の制限やHyper\u001b[5D\u001b[K\nHyperVisor Code Integrity（HVCI）の有効化によるドライバの検証が推奨される。",
-    "bookmarkCount": 8,
-    "audioFile": "../audio/hatebu-it-26-isables_edr_.wav"
+    "date": "2026-05-09T04:02:23.571Z",
+    "summary": "Claude Codeを使う際に頻繁に感じる課題は「セッションが切れると情報が失われる\u001b[K\n」ことと「専門的なレビューが足りない」ことです。フリーランスのエンジニアとし\u001b[K\nて、私はX投稿の自動化・録画→YouTube投稿パイプライン・情報収集をClaude Codeで\u001b[K\n構築していましたが、毎回同じ説明を繰り返す「プロジェクトの背景を一から説明す\u001b[K\nる」や「セキュリティや設計の観点が足りない」といった壁に直面していました。\n\nそこで、Claude Codeの「Everything Claude Code（ECC）」とObsidianのVaultを組\u001b[K\nみ合わせることで、Claude Codeがプロジェクトの状況を記憶し、セッション間で情\u001b[K\n報が保持される環境を実現しました。ECCは専門家エージェントを自動で起動し、セ\u001b[K\nキュリティレビューや設計レビューなど専門的な作業をスムーズにサポートします。\u001b[K\nOCLのCLAUDE.mdに特定のタイミングを記述するだけで、ECCエージェントが自動で起\u001b[K\n動し、コードのレビューやAPIキーのセキュリティチェックを実行できるようになり\u001b[K\nます。\n\nさらに、ObsidianのVaultをプロジェクト内に置くことで、Markdownファイルを直接\u001b[K\nClaudeが読み書きできる環境が整い、ニュース収集スクリプトと手動クリップスクリ\u001b[K\nプトを分けて管理できるようになりました。これにより、外部メモアプリに手動でコ\u001b[K\nピーする手間がなくなり、Obsidian Vaultに自動で保存することで情報の消失を防げ\u001b[K\nます。\n\n結果として、Claude Codeがプロジェクトの状況を記憶し、専門的な作業を自動でサ\u001b[K\nポートし、Obsidianと連携して情報が散逸しない環境が構築されました。特に「前回\u001b[K\nのセッションを再開して」の一言でプロジェクトの状態がすぐに戻ってくるのは、長\u001b[K\n期プロジェクトや複数プロジェクトを掛け持ちしているフリーランスにとって非常に\u001b[K\n効果的です。\n\n【結論】\nClaude Codeをプロジェクトに組み込むことで、情報の消失や専門的なレビュー不足\u001b[K\nといった課題を解決し、開発効率を大幅に向上させることができます。ECC、OCL、V\u001b[1D\u001b[K\nVaultの3つを組み合わせることで、プロジェクトの状況を記憶し、セッション間で情\u001b[K\n報が保持され、開発環境がスムーズに継続できるようになります。",
+    "bookmarkCount": 94,
+    "audioFile": "../audio/hatebu-it-0-98f1989c2a15.wav"
   }
 ]
