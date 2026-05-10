@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-19-ature/30921/",
-    "title": "『システム思考の世界へ』に学ぶ、AI時代にエンジニアが「技術に詳しくあるべき」理由【nwiizo】 - エンジニアtype | 転職type",
-    "url": "https://type.jp/et/feature/30921/",
+    "id": "hatebu-it-19-text-format/",
+    "title": "AI時代のリッチテキスト形式（RTF）",
+    "url": "https://blog.lai.so/ai-rich-text-format/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-09T04:01:25.146Z",
-    "summary": "AI時代にエンジニアが技術に詳しくあるべき理由を問う、『システム思考の世界へ』\u001b[K\nで著名エンジニア・nwiizoが本書を紹介。書籍はシステム思考を解説し、個々の要素\u001b[K\nを切り分けて最適化するだけでなく、全体を健全に機能させる視点や実践を提供。生\u001b[K\n成AIの台頭で「コードを書く量」が減る今でも、エンジニアが技術の手触りを持つべ\u001b[K\nき理由が本書にあると指摘。Kubernetesの設定例やマイクロサービスの分割手順など\u001b[K\n、現場で即実用的なプラクティスが豊富に掲載され、システム思考を身につけること\u001b[K\nで判断力を高め、技術と組織の流れを設計できると主張。",
-    "bookmarkCount": 125,
-    "audioFile": "../audio/hatebu-it-19-ature_30921_.wav"
+    "date": "2026-05-10T04:20:24.452Z",
+    "summary": "2026年5月8日、Anthropic の Thariq Shihipar は X に「Using Claude Code: The \u001b[K\nUnreasonable Effectiveness of HTML」という記事を公開しました。この記事では、\u001b[K\nAI が生成する HTML 出力フォーマットは、Markdown ではなく HTML を選択する傾向\u001b[K\nにあることが説明されています。Markdown はコンテキストウィンドウや出力最適化\u001b[K\nの制約により、過去は Markdown が主流でしたが、AI 生成出力が容易になり仕様が\u001b[K\nオープンで既存資産が豊富になったことで、HTML が主流になるとThariq は指摘して\u001b[K\nいます。具体例として、Claude Code で生成した HTML ドキュメントの出力を 20 件\u001b[K\n以上公開し、HTML のインタラクティブ要素やページ内ナビゲーションが Markdown \u001b[K\nに比べて優れている点を強調しています。",
+    "bookmarkCount": 175,
+    "audioFile": "../audio/hatebu-it-19-text-format_.wav"
   },
   {
-    "id": "hatebu-it-0-98f1989c2a15",
-    "title": "Claude Codeを120%使いこなす設定3選【ECC・Memory.md・Obsidian連携】 - Qiita",
-    "url": "https://qiita.com/manchan/items/63745b9198f1989c2a15",
+    "id": "hatebu-it-6-2eec10d531b2",
+    "title": "上司になったら｜miyasaka",
+    "url": "https://note.com/mmiya/n/n2eec10d531b2",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-09T04:02:23.571Z",
-    "summary": "Claude Codeを使う際に頻繁に感じる課題は「セッションが切れると情報が失われる\u001b[K\n」ことと「専門的なレビューが足りない」ことです。フリーランスのエンジニアとし\u001b[K\nて、私はX投稿の自動化・録画→YouTube投稿パイプライン・情報収集をClaude Codeで\u001b[K\n構築していましたが、毎回同じ説明を繰り返す「プロジェクトの背景を一から説明す\u001b[K\nる」や「セキュリティや設計の観点が足りない」といった壁に直面していました。\n\nそこで、Claude Codeの「Everything Claude Code（ECC）」とObsidianのVaultを組\u001b[K\nみ合わせることで、Claude Codeがプロジェクトの状況を記憶し、セッション間で情\u001b[K\n報が保持される環境を実現しました。ECCは専門家エージェントを自動で起動し、セ\u001b[K\nキュリティレビューや設計レビューなど専門的な作業をスムーズにサポートします。\u001b[K\nOCLのCLAUDE.mdに特定のタイミングを記述するだけで、ECCエージェントが自動で起\u001b[K\n動し、コードのレビューやAPIキーのセキュリティチェックを実行できるようになり\u001b[K\nます。\n\nさらに、ObsidianのVaultをプロジェクト内に置くことで、Markdownファイルを直接\u001b[K\nClaudeが読み書きできる環境が整い、ニュース収集スクリプトと手動クリップスクリ\u001b[K\nプトを分けて管理できるようになりました。これにより、外部メモアプリに手動でコ\u001b[K\nピーする手間がなくなり、Obsidian Vaultに自動で保存することで情報の消失を防げ\u001b[K\nます。\n\n結果として、Claude Codeがプロジェクトの状況を記憶し、専門的な作業を自動でサ\u001b[K\nポートし、Obsidianと連携して情報が散逸しない環境が構築されました。特に「前回\u001b[K\nのセッションを再開して」の一言でプロジェクトの状態がすぐに戻ってくるのは、長\u001b[K\n期プロジェクトや複数プロジェクトを掛け持ちしているフリーランスにとって非常に\u001b[K\n効果的です。\n\n【結論】\nClaude Codeをプロジェクトに組み込むことで、情報の消失や専門的なレビュー不足\u001b[K\nといった課題を解決し、開発効率を大幅に向上させることができます。ECC、OCL、V\u001b[1D\u001b[K\nVaultの3つを組み合わせることで、プロジェクトの状況を記憶し、セッション間で情\u001b[K\n報が保持され、開発環境がスムーズに継続できるようになります。",
-    "bookmarkCount": 94,
-    "audioFile": "../audio/hatebu-it-0-98f1989c2a15.wav"
+    "date": "2026-05-10T04:20:51.563Z",
+    "summary": "上司になって初めて感じるのは、管理職にはあるべき「機能する上司」になるのは非\u001b[K\n常に難しいということです。ジャックウェルチのエグゼクティブコーチの本を読んだ\u001b[K\n後、上司にならなければならないと強く感じたのがきっかけでした。特に、管理職に\u001b[K\nなった当時は、会社から役職を与えられることもありましたが、部下のフォロワーシ\u001b[K\nップをどう獲得するかは別問題で、現場プレイヤーだった自分のまま突進し、組織が\u001b[K\n大きくなりすぎて自分自身でパンクした。その後にジャックウェルチの本を読んで、\u001b[K\nジャックウェルチの悪癖20が自分に当てはまることを知り、管理職になってからはこ\u001b[K\nれらの癖が繰り返し現れるようになりました。",
+    "bookmarkCount": 473,
+    "audioFile": "../audio/hatebu-it-6-2eec10d531b2.wav"
   }
 ]
