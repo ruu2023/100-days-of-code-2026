@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-19-text-format/",
-    "title": "AI時代のリッチテキスト形式（RTF）",
-    "url": "https://blog.lai.so/ai-rich-text-format/",
+    "id": "hatebu-it-0-cont1/185228",
+    "title": "【完全版】Claude Coworkが凄い…資料作成もフォルダ整理も全自動化、神スキル活用術",
+    "url": "https://www.sbbit.jp/article/cont1/185228",
     "source": "Hatena:it",
-    "bookmarkCount": 175,
-    "summary": "2026年5月8日、Anthropic の Thariq Shihipar は X に「Using Claude Code: The \u001b[K\nUnreasonable Effectiveness of HTML」という記事を公開しました。この記事では、\u001b[K\nAI が生成する HTML 出力フォーマットは、Markdown ではなく HTML を選択する傾向\u001b[K\nにあることが説明されています。Markdown はコンテキストウィンドウや出力最適化\u001b[K\nの制約により、過去は Markdown が主流でしたが、AI 生成出力が容易になり仕様が\u001b[K\nオープンで既存資産が豊富になったことで、HTML が主流になるとThariq は指摘して\u001b[K\nいます。具体例として、Claude Code で生成した HTML ドキュメントの出力を 20 件\u001b[K\n以上公開し、HTML のインタラクティブ要素やページ内ナビゲーションが Markdown \u001b[K\nに比べて優れている点を強調しています。",
+    "bookmarkCount": 196,
+    "summary": "Claude Cowork（デスクトップアプリ版）は、AIがPC操作を代行する「エージェント\u001b[K\n」へと進化する歴史的転換点にあり、ブラウザやローカル環境を自律的に操作し、一\u001b[K\n連のワークフローを完結させる「副操縦士」として機能します。このAIが提供する「\u001b[K\nスキル」は、ロゴや配色、フォントの統一といった組織的なデザインルールを厳守し\u001b[K\nたプレゼン資料を自動生成する仕組みで、ビジネスパーソンがロゴ配置やカラーコー\u001b[K\nドを一貫して管理できるようになっています。記事では、事前に定義されたデザイン\u001b[K\nルールを守りながら、中身だけを最新情報に置き換えることで、組織のブランド価値\u001b[K\nを守る戦略的なツールとして活用する方法を解説しています。",
     "category": "AI",
-    "date": "2026-05-10T04:20:24.452Z"
+    "date": "2026-05-11T04:41:16.816Z"
   },
   {
-    "id": "hatebu-it-6-2eec10d531b2",
-    "title": "上司になったら｜miyasaka",
-    "url": "https://note.com/mmiya/n/n2eec10d531b2",
+    "id": "hatebu-it-14-news026.html",
+    "title": "GitHub侵害で銀行連携停止　マネーフォワード事案が突き付ける開発リスク",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2605/11/news026.html",
     "source": "Hatena:it",
-    "bookmarkCount": 473,
-    "summary": "上司になって初めて感じるのは、管理職にはあるべき「機能する上司」になるのは非\u001b[K\n常に難しいということです。ジャックウェルチのエグゼクティブコーチの本を読んだ\u001b[K\n後、上司にならなければならないと強く感じたのがきっかけでした。特に、管理職に\u001b[K\nなった当時は、会社から役職を与えられることもありましたが、部下のフォロワーシ\u001b[K\nップをどう獲得するかは別問題で、現場プレイヤーだった自分のまま突進し、組織が\u001b[K\n大きくなりすぎて自分自身でパンクした。その後にジャックウェルチの本を読んで、\u001b[K\nジャックウェルチの悪癖20が自分に当てはまることを知り、管理職になってからはこ\u001b[K\nれらの癖が繰り返し現れるようになりました。",
+    "bookmarkCount": 27,
+    "summary": "GitHubのセキュリティ脆弱性が発覚し、銀行連携機能が一時停止されたことから、G\u001b[1D\u001b[K\nGitHubの開発リスクについて再評価が進められている。",
     "category": "Security",
-    "date": "2026-05-10T04:20:51.563Z"
+    "date": "2026-05-11T04:42:16.768Z"
   }
 ]
