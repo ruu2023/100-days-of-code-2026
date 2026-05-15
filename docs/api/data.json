@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-10-d201f69134aa",
-    "title": "ADHD が AI 開発でむっちゃ困ってたことが解決した話｜牛尾　剛",
-    "url": "https://note.com/simplearchitect/n/nd201f69134aa",
+    "id": "hatebu-it-17-ontext-fork/",
+    "title": "Skillに context: fork を1行足すだけで、Claude Codeのコンテキストが綺麗になった | DevelopersIO",
+    "url": "https://dev.classmethod.jp/articles/claude-code-context-fork/",
     "source": "Hatena:it",
-    "bookmarkCount": 304,
-    "summary": "ADHDを持つ人物がクラウドベンダーのエンジニアとして、AI 開発のマルチタスクの\u001b[K\n難しさに苦しんでいたが、新しい方法を用いることで生産性を向上させた。彼はエー\u001b[K\nジェントの通知に振り回されることなく、タスクを1つずつ集中して取り組むことで\u001b[K\n、マルチタスクのボトルネックを解消し、生産性を向上させた。",
+    "bookmarkCount": 159,
+    "summary": "AI事業本部は、Claude Code の Skill 定義に「context: fork」オプションを追加し\u001b[K\n、内部作業ログを親のメイン会話から切り離すことを可能にした。この機能を活用す\u001b[K\nると、複数回同じ処理を繰り返す必要があるタスクで、親の会話履歴を参照せずにク\u001b[K\nリーンな出力を提供できる。今回の実証実験では、context: fork を使用した場合、\u001b[K\nSkill の内部ログが親の会話から除外され、ログ量が大幅に減少したことが確認され\u001b[K\nた。特に大量の出力や探索結果が蓄積するケースで、作業の把握が容易になった。文\u001b[K\n脈を分離することで、スキルは「再利用」したいときは context: fork 付き、担当\u001b[K\n者ごとに「単独で動かしたい」場合に Subagent を組み合わせるのが最適と結論付け\u001b[K\nられた。",
     "category": "AI",
-    "date": "2026-05-14T04:17:34.151Z"
+    "date": "2026-05-15T04:32:49.797Z"
   },
   {
-    "id": "hatebu-it-12-2108419.html",
-    "title": "ファイルを書き換えずにランサムウェアのような攻撃を行う手法が発見される。概念実証の「GhostLock」をセキュリティ研究者が発表　Windows NT 3.1から存在しているSMBの仕様を悪用",
-    "url": "https://internet.watch.impress.co.jp/docs/news/2108419.html",
+    "id": "hatebu-it-28-news043.html",
+    "title": "NGINXのrewrite機能に「緊急」の脆弱性　“見落とし設定”がRCEの入り口に",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2605/15/news043.html",
     "source": "Hatena:it",
-    "bookmarkCount": 36,
-    "summary": "セキュリティ研究者のキム・ドヴァシュ氏は、Windows NT 3.1から存在するSMBの仕\u001b[K\n様を悪用して、ファイルの書き込みを行わずにアクセスを不能にする概念実証の「G\u001b[1D\u001b[K\nGhostLock」を発表した。  この手法は、共有モードを0x00000000に指定してファイ\u001b[K\nルを排他的アクセス状態にすることで、他のアプリケーションのアクセスを防ぎ、シ\u001b[K\nステム全体の動作を妨害する。  この手法はファイルサーバーのWord文書を開こうと\u001b[K\nすると、他のユーザーが編集中とのメッセージが表示されて開けない状態を引き起こ\u001b[K\nす。  この攻撃はディスク上に一切書き込みを行わないため、既存のEDRツールでの\u001b[K\n検出は困難であり、ファイルの暗号化も行わないため、時間はかからない。  50万個\u001b[K\nのファイルを含む共有フォルダーで実行すると、6分22秒でマッピングし、2分37秒で\u001b[K\nファイルをロックするという実験結果が報告されている。  攻撃を防ぐには、1つの\u001b[K\nセッションが異常な数の排他的なファイルアクセスを保持していないかを監視し、必\u001b[K\n要に応じて該当セッションを強制終了する運用手順を事前に整備することが推奨され\u001b[K\nている。",
+    "bookmarkCount": 5,
+    "summary": "NGINXのrewrite機能に新たに発見された脆弱性「CWE-2026-42945」が公開され、攻撃\u001b[K\n者がRCE（リモートコード実行）を引き起こすことが可能であることが判明しました\u001b[K\n。特に「NGINX v1.0.0」および「NGINX Open Source 1.31.0」を含む複数のバージョ\u001b[K\nンに脆弱性が存在します。攻撃者は、公開されているウェブサイトからnginx.inc.c\u001b[11D\u001b[K\nnginx.inc.cgiファイルに任意のデータを書き込むことで、実行権限を持つ任意のフ\u001b[K\nァイルを実行してしまう可能性があります。NGINX v1.0.0は、ファイルシステム上で\u001b[K\n読み取り専用と書き込み不可に設定されているにもかかわらず、ファイルシステム上\u001b[K\nでの書き込みを許可しているため、攻撃者の脆弱性を悪用してファイルシステム上の\u001b[K\n任意のファイルを読み書きすることが可能です。攻撃者は、nginx.inc.cgiファイル\u001b[K\nに任意のファイル名を書き込むことで、ファイルシステム上の任意のファイルを実行\u001b[K\nしてしまうことができます。NGINX Open SourceおよびNGINX Plusの最新バージョン\u001b[K\nでは、nginx.inc.cgiファイルの書き込みを完全に禁止しているため、このファイル\u001b[K\nが攻撃に利用されるリスクは低減されます。NGINX Open SourceのNGINX Instance M\u001b[1D\u001b[K\nManagerでは、nginx.inc.cgiファイルの書き込みを許可する設定が残っており、NGI\u001b[3D\u001b[K\nNGINX Plusではファイルシステムの書き込みが完全に制限されているため、NGINX I\u001b[1D\u001b[K\nInstance Managerの脆弱性は解消されています。NGINX Open SourceのNGINX App Pr\u001b[2D\u001b[K\nProtect WAFおよびNGINX PlusのNGINX App Protect DoS WAFも、nginx.inc.cgiファ\u001b[K\nイルへの書き込みを完全に禁止しており、NGINX Instance Managerの脆弱性は解消さ\u001b[K\nれています。",
     "category": "Security",
-    "date": "2026-05-14T04:18:03.953Z"
+    "date": "2026-05-15T04:34:09.841Z"
   }
 ]
