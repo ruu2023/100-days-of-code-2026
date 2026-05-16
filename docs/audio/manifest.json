@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-17-ontext-fork/",
-    "title": "Skillに context: fork を1行足すだけで、Claude Codeのコンテキストが綺麗になった | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/claude-code-context-fork/",
+    "id": "hatebu-it-23-ction-5-days",
+    "title": "【すごい】Claude ミュトス、Appleが5年かけたMacメモリ保護を5日で突破！研究者と共に - すまほん!!",
+    "url": "https://smhn.info/202605-anthropic-ai-breaks-apple-mac-memory-protection-5-days",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-15T04:32:49.797Z",
-    "summary": "AI事業本部は、Claude Code の Skill 定義に「context: fork」オプションを追加し\u001b[K\n、内部作業ログを親のメイン会話から切り離すことを可能にした。この機能を活用す\u001b[K\nると、複数回同じ処理を繰り返す必要があるタスクで、親の会話履歴を参照せずにク\u001b[K\nリーンな出力を提供できる。今回の実証実験では、context: fork を使用した場合、\u001b[K\nSkill の内部ログが親の会話から除外され、ログ量が大幅に減少したことが確認され\u001b[K\nた。特に大量の出力や探索結果が蓄積するケースで、作業の把握が容易になった。文\u001b[K\n脈を分離することで、スキルは「再利用」したいときは context: fork 付き、担当\u001b[K\n者ごとに「単独で動かしたい」場合に Subagent を組み合わせるのが最適と結論付け\u001b[K\nられた。",
-    "bookmarkCount": 159,
-    "audioFile": "../audio/hatebu-it-17-ontext-fork_.wav"
+    "date": "2026-05-16T04:07:39.000Z",
+    "summary": "Appleは、5年かけて取り組んできたMacのメモリ保護機能を、わずか5日で突破したと\u001b[K\n発表した。研究者と共に開発したこの機能により、Macに接続されたiPadなどの外部\u001b[K\nストレージへの書き込みを保護し、万が一Macに故障が発生した場合でもデータが失\u001b[K\nわれることを防ぐ。",
+    "bookmarkCount": 242,
+    "audioFile": "../audio/hatebu-it-23-ction-5-days.wav"
   },
   {
-    "id": "hatebu-it-28-news043.html",
-    "title": "NGINXのrewrite機能に「緊急」の脆弱性　“見落とし設定”がRCEの入り口に",
-    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2605/15/news043.html",
+    "id": "hatebu-it-9-news109.html",
+    "title": "ワコム社長が西新宿オフィスの一角を私物化、ダンススペースとして娘に提供か　“物言う株主”が解任提案",
+    "url": "https://www.itmedia.co.jp/news/articles/2605/15/news109.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-15T04:34:09.841Z",
-    "summary": "NGINXのrewrite機能に新たに発見された脆弱性「CWE-2026-42945」が公開され、攻撃\u001b[K\n者がRCE（リモートコード実行）を引き起こすことが可能であることが判明しました\u001b[K\n。特に「NGINX v1.0.0」および「NGINX Open Source 1.31.0」を含む複数のバージョ\u001b[K\nンに脆弱性が存在します。攻撃者は、公開されているウェブサイトからnginx.inc.c\u001b[11D\u001b[K\nnginx.inc.cgiファイルに任意のデータを書き込むことで、実行権限を持つ任意のフ\u001b[K\nァイルを実行してしまう可能性があります。NGINX v1.0.0は、ファイルシステム上で\u001b[K\n読み取り専用と書き込み不可に設定されているにもかかわらず、ファイルシステム上\u001b[K\nでの書き込みを許可しているため、攻撃者の脆弱性を悪用してファイルシステム上の\u001b[K\n任意のファイルを読み書きすることが可能です。攻撃者は、nginx.inc.cgiファイル\u001b[K\nに任意のファイル名を書き込むことで、ファイルシステム上の任意のファイルを実行\u001b[K\nしてしまうことができます。NGINX Open SourceおよびNGINX Plusの最新バージョン\u001b[K\nでは、nginx.inc.cgiファイルの書き込みを完全に禁止しているため、このファイル\u001b[K\nが攻撃に利用されるリスクは低減されます。NGINX Open SourceのNGINX Instance M\u001b[1D\u001b[K\nManagerでは、nginx.inc.cgiファイルの書き込みを許可する設定が残っており、NGI\u001b[3D\u001b[K\nNGINX Plusではファイルシステムの書き込みが完全に制限されているため、NGINX I\u001b[1D\u001b[K\nInstance Managerの脆弱性は解消されています。NGINX Open SourceのNGINX App Pr\u001b[2D\u001b[K\nProtect WAFおよびNGINX PlusのNGINX App Protect DoS WAFも、nginx.inc.cgiファ\u001b[K\nイルへの書き込みを完全に禁止しており、NGINX Instance Managerの脆弱性は解消さ\u001b[K\nれています。",
-    "bookmarkCount": 5,
-    "audioFile": "../audio/hatebu-it-28-news043_html.wav"
+    "date": "2026-05-16T04:08:29.721Z",
+    "summary": "ワコム社長が西新宿オフィスの一角を私物化し、娘にダンススペースとして提供する\u001b[K\n計画を発表した。同時に、社長は「物言う株主」と見なされていたため、解任の提案\u001b[K\nを行った。",
+    "bookmarkCount": 459,
+    "audioFile": "../audio/hatebu-it-9-news109_html.wav"
   }
 ]
