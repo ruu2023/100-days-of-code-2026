@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-23-ction-5-days",
-    "title": "【すごい】Claude ミュトス、Appleが5年かけたMacメモリ保護を5日で突破！研究者と共に - すまほん!!",
-    "url": "https://smhn.info/202605-anthropic-ai-breaks-apple-mac-memory-protection-5-days",
+    "id": "hatebu-it-0-9d1229018d9c",
+    "title": "「AIにできない仕事は残る」のは本当だけど、それはUber Eatsの配達員みたいな仕事になるかも｜けんすう",
+    "url": "https://kensuu.com/n/n9d1229018d9c",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-16T04:07:39.000Z",
-    "summary": "Appleは、5年かけて取り組んできたMacのメモリ保護機能を、わずか5日で突破したと\u001b[K\n発表した。研究者と共に開発したこの機能により、Macに接続されたiPadなどの外部\u001b[K\nストレージへの書き込みを保護し、万が一Macに故障が発生した場合でもデータが失\u001b[K\nわれることを防ぐ。",
-    "bookmarkCount": 242,
-    "audioFile": "../audio/hatebu-it-23-ction-5-days.wav"
+    "date": "2026-05-17T04:37:04.733Z",
+    "summary": "AIが進化しても、ラストワンマイルの作業やウェットな現場対応はできないとし、A\u001b[1D\u001b[K\nAmazonアソシエイトのような仕事はAIのモジュールとして残ると指摘する。人間は、\u001b[K\n業界の暗黙知や人間関係、機微を理解できるため、配達員のような仕事を継続すると\u001b[K\nするが、実際にはその仕事もAIに置き換えられやすい。結果として、AIが「指示者」\u001b[K\nとして働き、外部モジュールとして常に呼び出される「呼び出される側」の仕事にな\u001b[K\nり、安定感はなくなる。要するに、仕事は残るが、誰に、どのように働くかは不安定\u001b[K\nで、評価もアルゴリズムに左右される。",
+    "bookmarkCount": 220,
+    "audioFile": "../audio/hatebu-it-0-9d1229018d9c.wav"
   },
   {
-    "id": "hatebu-it-9-news109.html",
-    "title": "ワコム社長が西新宿オフィスの一角を私物化、ダンススペースとして娘に提供か　“物言う株主”が解任提案",
-    "url": "https://www.itmedia.co.jp/news/articles/2605/15/news109.html",
+    "id": "hatebu-it-21-le/35247599/",
+    "title": "Linuxカーネルに「ssh-keysign-pwn」の脆弱性発覚--直近4度目",
+    "url": "https://japan.zdnet.com/article/35247599/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-16T04:08:29.721Z",
-    "summary": "ワコム社長が西新宿オフィスの一角を私物化し、娘にダンススペースとして提供する\u001b[K\n計画を発表した。同時に、社長は「物言う株主」と見なされていたため、解任の提案\u001b[K\nを行った。",
-    "bookmarkCount": 459,
-    "audioFile": "../audio/hatebu-it-9-news109_html.wav"
+    "date": "2026-05-17T04:37:46.395Z",
+    "summary": "Linuxのカーネルに新たなセキュリティホール「ssh-keysign-pwn」が発覚。最近4度\u001b[K\n目の注目を集めているこの脆弱性は、攻撃者がSSHホスト鍵のファイルハッシュを盗\u001b[K\nみ、秘密鍵を外部に持ち出すことで、ネットワーク内で活動を継続できる可能性があ\u001b[K\nる。攻撃者はホスト鍵を外部に持ち出してマシンになりすますことができ、盗まれた\u001b[K\nSSH鍵でホストベースの信頼関係にある他のシステムへのアクセスを試みることが可\u001b[K\n能になる。Linus Torvalds氏が作成したパッチでこの脆弱性は解消され、7.0.8、6.\u001b[2D\u001b[K\n6.18.31、6.12.89、6.6.139、6.1.173、5.15.207、5.10.256のサポート対象の各バー\u001b[K\nジョンで修正済みカーネルが提供されている。",
+    "bookmarkCount": 51,
+    "audioFile": "../audio/hatebu-it-21-le_35247599_.wav"
   }
 ]
