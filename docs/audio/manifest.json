@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-4e75076503fe",
-    "title": "Claude Code を社内導入する時の最低限ガードレール5項目 — 機密情報を漏らさない設定パターン - Qiita",
-    "url": "https://qiita.com/ennagara128/items/aeaee3e64e75076503fe",
+    "id": "hatebu-it-18-cle/16569621",
+    "title": "AI検索でもSEOは変わらない　Googleが解説する必要・不要な対策",
+    "url": "https://smbiz.asahi.com/article/16569621",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-18T04:47:29.620Z",
-    "summary": "Claude Code を社内で安全に運用するための5つの最低限ガードレールを共有しまし\u001b[K\nた。  \n① .claudeignore で機密ファイルを除外、② CLAUDE.md に「環境変数の値を出力しな\u001b[K\nい」「認証情報をハードコードしない」等を明記、③ Hooks で「rm -rf」等危険コマ\u001b[K\nンドをブロック、④ 本番環境変数は .claudeignore の対象外に分離、⑤ 機密データ\u001b[K\n操作にはスキルで承認フローを必須化。これらを導入すれば、個人の判断ミスによる\u001b[K\nセキュリティ事故を大幅に減らせます。セットアップは15分で完了し、1日で済むた\u001b[K\nめ、半年後のリスクを大きく変えることができます。",
-    "bookmarkCount": 387,
-    "audioFile": "../audio/hatebu-it-3-4e75076503fe.wav"
+    "date": "2026-05-19T04:38:19.023Z",
+    "summary": "AI検索の普及が進んでも、Googleは「基本的なSEOが変わらない」と述べ、生成AI専\u001b[K\n用の対策は不要と説明しています。AI検索はRAG（検索拡張生成）技術を用いて信頼\u001b[K\nできるウェブページから情報を集め、回答を生成します。AIに正しく「見つけてもら\u001b[K\nう」ためには、サイトが検索エンジンに正しくクロールされ、インデックス化されて\u001b[K\nいる必要があります。\n\nまた、AIに引用されるためには、サイトの内容を構造化し、スニペットが表示される\u001b[K\nようにすることが重要です。具体的には、セマンティックHTMLの活用、読み込み速度\u001b[K\nの向上、重複コンテンツの削減などが推奨されます。さらに、店舗情報をGoogleビジ\u001b[K\nネスプロフィールやMerchant Centerで最新に保つことで、AI検索に引用されやすく\u001b[K\nなります。\n\nただし、AI向けの最適化（AEOやGEO）を求めるコンサルティングはGoogleは不要とし\u001b[K\n、透明な要素を優先し、人間にとって使いやすい設計を心がけることで、AIに評価さ\u001b[K\nれるサイトが作れます。AIに最適化された特別な対策よりも、基本の徹底が最も重要\u001b[K\nであると指摘しています。",
+    "bookmarkCount": 35,
+    "audioFile": "../audio/hatebu-it-18-cle_16569621.wav"
   },
   {
-    "id": "hatebu-it-0-35dca575b8ce",
-    "title": "専任情シスがいない20人規模の町工場で、自分たちでランサムウェア対策基盤を組む - Qiita",
-    "url": "https://qiita.com/masakai/items/d55a39ac35dca575b8ce",
+    "id": "hatebu-it-0-ls-all-time/",
+    "title": "作家や批評家が選んだ「史上最高の小説100選」が発表される",
+    "url": "https://gigazine.net/news/20260519-100-best-novels-all-time/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-18T04:48:17.832Z",
-    "summary": "中小企業や町工場では、専任の情シスがいないとセキュリティ対策が難しいと、町工\u001b[K\n場を想定して記事が書いています。IT部門がいない場合でも、自分たちで構築できる\u001b[K\nセキュリティ基盤を整え、ランサムウェアの被害に備えることができます。記事は高\u001b[K\n価な製品を並べるのではなく、必要なものを自分で理解して運用することを提案して\u001b[K\nいます。具体的には、MFAで入口を固め、VLANで横展開を止め、NASをバックアップで\u001b[K\nはなく共有基盤とし、復元できるバックアップを別系統で用意し、開発LANを危険領\u001b[K\n域として扱い、ログ監視は重要な場所から始めます。記事は、OSの種類に関係なく、\u001b[K\nID統一がセキュリティの鍵であると強調しています。",
-    "bookmarkCount": 281,
-    "audioFile": "../audio/hatebu-it-0-35dca575b8ce.wav"
+    "date": "2026-05-19T04:41:10.460Z",
+    "summary": "イギリスの大手日刊紙The Guardianが170人以上の作家や批評家を対象にアンケート\u001b[K\nを取って集計した「史上最高の小説100選」を発表した。100位はウィラ・キャザー著\u001b[K\n『マイ・アントニーア』、99位はL・P・ハートレー著『恋を覗く少年』など。",
+    "bookmarkCount": 229,
+    "audioFile": "../audio/hatebu-it-0-ls-all-time_.wav"
   }
 ]
