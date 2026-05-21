@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-news064.html",
-    "title": "Google、AIグラス発売へ　オーディオグラスは26年秋、ディスプレイ内蔵タイプも投入予定",
-    "url": "https://www.itmedia.co.jp/news/articles/2605/20/news064.html",
+    "id": "hatebu-it-1-mo-playbook/",
+    "title": "AI翻訳のDeepLが従業員の20%以上を解雇…CEOのメモにはお決まりの言葉が並んでいた | Business Insider Japan",
+    "url": "https://www.businessinsider.jp/article/2605-ai-pilled-ceo-deepl-layoffs-memo-playbook/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-20T04:41:45.956Z",
-    "summary": "GoogleはAIグラスを発表し、2026年秋にはディスプレイ内蔵タイプも発売予定とし、\u001b[K\n26年秋にはAI搭載の「オーディオグラス」も投入予定と発表した。",
-    "bookmarkCount": 125,
-    "audioFile": "../audio/hatebu-it-3-news064_html.wav"
+    "date": "2026-05-21T04:49:05.194Z",
+    "summary": "テック業界でAI翻訳サービスのDeepLは、従業員の20%以上を解雇し、規模を縮小した\u001b[K\n。CEOのヤレック・クテロフスキーは、解雇通知の内容が最近のAI導入を推進する企\u001b[K\n業で共通化しつつあるものに似ていると指摘した。クテロフスキーは、AIによる構造\u001b[K\n変化を先導する企業として、より小規模なチームやAIを活用した組織体制への転換を\u001b[K\n強調した。",
+    "bookmarkCount": 236,
+    "audioFile": "../audio/hatebu-it-1-mo-playbook_.wav"
   },
   {
-    "id": "hatebu-it-0-ce4d47ab0674",
-    "title": "回帰分析って知ってる？―完全に理解した人へ贈る絶望の谷",
-    "url": "https://zenn.dev/green_tea/articles/0bce4d47ab0674",
+    "id": "hatebu-it-21-db-dynamodb/",
+    "title": "AWS announces ExtendDB, an open source DynamoDB-compatible adapter - AWS",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-extenddb-dynamodb/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-20T04:42:28.907Z",
-    "summary": "この記事は、回帰分析をシンプルなツールから高度な手法まで、6段階に分けて解説\u001b[K\nし、読者が段階的に理解を深められるように構成されています。特に、機械学習寄り\u001b[K\nの読者や因果推論に興味のある読者を対象に、回帰係数の意味や解釈の落とし穴を丁\u001b[K\n寧に解説。回帰分析をブラックボックスのツールとして使い、AIレベルの実装に留ま\u001b[K\nらず、現実世界での応用や限界、因果効果の推定といった高度なトピックまでカバー\u001b[K\n。読者に「絶望の谷」を経験させつつ、その先の「啓発の坂」を一緒に登ることを目\u001b[K\n的としており、回帰分析の奥深さと複雑さを実感させる内容となっています。",
-    "bookmarkCount": 286,
-    "audioFile": "../audio/hatebu-it-0-ce4d47ab0674.wav"
+    "date": "2026-05-21T04:49:25.271Z",
+    "summary": "Amazon Web Services (AWS)が、DynamoDBの制御・データ層APIをプラグイン可能なス\u001b[K\nトレージバックエンドとして利用できるオープンソースプロジェクト「ExtendDB」を\u001b[K\n正式に発表しました。AWS DynamoDBはスケールに応じたミリ秒レベルの高速なサーバ\u001b[K\nーレスデータベースですが、データセンターやオフラインモードなどの環境でDynam\u001b[5D\u001b[K\nDynamoDBが利用できない場合でも、アプリケーションコードを変更せずに利用可能に\u001b[K\nなります。ExtendDBはPostgreSQLを初期バックエンドとし、コミュニティが追加バッ\u001b[K\nクエンドを導入できる柔軟なアーキテクチャを持ち、開発者はローカル開発やCIテス\u001b[K\nトに利用でき、対応DBを搭載したオンプレミスデータセンターでもDynamoDB風のワー\u001b[K\nクロードを運用できます。Apache 2.0ライセンスで公開され、AWSは継続的にメンテ\u001b[K\nナンスと改善を行っています。",
+    "bookmarkCount": 6,
+    "audioFile": "../audio/hatebu-it-21-db-dynamodb_.wav"
   }
 ]
