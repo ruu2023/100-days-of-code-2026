@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-mo-playbook/",
-    "title": "AI翻訳のDeepLが従業員の20%以上を解雇…CEOのメモにはお決まりの言葉が並んでいた | Business Insider Japan",
-    "url": "https://www.businessinsider.jp/article/2605-ai-pilled-ceo-deepl-layoffs-memo-playbook/",
+    "id": "hatebu-it-0-05/22/073948",
+    "title": "AIで誰もがツールを作る時代、実は来ないんじゃないか説 - Sweet Escape",
+    "url": "https://www.keisuke69.net/entry/2026/05/22/073948",
     "source": "Hatena:it",
-    "bookmarkCount": 236,
-    "summary": "テック業界でAI翻訳サービスのDeepLは、従業員の20%以上を解雇し、規模を縮小した\u001b[K\n。CEOのヤレック・クテロフスキーは、解雇通知の内容が最近のAI導入を推進する企\u001b[K\n業で共通化しつつあるものに似ていると指摘した。クテロフスキーは、AIによる構造\u001b[K\n変化を先導する企業として、より小規模なチームやAIを活用した組織体制への転換を\u001b[K\n強調した。",
+    "bookmarkCount": 181,
+    "summary": "ルール: 生成AIでSaaSがなくなるという主張は、現実とは異なる。消費者向けSaaSは\u001b[K\n、たとえ失語症支援アプリが開発者主体であっても、専門知識がなければ作成は難し\u001b[K\nい。IT未熟な非エンジニアは、生成AIを「ツール作る」ことには慣れていても、正し\u001b[K\nく使えるかどうかの指示はできない。BtoB SaaSも、テスト自動化の一部をAIに任せ\u001b[K\nられるが、法改正への対応やセキュリティは依然としてエンジニアが担う。データ管\u001b[K\n理が可能なサービスは残り、1人法人の中小企業は、事務作業をUI化したSaaSが主流\u001b[K\nになる。",
     "category": "AI",
-    "date": "2026-05-21T04:49:05.194Z"
+    "date": "2026-05-22T04:40:58.624Z"
   },
   {
-    "id": "hatebu-it-21-db-dynamodb/",
-    "title": "AWS announces ExtendDB, an open source DynamoDB-compatible adapter - AWS",
-    "url": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-extenddb-dynamodb/",
+    "id": "hatebu-it-8-nx-poolslip/",
+    "title": "New NGINX 0-Day RCE \"nginx-poolslip\" Affects Millions of NGINX Servers",
+    "url": "https://cybersecuritynews.com/nginx-0-day-rce-nginx-poolslip/",
     "source": "Hatena:it",
-    "bookmarkCount": 6,
-    "summary": "Amazon Web Services (AWS)が、DynamoDBの制御・データ層APIをプラグイン可能なス\u001b[K\nトレージバックエンドとして利用できるオープンソースプロジェクト「ExtendDB」を\u001b[K\n正式に発表しました。AWS DynamoDBはスケールに応じたミリ秒レベルの高速なサーバ\u001b[K\nーレスデータベースですが、データセンターやオフラインモードなどの環境でDynam\u001b[5D\u001b[K\nDynamoDBが利用できない場合でも、アプリケーションコードを変更せずに利用可能に\u001b[K\nなります。ExtendDBはPostgreSQLを初期バックエンドとし、コミュニティが追加バッ\u001b[K\nクエンドを導入できる柔軟なアーキテクチャを持ち、開発者はローカル開発やCIテス\u001b[K\nトに利用でき、対応DBを搭載したオンプレミスデータセンターでもDynamoDB風のワー\u001b[K\nクロードを運用できます。Apache 2.0ライセンスで公開され、AWSは継続的にメンテ\u001b[K\nナンスと改善を行っています。",
+    "bookmarkCount": 57,
+    "summary": "セキュリティチームは、NGINX 1.31.0に新たに発見された0日リモートコード実行（\u001b[K\nRCE）脆弱性「nginx-poolslip」を公開した。nginx-riftは2008年以降の脆弱性で、\u001b[K\nNGINXのメモリプール処理機構を標的にする。nginx-riftの修正パッチが公開され、\u001b[K\nNGINX 1.31.0および1.30.1のサーバーが攻撃対象となっていた。NgINXは世界の30〜\u001b[K\n40%のWebサーバーを支えるため、急速なパッチ適用が求められたが、F5は2026年5月\u001b[K\n21日に公開された。nginx-poolslipは、公開前にnginx-riftを修正したにもかかわら\u001b[K\nず、OSレベルメモリ保護技術「ASLR」のバイパスを新たに発見した。nginx-riftは3\u001b[1D\u001b[K\n30日前に行われた修正で対応していたが、nginx-poolslipはその修正では対処されて\u001b[K\nいない。NGINXは主要プラットフォームやロードバランサーの基幹サーバーであり、\u001b[K\n緊急パッチの準備が強く推奨されている。セキュリティ関係者はF5の緊急パッチ配信\u001b[K\nを待つべきだという。",
     "category": "Security",
-    "date": "2026-05-21T04:49:25.271Z"
+    "date": "2026-05-22T04:41:32.503Z"
   }
 ]
