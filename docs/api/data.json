@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-05/22/073948",
-    "title": "AIで誰もがツールを作る時代、実は来ないんじゃないか説 - Sweet Escape",
-    "url": "https://www.keisuke69.net/entry/2026/05/22/073948",
+    "id": "hatebu-it-12-2110885.html",
+    "title": "無料。わずか1.8BでMicrosoft商用APIを凌駕する翻訳用LLM「Hy-MT2」登場",
+    "url": "https://pc.watch.impress.co.jp/docs/news/2110885.html",
     "source": "Hatena:it",
-    "bookmarkCount": 181,
-    "summary": "ルール: 生成AIでSaaSがなくなるという主張は、現実とは異なる。消費者向けSaaSは\u001b[K\n、たとえ失語症支援アプリが開発者主体であっても、専門知識がなければ作成は難し\u001b[K\nい。IT未熟な非エンジニアは、生成AIを「ツール作る」ことには慣れていても、正し\u001b[K\nく使えるかどうかの指示はできない。BtoB SaaSも、テスト自動化の一部をAIに任せ\u001b[K\nられるが、法改正への対応やセキュリティは依然としてエンジニアが担う。データ管\u001b[K\n理が可能なサービスは残り、1人法人の中小企業は、事務作業をUI化したSaaSが主流\u001b[K\nになる。",
+    "bookmarkCount": 173,
+    "summary": "中国Tencentが発表した翻訳用大規模言語モデル「Hy-MT2」は、Microsoft商用APIを\u001b[K\n凌駕する性能を持ち、少量のモデルでも競合を上回る。オープンソースの7Bモデルと\u001b[K\n初のMoEアーキテクチャモデルを搭載し、1.8BパラメータでもMicrosoft商用APIと同\u001b[K\n等の翻訳スコアを達成。さらに、1.8Bモデルを1.25bit量子化すると容量が440MBに縮\u001b[K\n小し、モバイルチップで容易にローカル推論が可能。Apple A15プロセッサ上では従\u001b[K\n来の4bit量子化版と比較して1.5倍高速。要するに、低コストで高性能なオープンソ\u001b[K\nース翻訳モデルが登場した。",
     "category": "AI",
-    "date": "2026-05-22T04:40:58.624Z"
+    "date": "2026-05-23T04:12:30.411Z"
   },
   {
-    "id": "hatebu-it-8-nx-poolslip/",
-    "title": "New NGINX 0-Day RCE \"nginx-poolslip\" Affects Millions of NGINX Servers",
-    "url": "https://cybersecuritynews.com/nginx-0-day-rce-nginx-poolslip/",
+    "id": "hatebu-it-0-0.html?p=all",
+    "title": "テレ朝、鈴木紗理奈事務所と「誠意をもってやりとり」明かす　あのちゃんが番組で「嫌い」名指し放送、「配慮が足りず」",
+    "url": "https://www.j-cast.com/2026/05/22514970.html?p=all",
     "source": "Hatena:it",
-    "bookmarkCount": 57,
-    "summary": "セキュリティチームは、NGINX 1.31.0に新たに発見された0日リモートコード実行（\u001b[K\nRCE）脆弱性「nginx-poolslip」を公開した。nginx-riftは2008年以降の脆弱性で、\u001b[K\nNGINXのメモリプール処理機構を標的にする。nginx-riftの修正パッチが公開され、\u001b[K\nNGINX 1.31.0および1.30.1のサーバーが攻撃対象となっていた。NgINXは世界の30〜\u001b[K\n40%のWebサーバーを支えるため、急速なパッチ適用が求められたが、F5は2026年5月\u001b[K\n21日に公開された。nginx-poolslipは、公開前にnginx-riftを修正したにもかかわら\u001b[K\nず、OSレベルメモリ保護技術「ASLR」のバイパスを新たに発見した。nginx-riftは3\u001b[1D\u001b[K\n30日前に行われた修正で対応していたが、nginx-poolslipはその修正では対処されて\u001b[K\nいない。NGINXは主要プラットフォームやロードバランサーの基幹サーバーであり、\u001b[K\n緊急パッチの準備が強く推奨されている。セキュリティ関係者はF5の緊急パッチ配信\u001b[K\nを待つべきだという。",
+    "bookmarkCount": 151,
+    "summary": "テレ朝系のテレビ朝日は18日放送の「あのちゃんねる」で、鈴木紗理奈さんが出演し\u001b[K\nていない番組であのさんの名前を名指ししたとして、「ショック」「いじめやん」と\u001b[K\n投稿したことを受け、「あの様にとっても本意ではない状況を招いてしまいました」\u001b[K\nと謝罪した。テレビ朝日広報部は、番組スタッフの配慮が足りず、鈴木さんの事務所\u001b[K\nとは誠意をもってやりとりをさせていただいておりますと説明している。",
     "category": "Security",
-    "date": "2026-05-22T04:41:32.503Z"
+    "date": "2026-05-23T04:12:59.984Z"
   }
 ]
