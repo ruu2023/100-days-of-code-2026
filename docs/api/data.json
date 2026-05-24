@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-12-2110885.html",
-    "title": "無料。わずか1.8BでMicrosoft商用APIを凌駕する翻訳用LLM「Hy-MT2」登場",
-    "url": "https://pc.watch.impress.co.jp/docs/news/2110885.html",
+    "id": "hatebu-it-19-9dc787b6c191",
+    "title": "日々の開発で使っているClaude Code Skills",
+    "url": "https://zenn.dev/remitaid/articles/4f9dc787b6c191",
     "source": "Hatena:it",
-    "bookmarkCount": 173,
-    "summary": "中国Tencentが発表した翻訳用大規模言語モデル「Hy-MT2」は、Microsoft商用APIを\u001b[K\n凌駕する性能を持ち、少量のモデルでも競合を上回る。オープンソースの7Bモデルと\u001b[K\n初のMoEアーキテクチャモデルを搭載し、1.8BパラメータでもMicrosoft商用APIと同\u001b[K\n等の翻訳スコアを達成。さらに、1.8Bモデルを1.25bit量子化すると容量が440MBに縮\u001b[K\n小し、モバイルチップで容易にローカル推論が可能。Apple A15プロセッサ上では従\u001b[K\n来の4bit量子化版と比較して1.5倍高速。要するに、低コストで高性能なオープンソ\u001b[K\nース翻訳モデルが登場した。",
+    "bookmarkCount": 472,
+    "summary": "開発時に使っているClaude Code Skillsを紹介しました。brainstorming, subagent\u001b[8D\u001b[K\nsubagent-driven-development, executing-plans, dig, decomposition, drawioの5\u001b[1D\u001b[K\n5つを紹介し、特にdig、decomposition、drawioの3つを実際に使い始めて効果を実感\u001b[K\nしていると述べています。また、他のSkillも試してみたいという意欲も語っていま\u001b[K\nす。",
     "category": "AI",
-    "date": "2026-05-23T04:12:30.411Z"
+    "date": "2026-05-24T04:43:37.523Z"
   },
   {
-    "id": "hatebu-it-0-0.html?p=all",
-    "title": "テレ朝、鈴木紗理奈事務所と「誠意をもってやりとり」明かす　あのちゃんが番組で「嫌い」名指し放送、「配慮が足りず」",
-    "url": "https://www.j-cast.com/2026/05/22514970.html?p=all",
+    "id": "hatebu-it-3-a2ecb8276e8c",
+    "title": "OpenClawで脆弱性情報収集と自社システムチェック判定を定期自動稼働させた - Qiita",
+    "url": "https://qiita.com/taks/items/5ba334aca2ecb8276e8c",
     "source": "Hatena:it",
-    "bookmarkCount": 151,
-    "summary": "テレ朝系のテレビ朝日は18日放送の「あのちゃんねる」で、鈴木紗理奈さんが出演し\u001b[K\nていない番組であのさんの名前を名指ししたとして、「ショック」「いじめやん」と\u001b[K\n投稿したことを受け、「あの様にとっても本意ではない状況を招いてしまいました」\u001b[K\nと謝罪した。テレビ朝日広報部は、番組スタッフの配慮が足りず、鈴木さんの事務所\u001b[K\nとは誠意をもってやりとりをさせていただいておりますと説明している。",
+    "bookmarkCount": 6,
+    "summary": "CVE情報の自動収集は、単に収集するだけでは運用に乗りません。特に本番・検証・\u001b[K\n踏み台・DB・メールなど、役割の異なるサーバーが混在している環境では、どのサー\u001b[K\nバーに関係するかを毎回人間が判断する必要があります。そこで、OpenClawのcronで\u001b[K\n公開CVE情報を定期取得し、重要度の高いものだけをSlackに通知する仕組みを構築し\u001b[K\nました。通知の末尾に「自社候補」と「重要チェックポイント」を示すことで、受信\u001b[K\n者がすぐに次の判断を取れるようにしています。要するに、脆弱性情報の「収集」で\u001b[K\nはなく「初動判断の短縮」が目的です。",
     "category": "Security",
-    "date": "2026-05-23T04:12:59.984Z"
+    "date": "2026-05-24T04:44:19.946Z"
   }
 ]
