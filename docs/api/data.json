@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-19-9dc787b6c191",
-    "title": "日々の開発で使っているClaude Code Skills",
-    "url": "https://zenn.dev/remitaid/articles/4f9dc787b6c191",
+    "id": "hatebu-it-22--297-15702-9",
+    "title": "生成AIの安全性入門 | 技術評論社",
+    "url": "https://gihyo.jp/book/2026/978-4-297-15702-9",
     "source": "Hatena:it",
-    "bookmarkCount": 472,
-    "summary": "開発時に使っているClaude Code Skillsを紹介しました。brainstorming, subagent\u001b[8D\u001b[K\nsubagent-driven-development, executing-plans, dig, decomposition, drawioの5\u001b[1D\u001b[K\n5つを紹介し、特にdig、decomposition、drawioの3つを実際に使い始めて効果を実感\u001b[K\nしていると述べています。また、他のSkillも試してみたいという意欲も語っていま\u001b[K\nす。",
+    "bookmarkCount": 175,
+    "summary": "生成AIの安全性に関する入門書「生成AIの安全性入門」を出版。エンジニアや研究者\u001b[K\n向けに、AI安全性とは何か、社会的な動向、具体的なリスク分類、理想的な振る舞い\u001b[K\nモデルスペック、評価方法、レッドチーミング、安全性向上技術を体系的に解説。事\u001b[K\n前学習やSFT、RLHF、物理世界への適用に至るまで、モデルレベルからシステムレベ\u001b[K\nルまで網羅。著はAI安全性研究の専門家で、実務経験を活かした安全性向上の重要性\u001b[K\nを強調。定価3,300円（税込）で、2026年6月24日発売。",
     "category": "AI",
-    "date": "2026-05-24T04:43:37.523Z"
+    "date": "2026-05-25T04:57:15.039Z"
   },
   {
-    "id": "hatebu-it-3-a2ecb8276e8c",
-    "title": "OpenClawで脆弱性情報収集と自社システムチェック判定を定期自動稼働させた - Qiita",
-    "url": "https://qiita.com/taks/items/5ba334aca2ecb8276e8c",
+    "id": "hatebu-it-6-1985c168ed97",
+    "title": "パソコンが「なんか変」と感じたら、Microsoftの無料セキュリティ(msertツール)を使おう",
+    "url": "https://zenn.dev/arumenoy/articles/2e1985c168ed97",
     "source": "Hatena:it",
-    "bookmarkCount": 6,
-    "summary": "CVE情報の自動収集は、単に収集するだけでは運用に乗りません。特に本番・検証・\u001b[K\n踏み台・DB・メールなど、役割の異なるサーバーが混在している環境では、どのサー\u001b[K\nバーに関係するかを毎回人間が判断する必要があります。そこで、OpenClawのcronで\u001b[K\n公開CVE情報を定期取得し、重要度の高いものだけをSlackに通知する仕組みを構築し\u001b[K\nました。通知の末尾に「自社候補」と「重要チェックポイント」を示すことで、受信\u001b[K\n者がすぐに次の判断を取れるようにしています。要するに、脆弱性情報の「収集」で\u001b[K\nはなく「初動判断の短縮」が目的です。",
+    "bookmarkCount": 503,
+    "summary": "マイクロソフト社が公開している無料のマルウェア検出ツール「msert」（msert.ex\u001b[8D\u001b[K\nmsert.exe）をダウンロードして使用し、マルウェアを検出し、修復する無料セキュ\u001b[K\nリティツールを導入しようとしています。Windowsのパソコンが「なんか変」と感じ\u001b[K\nたら、msertがその変なページを見てしまったあとにレスキュー隊として機能します\u001b[K\n。防御層としてMicrosoft Defender（毎日の警備員）、MRT（月例パトロール隊）が\u001b[K\n常駐していますが、msertは有料ソフトが使えない状況でも「なんか変」を感じたと\u001b[K\nきのレスキュー隊です。",
     "category": "Security",
-    "date": "2026-05-24T04:44:19.946Z"
+    "date": "2026-05-25T04:57:52.755Z"
   }
 ]
