@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-22--297-15702-9",
-    "title": "生成AIの安全性入門 | 技術評論社",
-    "url": "https://gihyo.jp/book/2026/978-4-297-15702-9",
+    "id": "hatebu-it-1-f=p502258all",
+    "title": "『できるGoogle NotebookLM　可能性は無限大！自分専用AIノート活用法』（全文） | Impress Viewer",
+    "url": "https://viewer.impress.co.jp/viewer.html?group_name=a4cba557_6a0bcfcd3e1dc&pdf=p502258all",
     "source": "Hatena:it",
-    "bookmarkCount": 175,
-    "summary": "生成AIの安全性に関する入門書「生成AIの安全性入門」を出版。エンジニアや研究者\u001b[K\n向けに、AI安全性とは何か、社会的な動向、具体的なリスク分類、理想的な振る舞い\u001b[K\nモデルスペック、評価方法、レッドチーミング、安全性向上技術を体系的に解説。事\u001b[K\n前学習やSFT、RLHF、物理世界への適用に至るまで、モデルレベルからシステムレベ\u001b[K\nルまで網羅。著はAI安全性研究の専門家で、実務経験を活かした安全性向上の重要性\u001b[K\nを強調。定価3,300円（税込）で、2026年6月24日発売。",
+    "bookmarkCount": 120,
+    "summary": "『できるGoogle NotebookLM』は、ユーザーがノートを保存・検索できるAIノートツ\u001b[K\nールだが、記事取得に失敗。Google NotebookLMの全機能はGoogleアカウントが必要\u001b[K\nなため、サイト側の制限が考えられる。",
     "category": "AI",
-    "date": "2026-05-25T04:57:15.039Z"
+    "date": "2026-05-26T04:38:59.190Z"
   },
   {
-    "id": "hatebu-it-6-1985c168ed97",
-    "title": "パソコンが「なんか変」と感じたら、Microsoftの無料セキュリティ(msertツール)を使おう",
-    "url": "https://zenn.dev/arumenoy/articles/2e1985c168ed97",
+    "id": "hatebu-it-4-2110982.html",
+    "title": "IPA、「情報セキュリティ10大脅威 2026」の個人編ハンドブックなど、学習や対策に役立つ資料を公開　",
+    "url": "https://internet.watch.impress.co.jp/docs/news/2110982.html",
     "source": "Hatena:it",
-    "bookmarkCount": 503,
-    "summary": "マイクロソフト社が公開している無料のマルウェア検出ツール「msert」（msert.ex\u001b[8D\u001b[K\nmsert.exe）をダウンロードして使用し、マルウェアを検出し、修復する無料セキュ\u001b[K\nリティツールを導入しようとしています。Windowsのパソコンが「なんか変」と感じ\u001b[K\nたら、msertがその変なページを見てしまったあとにレスキュー隊として機能します\u001b[K\n。防御層としてMicrosoft Defender（毎日の警備員）、MRT（月例パトロール隊）が\u001b[K\n常駐していますが、msertは有料ソフトが使えない状況でも「なんか変」を感じたと\u001b[K\nきのレスキュー隊です。",
+    "bookmarkCount": 111,
+    "summary": "独立行政法人情報処理推進機構（IPA）が5月21日に公開した「情報セキュリティ10大\u001b[K\n脅威 2026」の個人編ハンドブックと対策マッピングシート。  「情報セキュリティ\u001b[K\n10大脅威 2026」は、2025年に発生した社会的に影響が大きかった情報セキュリティ\u001b[K\n事案を、10大脅威選考会が決定したもので、1月に発表された。 個人編のハンドブッ\u001b[K\nクは脅威の具体的な手口や対策をスライド形式で解説。PDF版とPowerPoint版が配布\u001b[K\nされ、資料の使用方法や引用説明もPDFに記載されている。 対策マッピングシートは\u001b[K\nExcelファイルで、被害の予防と早期検知のシートを用意。 加害防止と被害対策のシ\u001b[K\nートで、自身が被害者にも加害者にもなりうるネット上の誹謗・中傷・デマにどのよ\u001b[K\nうに対処すべきかを確認できる。",
     "category": "Security",
-    "date": "2026-05-25T04:57:52.755Z"
+    "date": "2026-05-26T04:39:21.765Z"
   }
 ]
