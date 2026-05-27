@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-f=p502258all",
-    "title": "『できるGoogle NotebookLM　可能性は無限大！自分専用AIノート活用法』（全文） | Impress Viewer",
-    "url": "https://viewer.impress.co.jp/viewer.html?group_name=a4cba557_6a0bcfcd3e1dc&pdf=p502258all",
+    "id": "hatebu-it-0-754918/body/",
+    "title": "【超入門】Claude Codeの使い方〜初心者が1日でCLAUDE.mdとskillsを作る最短手順〜",
+    "url": "https://newspicks.com/news/16754918/body/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-26T04:38:59.190Z",
-    "summary": "『できるGoogle NotebookLM』は、ユーザーがノートを保存・検索できるAIノートツ\u001b[K\nールだが、記事取得に失敗。Google NotebookLMの全機能はGoogleアカウントが必要\u001b[K\nなため、サイト側の制限が考えられる。",
-    "bookmarkCount": 120,
-    "audioFile": "../audio/hatebu-it-1-f_p502258all.wav"
+    "date": "2026-05-27T04:54:15.434Z",
+    "summary": "Claude CodeはChatGPTとは異なり、作業フォルダに入ってファイルを読み、編集、コ\u001b[K\nマンド実行できるAIです。まずは作業環境を整え、作業環境ごとに説明を繰り返さな\u001b[K\nいよう`CLAUDE.md`と最小限の`skills`を作成します。初心者が1日で作る最低構成は\u001b[K\n、`CLAUDE.md`、安全な作業フォルダ、作業別スキル3つで、これらを1つずつ作り、\u001b[K\n毎回説明を減らすことで、記事タイトル案作成や記事アジェンダ作成、議事録整理な\u001b[K\nどのよく使う作業を自動化できるようになります。",
+    "bookmarkCount": 218,
+    "audioFile": "../audio/hatebu-it-0-754918_body_.wav"
   },
   {
-    "id": "hatebu-it-4-2110982.html",
-    "title": "IPA、「情報セキュリティ10大脅威 2026」の個人編ハンドブックなど、学習や対策に役立つ資料を公開　",
-    "url": "https://internet.watch.impress.co.jp/docs/news/2110982.html",
+    "id": "hatebu-it-11-2111552.html",
+    "title": "「7-Zip」にヒープバッファーオーバーフローの脆弱性、最新版への更新を／CVSSスコアは「8.8」（High）、GitHubが報告",
+    "url": "https://forest.watch.impress.co.jp/docs/news/2111552.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-26T04:39:21.765Z",
-    "summary": "独立行政法人情報処理推進機構（IPA）が5月21日に公開した「情報セキュリティ10大\u001b[K\n脅威 2026」の個人編ハンドブックと対策マッピングシート。  「情報セキュリティ\u001b[K\n10大脅威 2026」は、2025年に発生した社会的に影響が大きかった情報セキュリティ\u001b[K\n事案を、10大脅威選考会が決定したもので、1月に発表された。 個人編のハンドブッ\u001b[K\nクは脅威の具体的な手口や対策をスライド形式で解説。PDF版とPowerPoint版が配布\u001b[K\nされ、資料の使用方法や引用説明もPDFに記載されている。 対策マッピングシートは\u001b[K\nExcelファイルで、被害の予防と早期検知のシートを用意。 加害防止と被害対策のシ\u001b[K\nートで、自身が被害者にも加害者にもなりうるネット上の誹謗・中傷・デマにどのよ\u001b[K\nうに対処すべきかを確認できる。",
-    "bookmarkCount": 111,
-    "audioFile": "../audio/hatebu-it-4-2110982_html.wav"
+    "date": "2026-05-27T04:54:39.566Z",
+    "summary": "米GitHubは5月22日、7-Zip（v26.01）にヒープバッファーオーバーフローの脆弱性（\u001b[K\nCVE-2026-48095）があることを報告した。この脆弱性は、NTFSアーカイブ処理を行う\u001b[K\n「NtfsHandler.cpp」の「GetCuSize()」関数が32をシフト指数として使用する設計に\u001b[K\n起因し、32をシフトするとバッファサイズは1バイトに縮小され、ヒープバッファー\u001b[K\nオーバーフローが発生する。CVSSスコアは「8.8」（High）で、開発チームが3日後に\u001b[K\n自動更新で修正済み。7-ZipはオープンソースでGNU LGPLライセンス、商用利用も許\u001b[K\n可されているが、手動での更新が必要である。",
+    "bookmarkCount": 36,
+    "audioFile": "../audio/hatebu-it-11-2111552_html.wav"
   }
 ]
