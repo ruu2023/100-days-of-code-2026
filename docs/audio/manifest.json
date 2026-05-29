@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-okie-history",
-    "title": "「JWT を localStorage に置くな」はなぜ言われるのか、Cookie 回帰までの時系列整理",
-    "url": "https://zenn.dev/khale/articles/web-session-jwt-cookie-history",
+    "id": "hatebu-it-6-su-hua-siyou",
+    "title": "Claude Codeですべての日常業務を爆速化しよう！",
+    "url": "https://speakerdeck.com/minorun365/claude-codedesubetenori-chang-ye-wu-wobao-su-hua-siyou",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-28T04:49:03.605Z",
-    "summary": "この記事は、JWT と Cookie セッションの関係についての歴史的変遷と、なぜ Cook\u001b[4D\u001b[K\nCookie への回帰が議論されるのかを解説しています。\n\n昔は Cookie によるセッション管理が標準で、サーバ側でセッション ID を Cookie\u001b[6D\u001b[K\nCookie に保存し、クライアントはその Cookie をサーバに送る形でした。しかし、\u001b[K\nCookie 規制の強化により、生の JWT を localStorage に保存してクライアントがセ\u001b[K\nッションを保持するケースが増えました。\n\nさらに、クライアント側で JWT をクライアントに保持することは危険と判断され、\u001b[K\nBFF（バックエンドファサード）に JWT を隔離する形へと進化しました。最終的に、\u001b[K\nJWT は不要と判断され、Cookie によるセッション管理へと戻る流れが形成されまし\u001b[K\nた。\n\n記事は、Cookie セッションへの回帰を支持する技術的・規制的な理由を段階的に整\u001b[K\n理しています。Cookie セッションが最もブラウザ境界に適した解決策と結論付けて\u001b[K\nいますが、Next.js などのクライアント主導のフレームワークでも、サーバ側機能を\u001b[K\n活用して BFF を構築すれば Cookie セッションの要件を満たせることができると指\u001b[K\n摘しています。\n\n結論として、Cookie セッションは単に「2005 年に戻った」わけではなく、ブラウザ\u001b[K\nが提供するプロトコル選択（Cookie vs. localStorage）を合理的に選んだ結果とし\u001b[K\nて、ブラウザ境界に対するベストな解決策と評価されています。ただし、Next.js な\u001b[K\nどのフレームワークを使ったプロジェクトでは、BFF の実装方法が異なるため、サー\u001b[K\nバ側機能を活用して Cookie セッションを再現する必要がある点に注意が必要です。",
-    "bookmarkCount": 365,
-    "audioFile": "../audio/hatebu-it-1-okie-history.wav"
+    "date": "2026-05-29T04:47:46.579Z",
+    "summary": "クロード・コードが新機能を搭載し、日常業務の効率化を加速させる\nクラウドAIが自動生成し、テキストデータの編集を1秒以内に完了\nこの記事では",
+    "bookmarkCount": 419,
+    "audioFile": "../audio/hatebu-it-6-su-hua-siyou.wav"
   },
   {
-    "id": "hatebu-it-0-2104573.html",
-    "title": "最新のWindowsでアプリのインストール先はどこにすべき？ Windowsのフォルダー構成を正しく理解しよう／「Program Files」や「Users」などにはそれぞれ意味と役割がある【特集・集中企画】",
-    "url": "https://forest.watch.impress.co.jp/docs/special/2104573.html",
+    "id": "hatebu-it-14-2112811.html",
+    "title": "Microsoft、立て続けのゼロデイ脆弱性公表を非難。発見者は7月に報復と予告",
+    "url": "https://pc.watch.impress.co.jp/docs/news/2112811.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-28T04:49:47.211Z",
-    "summary": "最新のWindowsでは、アプリケーションをどこにインストールすべきかについて混乱\u001b[K\nが生じています。ユーザーが作成したアプリのファイルをC:Program Filesにインス\u001b[K\nトールする例や、ブラウザーなどのアプリのファイルをC:Usersにインストールする\u001b[K\n例が多数見られます。こうした混乱を解消するため、日本マイクロソフトが公開した\u001b[K\nWindowsのフォルダー構成の解説記事が注目を集めています。記事では、Windowsのフ\u001b[K\nォルダー構成とアプリケーションのインストール先に関するルールと、推奨されるイ\u001b[K\nンストール先を解説しています。",
-    "bookmarkCount": 111,
-    "audioFile": "../audio/hatebu-it-0-2104573_html.wav"
+    "date": "2026-05-29T04:48:10.141Z",
+    "summary": "Microsoftは、直近数カ月で公開されたゼロデイ脆弱性について、協調的脆弱性開示\u001b[K\n（Coordinated Vulnerability Disclosure、CVD）に基づく情報開示を行わなかった\u001b[K\nとして、その対応を非難した。  同社は、攻撃者にパッチ未適用の脆弱性の概念実証\u001b[K\nコードを渡す行為は、決して正当化されるものではなく、深刻な結果をもたらしうる\u001b[K\nとし、断固として反対する姿勢を示した。  さらに、セキュリティパッチの開発を進\u001b[K\nめ、法執行機関とも連携して法的措置を講じるとしている。",
+    "bookmarkCount": 8,
+    "audioFile": "../audio/hatebu-it-14-2112811_html.wav"
   }
 ]
