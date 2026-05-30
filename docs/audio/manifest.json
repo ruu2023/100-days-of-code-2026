@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-6-su-hua-siyou",
-    "title": "Claude Codeですべての日常業務を爆速化しよう！",
-    "url": "https://speakerdeck.com/minorun365/claude-codedesubetenori-chang-ye-wu-wobao-su-hua-siyou",
+    "id": "hatebu-it-19-8dcd39fbe62f",
+    "title": "16万スター超のCLAUDE.mdに学ぶ、Claude Codeを暴走させない運用術 - Qiita",
+    "url": "https://qiita.com/4q_sano/items/dc26f7468dcd39fbe62f",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-29T04:47:46.579Z",
-    "summary": "クロード・コードが新機能を搭載し、日常業務の効率化を加速させる\nクラウドAIが自動生成し、テキストデータの編集を1秒以内に完了\nこの記事では",
-    "bookmarkCount": 419,
-    "audioFile": "../audio/hatebu-it-6-su-hua-siyou.wav"
+    "date": "2026-05-30T04:31:48.143Z",
+    "summary": "Claude Code は非常に強力なコード生成ツールですが、長時間動かすとコードを勝手\u001b[K\nにリファクタリングしたり、既存設計を壊したりするリスクがあります。AI Coding\u001b[6D\u001b[K\nCoding Agent に明確な行動制約を設けていないことが原因で、CLAUDE.md の運用が\u001b[K\n重要視されています。CLAUDE.md は、Claude Code の「振る舞いを制御するための永\u001b[K\n続的な指示ファイル」で、README に例えられるように、プロジェクトごとに書くの\u001b[K\nではなく、全プロジェクトで共通に使える行動原則をまとめたファイルが注目されて\u001b[K\nいます。\n\nCLAUDE.md は単なる設定ではなく、Claude Code が安全に長時間動作するための「検\u001b[K\n証ループ」や「行動制御」の役割を担います。Andrej Karpathy のリポジトリでは、\u001b[K\nAI の典型的なコード生成の失敗を避けるための行動原則（勝手な前提で進める、過\u001b[K\n剰に複雑にする、関係ないコードまで触る）がまとめられ、CLAUDE.md がそれらの失\u001b[K\n敗を防ぐための「制約」として機能します。\n\nCLAUDE.md は、プラグインやスキルと違い、Claude Code がどのように振る舞うべき\u001b[K\nかを制御するものであり、スキルだけを入れても制約がなければ暴走のリスクが残り\u001b[K\nます。そのため、CLAUDE.md で基本的な制約を固定し、プラグインやスキルで作業能\u001b[K\n力を拡張するという組み合わせが推奨されています。\n\nまた、グローバルなCLAUDE.md を全プロジェクトで共通の行動原則として設定するこ\u001b[K\nとも有効で、プロジェクト固有のビルドコマンドやディレクトリ構成、個別ルールは\u001b[K\nプロジェクト直下の CLAUDE.md に書くことで、混乱や一貫性の欠如を防ぎます。CL\u001b[2D\u001b[K\nCLAUDE.md はプロジェクトごとに置くことも可能ですが、グローバル化することで、\u001b[K\nCLAude Code の振る舞いを一貫させることができます。\n\nCLAUDE.md は、Claude Code を安全に使うための「土台」であり、「おす」として、\u001b[K\n読むことなく動かすのではなく、読んでから実行する習慣が重要です。要するに、C\u001b[1D\u001b[K\nCLAUDE.md を活用して、Claude Code を安全に使うための土台を整えることが、AIコ\u001b[K\nーディングの効率と品質を高める鍵となります。",
+    "bookmarkCount": 347,
+    "audioFile": "../audio/hatebu-it-19-8dcd39fbe62f.wav"
   },
   {
-    "id": "hatebu-it-14-2112811.html",
-    "title": "Microsoft、立て続けのゼロデイ脆弱性公表を非難。発見者は7月に報復と予告",
-    "url": "https://pc.watch.impress.co.jp/docs/news/2112811.html",
+    "id": "hatebu-it-21-thub-banned/",
+    "title": "Windowsのゼロデイ脆弱性を投稿したセキュリティ研究者が「Microsoftの報復でGitHubから追放された」と主張",
+    "url": "https://gigazine.net/news/20260529-nightmare-eclipse-github-banned/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-29T04:48:10.141Z",
-    "summary": "Microsoftは、直近数カ月で公開されたゼロデイ脆弱性について、協調的脆弱性開示\u001b[K\n（Coordinated Vulnerability Disclosure、CVD）に基づく情報開示を行わなかった\u001b[K\nとして、その対応を非難した。  同社は、攻撃者にパッチ未適用の脆弱性の概念実証\u001b[K\nコードを渡す行為は、決して正当化されるものではなく、深刻な結果をもたらしうる\u001b[K\nとし、断固として反対する姿勢を示した。  さらに、セキュリティパッチの開発を進\u001b[K\nめ、法執行機関とも連携して法的措置を講じるとしている。",
-    "bookmarkCount": 8,
-    "audioFile": "../audio/hatebu-it-14-2112811_html.wav"
+    "date": "2026-05-30T04:32:13.725Z",
+    "summary": "セキュリティ研究者Nightmare-Eclipse氏が、Microsoftの対応を「報復」と主張し、\u001b[K\nGitHubアカウントを削除されたと訴えたことが発端となった。同氏は、4月からMicr\u001b[4D\u001b[K\nMicrosoftが提示した脆弱性情報に不満を抱き、報奨金の未払いや「デッドマンスイ\u001b[K\nッチ」によるGitHubアカウントの停止を理由にMicrosoftから「お前の人生を台無し\u001b[K\nにしてやる」と脅されたと語っている。Microsoftは脆弱性の情報提供を拒否し、対\u001b[K\n応の透明性に疑問を呈している。",
+    "bookmarkCount": 9,
+    "audioFile": "../audio/hatebu-it-21-thub-banned_.wav"
   }
 ]
