@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-19-8dcd39fbe62f",
-    "title": "16万スター超のCLAUDE.mdに学ぶ、Claude Codeを暴走させない運用術 - Qiita",
-    "url": "https://qiita.com/4q_sano/items/dc26f7468dcd39fbe62f",
+    "id": "hatebu-it-14-noxue-bifang",
+    "title": "AI 時代のソフトウェア設計の学び方",
+    "url": "https://speakerdeck.com/masuda220/ai-shi-dai-nosohutoueashe-ji-noxue-bifang",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-05-30T04:31:48.143Z",
-    "summary": "Claude Code は非常に強力なコード生成ツールですが、長時間動かすとコードを勝手\u001b[K\nにリファクタリングしたり、既存設計を壊したりするリスクがあります。AI Coding\u001b[6D\u001b[K\nCoding Agent に明確な行動制約を設けていないことが原因で、CLAUDE.md の運用が\u001b[K\n重要視されています。CLAUDE.md は、Claude Code の「振る舞いを制御するための永\u001b[K\n続的な指示ファイル」で、README に例えられるように、プロジェクトごとに書くの\u001b[K\nではなく、全プロジェクトで共通に使える行動原則をまとめたファイルが注目されて\u001b[K\nいます。\n\nCLAUDE.md は単なる設定ではなく、Claude Code が安全に長時間動作するための「検\u001b[K\n証ループ」や「行動制御」の役割を担います。Andrej Karpathy のリポジトリでは、\u001b[K\nAI の典型的なコード生成の失敗を避けるための行動原則（勝手な前提で進める、過\u001b[K\n剰に複雑にする、関係ないコードまで触る）がまとめられ、CLAUDE.md がそれらの失\u001b[K\n敗を防ぐための「制約」として機能します。\n\nCLAUDE.md は、プラグインやスキルと違い、Claude Code がどのように振る舞うべき\u001b[K\nかを制御するものであり、スキルだけを入れても制約がなければ暴走のリスクが残り\u001b[K\nます。そのため、CLAUDE.md で基本的な制約を固定し、プラグインやスキルで作業能\u001b[K\n力を拡張するという組み合わせが推奨されています。\n\nまた、グローバルなCLAUDE.md を全プロジェクトで共通の行動原則として設定するこ\u001b[K\nとも有効で、プロジェクト固有のビルドコマンドやディレクトリ構成、個別ルールは\u001b[K\nプロジェクト直下の CLAUDE.md に書くことで、混乱や一貫性の欠如を防ぎます。CL\u001b[2D\u001b[K\nCLAUDE.md はプロジェクトごとに置くことも可能ですが、グローバル化することで、\u001b[K\nCLAude Code の振る舞いを一貫させることができます。\n\nCLAUDE.md は、Claude Code を安全に使うための「土台」であり、「おす」として、\u001b[K\n読むことなく動かすのではなく、読んでから実行する習慣が重要です。要するに、C\u001b[1D\u001b[K\nCLAUDE.md を活用して、Claude Code を安全に使うための土台を整えることが、AIコ\u001b[K\nーディングの効率と品質を高める鍵となります。",
-    "bookmarkCount": 347,
-    "audioFile": "../audio/hatebu-it-19-8dcd39fbe62f.wav"
+    "date": "2026-05-31T04:56:39.663Z",
+    "summary": "AI時代のソフトウェア設計の学び方では、方向性として自動化（無人化）と人の活動\u001b[K\n支援を比較し、どちらがコストダウンやスピードアップ、品質を確保するかが議論さ\u001b[K\nれます。デジタル化が進む中、事業活動、ソフトウェア開発、組織開発の三者が深く\u001b[K\n結びつき相互作用し、大きな事前設計、設計の反復、人的活動支援のバランスが重要\u001b[K\nとされます。また、AI技術は人を介在させずに判断・行動を支援し、能力を増強する\u001b[K\nことでコストダウンやスピードアップ、一定品質を達成する方向性が示されています\u001b[K\n。",
+    "bookmarkCount": 291,
+    "audioFile": "../audio/hatebu-it-14-noxue-bifang.wav"
   },
   {
-    "id": "hatebu-it-21-thub-banned/",
-    "title": "Windowsのゼロデイ脆弱性を投稿したセキュリティ研究者が「Microsoftの報復でGitHubから追放された」と主張",
-    "url": "https://gigazine.net/news/20260529-nightmare-eclipse-github-banned/",
+    "id": "hatebu-it-3-12546fb399e7",
+    "title": "全部Terraformで管理してはいけない？「かつての最適解」が生んだ管理の壁と、私たちが引き直した境界線",
+    "url": "https://zenn.dev/jinjer_techblog/articles/5812546fb399e7",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-05-30T04:32:13.725Z",
-    "summary": "セキュリティ研究者Nightmare-Eclipse氏が、Microsoftの対応を「報復」と主張し、\u001b[K\nGitHubアカウントを削除されたと訴えたことが発端となった。同氏は、4月からMicr\u001b[4D\u001b[K\nMicrosoftが提示した脆弱性情報に不満を抱き、報奨金の未払いや「デッドマンスイ\u001b[K\nッチ」によるGitHubアカウントの停止を理由にMicrosoftから「お前の人生を台無し\u001b[K\nにしてやる」と脅されたと語っている。Microsoftは脆弱性の情報提供を拒否し、対\u001b[K\n応の透明性に疑問を呈している。",
-    "bookmarkCount": 9,
-    "audioFile": "../audio/hatebu-it-21-thub-banned_.wav"
+    "date": "2026-05-31T04:59:36.722Z",
+    "summary": "ジンジャーSREが「Terraformのみで全てのインフラを管理しよう」とした結果、開発\u001b[K\nチームのリリースサイクルが遅れ、開発スピードに悪影響が出るというジレンマに直\u001b[K\n面しました。SEがJiraで依頼を受け、SREがコードを修正・レビューして全環境に適\u001b[K\n用するという、開発とインフラの責任境界がずれていたことが問題の根源です。SEは\u001b[K\nSREのリクエストを待たされるのに対し、SREはリリースサイクルの速さで対応を迫ら\u001b[K\nれ、両チームの機動力が低下していました。そこで、インフラコードとデプロイコー\u001b[K\nドを明確に分離し、SEは自ら設定変更とデプロイを完結できるよう「責務の分離」を\u001b[K\n実現しました。これによりJiraチケットを介した待ち時間が数日から数分に短縮され\u001b[K\n、開発のスピードとインフラの安定性が両立する体制へと転換しました。この取り組\u001b[K\nみは現在も一部のプロダクトでスモールステップとして進められており、ジンジャー\u001b[K\nは東京拠点のSREメンバーを募集しています。",
+    "bookmarkCount": 78,
+    "audioFile": "../audio/hatebu-it-3-12546fb399e7.wav"
   }
 ]
