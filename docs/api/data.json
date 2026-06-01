@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-14-noxue-bifang",
-    "title": "AI 時代のソフトウェア設計の学び方",
-    "url": "https://speakerdeck.com/masuda220/ai-shi-dai-nosohutoueashe-ji-noxue-bifang",
+    "id": "hatebu-it-0-e-code-intro",
+    "title": "Claude Codeをはじめて触るエンジニアのためのざっくり入門",
+    "url": "https://zenn.dev/stafes_blog/articles/nano72mkn-claude-code-intro",
     "source": "Hatena:it",
-    "bookmarkCount": 291,
-    "summary": "AI時代のソフトウェア設計の学び方では、方向性として自動化（無人化）と人の活動\u001b[K\n支援を比較し、どちらがコストダウンやスピードアップ、品質を確保するかが議論さ\u001b[K\nれます。デジタル化が進む中、事業活動、ソフトウェア開発、組織開発の三者が深く\u001b[K\n結びつき相互作用し、大きな事前設計、設計の反復、人的活動支援のバランスが重要\u001b[K\nとされます。また、AI技術は人を介在させずに判断・行動を支援し、能力を増強する\u001b[K\nことでコストダウンやスピードアップ、一定品質を達成する方向性が示されています\u001b[K\n。",
+    "bookmarkCount": 252,
+    "summary": "Claude Codeの基本コマンドをざっくりまとめました。プロジェクトのルートで cla\u001b[3D\u001b[K\nclaude と打つと、CLI 環境が立ち上がります。 /help でコマンド一覧が表示され、\u001b[K\n/clear で会話履歴をリセットできます。 /resume で前回のセッションに戻り、/in\u001b[3D\u001b[K\n/init で CLAUDE.md を生成しておくと便利です。 /review で PR のレビューをロー\u001b[K\nカルで受けたり、/remote-control でブラウザやスマホから操作したりできます。 \u001b[K\n/skills で自分専用のコマンドを定義したり、/exit でシェルコマンドを直接実行し\u001b[K\nたり、/image でスクリーンショットやエラー画面を貼り付けたりできます。 まずは\u001b[K\n /help や /resume を使って基本操作を確認して、使い慣れるといいでしょう。",
     "category": "AI",
-    "date": "2026-05-31T04:56:39.663Z"
+    "date": "2026-06-01T05:21:59.786Z"
   },
   {
-    "id": "hatebu-it-3-12546fb399e7",
-    "title": "全部Terraformで管理してはいけない？「かつての最適解」が生んだ管理の壁と、私たちが引き直した境界線",
-    "url": "https://zenn.dev/jinjer_techblog/articles/5812546fb399e7",
+    "id": "hatebu-it-4-260531120158",
+    "title": "若い女の子の漫画を全ておじさんに変換するAIがほしい",
+    "url": "https://anond.hatelabo.jp/20260531120158",
     "source": "Hatena:it",
-    "bookmarkCount": 78,
-    "summary": "ジンジャーSREが「Terraformのみで全てのインフラを管理しよう」とした結果、開発\u001b[K\nチームのリリースサイクルが遅れ、開発スピードに悪影響が出るというジレンマに直\u001b[K\n面しました。SEがJiraで依頼を受け、SREがコードを修正・レビューして全環境に適\u001b[K\n用するという、開発とインフラの責任境界がずれていたことが問題の根源です。SEは\u001b[K\nSREのリクエストを待たされるのに対し、SREはリリースサイクルの速さで対応を迫ら\u001b[K\nれ、両チームの機動力が低下していました。そこで、インフラコードとデプロイコー\u001b[K\nドを明確に分離し、SEは自ら設定変更とデプロイを完結できるよう「責務の分離」を\u001b[K\n実現しました。これによりJiraチケットを介した待ち時間が数日から数分に短縮され\u001b[K\n、開発のスピードとインフラの安定性が両立する体制へと転換しました。この取り組\u001b[K\nみは現在も一部のプロダクトでスモールステップとして進められており、ジンジャー\u001b[K\nは東京拠点のSREメンバーを募集しています。",
+    "bookmarkCount": 160,
+    "summary": "若い女の子の漫画に、男性キャラクターの描き方を変えたいという声が上がっている\u001b[K\n。",
     "category": "Security",
-    "date": "2026-05-31T04:59:36.722Z"
+    "date": "2026-06-01T05:22:11.755Z"
   }
 ]
