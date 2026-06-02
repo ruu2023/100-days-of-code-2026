@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-e-code-intro",
-    "title": "Claude Codeをはじめて触るエンジニアのためのざっくり入門",
-    "url": "https://zenn.dev/stafes_blog/articles/nano72mkn-claude-code-intro",
+    "id": "hatebu-it-6-%83%E3%83%88",
+    "title": "Claude Code チャンピオン キット | Anthropicヘルプセンター",
+    "url": "https://support.claude.com/ja/articles/14555399-claude-code-%E3%83%81%E3%83%A3%E3%83%B3%E3%83%94%E3%82%AA%E3%83%B3-%E3%82%AD%E3%83%83%E3%83%88",
     "source": "Hatena:it",
-    "bookmarkCount": 252,
-    "summary": "Claude Codeの基本コマンドをざっくりまとめました。プロジェクトのルートで cla\u001b[3D\u001b[K\nclaude と打つと、CLI 環境が立ち上がります。 /help でコマンド一覧が表示され、\u001b[K\n/clear で会話履歴をリセットできます。 /resume で前回のセッションに戻り、/in\u001b[3D\u001b[K\n/init で CLAUDE.md を生成しておくと便利です。 /review で PR のレビューをロー\u001b[K\nカルで受けたり、/remote-control でブラウザやスマホから操作したりできます。 \u001b[K\n/skills で自分専用のコマンドを定義したり、/exit でシェルコマンドを直接実行し\u001b[K\nたり、/image でスクリーンショットやエラー画面を貼り付けたりできます。 まずは\u001b[K\n /help や /resume を使って基本操作を確認して、使い慣れるといいでしょう。",
+    "bookmarkCount": 570,
+    "summary": "ルール: Claude Code のロールアウトは、チーム内で信頼できるチャンピオンが導入\u001b[K\nを支援することで初めて実現します。このガイドはそのプロセスと役割をサポートし\u001b[K\n、コードの例を提供して具体的な事例を通じた学習を助けます。チャンピオンは共有\u001b[K\nされた習慣を確立し、質問に答え、軽量で定期的なやり取りを通じて勢いを維持する\u001b[K\nことで成功を広げます。このガイドはチームの状況やドキュメンテーションスタイル\u001b[K\nに合わせてカスタマイズ可能であり、コードベース、ワークフロー、制約から得られ\u001b[K\nた具体的な例が示されています。",
     "category": "AI",
-    "date": "2026-06-01T05:21:59.786Z"
+    "date": "2026-06-02T05:04:51.765Z"
   },
   {
-    "id": "hatebu-it-4-260531120158",
-    "title": "若い女の子の漫画を全ておじさんに変換するAIがほしい",
-    "url": "https://anond.hatelabo.jp/20260531120158",
+    "id": "hatebu-it-0-m/li/2704185",
+    "title": "「囚人のジレンマそのもの」AIによる合理化を極めるほど、消費者が減って経済が回らなくなる…というアメリカ経済学者の論文が「やっぱりそうなるよね」と納得感がある",
+    "url": "https://togetter.com/li/2704185",
     "source": "Hatena:it",
-    "bookmarkCount": 160,
-    "summary": "若い女の子の漫画に、男性キャラクターの描き方を変えたいという声が上がっている\u001b[K\n。",
+    "bookmarkCount": 449,
+    "summary": "AIへの過剰な投入で人間の判断力が失われ、消費者が減って経済が回り止まる危険性\u001b[K\nがある。",
     "category": "Security",
-    "date": "2026-06-01T05:22:11.755Z"
+    "date": "2026-06-02T05:05:07.680Z"
   }
 ]
