@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-157becfac073",
-    "title": "【図解】エンジニアの「雑なMermaid」を、ビジネス側に刺さる図解に変換する - Qiita",
-    "url": "https://qiita.com/ktdatascience/items/4b35eb4e157becfac073",
+    "id": "hatebu-it-0-2115447.html",
+    "title": "Apple、「iOS 27」を発表 ～「Gemini」を採用し、AIをOSに深く統合、アプリ操作もAIが可能に、OS性能や子どもの保護も改善／正式リリースは今秋、対応デバイスは「iOS 26」から変更なし",
+    "url": "https://forest.watch.impress.co.jp/docs/news/2115447.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-08T05:06:14.937Z",
-    "summary": "エンジニア向けに書いた図解をビジネス資料で使いやすくする「Mermaid to infogr\u001b[6D\u001b[K\ninfographic」ジェネレーターが登場。プロンプトは4文だけ。「構造化して清書を任\u001b[K\nせる」ことで、ナノバナナ（Gemini 2.5 Flash）なら白背景・日本語ゴシック体・公\u001b[K\n式アイコンで図解でき、デザインの責任をデザイナーに委ねる。モデルは「Pro」ま\u001b[K\nたは「2」を選べば、日本語と図解が整いやすくなる。ただし、長文入力を防ぐ要約\u001b[K\n機能も必須。本記事ではこのGemを使えば、複雑な構成図やシステム情報をクライア\u001b[K\nント資料にそのまま貼れる。",
-    "bookmarkCount": 242,
-    "audioFile": "../audio/hatebu-it-3-157becfac073.wav"
+    "date": "2026-06-09T04:40:51.005Z",
+    "summary": "Appleは6月8日に、開発者向けカンファレンスで新しいモバイルOS iOS27を発表した\u001b[K\n。同時に、同社は自社独自の次世代AIモデル「Foundation Models」を中核に据え、\u001b[K\nGoogleのAIモデルGeminiと組み合わせた「Apple Intelligence」のアーキテクチャー\u001b[K\nを基盤に構築されたこのモデルがOSに深く統合され、音声パーソナルアシスタントS\u001b[1D\u001b[K\nSiriは次世代「Apple Intelligence」に刷新される。  \nまず、「Apple Intelligence」はプライバシー保護を優先し、オンデバイス処理と個\u001b[K\n人データをクラウドに保存しないAIサービスを搭載するほか、Siriが従来のモデルよ\u001b[K\nりも知識や機能が向上したことを発表。デベロッパー向けプレビューは同日より公開\u001b[K\n予定で、今秋の正式リリースに向けてOS性能、アプリ操作性（特に子どもの保護）、\u001b[K\n「Liquid Glass」のカスタマイズ性を改善する。これらの新機能を備えた対応デバイ\u001b[K\nスはiPhone 16シリーズ以降、iPhone 15 Pro/Pro Max、Air、M1以降のiPad/Mac、Ap\u001b[2D\u001b[K\nApple Vision Proであり、各種専用Siriアプリも提供される。  \n本ニュースは要するに、AppleがOS内でのAIの高度化と保護機能の強化を進め、2024\u001b[4D\u001b[K\n2024年秋の正式リリースに向けて準備していることを示す内容です。",
+    "bookmarkCount": 188,
+    "audioFile": "../audio/hatebu-it-0-2115447_html.wav"
   },
   {
-    "id": "hatebu-it-2-2ff0709247f6",
-    "title": "バイブコーディングが怖いので、全PJにSemgrep + gitleaksの自動セキュリティスキャンを仕込んだ話",
-    "url": "https://zenn.dev/zittiandbuoni/articles/632ff0709247f6",
+    "id": "hatebu-it-5-ing-network/",
+    "title": "嵐ラストライブ配信はなぜ落ちなかった？大規模同時配信の仕組みをネットワークエンジニアが解説 | ponflog",
+    "url": "https://ponflog.com/arashi-live-streaming-network/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-08T05:06:54.672Z",
-    "summary": "Claude Codeで個人開発を行っているITコンサルタントが、AIに書いたコードのセキ\u001b[K\nュリティとシークレット漏洩を防ぐために、precommit hook と GitHub Actions に\u001b[K\nよる CI の二段構えで Semgrep と gitleaks を組み合わせた自動スキャンを導入し\u001b[K\nた。この構成により「危険なコードパターン（shell=True、SQLインジェクションな\u001b[K\nど）」と「AWS や Slack トークンといったシークレット漏洩」の両方を検出でき、\u001b[K\nリポジトリへの不正なシークレット埋め込みを未然に防げる。セキュリティ対策だけ\u001b[K\nでなく、運用面でも「誤検知との付き合い方」や「allowlist の調整」「次回も自動\u001b[K\n的に組み込まれる仕組み」の重要性を再認識し、今後の新規プロジェクトにも適用可\u001b[K\n能な仕組み化を目指すことを結論としている。",
-    "bookmarkCount": 54,
-    "audioFile": "../audio/hatebu-it-2-2ff0709247f6.wav"
+    "date": "2026-06-09T04:41:38.621Z",
+    "summary": "ネットワークエンジニアの視点で見た嵐ラストライブ配信の徹底解説  \n嵐のラストライブ「ARASHI LIVE TOUR 2026『We are ARASHI』」は、世界トレンド1\u001b[1D\u001b[K\n1位を独占するほどの大規模同時配信が実現したが、全33曲を最後まで届けたのは本\u001b[K\n当に凄い。特に5月31日には約3時間・全33曲の生配信が行われ、当初の「サーバーダ\u001b[K\nウン」の懸念はほとんど払拭された。しかし、配信基盤自体に何らかのトラブルが無\u001b[K\nかったわけではなく、実際には視聴環境ごとの個別障害が主だったことが明らかにな\u001b[K\nった。\n\n【要するに】  \n- 「落ちなかった」のは「全体として持続した」ことを指す。全員が快適に見られた\u001b[K\nからではない。  \n- 同時接続数は公式には発表されていないが、ファンクラブ会員だけでも6000円の有\u001b[K\n料配信で約30万人の視聴者が集まったと推測できる。\n\n【技術的要因】  \n1. アダプティブビットレート（ABR）により回線状況に応じて画質を動的に下げ上げ\u001b[K\n、再生停止を防止した。  \n2. 配信経路がSTARTO社「FAMILY CLUB online」とU-NEXTに分散され、負荷分散効果\u001b[K\nを最大化。  \n3. 「カクつく」や一時的画質低下はABRの保護機能として意図的に受け入れられた。\u001b[K\n  \n\n【教訓と今後への指針】  \n- 大規模同時配信では「サーバー障害」よりも、家庭回線の制約が主要なボトルネッ\u001b[K\nクになることを忘れない。  \n- 視聴者側の環境対策（ブラウザ変更やWi‑Fi再接続）を促す情報提供と、入口と窓\u001b[K\n口の分離による負荷分散は今後も重要。  \n\n【参考リンク】  \n- Yahoo!ニュース エキスパート：[ライブの世界トレンド1位独占](https://news.y\u001b[16D\u001b[K\n](https://news.yahoo.co.jp/expert/articles/daf423fe16e80c06543e8e60112041a9](https://news.yhoo.co.jp/expert/articles/daf423fe16e80c06543e8e60112041a9493f7b8d)  \n- U-NEXTヘルプセンター：[嵐ラストライブ生配信の視聴方法](https://help.unext\u001b[20D\u001b[K\n](https://help.unext.jp/info-video/detail/info839b)  \n\n以上、ネットワークエンジニア視点で見た嵐ラストライブ体制の詳細です。",
+    "bookmarkCount": 309,
+    "audioFile": "../audio/hatebu-it-5-ing-network_.wav"
   }
 ]
