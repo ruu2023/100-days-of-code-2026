@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-2115447.html",
-    "title": "Apple、「iOS 27」を発表 ～「Gemini」を採用し、AIをOSに深く統合、アプリ操作もAIが可能に、OS性能や子どもの保護も改善／正式リリースは今秋、対応デバイスは「iOS 26」から変更なし",
-    "url": "https://forest.watch.impress.co.jp/docs/news/2115447.html",
+    "id": "hatebu-it-1-83b77ea94ddc",
+    "title": "ClaudeCodeが出してくるWebデザインの\"The定番感\"を希釈する（続編 会社のWebサイトをClaude Codeで刷新）｜モルク技術部｜中小企業経営者がAIで業務効率化",
+    "url": "https://note.com/at_hirabayashi/n/n83b77ea94ddc",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-09T04:40:51.005Z",
-    "summary": "Appleは6月8日に、開発者向けカンファレンスで新しいモバイルOS iOS27を発表した\u001b[K\n。同時に、同社は自社独自の次世代AIモデル「Foundation Models」を中核に据え、\u001b[K\nGoogleのAIモデルGeminiと組み合わせた「Apple Intelligence」のアーキテクチャー\u001b[K\nを基盤に構築されたこのモデルがOSに深く統合され、音声パーソナルアシスタントS\u001b[1D\u001b[K\nSiriは次世代「Apple Intelligence」に刷新される。  \nまず、「Apple Intelligence」はプライバシー保護を優先し、オンデバイス処理と個\u001b[K\n人データをクラウドに保存しないAIサービスを搭載するほか、Siriが従来のモデルよ\u001b[K\nりも知識や機能が向上したことを発表。デベロッパー向けプレビューは同日より公開\u001b[K\n予定で、今秋の正式リリースに向けてOS性能、アプリ操作性（特に子どもの保護）、\u001b[K\n「Liquid Glass」のカスタマイズ性を改善する。これらの新機能を備えた対応デバイ\u001b[K\nスはiPhone 16シリーズ以降、iPhone 15 Pro/Pro Max、Air、M1以降のiPad/Mac、Ap\u001b[2D\u001b[K\nApple Vision Proであり、各種専用Siriアプリも提供される。  \n本ニュースは要するに、AppleがOS内でのAIの高度化と保護機能の強化を進め、2024\u001b[4D\u001b[K\n2024年秋の正式リリースに向けて準備していることを示す内容です。",
-    "bookmarkCount": 188,
-    "audioFile": "../audio/hatebu-it-0-2115447_html.wav"
+    "date": "2026-06-10T04:53:47.689Z",
+    "summary": "AIを活用したClaudeCodeによるWebデザインが「The定番感」を薄め、フォルダー内で\u001b[K\nスキルを組み合わせることで魅力的な仕上がりを実現。作業ディレクトリでの `fro\u001b[4D\u001b[K\n`frontend-design` と `baseline-ui` の実行だけで既存のベースに彩りを加え、色\u001b[K\n合いの変化や強調部分の明確化といった効果が得られた。",
+    "bookmarkCount": 225,
+    "audioFile": "../audio/hatebu-it-1-83b77ea94ddc.wav"
   },
   {
-    "id": "hatebu-it-5-ing-network/",
-    "title": "嵐ラストライブ配信はなぜ落ちなかった？大規模同時配信の仕組みをネットワークエンジニアが解説 | ponflog",
-    "url": "https://ponflog.com/arashi-live-streaming-network/",
+    "id": "hatebu-it-5-e-5-mythos-5",
+    "title": "Claude Fable 5 and Claude Mythos 5",
+    "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-09T04:41:38.621Z",
-    "summary": "ネットワークエンジニアの視点で見た嵐ラストライブ配信の徹底解説  \n嵐のラストライブ「ARASHI LIVE TOUR 2026『We are ARASHI』」は、世界トレンド1\u001b[1D\u001b[K\n1位を独占するほどの大規模同時配信が実現したが、全33曲を最後まで届けたのは本\u001b[K\n当に凄い。特に5月31日には約3時間・全33曲の生配信が行われ、当初の「サーバーダ\u001b[K\nウン」の懸念はほとんど払拭された。しかし、配信基盤自体に何らかのトラブルが無\u001b[K\nかったわけではなく、実際には視聴環境ごとの個別障害が主だったことが明らかにな\u001b[K\nった。\n\n【要するに】  \n- 「落ちなかった」のは「全体として持続した」ことを指す。全員が快適に見られた\u001b[K\nからではない。  \n- 同時接続数は公式には発表されていないが、ファンクラブ会員だけでも6000円の有\u001b[K\n料配信で約30万人の視聴者が集まったと推測できる。\n\n【技術的要因】  \n1. アダプティブビットレート（ABR）により回線状況に応じて画質を動的に下げ上げ\u001b[K\n、再生停止を防止した。  \n2. 配信経路がSTARTO社「FAMILY CLUB online」とU-NEXTに分散され、負荷分散効果\u001b[K\nを最大化。  \n3. 「カクつく」や一時的画質低下はABRの保護機能として意図的に受け入れられた。\u001b[K\n  \n\n【教訓と今後への指針】  \n- 大規模同時配信では「サーバー障害」よりも、家庭回線の制約が主要なボトルネッ\u001b[K\nクになることを忘れない。  \n- 視聴者側の環境対策（ブラウザ変更やWi‑Fi再接続）を促す情報提供と、入口と窓\u001b[K\n口の分離による負荷分散は今後も重要。  \n\n【参考リンク】  \n- Yahoo!ニュース エキスパート：[ライブの世界トレンド1位独占](https://news.y\u001b[16D\u001b[K\n](https://news.yahoo.co.jp/expert/articles/daf423fe16e80c06543e8e60112041a9](https://news.yhoo.co.jp/expert/articles/daf423fe16e80c06543e8e60112041a9493f7b8d)  \n- U-NEXTヘルプセンター：[嵐ラストライブ生配信の視聴方法](https://help.unext\u001b[20D\u001b[K\n](https://help.unext.jp/info-video/detail/info839b)  \n\n以上、ネットワークエンジニア視点で見た嵐ラストライブ体制の詳細です。",
-    "bookmarkCount": 309,
-    "audioFile": "../audio/hatebu-it-5-ing-network_.wav"
+    "date": "2026-06-10T04:54:15.286Z",
+    "summary": "一般向けに安全なルール付きの新型AIモデル「Claude Fable 5」と「Claude Mythos\u001b[6D\u001b[K\nMythos 5」をリリース。サイバー防衛団体は一部モデルのセキュリティ強化により誤\u001b[K\n検知を抑制しつつ、高性能を発揮する大規模モデルを提供。今後、同等の性能を持つ\u001b[K\nモデルが登場した場合でも安全対策の改善と偽陽性低減に注力中。",
+    "bookmarkCount": 205,
+    "audioFile": "../audio/hatebu-it-5-e-5-mythos-5.wav"
   }
 ]
