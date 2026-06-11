@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-83b77ea94ddc",
-    "title": "ClaudeCodeが出してくるWebデザインの\"The定番感\"を希釈する（続編 会社のWebサイトをClaude Codeで刷新）｜モルク技術部｜中小企業経営者がAIで業務効率化",
-    "url": "https://note.com/at_hirabayashi/n/n83b77ea94ddc",
+    "id": "hatebu-it-2-26/06100503/",
+    "title": "撮り鉄はなぜ「生成AI」で写真を編集しないのか…邪魔な枝を折り、通行人に罵声を浴びせながら追求する“理想の写真”の意外な正体 | デイリー新潮",
+    "url": "https://www.dailyshincho.jp/article/2026/06100503/",
     "source": "Hatena:it",
-    "bookmarkCount": 225,
-    "summary": "AIを活用したClaudeCodeによるWebデザインが「The定番感」を薄め、フォルダー内で\u001b[K\nスキルを組み合わせることで魅力的な仕上がりを実現。作業ディレクトリでの `fro\u001b[4D\u001b[K\n`frontend-design` と `baseline-ui` の実行だけで既存のベースに彩りを加え、色\u001b[K\n合いの変化や強調部分の明確化といった効果が得られた。",
+    "bookmarkCount": 215,
+    "summary": "撮り鉄がプロではないにもかかわらず、鉄道写真で枝を切り落とすなどのトラブルな\u001b[K\n行為がSNSなどで問題視されているが、専門家はアマチュアの撮影愛好家としての活\u001b[K\n動を指摘している。",
     "category": "AI",
-    "date": "2026-06-10T04:53:47.689Z"
+    "date": "2026-06-11T05:02:47.395Z"
   },
   {
-    "id": "hatebu-it-5-e-5-mythos-5",
-    "title": "Claude Fable 5 and Claude Mythos 5",
-    "url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+    "id": "hatebu-it-8-2116195.html",
+    "title": "最近、一部フォルダーの名前やアイコンが変わったのは不具合ではなく仕様 ～Microsoftが案内／2026年6月のWindowsセキュリティパッチで「desktop.ini」の処理にセキュリティ強化",
+    "url": "https://forest.watch.impress.co.jp/docs/news/2116195.html",
     "source": "Hatena:it",
-    "bookmarkCount": 205,
-    "summary": "一般向けに安全なルール付きの新型AIモデル「Claude Fable 5」と「Claude Mythos\u001b[6D\u001b[K\nMythos 5」をリリース。サイバー防衛団体は一部モデルのセキュリティ強化により誤\u001b[K\n検知を抑制しつつ、高性能を発揮する大規模モデルを提供。今後、同等の性能を持つ\u001b[K\nモデルが登場した場合でも安全対策の改善と偽陽性低減に注力中。",
+    "bookmarkCount": 12,
+    "summary": "Microsoftは、2026年6月のセキュリティ更新プログラムで一部のフォルダーに対して\u001b[K\n「desktop.ini」のセキュリティが強化されたと明らかにした。この変更により、一\u001b[K\n部フォルダーの設定ファイル（特にローカライズされた表示名やアイコン）が消失す\u001b[K\nる可能性がある。米Microsoftが6月10日、公式サポートサイトで案内している。同社\u001b[K\nは、信頼済みソースの「desktop.ini」であれば元の機能に戻せるよう回避策を示し\u001b[K\nた（例：フォルダー名変更やWebDAVからのコピーは無視される）。しかし、ユーザー\u001b[K\nが何もしていなくても影響を受ける場合があり、不具合ではないと説明している。セ\u001b[K\nキュリティアップデートは意図された仕様変更であり、リモートサイトへの「MotW」\u001b[K\n（Mark of the Web）の付与は強制的に削除可能だ。",
     "category": "Security",
-    "date": "2026-06-10T04:54:15.286Z"
+    "date": "2026-06-11T05:03:14.154Z"
   }
 ]
