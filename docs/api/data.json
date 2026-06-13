@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-2-005d66490a9e",
-    "title": "Pomeraは最高のエージェンティックAI端末だ!｜shi3z",
-    "url": "https://note.com/shi3zblog/n/n005d66490a9e",
+    "id": "hatebu-it-0-C26A6000000/",
+    "title": "アンソロピック、米政府指示でミュトス級AI提供停止　日本含む - 日本経済新聞",
+    "url": "https://www.nikkei.com/article/DGXZQOGN130K40T10C26A6000000/",
     "source": "Hatena:it",
-    "bookmarkCount": 181,
-    "summary": "キーボードをバリバリ打ちられるという点で、Pomeraは最高に便利なエージェント搭\u001b[K\n載端末として注目されている。このニュースでは、WiFi接続とパスワードの設定がD\u001b[1D\u001b[K\nDM200/DM250判定ロジックのバグを引き起こす可能性があることが説明されている。",
+    "bookmarkCount": 279,
+    "summary": "米アンソロピックは、アメリカ政府から輸出管理対象となったクロード・ミュトス級\u001b[K\nとフェイブル級のAIを提供停止するよう指示を受けた。同社は新規顧客がこれらを契\u001b[K\n約できないようにしたいという意向だ。この措置は、米国内外の全ての顧客に影響を\u001b[K\n及ぼす。",
     "category": "AI",
-    "date": "2026-06-12T05:09:52.080Z"
+    "date": "2026-06-13T04:56:37.865Z"
   },
   {
-    "id": "hatebu-it-1-5e436a50d138",
-    "title": "使える図解がコピペで揃う！ 『ブログ図解ジェネレーター』のログイン配布します！｜ひつじ",
-    "url": "https://note.com/hituji1234/n/n5e436a50d138",
+    "id": "hatebu-it-6-2116913.html",
+    "title": "MCP連携でOpus 4.8超え、1兆パラメータLLM「Kimi K2.7 Code」無償公開",
+    "url": "https://pc.watch.impress.co.jp/docs/news/2116913.html",
     "source": "Hatena:it",
-    "bookmarkCount": 235,
-    "summary": "『ブログ図解ジェネレーター』が、ChatGPT画像生成機能を使いこなすための方程式\u001b[K\nプロンプト作成を支援し、コピペ一つでブログ用の図解を自動で組めるようになった\u001b[K\n。ログイン配布されたこのツールは、記事の本文を貼るだけで世界観に合わせた図解\u001b[K\nが瞬時に生成され、好きなデザインを選べる。使用方法は簡単で、図解が必要な場所\u001b[K\nに[図解]と入力するだけだ。",
+    "bookmarkCount": 129,
+    "summary": "オープンソースのコーディング向けエージェントAIモデル「Kimi K2.7 Code」が無償\u001b[K\n公開され、Hugging FaceやvLLMなどで利用可能になる。総パラメータ数1兆でアクテ\u001b[K\nィブパラメータ数320億を搭載し、トークン効率が大幅に向上しているほか、MCP（M\u001b[1D\u001b[K\nMacro Prompting）サーバーとの連携も向上。Kimi APIや「Kimi Code」から直接利用\u001b[K\nでき、vLLMの6x High-Speed Modeも近日提供予定。コーディング性能はKimi K2.6と\u001b[K\n比べ約30%トークン効率が改善され、「MCP Mark Verified」では81.1%を記録。",
     "category": "Security",
-    "date": "2026-06-12T05:10:22.062Z"
+    "date": "2026-06-13T04:57:01.847Z"
   }
 ]
