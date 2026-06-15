@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-C26A6000000/",
-    "title": "アンソロピック、米政府指示でミュトス級AI提供停止　日本含む - 日本経済新聞",
-    "url": "https://www.nikkei.com/article/DGXZQOGN130K40T10C26A6000000/",
+    "id": "hatebu-it-16-news006.html",
+    "title": "「AIを使うほど人はバカになる」は本当か？　研究が示す思考力低下のリスクと3つの対策",
+    "url": "https://www.itmedia.co.jp/business/articles/2606/13/news006.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-13T04:56:37.865Z",
-    "summary": "米アンソロピックは、アメリカ政府から輸出管理対象となったクロード・ミュトス級\u001b[K\nとフェイブル級のAIを提供停止するよう指示を受けた。同社は新規顧客がこれらを契\u001b[K\n約できないようにしたいという意向だ。この措置は、米国内外の全ての顧客に影響を\u001b[K\n及ぼす。",
-    "bookmarkCount": 279,
-    "audioFile": "../audio/hatebu-it-0-C26A6000000_.wav"
+    "date": "2026-06-15T05:32:20.803Z",
+    "summary": "中国の知的財産企業であるAI企業「AI Makes You Smarter But None the Wiser」（\u001b[K\nＡＩマークスユーザワリヤン）は、米国で開催される2026年ド・デジタル・オックス\u001b[K\nフォード・カンファレンスに出席した。AIの使用が思考力低下につながるという説が\u001b[K\nある一方で、同企業は、知的財産企業であると自負する。",
+    "bookmarkCount": 212,
+    "audioFile": "../audio/hatebu-it-16-news006_html.wav"
   },
   {
-    "id": "hatebu-it-6-2116913.html",
-    "title": "MCP連携でOpus 4.8超え、1兆パラメータLLM「Kimi K2.7 Code」無償公開",
-    "url": "https://pc.watch.impress.co.jp/docs/news/2116913.html",
+    "id": "hatebu-it-0-509c0473683a",
+    "title": "もうプロンプトを書くな──「Loop Engineering」という新しいパラダイムの正体",
+    "url": "https://zenn.dev/acrosstudioblog/articles/38509c0473683a",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-13T04:57:01.847Z",
-    "summary": "オープンソースのコーディング向けエージェントAIモデル「Kimi K2.7 Code」が無償\u001b[K\n公開され、Hugging FaceやvLLMなどで利用可能になる。総パラメータ数1兆でアクテ\u001b[K\nィブパラメータ数320億を搭載し、トークン効率が大幅に向上しているほか、MCP（M\u001b[1D\u001b[K\nMacro Prompting）サーバーとの連携も向上。Kimi APIや「Kimi Code」から直接利用\u001b[K\nでき、vLLMの6x High-Speed Modeも近日提供予定。コーディング性能はKimi K2.6と\u001b[K\n比べ約30%トークン効率が改善され、「MCP Mark Verified」では81.1%を記録。",
-    "bookmarkCount": 129,
-    "audioFile": "../audio/hatebu-it-6-2116913_html.wav"
+    "date": "2026-06-15T05:33:01.297Z",
+    "summary": "Boris Cherny は「もう Claude にプロンプトは出していない」と宣言。Google Chr\u001b[3D\u001b[K\nChrome のエンジニア Addy Osmani が Loop Engineering を提案し、Claude Code の\u001b[K\nチームでも同様にプロンプトを出さない動きが広まっていることを明かした。この記\u001b[K\n事では、AI パラダイムの4世代を解説し、「Loop Engineering」はエージェントを自\u001b[K\n律稼働させるシステム設計という形でループを「書く」新たなパラダイムとして説明\u001b[K\n。実装方法論としては「目標契約→Agent 実行→証拠フィードバック→停止条件」の5ス\u001b[K\nテップとチェックリスト形式の導入手順（ルール・スキル・Harness の更新）を提示\u001b[K\nし、チームでの運用時の注意点やチームへの導入チェックリストもまとめている。",
+    "bookmarkCount": 227,
+    "audioFile": "../audio/hatebu-it-0-509c0473683a.wav"
   }
 ]
