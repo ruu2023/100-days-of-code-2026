@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-16-news006.html",
-    "title": "「AIを使うほど人はバカになる」は本当か？　研究が示す思考力低下のリスクと3つの対策",
-    "url": "https://www.itmedia.co.jp/business/articles/2606/13/news006.html",
+    "id": "hatebu-it-6-2117253.html",
+    "title": "[みんなのケータイ]アプリもAIも終了した「Honda e」、「スマホのようなクルマ」の切ない現実",
+    "url": "https://k-tai.watch.impress.co.jp/docs/column/minna/2117253.html",
     "source": "Hatena:it",
-    "bookmarkCount": 212,
-    "summary": "中国の知的財産企業であるAI企業「AI Makes You Smarter But None the Wiser」（\u001b[K\nＡＩマークスユーザワリヤン）は、米国で開催される2026年ド・デジタル・オックス\u001b[K\nフォード・カンファレンスに出席した。AIの使用が思考力低下につながるという説が\u001b[K\nある一方で、同企業は、知的財産企業であると自負する。",
+    "bookmarkCount": 179,
+    "summary": "今までに2,000台以上販売されたホンダの「コンパクトカー」EV「Honda e」は、アプ\u001b[K\nリが利用できなくなり、Wi-Fiも消滅。AIアシスタント機能も停止し、車内Wi-Fiやソ\u001b[K\nフトバンク回線さえも使えなくなるなど、コネクテッドカーとしての機能を失った。\u001b[K\n2023年末にソフトバンクの「ソフトバンク回線が通らない」トラブルはSIMカード交\u001b[K\n換では修理不可と判明。「Super-ONE」は実質149万円（最大190万円補助金）で購入\u001b[K\nでき、すでに7000台の販売実績がある。",
     "category": "AI",
-    "date": "2026-06-15T05:32:20.803Z"
+    "date": "2026-06-16T05:38:53.772Z"
   },
   {
-    "id": "hatebu-it-0-509c0473683a",
-    "title": "もうプロンプトを書くな──「Loop Engineering」という新しいパラダイムの正体",
-    "url": "https://zenn.dev/acrosstudioblog/articles/38509c0473683a",
+    "id": "hatebu-it-5-ys-it-value/",
+    "title": "情報システムの価値を壊すセキュリティは悪である｜情シスとセキュリティ部門は分けるべきなのか | CloudNative BLOGs",
+    "url": "https://blog.cloudnative.co.jp/articles/security-that-destroys-it-value/",
     "source": "Hatena:it",
-    "bookmarkCount": 227,
-    "summary": "Boris Cherny は「もう Claude にプロンプトは出していない」と宣言。Google Chr\u001b[3D\u001b[K\nChrome のエンジニア Addy Osmani が Loop Engineering を提案し、Claude Code の\u001b[K\nチームでも同様にプロンプトを出さない動きが広まっていることを明かした。この記\u001b[K\n事では、AI パラダイムの4世代を解説し、「Loop Engineering」はエージェントを自\u001b[K\n律稼働させるシステム設計という形でループを「書く」新たなパラダイムとして説明\u001b[K\n。実装方法論としては「目標契約→Agent 実行→証拠フィードバック→停止条件」の5ス\u001b[K\nテップとチェックリスト形式の導入手順（ルール・スキル・Harness の更新）を提示\u001b[K\nし、チームでの運用時の注意点やチームへの導入チェックリストもまとめている。",
+    "bookmarkCount": 96,
+    "summary": "最近Xで話題になった投稿があり、情報システム部門とセキュリティ部門が分かれて\u001b[K\nいると「すべてのセキュリティ判断が安全側に倒れる」「業務担当との折り合いがつ\u001b[K\nかない」などと批判されていました。ある投稿は、「めっちゃわかる。セキュリティ\u001b[K\nしかやらないやつはクソだよまじで。何の価値もない」と語っていましたが、これに\u001b[K\n対してsonic_taxi氏が「分けること自体ではなく、業務と優先度を理解していない組\u001b[K\n織の出来の悪さ」が問題だと整理しています。\neidocarity氏は「品質管理部門のような位置づけでセキュリティ監査と責任を持たせ\u001b[K\nる案」を提案し、「分けると業務と噛み合わず」「分けてはいけない」場合も議論を\u001b[K\n煽っていることが指摘されています。要するに、情報システム部門の目的は「事業価\u001b[K\n値を生み出すこと」であり、セキュリティ部門はその価値を守ることです。したがっ\u001b[K\nて、本質的に分けるべきかどうかよりも、「守る価値」「下げるリスク」「失う価値\u001b[K\n」「残るリスク」を言語化できているかが重要なポイントになります。",
     "category": "Security",
-    "date": "2026-06-15T05:33:01.297Z"
+    "date": "2026-06-16T05:39:43.685Z"
   }
 ]
