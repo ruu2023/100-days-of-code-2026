@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-6-2117253.html",
-    "title": "[みんなのケータイ]アプリもAIも終了した「Honda e」、「スマホのようなクルマ」の切ない現実",
-    "url": "https://k-tai.watch.impress.co.jp/docs/column/minna/2117253.html",
+    "id": "hatebu-it-0-09d8e2ad0767",
+    "title": "5万スターのClaude Code Tips集、本質は2つだけ",
+    "url": "https://zenn.dev/acntechjp/articles/5409d8e2ad0767",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-16T05:38:53.772Z",
-    "summary": "今までに2,000台以上販売されたホンダの「コンパクトカー」EV「Honda e」は、アプ\u001b[K\nリが利用できなくなり、Wi-Fiも消滅。AIアシスタント機能も停止し、車内Wi-Fiやソ\u001b[K\nフトバンク回線さえも使えなくなるなど、コネクテッドカーとしての機能を失った。\u001b[K\n2023年末にソフトバンクの「ソフトバンク回線が通らない」トラブルはSIMカード交\u001b[K\n換では修理不可と判明。「Super-ONE」は実質149万円（最大190万円補助金）で購入\u001b[K\nでき、すでに7000台の販売実績がある。",
-    "bookmarkCount": 179,
-    "audioFile": "../audio/hatebu-it-6-2117253_html.wav"
+    "date": "2026-06-17T05:21:38.170Z",
+    "summary": "このリポジトリは Claude Code のベストプラクティス集で、5万スター近くまで伸び\u001b[K\nています。Claude 本体を使うための知識を、Setup ファイルでのファイル配置やコ\u001b[K\nマンド・スキル・フックなど「CLAUDE.md」内で整理し、82個のTips をリンク付きで\u001b[K\n閲覧できるようにしています。Boris Cherny が強調する「モデルが失敗しにくい仕\u001b[K\n組みを作る」という設計思想に基づき、リポジトリをハーネスエンジニアリングと呼\u001b[K\nび、Claude 本体を賢くさせずにフックや権限設定、検証手段（/go スキル）で自力\u001b[K\nでの検証を促すことを推奨しています。特に /go スキルの仕組みは、コードが動作\u001b[K\nする前提として検証経路を提供し、作業の信頼性を高めます。出典リンク付きで構成\u001b[K\nされているため、実際にリポジトリを開く際には Tips & Tricks の CLAUDE.md と \u001b[K\nHooks カテゴリーに目を通すと便利です。",
+    "bookmarkCount": 243,
+    "audioFile": "../audio/hatebu-it-0-09d8e2ad0767.wav"
   },
   {
-    "id": "hatebu-it-5-ys-it-value/",
-    "title": "情報システムの価値を壊すセキュリティは悪である｜情シスとセキュリティ部門は分けるべきなのか | CloudNative BLOGs",
-    "url": "https://blog.cloudnative.co.jp/articles/security-that-destroys-it-value/",
+    "id": "hatebu-it-8-13ba30af4d46",
+    "title": "カーネギーメロン大学の有名講義『Intro to Database Systems』を全てのプログラマに見てほしい",
+    "url": "https://zenn.dev/kaseken/articles/3913ba30af4d46",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-16T05:39:43.685Z",
-    "summary": "最近Xで話題になった投稿があり、情報システム部門とセキュリティ部門が分かれて\u001b[K\nいると「すべてのセキュリティ判断が安全側に倒れる」「業務担当との折り合いがつ\u001b[K\nかない」などと批判されていました。ある投稿は、「めっちゃわかる。セキュリティ\u001b[K\nしかやらないやつはクソだよまじで。何の価値もない」と語っていましたが、これに\u001b[K\n対してsonic_taxi氏が「分けること自体ではなく、業務と優先度を理解していない組\u001b[K\n織の出来の悪さ」が問題だと整理しています。\neidocarity氏は「品質管理部門のような位置づけでセキュリティ監査と責任を持たせ\u001b[K\nる案」を提案し、「分けると業務と噛み合わず」「分けてはいけない」場合も議論を\u001b[K\n煽っていることが指摘されています。要するに、情報システム部門の目的は「事業価\u001b[K\n値を生み出すこと」であり、セキュリティ部門はその価値を守ることです。したがっ\u001b[K\nて、本質的に分けるべきかどうかよりも、「守る価値」「下げるリスク」「失う価値\u001b[K\n」「残るリスク」を言語化できているかが重要なポイントになります。",
-    "bookmarkCount": 96,
-    "audioFile": "../audio/hatebu-it-5-ys-it-value_.wav"
+    "date": "2026-06-17T05:22:12.010Z",
+    "summary": "カーネギーメロン大学の有名データベース講義『CMU Intro to Database Systems』\u001b[K\nは英語だが、YouTubeに無料公開されているため誰でも視聴可能。全25回からなる内\u001b[K\n容で、特に関係代数やSQLの内部実装を学びたいソフトウェアエンジニア向け。日本\u001b[K\n語版は『詳説データベース』程度しかないが、本講義なら格段に読みやすくなる。英\u001b[K\n語に抵抗がない方には必見。",
+    "bookmarkCount": 468,
+    "audioFile": "../audio/hatebu-it-8-13ba30af4d46.wav"
   }
 ]
