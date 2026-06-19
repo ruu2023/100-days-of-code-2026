@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-09d8e2ad0767",
-    "title": "5万スターのClaude Code Tips集、本質は2つだけ",
-    "url": "https://zenn.dev/acntechjp/articles/5409d8e2ad0767",
+    "id": "hatebu-it-2-a03d0e3ca025",
+    "title": "AIエージェントが自律的に自己改善する self-improvement スキルが良い",
+    "url": "https://zenn.dev/stak22/articles/3ea03d0e3ca025",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-17T05:21:38.170Z",
-    "summary": "このリポジトリは Claude Code のベストプラクティス集で、5万スター近くまで伸び\u001b[K\nています。Claude 本体を使うための知識を、Setup ファイルでのファイル配置やコ\u001b[K\nマンド・スキル・フックなど「CLAUDE.md」内で整理し、82個のTips をリンク付きで\u001b[K\n閲覧できるようにしています。Boris Cherny が強調する「モデルが失敗しにくい仕\u001b[K\n組みを作る」という設計思想に基づき、リポジトリをハーネスエンジニアリングと呼\u001b[K\nび、Claude 本体を賢くさせずにフックや権限設定、検証手段（/go スキル）で自力\u001b[K\nでの検証を促すことを推奨しています。特に /go スキルの仕組みは、コードが動作\u001b[K\nする前提として検証経路を提供し、作業の信頼性を高めます。出典リンク付きで構成\u001b[K\nされているため、実際にリポジトリを開く際には Tips & Tricks の CLAUDE.md と \u001b[K\nHooks カテゴリーに目を通すと便利です。",
-    "bookmarkCount": 243,
-    "audioFile": "../audio/hatebu-it-0-09d8e2ad0767.wav"
+    "date": "2026-06-19T05:30:13.415Z",
+    "summary": "AI エージェントが自律的に自己改善スキル（self-improvement）を学習・追記し、\u001b[K\nリポジトリに蓄積してチーム全体のナレッジとして共有できるツールです。エージェ\u001b[K\nントが訂正や失敗などの「学び」を検知すると、対応する .learnings/ フォルダに\u001b[K\n Markdown 形式で自動記録します。このスキルにより、同じ説明を繰り返す手間が省\u001b[K\nけ、過去の教えが蓄積・更新されることでチーム全体の学習速度と開発効率が大幅に\u001b[K\n向上し、リポジトリは知識資産としての機能も果たします。導入方法はシンプルで、\u001b[K\nAgent Skills CLI で .learnings/ を作成すれば自動的に履歴を蓄積できます。",
+    "bookmarkCount": 127,
+    "audioFile": "../audio/hatebu-it-2-a03d0e3ca025.wav"
   },
   {
-    "id": "hatebu-it-8-13ba30af4d46",
-    "title": "カーネギーメロン大学の有名講義『Intro to Database Systems』を全てのプログラマに見てほしい",
-    "url": "https://zenn.dev/kaseken/articles/3913ba30af4d46",
+    "id": "hatebu-it-6-udit-preview",
+    "title": "Pythonパッケージマネージャー「uv」、脆弱性確認コマンド「uv audit」をプレビュー提供 | gihyo.jp",
+    "url": "https://gihyo.jp/article/2026/06/uv-audit-preview",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-17T05:22:12.010Z",
-    "summary": "カーネギーメロン大学の有名データベース講義『CMU Intro to Database Systems』\u001b[K\nは英語だが、YouTubeに無料公開されているため誰でも視聴可能。全25回からなる内\u001b[K\n容で、特に関係代数やSQLの内部実装を学びたいソフトウェアエンジニア向け。日本\u001b[K\n語版は『詳説データベース』程度しかないが、本講義なら格段に読みやすくなる。英\u001b[K\n語に抵抗がない方には必見。",
-    "bookmarkCount": 468,
-    "audioFile": "../audio/hatebu-it-8-13ba30af4d46.wav"
+    "date": "2026-06-19T05:30:42.417Z",
+    "summary": "AstralはPythonパッケージマネージャー「uv」に新機能を追加した。プロジェクトの\u001b[K\n依存関係を確認し、脆弱性や非推奨状態も検出する新コマンド「uv audit」を提供。\u001b[K\nインストール時に既知のマルウェアを照合する機能も追加された。開発・テストに組\u001b[K\nみ込めるよう設計されているが、設計変更で破壊的になる可能性がある。パッケージ\u001b[K\nにはpip-auditよりも高速だが、両者の代表的な使い方は完全に同一ではなく、pip-\u001b[4D\u001b[K\npip-auditのキャッシュ状況により速度差が出る場合もある。監査結果はロックファ\u001b[K\nイルやトーマル設定を参照でき、マルウェアチェックは「uv_MALWARE_CHECK=1」で有\u001b[K\n効化可能。ただし、アドバイザリが公開されていないパッケージは検出できないため\u001b[K\n、依存関係更新前に一定時間を置く「dependency cooldowns」の設定も推奨されてい\u001b[K\nる。今後は脆弱性を解決時に考慮したり、新規依存関係の脆弱性のみ通知する機能や\u001b[K\n、バックエンド拡張、requirements.txtやpylock.tomlなど他形式対応を検討中。",
+    "bookmarkCount": 74,
+    "audioFile": "../audio/hatebu-it-6-udit-preview.wav"
   }
 ]
