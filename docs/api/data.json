@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-2-a03d0e3ca025",
-    "title": "AIエージェントが自律的に自己改善する self-improvement スキルが良い",
-    "url": "https://zenn.dev/stak22/articles/3ea03d0e3ca025",
+    "id": "hatebu-it-3-nts-and-more",
+    "title": "Steering Claude Code: skills, hooks, subagents and more | Claude",
+    "url": "https://claude.com/ja/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
     "source": "Hatena:it",
-    "bookmarkCount": 127,
-    "summary": "AI エージェントが自律的に自己改善スキル（self-improvement）を学習・追記し、\u001b[K\nリポジトリに蓄積してチーム全体のナレッジとして共有できるツールです。エージェ\u001b[K\nントが訂正や失敗などの「学び」を検知すると、対応する .learnings/ フォルダに\u001b[K\n Markdown 形式で自動記録します。このスキルにより、同じ説明を繰り返す手間が省\u001b[K\nけ、過去の教えが蓄積・更新されることでチーム全体の学習速度と開発効率が大幅に\u001b[K\n向上し、リポジトリは知識資産としての機能も果たします。導入方法はシンプルで、\u001b[K\nAgent Skills CLI で .learnings/ を作成すれば自動的に履歴を蓄積できます。",
+    "bookmarkCount": 639,
+    "summary": "Claudeのコードをより効率的に利用するための新しいルール機能が追加されました。\u001b[K\n具体的には、スキルやホック、サブアグエントなども含むパスベースのルールとコン\u001b[K\nテキスト依存性を持つルールが導入され、コンテキストの読み込みをコスト削減しま\u001b[K\nす。また、出力スタイルもファイル単位で利用可能となりました。",
     "category": "AI",
-    "date": "2026-06-19T05:30:13.415Z"
+    "date": "2026-06-22T05:36:29.089Z"
   },
   {
-    "id": "hatebu-it-6-udit-preview",
-    "title": "Pythonパッケージマネージャー「uv」、脆弱性確認コマンド「uv audit」をプレビュー提供 | gihyo.jp",
-    "url": "https://gihyo.jp/article/2026/06/uv-audit-preview",
+    "id": "hatebu-it-24-/2026/06/eve",
+    "title": "Vercel、エージェント構築のためのフレームワーク「eve」をリリース ―“エージェントにおけるNext.js”を目指す | gihyo.jp",
+    "url": "https://gihyo.jp/article/2026/06/eve",
     "source": "Hatena:it",
-    "bookmarkCount": 74,
-    "summary": "AstralはPythonパッケージマネージャー「uv」に新機能を追加した。プロジェクトの\u001b[K\n依存関係を確認し、脆弱性や非推奨状態も検出する新コマンド「uv audit」を提供。\u001b[K\nインストール時に既知のマルウェアを照合する機能も追加された。開発・テストに組\u001b[K\nみ込めるよう設計されているが、設計変更で破壊的になる可能性がある。パッケージ\u001b[K\nにはpip-auditよりも高速だが、両者の代表的な使い方は完全に同一ではなく、pip-\u001b[4D\u001b[K\npip-auditのキャッシュ状況により速度差が出る場合もある。監査結果はロックファ\u001b[K\nイルやトーマル設定を参照でき、マルウェアチェックは「uv_MALWARE_CHECK=1」で有\u001b[K\n効化可能。ただし、アドバイザリが公開されていないパッケージは検出できないため\u001b[K\n、依存関係更新前に一定時間を置く「dependency cooldowns」の設定も推奨されてい\u001b[K\nる。今後は脆弱性を解決時に考慮したり、新規依存関係の脆弱性のみ通知する機能や\u001b[K\n、バックエンド拡張、requirements.txtやpylock.tomlなど他形式対応を検討中。",
+    "bookmarkCount": 21,
+    "summary": "Vercelは2026年6月17日、オープンソースフレームワーク「eve」をリリース。エージ\u001b[K\nェントを構築・実行するためのプラットフォームで、ディレクトリ構造を通じて指示\u001b[K\nとスキルを定義し、エージェントの実行環境、サンドボックス、承認プロセスなどを\u001b[K\n自動組み込む。ディレクトリの先頭に配置されたagent.tsファイル内でAIモデルを定\u001b[K\n義でき、Vercel AI Gateway経由でサポートされるエージェントは耐久性があり、一\u001b[K\n時停止後も継続実行可能。サンドボックス環境としてDockerやmicrosandbox、Just-\u001b[5D\u001b[K\nJust-Bashが利用可能で、リモートツールの認証処理も内蔵。eveはVercel Connectを\u001b[K\n活用し、SlackやSalesforceなど多様なサービスへの接続を容易に。技術的な詳細と\u001b[K\nドキュメントはApache 2.0ライセンスの下、GitHub上に公開されている。",
     "category": "Security",
-    "date": "2026-06-19T05:30:42.417Z"
+    "date": "2026-06-22T05:37:00.953Z"
   }
 ]
