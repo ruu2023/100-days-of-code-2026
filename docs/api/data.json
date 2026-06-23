@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-3-nts-and-more",
-    "title": "Steering Claude Code: skills, hooks, subagents and more | Claude",
-    "url": "https://claude.com/ja/blog/steering-claude-code-skills-hooks-rules-subagents-and-more",
+    "id": "hatebu-it-0-b5b30a028f80",
+    "title": "WBSという至高ツールで、このAI時代をサバイブする",
+    "url": "https://zenn.dev/piguolabo/articles/99b5b30a028f80",
     "source": "Hatena:it",
-    "bookmarkCount": 639,
-    "summary": "Claudeのコードをより効率的に利用するための新しいルール機能が追加されました。\u001b[K\n具体的には、スキルやホック、サブアグエントなども含むパスベースのルールとコン\u001b[K\nテキスト依存性を持つルールが導入され、コンテキストの読み込みをコスト削減しま\u001b[K\nす。また、出力スタイルもファイル単位で利用可能となりました。",
+    "bookmarkCount": 256,
+    "summary": "AI時代に向けて、WBSツールがプロジェクト管理を強力に支える。作業一覧表を単純\u001b[K\nに見るだけでは分解できない作業が出てくるという課題があり、そこから作業依存関\u001b[K\n係と「さらに分解する」というプロセスが始まる。最初はメンテナンスの重さが壁と\u001b[K\nなるが、手間そのものを設計で消すために WBS Viewer を作成した。このツールは、\u001b[K\nWBS の作り方・運び方・更新を自動計算して一枚の HTML ファイルとして提供し、管\u001b[K\n理者や現場担当者がどこからでも更新できる。さらに、AIに作業修正を任せることで\u001b[K\n時間短縮が実現される。今後は AI がメンバーとなり、プロジェクトリーダーとして\u001b[K\n機能する時代が来るだろう。ただしその先に何があるかは不透明で、単なる WBS の\u001b[K\n使い方が難しい問題が残っている。",
     "category": "AI",
-    "date": "2026-06-22T05:36:29.089Z"
+    "date": "2026-06-23T04:35:01.666Z"
   },
   {
-    "id": "hatebu-it-24-/2026/06/eve",
-    "title": "Vercel、エージェント構築のためのフレームワーク「eve」をリリース ―“エージェントにおけるNext.js”を目指す | gihyo.jp",
-    "url": "https://gihyo.jp/article/2026/06/eve",
+    "id": "hatebu-it-25-news058.html",
+    "title": "Appleも修正できない脆弱性のPoCコード公開　2018～2020年世代のiPhoneに残る設計上の課題",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2606/23/news058.html",
     "source": "Hatena:it",
-    "bookmarkCount": 21,
-    "summary": "Vercelは2026年6月17日、オープンソースフレームワーク「eve」をリリース。エージ\u001b[K\nェントを構築・実行するためのプラットフォームで、ディレクトリ構造を通じて指示\u001b[K\nとスキルを定義し、エージェントの実行環境、サンドボックス、承認プロセスなどを\u001b[K\n自動組み込む。ディレクトリの先頭に配置されたagent.tsファイル内でAIモデルを定\u001b[K\n義でき、Vercel AI Gateway経由でサポートされるエージェントは耐久性があり、一\u001b[K\n時停止後も継続実行可能。サンドボックス環境としてDockerやmicrosandbox、Just-\u001b[5D\u001b[K\nJust-Bashが利用可能で、リモートツールの認証処理も内蔵。eveはVercel Connectを\u001b[K\n活用し、SlackやSalesforceなど多様なサービスへの接続を容易に。技術的な詳細と\u001b[K\nドキュメントはApache 2.0ライセンスの下、GitHub上に公開されている。",
+    "bookmarkCount": 8,
+    "summary": "【AppleはPoCコード公開】ルール、2018〜2020年世代のiPhoneに残る設計上の課題を\u001b[K\n修正できない脆弱性とその実現可能性について議論している。\n\n本文によると、Paradigm Shift Technologyが提供した実証資料（Proof of Concept\u001b[7D\u001b[K\nConcept）ではAppleもPoCコードを実施していることを明らかにし、その中には2018\u001b[4D\u001b[K\n2018〜2020年世代のiPhoneに残る設計上の課題を修正できない脆弱性が含まれていた\u001b[K\nという。",
     "category": "Security",
-    "date": "2026-06-22T05:37:00.953Z"
+    "date": "2026-06-23T04:35:50.163Z"
   }
 ]
