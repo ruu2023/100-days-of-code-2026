@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-0-b5b30a028f80",
-    "title": "WBSという至高ツールで、このAI時代をサバイブする",
-    "url": "https://zenn.dev/piguolabo/articles/99b5b30a028f80",
+    "id": "hatebu-it-1-detail/24575",
+    "title": "ChatGPTの心臓部『Transformer』って何がすごいの？　#マンガでわかるAIの仕組み 第1話",
+    "url": "https://codezine.jp/article/detail/24575",
     "source": "Hatena:it",
-    "bookmarkCount": 256,
-    "summary": "AI時代に向けて、WBSツールがプロジェクト管理を強力に支える。作業一覧表を単純\u001b[K\nに見るだけでは分解できない作業が出てくるという課題があり、そこから作業依存関\u001b[K\n係と「さらに分解する」というプロセスが始まる。最初はメンテナンスの重さが壁と\u001b[K\nなるが、手間そのものを設計で消すために WBS Viewer を作成した。このツールは、\u001b[K\nWBS の作り方・運び方・更新を自動計算して一枚の HTML ファイルとして提供し、管\u001b[K\n理者や現場担当者がどこからでも更新できる。さらに、AIに作業修正を任せることで\u001b[K\n時間短縮が実現される。今後は AI がメンバーとなり、プロジェクトリーダーとして\u001b[K\n機能する時代が来るだろう。ただしその先に何があるかは不透明で、単なる WBS の\u001b[K\n使い方が難しい問題が残っている。",
+    "bookmarkCount": 663,
+    "summary": "ChatGPTの心臓部『Transformer』とは何なのか、AIの仕組みをマンガでわかりやすく\u001b[K\n解説する第1話。読者がエンジニアに馴染みのある表現を使い、技術的背景と全体像\u001b[K\nをつかめるよう工夫されている。",
     "category": "AI",
-    "date": "2026-06-23T04:35:01.666Z"
+    "date": "2026-06-25T04:38:45.554Z"
   },
   {
-    "id": "hatebu-it-25-news058.html",
-    "title": "Appleも修正できない脆弱性のPoCコード公開　2018～2020年世代のiPhoneに残る設計上の課題",
-    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2606/23/news058.html",
+    "id": "hatebu-it-0-C26A5000000/",
+    "title": "自衛隊、機密システムに感染USB接続　中国系ウイルス1年気づかず - 日本経済新聞",
+    "url": "https://www.nikkei.com/article/DGXZQOCD075JJ0X00C26A5000000/",
     "source": "Hatena:it",
-    "bookmarkCount": 8,
-    "summary": "【AppleはPoCコード公開】ルール、2018〜2020年世代のiPhoneに残る設計上の課題を\u001b[K\n修正できない脆弱性とその実現可能性について議論している。\n\n本文によると、Paradigm Shift Technologyが提供した実証資料（Proof of Concept\u001b[7D\u001b[K\nConcept）ではAppleもPoCコードを実施していることを明らかにし、その中には2018\u001b[4D\u001b[K\n2018〜2020年世代のiPhoneに残る設計上の課題を修正できない脆弱性が含まれていた\u001b[K\nという。",
+    "bookmarkCount": 352,
+    "summary": "自衛隊内で機密システムに感染したUSBメモリーが、2025年2月まで使用され続けたこ\u001b[K\nとが発覚。「テック社会の罠」と称されるデジタル技術の恩恵を受けながらも、厳重\u001b[K\nな防御を誇るはずの陸上自衛隊が、1年間半にわたってウイルスを含むUSBを機密シス\u001b[K\nテムに接続し続けたと、日本経済新聞は明らかにした。この事態は個人や企業への被\u001b[K\n害拡大のおそれがあり、中国系ウイルスの蔓延が背景にある。",
     "category": "Security",
-    "date": "2026-06-23T04:35:50.163Z"
+    "date": "2026-06-25T04:39:06.614Z"
   }
 ]
