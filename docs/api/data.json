@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-7-news138.html",
-    "title": "「Mac」「iPad」突然の一斉値上げ　MacBook Airは18万4800円→22万4800円からに",
-    "url": "https://www.itmedia.co.jp/news/articles/2606/25/news138.html",
+    "id": "hatebu-it-0-ba112a075be1",
+    "title": "正直に言う。お前のClaude Codeの使い方は間違っている - Qiita",
+    "url": "https://qiita.com/tehito/items/356e5f1dba112a075be1",
     "source": "Hatena:it",
-    "bookmarkCount": 253,
-    "summary": "AppleはMacBook Airの価格を18万4800円から22万4800円に一斉値上げした。特にiPa\u001b[3D\u001b[K\niPad mini 2が最大で5万円以上も値上がりし、市場で大きな騒動を呼んでいる。",
+    "bookmarkCount": 303,
+    "summary": "この記事では、Claude Codeの使い方に関する7つのミスが指摘されている。Claude \u001b[K\nCodeはモデルやプランではなく、ユーザーの使い方が遅さの原因だ。ミス1はCLAUDE\u001b[6D\u001b[K\nCLAUDE.mdを大量に編集することにより、git status を確認するだけで済む大作にな\u001b[K\nってしまったこと。ミス2は、作業を一つの大きな指示に詰め込み、途中で実装した\u001b[K\n内容が失われて混乱すること。ミス3は、作業中の /compact コマンドでコンテキス\u001b[K\nトが膨らみ、コミット後に設計が見えなくなること。ミス4は、MCPサーバーを常時接\u001b[K\n続し続け、不要なツール群がトークンと判断力を消費していること。ミス5は「いい\u001b[K\n感じにアプリを作る」ことで、設計を人間が担い実装はAIに委任することを怠ってい\u001b[K\nること。これらを修正することで、Claude Codeの効率的な使い方が身につく。",
     "category": "AI",
-    "date": "2026-06-26T04:45:39.089Z"
+    "date": "2026-06-27T04:21:30.636Z"
   },
   {
-    "id": "hatebu-it-27-2120073.html",
-    "title": "Copilot+ PCがGPUで動く未来が来る？ 「Phi Silica」をGeForceで動かすテストが始まる",
-    "url": "https://forest.watch.impress.co.jp/docs/serial/usecopilotpc/2120073.html",
+    "id": "hatebu-it-4-6summer/0626",
+    "title": "手動診断でしか見つからない脆弱性の話 - エムティーアイ エンジニアリングブログ",
+    "url": "https://tech.mti.co.jp/entry/ac2026summer/0626",
     "source": "Hatena:it",
     "bookmarkCount": 4,
-    "summary": "MicrosoftはCPI 6で「Windows App SDK 2.0」をリリースし、「Phi Silica」などNP\u001b[2D\u001b[K\nNPU向けに最適化されたローカルAIモデルのGPU動作を可能にすることを発表した。現\u001b[K\n時点では開発者ビルドのみだが、このバージョンの実験版が搭載されているPCであれ\u001b[K\nば、GeForce RTX 30シリーズ以降のGPUでも言語モデルAPIを利用できるようになる。\u001b[K\nこれは、これまで「Copilot+ PC」が限定的なデスクトップノートPCにしか対応でき\u001b[K\nないという考え方とは異なる。GPUで動かすことになると、多くのユーザーにとって\u001b[K\nメリットは少なく、コスト増も予想される。しかし、NVIDIA製GPUであれば「CPI 40\u001b[2D\u001b[K\n40TOPS」以上のAI処理が可能となる。",
+    "summary": "自動スキャンは設定不備や既知パターンの検出に長けているものの、ビジネスロジッ\u001b[K\nクの文脈を理解できないため、抽選やファイルアップロードと処理間のすり替えなど\u001b[K\n、手動でしか見つけにくい脆弱性を見落とすことがある。手動診断はビジネスロジッ\u001b[K\nクやタイミング依存のパターンを深く掘り下げられるが、広範囲のカバレッジに限界\u001b[K\nがあり、自動スキャンが「安全」と判断するほどの実行経路を正しく評価できないケ\u001b[K\nースも少なくない。これらの課題を踏まえ、診断員のアプローチは自動・手動・コー\u001b[K\nドレビューと組み合わせて実装すべきで、特にビジネスロジックや攻撃連鎖の検出に\u001b[K\nは両者を統合することが重要である。",
     "category": "Security",
-    "date": "2026-06-26T04:46:19.170Z"
+    "date": "2026-06-27T04:22:11.762Z"
   }
 ]
