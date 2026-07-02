@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-4-lucinations/",
-    "title": "逆にすごい。大手コンサル作「AIのすごさを証明する報告書」がハルシネーションだらけ | ギズモード・ジャパン",
-    "url": "https://www.gizmodo.jp/article/a-report-full-of-hallucinations/",
+    "id": "hatebu-it-4-8767121d7dc2",
+    "title": "10 か月 CLI で使ってきた Claude Code を、Desktop メインに移行した 12 の理由",
+    "url": "https://zenn.dev/canly/articles/428767121d7dc2",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-06-30T04:39:30.523Z",
-    "summary": "大手コンサルティング会社がAIの優れた能力を証明するために作った報告書には、事\u001b[K\n実と異なるAIによる誤情報が多数含まれていた。KPMGの報告書でUBSやロンドン交通\u001b[K\n局などが成功事例として挙げられているが、各組織に確認したところ、正確性の問題\u001b[K\nがあった。AIは信頼性のある資料を引用するのに苦労し、その結果、誤った情報を含\u001b[K\nむ報告書を作成した。この誤情報は、人間によって別のAIや人間によって鵜呑みにさ\u001b[K\nれ、新たな誤情報を生み出すようになっている。",
-    "bookmarkCount": 105,
-    "audioFile": "../audio/hatebu-it-4-lucinations_.wav"
+    "date": "2026-07-02T04:35:32.641Z",
+    "summary": "Desktop アプリの「Code」タブが 2026 年 4 月に全面リニューアルされ、筆者自身\u001b[K\nも日常作業の大半をこのアプリでやるように切り替えたところ、これまで CLI で作\u001b[K\n業していた Claude Code を Desktop アプリに移行した 12 の理由が実感できたと記\u001b[K\n事内で述べています。\n\n【Desktop が CLI に比べて楽になった点】\n\nChat / Cowork / Code タブを切り替えるだけで、雑談・要件相談・調べもの（Chat\u001b[4D\u001b[K\nChat）やローカルファイルの整理・文書作成（Cowork）、知識ワーク全般を Claude\u001b[6D\u001b[K\nClaude に委任でき、用途別に頭を切り替える動きがアプリ内で完結します。\n\nコード作業、雑談、長時間ワークが同一ウィンドウに閉じ込められず、ターミナルへ\u001b[K\n飛ぶ手間がなくなります。\n\nクラウドの Web にアクセスせずに、ローカルで直接 Claude の機能を使える点も魅\u001b[K\n力です。",
+    "bookmarkCount": 277,
+    "audioFile": "../audio/hatebu-it-4-8767121d7dc2.wav"
   },
   {
-    "id": "hatebu-it-17-//tirith.sh/",
-    "title": "Tirith — Terminal Security",
-    "url": "https://tirith.sh/",
+    "id": "hatebu-it-15-news040.html",
+    "title": "その製品、本当に\"国産\"？　セキュリティ製品を評価する新指標「日本度」が始動",
+    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2607/02/news040.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-06-30T04:39:56.458Z",
-    "summary": "TirithはAI攻撃やマルウェアを検知する新しいセキュリティツールで、1ミリ秒以内\u001b[K\nに多数の脅威（ホムグラフ攻撃、パイプライン転送、認証情報漏洩など）をブロック\u001b[K\nできるとされています。GitHub上の無料パッケージとして提供され、ユーザー設定や\u001b[K\nシステムレベルの防御機能も備えており、危険なコマンドの発行直前で検知し、一部\u001b[K\nツールが攻撃された場合でも被害拡大を防止します。また、供給チェーン攻撃やゼロ\u001b[K\nデイの脆弱性に対する対策も強化されています。",
-    "bookmarkCount": 15,
-    "audioFile": "../audio/hatebu-it-17-__tirith_sh_.wav"
+    "date": "2026-07-02T04:36:19.966Z",
+    "summary": "NCPCの調査で、セキュリティ製品を評価する新指標「日本度」をスタートさせている\u001b[K\n。",
+    "bookmarkCount": 23,
+    "audioFile": "../audio/hatebu-it-15-news040_html.wav"
   }
 ]
