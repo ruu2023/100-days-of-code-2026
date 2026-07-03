@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-4-8767121d7dc2",
-    "title": "10 か月 CLI で使ってきた Claude Code を、Desktop メインに移行した 12 の理由",
-    "url": "https://zenn.dev/canly/articles/428767121d7dc2",
+    "id": "hatebu-it-0-news050.html",
+    "title": "“開かずの基幹システム”、450人月→実質2カ月で解読　創業100年のカクヤス、生成AIで挑む「転生」",
+    "url": "https://www.itmedia.co.jp/news/articles/2607/03/news050.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-02T04:35:32.641Z",
-    "summary": "Desktop アプリの「Code」タブが 2026 年 4 月に全面リニューアルされ、筆者自身\u001b[K\nも日常作業の大半をこのアプリでやるように切り替えたところ、これまで CLI で作\u001b[K\n業していた Claude Code を Desktop アプリに移行した 12 の理由が実感できたと記\u001b[K\n事内で述べています。\n\n【Desktop が CLI に比べて楽になった点】\n\nChat / Cowork / Code タブを切り替えるだけで、雑談・要件相談・調べもの（Chat\u001b[4D\u001b[K\nChat）やローカルファイルの整理・文書作成（Cowork）、知識ワーク全般を Claude\u001b[6D\u001b[K\nClaude に委任でき、用途別に頭を切り替える動きがアプリ内で完結します。\n\nコード作業、雑談、長時間ワークが同一ウィンドウに閉じ込められず、ターミナルへ\u001b[K\n飛ぶ手間がなくなります。\n\nクラウドの Web にアクセスせずに、ローカルで直接 Claude の機能を使える点も魅\u001b[K\n力です。",
-    "bookmarkCount": 277,
-    "audioFile": "../audio/hatebu-it-4-8767121d7dc2.wav"
+    "date": "2026-07-03T04:14:46.179Z",
+    "summary": "AWS Summit Japan 2026に参加するベンチャー企業の創業者10人は、生成AIを活用し\u001b[K\nて「転生」し、「ルール」と呼ばれる基幹システムを解読したと発表しました。ベス\u001b[K\nトセラー作家のジャーン・フクマは、このシステムの破壊が起業家に与える影響につ\u001b[K\nいて「生成AIを使いこなすことが生存の問題だ」と語り、従来の「ルール」に挑戦す\u001b[K\nる新たな時代を切り開くと強調しました。",
+    "bookmarkCount": 190,
+    "audioFile": "../audio/hatebu-it-0-news050_html.wav"
   },
   {
-    "id": "hatebu-it-15-news040.html",
-    "title": "その製品、本当に\"国産\"？　セキュリティ製品を評価する新指標「日本度」が始動",
-    "url": "https://atmarkit.itmedia.co.jp/ait/articles/2607/02/news040.html",
+    "id": "hatebu-it-1-ab3eb1959ef2",
+    "title": "「理解してから働く時代」が、そろそろ終わるのかもしれない、という話｜けんすう",
+    "url": "https://kensuu.com/n/nab3eb1959ef2",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-02T04:36:19.966Z",
-    "summary": "NCPCの調査で、セキュリティ製品を評価する新指標「日本度」をスタートさせている\u001b[K\n。",
-    "bookmarkCount": 23,
-    "audioFile": "../audio/hatebu-it-15-news040_html.wav"
+    "date": "2026-07-03T04:15:27.447Z",
+    "summary": "この記事では、人々の「仕組みを理解しないけど使える」テクノロジーの傾向がAIに\u001b[K\nよってさらに加速するのではないかと述べています。電車や薬など日常的なものから\u001b[K\n、知的労働における技術の活用まで、仕組みは理解していなくてもその結果さえわか\u001b[K\nれば使いこなせるようになるという現象を指摘しています。記事はこの傾向が「理解\u001b[K\n」という認知の外部化に起因するものであって、「AIの進歩」によって引き起こされ\u001b[K\nるものではないと説明し、その根本には文明の基本的な動作である「理解の置き場所\u001b[K\n」をずらすことがある、と述べています。",
+    "bookmarkCount": 72,
+    "audioFile": "../audio/hatebu-it-1-ab3eb1959ef2.wav"
   }
 ]
