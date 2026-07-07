@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-6-12bc279182d6",
-    "title": "SFから持ち帰ったAIエンジニアリングの現在地 〜AI Engineer World's Fair 2026 参加レポート〜｜kagaya",
-    "url": "https://note.com/r_kaga/n/n12bc279182d6",
+    "id": "hatebu-it-1-0d53c62dca07",
+    "title": "16GB のノートPC でも、Claude Code + ローカル LLM は本気で使える — CodeRouter で Tool Call が安定するまで(2026年7月版)｜zephel01",
+    "url": "https://note.com/zephel01/n/n0d53c62dca07",
     "source": "Hatena:it",
-    "bookmarkCount": 51,
-    "summary": "この記事は、世界最大規模のAIエンジニアリングカンファレンス「AI Engineer Wor\u001b[3D\u001b[K\nWorld's Fair 2026」での参加レポートです。会場はサンフランシスコのMoscone We\u001b[2D\u001b[K\nWestで、約3,000人が集まりました。セッション名は主に「AIをどう使うか」ではな\u001b[K\nく、「AIにどう任せるか」というテーマでした。\nカンファレンスでは、モデルの開発そのものだけでなく、その動作や耐久性・評価方\u001b[K\n法についても議論されました。また、「Software Factory」と呼ばれる概念も紹介さ\u001b[K\nれ、人間がコードを書く代わりにAIエージェントに仕事の渡し方を任せるという話が\u001b[K\nありました。\nまた、カンファレンスで紹介された「Codex」のセッションでは、モデルが賢くなる\u001b[K\nと最初から全部見せない工夫があることが話題になりました。カンファレンスでは、\u001b[K\n人間向けUIだけでなく、エージェントの登録方法や利用開始ゲートウェイも必要にな\u001b[K\nると指摘されました。",
+    "bookmarkCount": 170,
+    "summary": "このニュースでは、16GB RAM のノートPCや Mac で Claude Code をローカル LLM と\u001b[K\n組み合わせて実用的に使えるようになった技術が紹介されています。開発者は 2026\u001b[4D\u001b[K\n2026 年 4〜7 月に Reddit r/LocalLLaMA のコミュニティで議論した最新モデルと、\u001b[K\n当方での 100 リクエスト単位の Tool Call 安定化データを基に、最適なモデル選び\u001b[K\nと修復手法を実践しています。特に、16GB に収まる 7B 〜 9B クラスの小型モデル\u001b[K\nを選択し、Tool Call の形式ミスやメモリオーバーフローを修復層で解決することが\u001b[K\n成功の鍵となります。さらに、CodeRouter を用いた自動修復環境を構築し、実際に\u001b[K\nローカル LLM と Claude Code を組み合わせた実験では多くのモデルで安定したツー\u001b[K\nルコールが確認され、軽量な M シリーズ Mac や Windows ノートでも 16GB クラス\u001b[K\nの環境で現実的な実装が可能になりました。開発者は「壊れ方の報告をさらに増やす\u001b[K\n」ことで、今後の改善を支えたいと訴えています（MIT ライセンス、Python 3.12+ \u001b[K\n対応）。",
     "category": "AI",
-    "date": "2026-07-06T04:46:07.873Z"
+    "date": "2026-07-07T04:21:35.000Z"
   },
   {
-    "id": "hatebu-it-22-2122504.html",
-    "title": "MicrosoftのEdgeブラウザーが「Google アカウント」でログイン可能に、最新版「Microsoft Edge 150」が公開／脆弱性修正は300件以上、サイドバーのアプリ一覧は廃止へ、「macOS Monterey 12」対応は本バージョンが最後",
-    "url": "https://forest.watch.impress.co.jp/docs/news/2122504.html",
+    "id": "hatebu-it-11-curity-part4",
+    "title": "GitHub Actionsの脆弱な構成の検知ツール、任せられる範囲と人が見極めるべきリスク - GMO Flatt Security Blog",
+    "url": "https://blog.flatt.tech/entry/2026-github-actions-security-part4",
     "source": "Hatena:it",
-    "bookmarkCount": 4,
-    "summary": "米マイクロソフトは7月2日にデスクトップ向け「Edge」150をリリースした。主要な\u001b[K\n変更点として、MicrosoftアカウントとGoogleアカウントによるログインが追加され\u001b[K\nたほか、OneDrive/SharePointから同期データの管理先が移行され（保存データは「\u001b[K\nWebView2」のアップグレードが必須）、ワークスペース機能は廃止されサードパーテ\u001b[K\nィーCookie設定に制限が加わった。一方で、macOS Monterey 12以降はEdge 150が最\u001b[K\n終版となる。",
+    "bookmarkCount": 7,
+    "summary": "ルールベースの検知ツールが、過去に起きたGitHub Actionsインジェクション攻撃（\u001b[K\n例：tj-actions/changed-filesやnxの2025年8月の攻撃）をどの程度カバーできたか\u001b[K\n、また検知外のリスクはどれくらいあるのかを、公開記事で検証しています。  \nツールに任せられる範囲と、その先で人手が必要になるリスクを明確にし、組織がワ\u001b[K\nークフローの脆弱性をどこまで自動化できているかを実践的に示しています。  \n最後に、本稿で紹介するFlatt SecurityのGuard機能は、このようなルールベース検\u001b[K\n知ツールの検知漏れを防ぐ補完手段として、管理業務の一部を効率化できることを提\u001b[K\n案しています。",
     "category": "Security",
-    "date": "2026-07-06T04:46:43.111Z"
+    "date": "2026-07-07T04:22:13.300Z"
   }
 ]
