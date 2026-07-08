@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-1-0d53c62dca07",
-    "title": "16GB のノートPC でも、Claude Code + ローカル LLM は本気で使える — CodeRouter で Tool Call が安定するまで(2026年7月版)｜zephel01",
-    "url": "https://note.com/zephel01/n/n0d53c62dca07",
+    "id": "hatebu-it-4-3244af941a2d",
+    "title": "Fable時代のAI活用法を、Anthropicの開発者が公開",
+    "url": "https://zenn.dev/knowledgesense/articles/283244af941a2d",
     "source": "Hatena:it",
-    "bookmarkCount": 170,
-    "summary": "このニュースでは、16GB RAM のノートPCや Mac で Claude Code をローカル LLM と\u001b[K\n組み合わせて実用的に使えるようになった技術が紹介されています。開発者は 2026\u001b[4D\u001b[K\n2026 年 4〜7 月に Reddit r/LocalLLaMA のコミュニティで議論した最新モデルと、\u001b[K\n当方での 100 リクエスト単位の Tool Call 安定化データを基に、最適なモデル選び\u001b[K\nと修復手法を実践しています。特に、16GB に収まる 7B 〜 9B クラスの小型モデル\u001b[K\nを選択し、Tool Call の形式ミスやメモリオーバーフローを修復層で解決することが\u001b[K\n成功の鍵となります。さらに、CodeRouter を用いた自動修復環境を構築し、実際に\u001b[K\nローカル LLM と Claude Code を組み合わせた実験では多くのモデルで安定したツー\u001b[K\nルコールが確認され、軽量な M シリーズ Mac や Windows ノートでも 16GB クラス\u001b[K\nの環境で現実的な実装が可能になりました。開発者は「壊れ方の報告をさらに増やす\u001b[K\n」ことで、今後の改善を支えたいと訴えています（MIT ライセンス、Python 3.12+ \u001b[K\n対応）。",
+    "bookmarkCount": 298,
+    "summary": "フランスの新スタートアップ株式会社ナレッジセンスは、エンタープライズ企業向け\u001b[K\nに生成AI（Claudeなど）やプログラミング支援（Claude Code）の活用法を提供して\u001b[K\nいます。本記事では、同社が公開した「A Field Guide to Fable」について解説し、\u001b[K\nFableレベルのAIを効果的に使うためのテクニックを紹介します。特に、人間とAIの\u001b[K\n指示間のギャップである「未知」を減らすことに重点を置き、プロジェクト開始前の\u001b[K\n「ブラインドスポット・パス」の手法などを提示しています。",
     "category": "AI",
-    "date": "2026-07-07T04:21:35.000Z"
+    "date": "2026-07-08T03:51:52.728Z"
   },
   {
-    "id": "hatebu-it-11-curity-part4",
-    "title": "GitHub Actionsの脆弱な構成の検知ツール、任せられる範囲と人が見極めるべきリスク - GMO Flatt Security Blog",
-    "url": "https://blog.flatt.tech/entry/2026-github-actions-security-part4",
+    "id": "hatebu-it-5-707-4672951/",
+    "title": "Windows 11で空き容量が0バイトになる恐れ　影響を確認して速やかに対策を",
+    "url": "https://news.mynavi.jp/techplus/article/20260707-4672951/",
     "source": "Hatena:it",
-    "bookmarkCount": 7,
-    "summary": "ルールベースの検知ツールが、過去に起きたGitHub Actionsインジェクション攻撃（\u001b[K\n例：tj-actions/changed-filesやnxの2025年8月の攻撃）をどの程度カバーできたか\u001b[K\n、また検知外のリスクはどれくらいあるのかを、公開記事で検証しています。  \nツールに任せられる範囲と、その先で人手が必要になるリスクを明確にし、組織がワ\u001b[K\nークフローの脆弱性をどこまで自動化できているかを実践的に示しています。  \n最後に、本稿で紹介するFlatt SecurityのGuard機能は、このようなルールベース検\u001b[K\n知ツールの検知漏れを防ぐ補完手段として、管理業務の一部を効率化できることを提\u001b[K\n案しています。",
+    "bookmarkCount": 389,
+    "summary": "ルール:\n- Windows 11がストレージを勝手に数百GB消費する不具合\n- Microsoftは影響を受けているか確認し、対処を推奨\n\n要するに：Windows 11のCapabilityAccessManagerサービスが肥大化するデータベー\u001b[K\nスファイル「CapabilityAccessManager.db-wal」を異常に拡大し、ストレージ容量が\u001b[K\n0になるまで消費される可能性がある。対策として設定アプリやターミナルからの簡\u001b[K\n単な確認法があり、問題を把握しやすくなる。",
     "category": "Security",
-    "date": "2026-07-07T04:22:13.300Z"
+    "date": "2026-07-08T03:52:16.317Z"
   }
 ]
