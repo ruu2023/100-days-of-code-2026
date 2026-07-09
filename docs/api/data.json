@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-4-3244af941a2d",
-    "title": "Fable時代のAI活用法を、Anthropicの開発者が公開",
-    "url": "https://zenn.dev/knowledgesense/articles/283244af941a2d",
+    "id": "hatebu-it-1-C26A6000000/",
+    "title": "祖先はナチスだったか、AIで検索可能に　1200万枚の党員カード活用 - 日本経済新聞",
+    "url": "https://www.nikkei.com/article/DGXZQOGR05BWD0V00C26A6000000/",
     "source": "Hatena:it",
-    "bookmarkCount": 298,
-    "summary": "フランスの新スタートアップ株式会社ナレッジセンスは、エンタープライズ企業向け\u001b[K\nに生成AI（Claudeなど）やプログラミング支援（Claude Code）の活用法を提供して\u001b[K\nいます。本記事では、同社が公開した「A Field Guide to Fable」について解説し、\u001b[K\nFableレベルのAIを効果的に使うためのテクニックを紹介します。特に、人間とAIの\u001b[K\n指示間のギャップである「未知」を減らすことに重点を置き、プロジェクト開始前の\u001b[K\n「ブラインドスポット・パス」の手法などを提示しています。",
+    "bookmarkCount": 209,
+    "summary": "「ドイツの有力紙ツァイトが構築したナチス党員名簿」がAIで国民社会主義ドイツ労\u001b[K\n働者党（ナチス党）の党員カード1270万枚を検索し、氏名等の入力を通じて祖先の過\u001b[K\n去を確認できる。欧州でのポピュリズムの台頭と相まって、身近な存在の過去を通じ\u001b[K\nた社会のあり方を再考する機会を提供している。AIがナチス党員名簿をオンライン公\u001b[K\n開したことで、国際的な注目を集めている。",
     "category": "AI",
-    "date": "2026-07-08T03:51:52.728Z"
+    "date": "2026-07-09T04:18:09.323Z"
   },
   {
-    "id": "hatebu-it-5-707-4672951/",
-    "title": "Windows 11で空き容量が0バイトになる恐れ　影響を確認して速やかに対策を",
-    "url": "https://news.mynavi.jp/techplus/article/20260707-4672951/",
+    "id": "hatebu-it-0-re.com/drop/",
+    "title": "Cloudflare Drop",
+    "url": "https://www.cloudflare.com/drop/",
     "source": "Hatena:it",
-    "bookmarkCount": 389,
-    "summary": "ルール:\n- Windows 11がストレージを勝手に数百GB消費する不具合\n- Microsoftは影響を受けているか確認し、対処を推奨\n\n要するに：Windows 11のCapabilityAccessManagerサービスが肥大化するデータベー\u001b[K\nスファイル「CapabilityAccessManager.db-wal」を異常に拡大し、ストレージ容量が\u001b[K\n0になるまで消費される可能性がある。対策として設定アプリやターミナルからの簡\u001b[K\n単な確認法があり、問題を把握しやすくなる。",
+    "bookmarkCount": 199,
+    "summary": "クラウドフラアが一時的にダウンし、取得に失敗した。JavaScriptが必要でないと表\u001b[K\n示されるサイトへのアクセスが原因とみられるが、原因は不明。利用者には再試行を\u001b[K\n求めるメッセージが表示され、サービス停止期間中の注意喚起となる。要するに：ク\u001b[K\nラウドフラアの一時的なトラフィック制限による一部サイトの取得失敗。",
     "category": "Security",
-    "date": "2026-07-08T03:52:16.317Z"
+    "date": "2026-07-09T04:18:17.440Z"
   }
 ]
