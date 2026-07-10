@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-1-C26A6000000/",
-    "title": "祖先はナチスだったか、AIで検索可能に　1200万枚の党員カード活用 - 日本経済新聞",
-    "url": "https://www.nikkei.com/article/DGXZQOGR05BWD0V00C26A6000000/",
+    "id": "hatebu-it-27--claude-code",
+    "title": "Anthropic、Claude CodeでAIエージェントを活用するループ設計を紹介 | gihyo.jp",
+    "url": "https://gihyo.jp/article/2026/07/coding-agent-loop-design-with-claude-code",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-09T04:18:09.323Z",
-    "summary": "「ドイツの有力紙ツァイトが構築したナチス党員名簿」がAIで国民社会主義ドイツ労\u001b[K\n働者党（ナチス党）の党員カード1270万枚を検索し、氏名等の入力を通じて祖先の過\u001b[K\n去を確認できる。欧州でのポピュリズムの台頭と相まって、身近な存在の過去を通じ\u001b[K\nた社会のあり方を再考する機会を提供している。AIがナチス党員名簿をオンライン公\u001b[K\n開したことで、国際的な注目を集めている。",
-    "bookmarkCount": 209,
-    "audioFile": "../audio/hatebu-it-1-C26A6000000_.wav"
+    "date": "2026-07-10T04:20:39.733Z",
+    "summary": "Anthropicの研究者によると、AIコーディングエージェントを使う際には「ループ」\u001b[K\n設計が重要だ。まず「ループとは何か」を定義し、何度も実行するかどうかを決める\u001b[K\n。1つのプロンプトで終わるならプロンプトベースのやり取り、作業を継続させたい\u001b[K\n場合は自己検証や目標条件を組み込む形に変える。最後にトークン使用量やスループ\u001b[K\nットをチェックし、エージェントがボトルネックにならないよう調整する、という流\u001b[K\nれだ。",
+    "bookmarkCount": 405,
+    "audioFile": "../audio/hatebu-it-27--claude-code.wav"
   },
   {
-    "id": "hatebu-it-0-re.com/drop/",
-    "title": "Cloudflare Drop",
-    "url": "https://www.cloudflare.com/drop/",
+    "id": "hatebu-it-0-f2c4a846d552",
+    "title": "ドメイン駆動設計のよくある誤解",
+    "url": "https://zenn.dev/shotaro_tsuji/articles/a8f2c4a846d552",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-09T04:18:17.440Z",
-    "summary": "クラウドフラアが一時的にダウンし、取得に失敗した。JavaScriptが必要でないと表\u001b[K\n示されるサイトへのアクセスが原因とみられるが、原因は不明。利用者には再試行を\u001b[K\n求めるメッセージが表示され、サービス停止期間中の注意喚起となる。要するに：ク\u001b[K\nラウドフラアの一時的なトラフィック制限による一部サイトの取得失敗。",
-    "bookmarkCount": 199,
-    "audioFile": "../audio/hatebu-it-0-re_com_drop_.wav"
+    "date": "2026-07-10T04:21:20.798Z",
+    "summary": "ルールに従い、エンタープライズ向けソフトウェアを設計するドメイン駆動設計（D\u001b[1D\u001b[K\nDDD）の本質は、ドメインとユビキタス言語の違いや範囲の拡大といった概念に陥り\u001b[K\nやすい。しかし、この記事では両者を明確化し、部署ごとの業務分割が「細かすぎる\u001b[K\n」こと、業務担当者による用語の曖昧性を認めつつ、ドメインは実際には重複せずに\u001b[K\n分割できないと指摘。さらに、エンティティ中心設計のような誤ったアプローチを避\u001b[K\nけ、コアロジックからモジュールベースの設計を始めることや、言語に備わったモジ\u001b[K\nュール・パッケージを活用してコードベースを整理する必要性を強調。",
+    "bookmarkCount": 116,
+    "audioFile": "../audio/hatebu-it-0-f2c4a846d552.wav"
   }
 ]
