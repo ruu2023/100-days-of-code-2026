@@ -5,12 +5,8 @@
     "title": "プログラミング言語の歴史",
     "description": "【Day 100/100】プログラミング言語の歴史",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2042573607092785269",
-    "demoLink": "https://rails.ruu-dev.com/timelines"
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2042573607092785269"
   },
   {
     "day": 99,
@@ -21,12 +17,8 @@
       "Rails で hackernews を RSS パース",
       "gemini api を使用し日本語で要約"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2042237573201031590",
-    "demoLink": "https://rails.ruu-dev.com/vulnerabilities"
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2042237573201031590"
   },
   {
     "day": 98,
@@ -37,284 +29,161 @@
       "Rails WebPush",
       "管理者がメッセージを送付すると、iPhoneで通知表示"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2041869582022144122",
-    "demoLink": "https://rails.ruu-dev.com/test_webpush"
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2041869582022144122"
   },
   {
     "day": 97,
     "date": "2026-04-07",
     "title": "Rails 予約管理アプリ 🛠️✨",
     "description": "【Day 097/100】Rails 予約管理アプリ 🛠️✨",
-    "features": [
-      "Resend で予約完了メール",
-      "カレンダーで空いてる日がわかる"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2041487067130237115",
-    "demoLink": "https://rails.ruu-dev.com/booking/admin/owners"
+    "features": ["Resend で予約完了メール", "カレンダーで空いてる日がわかる"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2041487067130237115"
   },
   {
     "day": 96,
     "date": "2026-04-06",
     "title": "Rails Three ER 🛠️✨",
     "description": "【Day 096/100】Rails Three ER 🛠️✨",
-    "features": [
-      "Railsのschemaをとり込み",
-      "Three.jsでリレーションを表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2040733768248676605",
-    "demoLink": "https://rails.ruu-dev.com/erd"
+    "features": ["Railsのschemaをとり込み", "Three.jsでリレーションを表示"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2040733768248676605"
   },
   {
     "day": 95,
     "date": "2026-04-05",
     "title": "Rails CSV インポート ver2 🛠️✨",
     "description": "【Day 095/100】Rails CSV インポート ver2 🛠️✨",
-    "features": [
-      "Railsで複数CSV解析",
-      "カード明細を1年分取り込んでSQL検索"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2040733768248676605",
-    "demoLink": "https://rails.ruu-dev.com/statement_csv_imports"
+    "features": ["Railsで複数CSV解析", "カード明細を1年分取り込んでSQL検索"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2040733768248676605"
   },
   {
     "day": 94,
     "date": "2026-04-04",
     "title": "Rails CSV インポート🛠️✨",
     "description": "【Day 094/100】Rails CSV インポート🛠️✨",
-    "features": [
-      "RailsでCSV解析",
-      "100万件でも一瞬でフィルタ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2040375257413177530",
-    "demoLink": "https://rails.ruu-dev.com/csv_imports"
+    "features": ["RailsでCSV解析", "100万件でも一瞬でフィルタ"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2040375257413177530"
   },
   {
     "day": 93,
     "date": "2026-04-03",
     "title": "Rails 購入トラッカー 🛠️✨",
     "description": "【Day 093/100】Rails 購入トラッカー 🛠️✨",
-    "features": [
-      "Railsのturbo frameで軽快",
-      "次回購入日を計算"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2040065228172624119",
-    "demoLink": "https://rails.ruu-dev.com/items"
+    "features": ["Railsのturbo frameで軽快", "次回購入日を計算"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2040065228172624119"
   },
   {
     "day": 92,
     "date": "2026-04-02",
     "title": "Rails Othelo 🛠️✨",
     "description": "【Day 092/100】Rails Othelo 🛠️✨",
-    "features": [
-      "アニメーションなしオセロ",
-      "Stimulus"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2039633307802247343",
-    "demoLink": "https://rails.ruu-dev.com/day092"
+    "features": ["アニメーションなしオセロ", "Stimulus"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2039633307802247343"
   },
   {
     "day": 91,
     "date": "2026-04-01",
     "title": "Rails Ruby Editor 🛠️✨",
     "description": "【Day 091/100】Rails Ruby Editor 🛠️✨",
-    "features": [
-      "Rubyを簡単に実行",
-      "Railsで動作"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2039335497026486524",
-    "demoLink": "https://rails.ruu-dev.com/editor"
+    "features": ["Rubyを簡単に実行", "Railsで動作"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2039335497026486524"
   },
   {
     "day": 90,
     "date": "2026-03-30",
     "title": "Rails 3 tasks 🛠️✨",
     "description": "【Day 090/100】Rails 3 tasks 🛠️✨",
-    "features": [
-      "一旦やりたいことを書き出し",
-      "YoutTubeリンクを埋め込み表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2038962394278637761",
-    "demoLink": "https://rails.ruu-dev.com/just3"
+    "features": ["一旦やりたいことを書き出し", "YoutTubeリンクを埋め込み表示"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2038962394278637761"
   },
   {
     "day": 89,
     "date": "2026-03-30",
     "title": "YouTube sleep extension 🛠️✨",
     "description": "【Day 089/100】YouTube sleep extension 🛠️✨",
-    "features": [
-      "寝ながらYouTtube",
-      "フルと違ってサイズ調整できる"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Chrome"
-    ],
-    "url": "https://x.com/ruu_web/status/2038620457587597444",
-    "demoLink": "https://github.com/ruu2023/100-days-of-code-2026/tree/main/html/youtube-sleep-mode"
+    "features": ["寝ながらYouTtube", "フルと違ってサイズ調整できる"],
+    "tags": ["#100DaysOfCode", "#Chrome"],
+    "url": "https://x.com/ruu_web/status/2038620457587597444"
   },
   {
     "day": 88,
     "date": "2026-03-29",
     "title": "Rails csv to MD & Excel 🛠️✨",
     "description": "【Day 088/100】Rails csv to MD & Excel 🛠️✨",
-    "features": [
-      "CSV to MD 自動整形",
-      "Excelようにtable整形"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2038256488733704663",
-    "demoLink": "https://rails.ruu-dev.com/csv_tables"
+    "features": ["CSV to MD 自動整形", "Excelようにtable整形"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2038256488733704663"
   },
   {
     "day": 87,
     "date": "2026-03-28",
     "title": "Rails AgencyAgents紹介ページ 🛠️✨",
     "description": "【Day 087/100】Rails AgencyAgents紹介ページ 🛠️✨",
-    "features": [
-      "AgencyAgents の専門家検索",
-      "グループ一覧表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2037797739908784159",
-    "demoLink": "https://rails.ruu-dev.com/agency_agents"
+    "features": ["AgencyAgents の専門家検索", "グループ一覧表示"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2037797739908784159"
   },
   {
     "day": 86,
     "date": "2026-03-27",
     "title": "Rails マスタ管理 🛠️✨",
     "description": "【Day 086/100】Rails マスタ管理 🛠️✨",
-    "features": [
-      "ActiveAdmin で CRUD",
-      "商品マスタのデモ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2037403097853796590",
-    "demoLink": "https://rails.ruu-dev.com/master-demo/products"
+    "features": ["ActiveAdmin で CRUD", "商品マスタのデモ"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2037403097853796590"
   },
   {
     "day": 85,
     "date": "2026-03-26",
     "title": "Rails サブスク管理 🛠️✨",
     "description": "【Day 085/100】Rails サブスク管理 🛠️✨",
-    "features": [
-      "サブスクを月額年額管理",
-      "ステータスで契約中を確認"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2037155649046671624",
-    "demoLink": "https://rails.ruu-dev.com/day085"
+    "features": ["サブスクを月額年額管理", "ステータスで契約中を確認"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2037155649046671624"
   },
   {
     "day": 84,
     "date": "2026-03-25",
     "title": "Laravel mini-max 画像生成 🛠️✨",
     "description": "【Day 084/100】Laravel mini-max 画像生成 🛠️✨",
-    "features": [
-      "Image-01 テキストto画像",
-      "T2A 音声合成"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Laravel"
-    ],
-    "url": "https://x.com/ruu_web/status/2036794540775068142",
-    "demoLink": "https://laravel.ruu-dev.com/minimax"
+    "features": ["Image-01 テキストto画像", "T2A 音声合成"],
+    "tags": ["#100DaysOfCode", "#Laravel"],
+    "url": "https://x.com/ruu_web/status/2036794540775068142"
   },
   {
     "day": 83,
     "date": "2026-03-24",
     "title": "Rails PWA通知 🛠️✨",
     "description": "【Day 083/100】Rails PWA通知 🛠️✨",
-    "features": [
-      "Rails MiniMagick を使用",
-      "選択範囲を切り抜き"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2036412961905115377",
-    "demoLink": "https://rails.ruu-dev.com/day083"
+    "features": ["Rails MiniMagick を使用", "選択範囲を切り抜き"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2036412961905115377"
   },
   {
     "day": 82,
     "date": "2026-03-23",
     "title": "Rails 画像リサイズ 🛠️✨",
     "description": "【Day 082/100】Rails 画像リサイズ 🛠️✨",
-    "features": [
-      "Rails MiniMagick を使用",
-      "選択範囲を切り抜き"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2036073624713748684",
-    "demoLink": "https://rails.ruu-dev.com/day082"
+    "features": ["Rails MiniMagick を使用", "選択範囲を切り抜き"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2036073624713748684"
   },
   {
     "day": 81,
     "date": "2026-03-22",
     "title": "Railsルーレット 🛠️✨",
     "description": "【Day 081/100】Railsルーレット 🛠️✨",
-    "features": [
-      "Rails stimulas で作成",
-      "選ばれると自動的に除外"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2035741875437768972",
-    "demoLink": "https://rails.ruu-dev.com/day081"
+    "features": ["Rails stimulas で作成", "選ばれると自動的に除外"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2035741875437768972"
   },
   {
     "day": 80,
@@ -325,28 +194,17 @@
       "Laravel でフロントバックを即開発",
       "動画を切り抜いて保存可能"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Laravel"
-    ],
-    "url": "https://x.com/ruu_web/status/2035320828284506564",
-    "demoLink": "https://laravel.ruu-dev.com/youtube"
+    "tags": ["#100DaysOfCode", "#Laravel"],
+    "url": "https://x.com/ruu_web/status/2035320828284506564"
   },
   {
     "day": 79,
     "date": "2026-03-20",
     "title": "Inventory App 🛠️✨",
     "description": "【Day 079/100】Inventory App 🛠️✨",
-    "features": [
-      "Hotwireで検索",
-      "新規追加はトグルで表示非表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2035016459131527649",
-    "demoLink": "https://rails.ruu-dev.com/inventories"
+    "features": ["Hotwireで検索", "新規追加はトグルで表示非表示"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2035016459131527649"
   },
   {
     "day": 78,
@@ -358,13 +216,8 @@
       "シンタックスハイライト (キー/文字列/数値/真偽値)",
       "画面幅いっぱいに表示"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#HTML",
-      "#JavaScript"
-    ],
-    "url": "https://x.com/ruu_web/status/2034594082379771986",
-    "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/html/day078"
+    "tags": ["#100DaysOfCode", "#HTML", "#JavaScript"],
+    "url": "https://x.com/ruu_web/status/2034594082379771986"
   },
   {
     "day": 77,
@@ -376,126 +229,71 @@
       "基本的な移動と編集コマンドのサポート",
       "ステップバイステップの練習問題"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs"
-    ],
-    "url": "https://x.com/ruu_web/status/2034287914751050131",
-    "demoLink": "./day077"
+    "tags": ["#100DaysOfCode", "#Nextjs"],
+    "url": "https://x.com/ruu_web/status/2034287914751050131"
   },
   {
     "day": 76,
     "date": "2026-03-17",
     "title": "htmx x Hono CRUD 🛠️✨",
     "description": "【Day 076/100】htmx x Hono CRUD 🛠️✨",
-    "features": [
-      "フロントはJSなしだけどCRUDできる"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#htmx",
-      "#Hono"
-    ],
-    "url": "https://x.com/ruu_web/status/2033922549856538805",
-    "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/htmx/day076"
+    "features": ["フロントはJSなしだけどCRUDできる"],
+    "tags": ["#100DaysOfCode", "#htmx", "#Hono"],
+    "url": "https://x.com/ruu_web/status/2033922549856538805"
   },
   {
     "day": 75,
     "date": "2026-03-16",
     "title": "htmx x Hono API 🛠️✨",
     "description": "【Day 075/100】htmx x Hono API 🛠️✨",
-    "features": [
-      "htmxでHTML断片だけ差し替える",
-      "Hono APIがHTMLを返す"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#htmx",
-      "#Hono"
-    ],
-    "url": "https://x.com/ruu_web/status/2033540420840599948",
-    "demoLink": "https://ruu2023.github.io/100-days-of-code-2026/htmx"
+    "features": ["htmxでHTML断片だけ差し替える", "Hono APIがHTMLを返す"],
+    "tags": ["#100DaysOfCode", "#htmx", "#Hono"],
+    "url": "https://x.com/ruu_web/status/2033540420840599948"
   },
   {
     "day": 74,
     "date": "2026-03-15",
     "title": "AI translator 🛠️✨",
     "description": "【Day 074/100】AI translator 🛠️✨",
-    "features": [
-      "Ollama APIからの逐次ストリーム表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails",
-      "#Ollama"
-    ],
-    "url": "https://x.com/ruu_web/status/2033195354162885117",
-    "demoLink": "https://rails.ruu-dev.com/convert"
+    "features": ["Ollama APIからの逐次ストリーム表示"],
+    "tags": ["#100DaysOfCode", "#Rails", "#Ollama"],
+    "url": "https://x.com/ruu_web/status/2033195354162885117"
   },
   {
     "day": 73,
     "date": "2026-03-14",
     "title": "Daily Planner 🛠️✨",
     "description": "【Day 073/100】Daily Planner 🛠️✨",
-    "features": [
-      "タスクとカレンダーをセットで表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#CodexCLI"
-    ],
-    "url": "https://x.com/ruu_web/status/2032800117036822820",
-    "demoLink": "/day073"
+    "features": ["タスクとカレンダーをセットで表示"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#CodexCLI"],
+    "url": "https://x.com/ruu_web/status/2032800117036822820"
   },
   {
     "day": 72,
     "date": "2026-03-13",
     "title": "News Site 🛠️✨",
     "description": "【Day 072/100】News Site 🛠️✨",
-    "features": [
-      "画面でニュースを表示"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2032498458465317036",
-    "demoLink": "https://rails.ruu-dev.com/news"
+    "features": ["画面でニュースを表示"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2032498458465317036"
   },
   {
     "day": 71,
     "date": "2026-03-12",
     "title": "Rails curl prompt maker 🛠️✨",
     "description": "【Day 071/100】Rails curl prompt maker 🛠️✨",
-    "features": [
-      "画面で curl コマンドを生成",
-      "生成した curl コマンドを実行"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails"
-    ],
-    "url": "https://x.com/ruu_web/status/2032105481670652255",
-    "demoLink": "https://rails.ruu-dev.com/curl_prompt"
+    "features": ["画面で curl コマンドを生成", "生成した curl コマンドを実行"],
+    "tags": ["#100DaysOfCode", "#Rails"],
+    "url": "https://x.com/ruu_web/status/2032105481670652255"
   },
   {
     "day": 70,
     "date": "2026-03-11",
     "title": "Rails mini X clone 🛠️✨",
     "description": "【Day 070/100】Rails mini X clone 🛠️✨",
-    "features": [
-      "R2によるメディアストレージ",
-      "GoogleAuthによる認証"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails",
-      "#R2",
-      "#GoogleAuth"
-    ],
-    "url": "https://x.com/ruu_web/status/2031757771205669246",
-    "demoLink": "https://rails.ruu-dev.com/posts"
+    "features": ["R2によるメディアストレージ", "GoogleAuthによる認証"],
+    "tags": ["#100DaysOfCode", "#Rails", "#R2", "#GoogleAuth"],
+    "url": "https://x.com/ruu_web/status/2031757771205669246"
   },
   {
     "day": 69,
@@ -506,14 +304,8 @@
       "Ferrum を使った画像抽出",
       "ページ内の全画像URLの抽出リスト化"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails",
-      "#Ferrum",
-      "#Scraping"
-    ],
-    "url": "https://x.com/ruu_web/status/2031348530280018228",
-    "demoLink": "https://rails.ruu-dev.com/day069"
+    "tags": ["#100DaysOfCode", "#Rails", "#Ferrum", "#Scraping"],
+    "url": "https://x.com/ruu_web/status/2031348530280018228"
   },
   {
     "day": 68,
@@ -533,27 +325,16 @@
       "#Scraping",
       "#Backend"
     ],
-    "url": "https://x.com/ruu_web/status/2031024838538936641",
-    "demoLink": "https://go.ruu-dev.com/day068/md?url=https://b.hatena.ne.jp/hotentry/it"
+    "url": "https://x.com/ruu_web/status/2031024838538936641"
   },
   {
     "day": 67,
     "date": "2026-03-08 21:00",
     "title": "Rails VPS Deploy 🚀🔒",
     "description": "【Day 067/100】Rails VPS Deploy 🚀🔒",
-    "features": [
-      "Kamal によるデプロイの自動化",
-      "Hetzner VPS へのデプロイ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails",
-      "#Kamal",
-      "#VPS",
-      "#Hetzner"
-    ],
-    "url": "https://x.com/ruu_web/status/2030700275582075084",
-    "demoLink": "https://rails.ruu-dev.com/day067/posts"
+    "features": ["Kamal によるデプロイの自動化", "Hetzner VPS へのデプロイ"],
+    "tags": ["#100DaysOfCode", "#Rails", "#Kamal", "#VPS", "#Hetzner"],
+    "url": "https://x.com/ruu_web/status/2030700275582075084"
   },
   {
     "day": 66,
@@ -564,14 +345,8 @@
       "画像アップロード＆OCR実行",
       "レシート解析＆AIを用いた内容解釈機能"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#OCR",
-      "#AI"
-    ],
-    "url": "https://x.com/ruu_web/status/2030249337448812722",
-    "demoLink": "/day066"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#OCR", "#AI"],
+    "url": "https://x.com/ruu_web/status/2030249337448812722"
   },
   {
     "day": 65,
@@ -582,15 +357,8 @@
       "Markdown レンダリング対応",
       "Ollama APIからの逐次ストリーム表示"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Ollama",
-      "#AI",
-      "#LLM"
-    ],
-    "url": "https://x.com/ruu_web/status/2029881919421435967",
-    "demoLink": "/day065"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Ollama", "#AI", "#LLM"],
+    "url": "https://x.com/ruu_web/status/2029881919421435967"
   },
   {
     "day": 64,
@@ -601,24 +369,15 @@
       "画像からテキストを高精度に抽出",
       "Bounding Box や信頼度（Confidence）の取得"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Python",
-      "#FastAPI",
-      "#CloudRun",
-      "#OCR"
-    ],
-    "url": "https://x.com/ruu_web/status/2029574951490199857",
-    "demoLink": "/day064"
+    "tags": ["#100DaysOfCode", "#Python", "#FastAPI", "#CloudRun", "#OCR"],
+    "url": "https://x.com/ruu_web/status/2029574951490199857"
   },
   {
     "day": 63,
     "date": "2026-03-04 23:30",
     "title": "Accounting App with Strategy Pattern 📊📁",
     "description": "【Day 063/100】Accounting App with Strategy Pattern 📊📁",
-    "features": [
-      "Hono API + 共通の BookData インターフェース"
-    ],
+    "features": ["Hono API + 共通の BookData インターフェース"],
     "tags": [
       "#100DaysOfCode",
       "#Nextjs",
@@ -626,26 +385,16 @@
       "#TypeScript",
       "#DesignPatterns"
     ],
-    "url": "https://x.com/ruu_web/status/2029216369468948631",
-    "demoLink": "/day063"
+    "url": "https://x.com/ruu_web/status/2029216369468948631"
   },
   {
     "day": 62,
     "date": "2026-03-03 23:55",
     "title": "Animated Cash Book 📊💸",
     "description": "【Day 062/100】Animated Cash Book 📊💸",
-    "features": [
-      "取引をキャラクターが1件ずつ通知するアニメーション"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#React",
-      "#TypeScript",
-      "#XLSX"
-    ],
-    "url": "https://x.com/ruu_web/status/2028849512186581247",
-    "demoLink": "/day062"
+    "features": ["取引をキャラクターが1件ずつ通知するアニメーション"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#React", "#TypeScript", "#XLSX"],
+    "url": "https://x.com/ruu_web/status/2028849512186581247"
   },
   {
     "day": 61,
@@ -657,14 +406,8 @@
       "キーボードショートカットの表示",
       "検索機能"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#VSCode",
-      "#Nextjs",
-      "#Hono"
-    ],
-    "url": "https://x.com/ruu_web/status/2028482332672573776",
-    "demoLink": "/day061"
+    "tags": ["#100DaysOfCode", "#VSCode", "#Nextjs", "#Hono"],
+    "url": "https://x.com/ruu_web/status/2028482332672573776"
   },
   {
     "day": 60,
@@ -676,32 +419,17 @@
       "Next.js + Hono API + Cloudflare D1 & R2",
       "ローカルと本番環境でのストレージ切り替え対応"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Hono",
-      "#Cloudflare",
-      "#R2"
-    ],
-    "url": "https://x.com/ruu_web/status/2028124225517850918",
-    "demoLink": "/day060"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Hono", "#Cloudflare", "#R2"],
+    "url": "https://x.com/ruu_web/status/2028124225517850918"
   },
   {
     "day": 59,
     "date": "2026-02-28 23:30",
     "title": "OAuth Troubleshooting Slide",
     "description": "【Day 059/100】OAuth Troubleshooting Slide",
-    "features": [
-      "ドメイン越えクッキーを実現するセッションブリッジ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Hono",
-      "#OAuth"
-    ],
-    "url": "https://x.com/ruu_web/status/2027750621009547563",
-    "demoLink": "/day059"
+    "features": ["ドメイン越えクッキーを実現するセッションブリッジ"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Hono", "#OAuth"],
+    "url": "https://x.com/ruu_web/status/2027750621009547563"
   },
   {
     "day": 58,
@@ -719,8 +447,7 @@
       "#GeminiAPI",
       "#Antigravity"
     ],
-    "url": "https://x.com/ruu_web/status/2027396676118581500",
-    "demoLink": "/day058"
+    "url": "https://x.com/ruu_web/status/2027396676118581500"
   },
   {
     "day": 57,
@@ -732,30 +459,17 @@
       "直線/四角/楕円を描画",
       "Undo/Redo対応"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#CanvasAPI",
-      "#shadcnui"
-    ],
-    "url": "https://x.com/ruu_web/status/2026996209211388077",
-    "demoLink": "/day057"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#CanvasAPI", "#shadcnui"],
+    "url": "https://x.com/ruu_web/status/2026996209211388077"
   },
   {
     "day": 56,
     "date": "2026-02-25 23:30",
     "title": "ずんだもんNEWS 🎙️",
     "description": "【Day 056/100】ずんだもんNEWS 🎙️",
-    "features": [
-      "VOICEVOX音声でニュース読み上げ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#VOICEVOX"
-    ],
-    "url": "https://x.com/ruu_web/status/2026669350770577659",
-    "demoLink": "/day056"
+    "features": ["VOICEVOX音声でニュース読み上げ"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#VOICEVOX"],
+    "url": "https://x.com/ruu_web/status/2026669350770577659"
   },
   {
     "day": 55,
@@ -766,15 +480,8 @@
       "Hono + Next.js Server Actions で JWT 生成",
       "JWT解説 , JSON結果解説つき"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Hono",
-      "#JWT",
-      "#ServerActions"
-    ],
-    "url": "https://x.com/ruu_web/status/2026260095735300267",
-    "demoLink": "/day055"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Hono", "#JWT", "#ServerActions"],
+    "url": "https://x.com/ruu_web/status/2026260095735300267"
   },
   {
     "day": 54,
@@ -785,14 +492,8 @@
       "100万件ローカルデータ即時生成",
       "Indexed vs Non-Indexed 速度比較"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#SQLite",
-      "#sqljs"
-    ],
-    "url": "https://x.com/ruu_web/status/2025838998430818369",
-    "demoLink": "/day054"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#SQLite", "#sqljs"],
+    "url": "https://x.com/ruu_web/status/2025838998430818369"
   },
   {
     "day": 53,
@@ -804,15 +505,8 @@
       "Gemini で未記入の裏面を定時で自動補完",
       "アカウント紐付けによるデータ管理"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Cloudflare",
-      "#Hono",
-      "#GeminiAPI"
-    ],
-    "url": "https://x.com/ruu_web/status/2025540581070618844",
-    "demoLink": "/day053"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Cloudflare", "#Hono", "#GeminiAPI"],
+    "url": "https://x.com/ruu_web/status/2025540581070618844"
   },
   {
     "day": 52,
@@ -823,13 +517,8 @@
       "アカウント紐付けでデータを管理",
       "一覧のクリップボードボタンを押すだけで全文コピー"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#App"
-    ],
-    "url": "https://x.com/ruu_web/status/2025175697061544074",
-    "demoLink": "/day052"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#App"],
+    "url": "https://x.com/ruu_web/status/2025175697061544074"
   },
   {
     "day": 51,
@@ -840,31 +529,16 @@
       "カテゴリ別のパターン選択 (Singleton, Builder, Facadeなど)",
       "クラス図とJavaコードのハイライト表示"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#DesignPatterns",
-      "#GoF",
-      "#React"
-    ],
-    "url": "https://x.com/ruu_web/status/2024782933056479278",
-    "demoLink": "/day051"
+    "tags": ["#100DaysOfCode", "#Nextjs", "#DesignPatterns", "#GoF", "#React"],
+    "url": "https://x.com/ruu_web/status/2024782933056479278"
   },
   {
     "day": 50,
     "date": "2026-02-19 20:30",
     "title": "100 Days Roadmap 🗺️🚀",
     "description": "前半戦終了！これまでの50個のアプリと技術スタックを可視化しました。",
-    "features": [
-      "Tech Stack Chart (Recharts)",
-      "Tag & Project Dashboard"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Recharts",
-      "#Dashboard"
-    ],
+    "features": ["Tech Stack Chart (Recharts)", "Tag & Project Dashboard"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Recharts", "#Dashboard"],
     "url": "https://x.com/ruu_web/status/2024448032180490524"
   },
   {
@@ -875,12 +549,7 @@
     "features": [
       "140字(X)/2200字(Insta)/原稿用紙 などプリセット対応  文字数超過アラート &amp; ワンタップコピー"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#React",
-      "#TailwindCSS"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#React", "#TailwindCSS"],
     "url": "https://x.com/ruu_web/status/2024077225876939211"
   },
   {
@@ -893,13 +562,7 @@
       "React Hooks (useRef) ゲームループ",
       "脆弱性のパッチ当てをゲーム化"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#CanvasAPI",
-      "#GameDev",
-      "#React"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#CanvasAPI", "#GameDev", "#React"],
     "url": "https://x.com/ruu_web/status/2023745974783668461"
   },
   {
@@ -907,16 +570,8 @@
     "date": "2026-02-16 23:57",
     "title": "Real-time Chat w/ Hono DO",
     "description": "2年目エンジニア「サーバーレスWebSocketすごい。」",
-    "features": [
-      "全員への一斉配信 (Broadcast)",
-      "接続人数のリアルタイム同期"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Hono",
-      "#CloudflareWorkers",
-      "#Nextjs"
-    ],
+    "features": ["全員への一斉配信 (Broadcast)", "接続人数のリアルタイム同期"],
+    "tags": ["#100DaysOfCode", "#Hono", "#CloudflareWorkers", "#Nextjs"],
     "url": "https://x.com/ruu_web/status/2023411514120802590"
   },
   {
@@ -924,15 +579,8 @@
     "date": "2026-02-15 19:50",
     "title": "Drizzle Typist",
     "description": "「ORMの書き方を身体で覚える！」",
-    "features": [
-      "リアルタイム判定 &amp; 視覚フィードバック"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#DrizzleORM",
-      "#TypeScript"
-    ],
+    "features": ["リアルタイム判定 &amp; 視覚フィードバック"],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#DrizzleORM", "#TypeScript"],
     "url": "https://x.com/ruu_web/status/2022986819441426591"
   },
   {
@@ -940,15 +588,8 @@
     "date": "2026-02-14 22:39",
     "title": "Anonymous Board - Cloudflare D1",
     "description": "「サーバーレスで掲示板を作りたい！」",
-    "features": [
-      "1秒でデプロイ (Cloudflare Workers)",
-      "エッジで動くDB (D1)"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Cloudflare",
-      "#Nextjs"
-    ],
+    "features": ["1秒でデプロイ (Cloudflare Workers)", "エッジで動くDB (D1)"],
+    "tags": ["#100DaysOfCode", "#Cloudflare", "#Nextjs"],
     "url": "https://x.com/ruu_web/status/2022667014217814019"
   },
   {
@@ -956,16 +597,8 @@
     "date": "2026-02-14 00:10",
     "title": "GCP Docker Architect",
     "description": "Next.js を Cloud Run にデプロイするための Dockerfile を質問に答えるだけで自動生成！",
-    "features": [
-      "Node.js バージョン選択",
-      "Cloud Run デプロイコマンド生成"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#GCP",
-      "#CloudRun",
-      "#Docker"
-    ],
+    "features": ["Node.js バージョン選択", "Cloud Run デプロイコマンド生成"],
+    "tags": ["#100DaysOfCode", "#GCP", "#CloudRun", "#Docker"],
     "url": "https://x.com/ruu_web/status/2022327415339614393"
   },
   {
@@ -974,10 +607,7 @@
     "title": "Reflection Log v2",
     "description": "自分専用の振り返りログアプリ",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Supabase"
-    ],
+    "tags": ["#100DaysOfCode", "#Supabase"],
     "url": "https://x.com/ruu_web/status/2021964853720797599"
   },
   {
@@ -986,12 +616,7 @@
     "title": "Grass Designer",
     "description": "GitHub の草（Contributions）を自由にデザインできるアプリを作りました！",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#BuildInPublic",
-      "#Nextjs",
-      "#Frontend"
-    ],
+    "tags": ["#100DaysOfCode", "#BuildInPublic", "#Nextjs", "#Frontend"],
     "url": "https://x.com/ruu_web/status/2021962283342250161"
   },
   {
@@ -999,13 +624,8 @@
     "date": "2026-02-10 23:22",
     "title": "AI Tech Pulse - 自動ニュース要約",
     "description": "「毎日AIとセキュリティの最新情報を追うのが大変…」",
-    "features": [
-      "毎朝9時に自動更新 (Cron)"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#GeminiAPI"
-    ],
+    "features": ["毎朝9時に自動更新 (Cron)"],
+    "tags": ["#100DaysOfCode", "#GeminiAPI"],
     "url": "https://x.com/ruu_web/status/2021228226991792179"
   },
   {
@@ -1036,12 +656,7 @@
       "5行日記（事実/発見/教訓/宣言/悩み）",
       "JSON + AIプロンプト一発コピー"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Firebase",
-      "#PWA"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Firebase", "#PWA"],
     "url": "https://x.com/ruu_web/status/2020442481356313038"
   },
   {
@@ -1054,11 +669,7 @@
       "タブで分類",
       "JSONでバックアップ"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#TypeScript"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#TypeScript"],
     "url": "https://x.com/ruu_web/status/2020068740415869153"
   },
   {
@@ -1071,12 +682,7 @@
       "学習モード / 編集モードの切り替え",
       "LocalStorageでデータを永続化"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#Study"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#Study"],
     "url": "https://x.com/ruu_web/status/2019613739549638698"
   },
   {
@@ -1088,12 +694,7 @@
       "iTunes APIで楽曲情報を検索紐付け",
       "YouTube Music へのダイレクトリンク生成"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#MusicApp"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#MusicApp"],
     "url": "https://x.com/ruu_web/status/2019255897512677644"
   },
   {
@@ -1105,12 +706,7 @@
       "リアルタイムライブプレビュー",
       "自動保存（LocalStorage）で閉じても安心"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#Markdown"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#Markdown"],
     "url": "https://x.com/ruu_web/status/2019012075620831458"
   },
   {
@@ -1123,12 +719,7 @@
       "コード＆解説の2カラムレイアウト",
       "完了バッジ＆プログレスバー"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#LMS"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#LMS"],
     "url": "https://x.com/ruu_web/status/2018670129777983512"
   },
   {
@@ -1139,12 +730,7 @@
     "features": [
       "マップ移動＆会話イベント（Framer Motion）  実践的クイズ（.env流出対策、Git Rebase etc...）"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#GameDev"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#GameDev"],
     "url": "https://x.com/ruu_web/status/2018283672412319869"
   },
   {
@@ -1155,12 +741,7 @@
     "features": [
       "文字数行数単語数を即時表示  読了時間を自動推定（400文字/分）"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#useMemo"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#useMemo"],
     "url": "https://x.com/ruu_web/status/2017956142115332515"
   },
   {
@@ -1168,14 +749,8 @@
     "date": "2026-01-31 23:10",
     "title": "YT_LOG",
     "description": "YouTube学習のお供！タイムスタンプ付きメモアプリを作りました。React × YouTube IFrame APIで動画と連携！",
-    "features": [
-      "URLペーストで即再生  クリックでその場所にジャンプ"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs"
-    ],
+    "features": ["URLペーストで即再生  クリックでその場所にジャンプ"],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs"],
     "url": "https://x.com/ruu_web/status/2017601271914762604"
   },
   {
@@ -1183,15 +758,8 @@
     "date": "2026-01-30 23:03",
     "title": "NEODASH",
     "description": "重力を自在に操るランゲームを作りました。 React × Canvas API滑らかな動きを実現！",
-    "features": [
-      "クリックでJump  スコア連動のスピードアップ機能"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Nextjs",
-      "#CanvasAPI"
-    ],
+    "features": ["クリックでJump  スコア連動のスピードアップ機能"],
+    "tags": ["#100DaysOfCode", "#React", "#Nextjs", "#CanvasAPI"],
     "url": "https://x.com/ruu_web/status/2017237298455462359"
   },
   {
@@ -1199,15 +767,8 @@
     "date": "2026-01-29 22:20",
     "title": "YouTube Timestamp Clipper",
     "description": "Chrome拡張機能（まだ公開してないのです）",
-    "features": [
-      "再生時間をワンクリックで保存",
-      "再生位置へリンク"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#ChromeExtension",
-      "#JavaScript"
-    ],
+    "features": ["再生時間をワンクリックで保存", "再生位置へリンク"],
+    "tags": ["#100DaysOfCode", "#ChromeExtension", "#JavaScript"],
     "url": "https://x.com/ruu_web/status/2016864111318143007"
   },
   {
@@ -1215,9 +776,7 @@
     "date": "2026-01-28 22:09",
     "title": "Glassmorphism Generator  コピペで使えるCSS生成ツール。",
     "description": "Glassmorphism て流行なんですかね。",
-    "features": [
-      "スライダーでBlur/Opacityを調整  CSSコードを一発コピー"
-    ],
+    "features": ["スライダーでBlur/Opacityを調整  CSSコードを一発コピー"],
     "tags": [
       "#100DaysOfCode",
       "#React",
@@ -1235,13 +794,7 @@
     "features": [
       "Go + Bubbletea で実装  作業休憩モードをキーボードで瞬時に切り替え"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Go",
-      "#Golang",
-      "#Bubbletea",
-      "#TUI"
-    ],
+    "tags": ["#100DaysOfCode", "#Go", "#Golang", "#Bubbletea", "#TUI"],
     "url": "https://x.com/ruu_web/status/2016141859853418811"
   },
   {
@@ -1252,12 +805,7 @@
     "features": [
       "コミット感覚で時分秒＆メモを一瞬で記録  「30_開発」で30分の作業ログとして自動記録"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#webdevelopment",
-      "#JavaScript",
-      "#LifeHacks"
-    ],
+    "tags": ["#100DaysOfCode", "#webdevelopment", "#JavaScript", "#LifeHacks"],
     "url": "https://x.com/ruu_web/status/2015770835190153611"
   },
   {
@@ -1268,11 +816,7 @@
     "features": [
       "Apache / MySQL コース切替  リアルタイムの正誤判定 (ミスは赤字で即通知)"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#webdevelopment",
-      "#Docker"
-    ],
+    "tags": ["#100DaysOfCode", "#webdevelopment", "#Docker"],
     "url": "https://x.com/ruu_web/status/2015407131160461590"
   },
   {
@@ -1280,14 +824,8 @@
     "date": "2026-01-24 22:51",
     "title": "五目並べ (Gomoku)  React + TypeScript で古典的な「五目並べ」を実装！CSS Grid だけです。",
     "description": "",
-    "features": [
-      "勝敗判定ロジック (縦横斜め)   手番表示 &amp; リセット機能"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#TypeScript"
-    ],
+    "features": ["勝敗判定ロジック (縦横斜め)   手番表示 &amp; リセット機能"],
+    "tags": ["#100DaysOfCode", "#React", "#TypeScript"],
     "url": "https://x.com/ruu_web/status/2015059836271284452"
   },
   {
@@ -1300,12 +838,7 @@
       "スマホ用 SQL クイック入力ボタン",
       "実行結果の即時判定"
     ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#SQLite",
-      "#PWA"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#SQLite", "#PWA"],
     "url": "https://x.com/ruu_web/status/2014678439295648148"
   },
   {
@@ -1314,11 +847,7 @@
     "title": ": Java × SQLite 高速一括挿入ツール 🚀",
     "description": "SQLiteへの100万件データ登録JavaのJDBCを使って、バッチ処理とオートコミットOFFを駆使した結果…",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Java",
-      "#SQLite"
-    ],
+    "tags": ["#100DaysOfCode", "#Java", "#SQLite"],
     "url": "https://x.com/ruu_web/status/2014354996662550945"
   },
   {
@@ -1327,12 +856,7 @@
     "title": "MindFlow",
     "description": "感情の波を記録する、超シンプルな一言日記アプリ。",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#TypeScript",
-      "#FramerMotion"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#TypeScript", "#FramerMotion"],
     "url": "https://x.com/ruu_web/status/2013960655686992165"
   },
   {
@@ -1341,13 +865,7 @@
     "title": "Pic-Spot",
     "description": "外部サイトから画像をドラッグ＆ドロップして、ブラウザ内に一瞬でコレクションできるギャラリーのアプリ。",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#TypeScript",
-      "#Dexie",
-      "#WebDev"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#TypeScript", "#Dexie", "#WebDev"],
     "url": "https://x.com/ruu_web/status/2013582534706401672"
   },
   {
@@ -1356,12 +874,7 @@
     "title": "MD to JSON Converter",
     "description": "✨Notionから出力した複数のMarkdownを、一括で整形されたJSONに変換するツールを作成。 ダウンロード機能をVanilla JSで実装しました。 🛠️",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#JavaScript",
-      "#HTML",
-      "#WebDesign"
-    ],
+    "tags": ["#100DaysOfCode", "#JavaScript", "#HTML", "#WebDesign"],
     "url": "https://x.com/ruu_web/status/2013218444729111027"
   },
   {
@@ -1370,10 +883,7 @@
     "title": "毎日30分1本勝負、本日は「JSON LOG」を制作！✨",
     "description": "「AIに自分の思考ログを効率よく食わせたい」と思っていて、結果的に Vanilla JS でシンプルに JSON 保存できる形に落ち着きました。",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#JavaScript"
-    ],
+    "tags": ["#100DaysOfCode", "#JavaScript"],
     "url": "https://x.com/ruu_web/status/2012853400686240009"
   },
   {
@@ -1382,13 +892,7 @@
     "title": "React Tetris 🎮",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：React Tetris App",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Vite",
-      "#TypeScript",
-      "#GameDev"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Vite", "#TypeScript", "#GameDev"],
     "url": "https://x.com/ruu_web/status/2012479114834534481"
   },
   {
@@ -1397,13 +901,7 @@
     "title": "Kanban Board (Trello-style) 完成！📋",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Glassmorphic Kanban バックエンドなし",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#dndkit",
-      "#Vite",
-      "#TypeScript"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#dndkit", "#Vite", "#TypeScript"],
     "url": "https://x.com/ruu_web/status/2012144620130681224"
   },
   {
@@ -1412,12 +910,7 @@
     "title": "リアルタイムお絵描きアプリ完成！🎨",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Collaborative Canvas",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Go",
-      "#React",
-      "#WebSockets"
-    ],
+    "tags": ["#100DaysOfCode", "#Go", "#React", "#WebSockets"],
     "url": "https://x.com/ruu_web/status/2011782895984394380"
   },
   {
@@ -1426,10 +919,7 @@
     "title": "useQueryの学習。",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：パスワードマネージャー",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs"],
     "url": "https://x.com/ruu_web/status/2011435931639935376"
   },
   {
@@ -1437,13 +927,8 @@
     "date": "2026-01-13 23:57",
     "title": "🛠️ 今日の成果：リラクゼーションアプリ「Zen Breathing」",
     "description": "爆速開発しました🚀",
-    "features": [
-      "こだわりのダーク＆グラスモーフィズムUI"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#javascript"
-    ],
+    "features": ["こだわりのダーク＆グラスモーフィズムUI"],
+    "tags": ["#100DaysOfCode", "#javascript"],
     "url": "https://x.com/ruu_web/status/2011090246222692460"
   },
   {
@@ -1452,11 +937,7 @@
     "title": "Notion API 連携🛑 ルール：毎日30分 1本勝負 🛠 今日の成果：Notion DB 簡易表示ビューア",
     "description": "NotionのDBを自分好みのUIで可視化したくて、Next.js × Material UIでビューアを作成しました。",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#Notion"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#Notion"],
     "url": "https://x.com/ruu_web/status/2010709845574594611"
   },
   {
@@ -1465,11 +946,7 @@
     "title": "AIチャット antigravity で爆速開発！",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：ずんだもんとおしゃべりチャットアプリ",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs",
-      "#AI"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs", "#AI"],
     "url": "https://x.com/ruu_web/status/2010344400258503064"
   },
   {
@@ -1478,11 +955,7 @@
     "title": "時間がない！そんな今日は速攻で「Stopwatch」を作成⏱️",
     "description": "ReactのuseRefでインターバルIDを管理し、再レンダリングの罠を回避しつつ実装。 ミリ秒がパラパラ動くの楽しさがありますね。",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Vite"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Vite"],
     "url": "https://x.com/ruu_web/status/2009994056039051691"
   },
   {
@@ -1491,11 +964,7 @@
     "title": "時間がないし、原点回帰の「Digital Clock」！⏰",
     "description": "useEffect × setInterval で時を刻むシンプルな時計。桁が変わってもガタつかないようにする",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#Vite"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#Vite"],
     "url": "https://x.com/ruu_web/status/2009634850651951356"
   },
   {
@@ -1504,11 +973,7 @@
     "title": "React × Material UI でカレンダーアプリを作成！🗓️",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：シンプルカレンダービュー",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#React",
-      "#MaterialUI"
-    ],
+    "tags": ["#100DaysOfCode", "#React", "#MaterialUI"],
     "url": "https://x.com/ruu_web/status/2009262799432896893"
   },
   {
@@ -1517,10 +982,7 @@
     "title": "Javaでパックマン  ᗣᗣᗣ 今日はJava Swingでゲーム開発。",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：パックマン",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Java"
-    ],
+    "tags": ["#100DaysOfCode", "#Java"],
     "url": "https://x.com/ruu_web/status/2008883724923048334"
   },
   {
@@ -1529,11 +991,7 @@
     "title": "Rails Hotwire の威力 ⚡",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Keep Rails(メモアプリ)",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rails",
-      "#Web"
-    ],
+    "tags": ["#100DaysOfCode", "#Rails", "#Web"],
     "url": "https://x.com/ruu_web/status/2008522903252607299"
   },
   {
@@ -1541,15 +999,8 @@
     "date": "2026-01-05 22:48",
     "title": "Habit Log App  Rust + eframe で「簡易習慣記録アプリ」を作成！",
     "description": "ある程度「使えるアプリ」に進化した。 Rust で GUI アプリ、意外とサクッと作れて楽しいぞ…！🚀",
-    "features": [
-      "習慣リストの追加 JSON 永続化  日本語"
-    ],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rust",
-      "#RustLang",
-      "#eframe"
-    ],
+    "features": ["習慣リストの追加 JSON 永続化  日本語"],
+    "tags": ["#100DaysOfCode", "#Rust", "#RustLang", "#eframe"],
     "url": "https://x.com/ruu_web/status/2008173689687494945"
   },
   {
@@ -1558,10 +1009,7 @@
     "title": "Rust はまだよくわからないですが、「プログレスバー出したいな」→ cargo add indicatif → 実装 5 分。 CLI ツールは作れます。サボりじゃない...！",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：CLI Pomodoro Timer",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rust"
-    ],
+    "tags": ["#100DaysOfCode", "#Rust"],
     "url": "https://x.com/ruu_web/status/2007746980492222486"
   },
   {
@@ -1570,12 +1018,7 @@
     "title": "簡易クイズ API を Go で実装 🐹 Docker の知識を問うクイズアプリが完成。",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Docker Quiz API",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Go",
-      "#Nextjs",
-      "#Docker"
-    ],
+    "tags": ["#100DaysOfCode", "#Go", "#Nextjs", "#Docker"],
     "url": "https://x.com/ruu_web/status/2007423507123311030"
   },
   {
@@ -1584,10 +1027,7 @@
     "title": "Rust でライフゲーム実装！🧬 今日は Rust の GUI ライブラリ egui を使ってます。",
     "description": "🛑 ルール：毎日 30 分 1 本勝負 🛠️ 今日の成果：Rust Game of Life (egui/eframe)",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Rust"
-    ],
+    "tags": ["#100DaysOfCode", "#Rust"],
     "url": "https://x.com/ruu_web/status/2006915917914190239"
   },
   {
@@ -1596,10 +1036,7 @@
     "title": "元旦からスタート！🚀 エンジニア2年目の挑戦として、「100日間で100個のアプリを作る」チャレンジを始めます。",
     "description": "🛑 ルール：毎日30分1本勝負 🛠️ 今日の成果：100日おみくじアプリ",
     "features": [],
-    "tags": [
-      "#100DaysOfCode",
-      "#Nextjs"
-    ],
+    "tags": ["#100DaysOfCode", "#Nextjs"],
     "url": "https://x.com/ruu_web/status/2006704508722930165"
   }
 ]
