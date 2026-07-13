@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-9-7ffd5ce3320c",
-    "title": "「AI臭くない文章」を書かせることができる執筆エディタを作った｜なつ (生活者/デザイナー/リサーチャー)",
-    "url": "https://note.com/art_reflection/n/n7ffd5ce3320c",
+    "id": "hatebu-it-0-urce=dlvr.it",
+    "title": "Claude Code、とりあえずこれ読んどけばOKなまとめ（2026年版） - Qiita",
+    "url": "https://qiita.com/fuyunoki/items/5818688d20225aa8088a?utm_campaign=popular_items&utm_medium=twitter&utm_source=dlvr.it",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-12T04:03:56.813Z",
-    "summary": "「AI臭くない文章」を書かせるため、なつ氏はClaude系を活用した独自開発のエディ\u001b[K\nタを公開しました。APIを利用して一本の文を300〜500円で生成しますが、これだけ\u001b[K\nでは専門性の高い記事をライターに書かせようとするとコストが100分の1になるほど\u001b[K\n高くなることもあります。そのため、AI臭くない文章を執筆する際に有効なのは、「\u001b[K\nどのように無数のルールを検知・修正させるか」の仕組みづくりであり、システムプ\u001b[K\nロンプトや再帰的推論などを活用した新たなアプローチが必要だと指摘しています。\u001b[K\nまた、エディタを公開しつつ、ClaudeのAPIキーで機能しますいとおり一本記事書く\u001b[K\nのに300〜500円ほどかかることを明らかにしました。",
-    "bookmarkCount": 247,
-    "audioFile": "../audio/hatebu-it-9-7ffd5ce3320c.wav"
+    "date": "2026-07-13T04:06:45.782Z",
+    "summary": "Claude Code の導入にあたって、公式ドキュメントだけでは不十分で、現役エンジニ\u001b[K\nアが実際に活用しているブログや Anthropic社内の事例までを集めた「本番運用ガイ\u001b[K\nド」をまとめました。npmインストールが非推奨とされた理由や、Mac・Linux・Wind\u001b[4D\u001b[K\nWindowsでのネイティブインストーラーの使い方など、最新の環境設定も丁寧に解説\u001b[K\n。さらに、チームで共有するコマンド保存先（.claude/commands または ~/.claude\u001b[9D\u001b[K\n~/.claude/commands）や、Claude が提供する Git コミットツールを活用したワーク\u001b[K\nフローを提案しています。頻出のコマンドは 1〜2個から始め、個人用・プロジェク\u001b[K\nト共有用の定型文を作成し、コマンド数が20〜30個を超えたらカテゴリごとにプレフ\u001b[K\nィックスを付けて整理するなど、実践的な育成方法も紹介しています。",
+    "bookmarkCount": 586,
+    "audioFile": "../audio/hatebu-it-0-urce_dlvr_it.wav"
   },
   {
-    "id": "hatebu-it-2-y/shibui-sre",
-    "title": "しぶいSRE: サーバから見えない障害にどう向き合うか。ラストワンマイルのデバッグ実践 / Shibui SRE",
-    "url": "https://speakerdeck.com/kanny/shibui-sre",
+    "id": "hatebu-it-28-ecurity_day1",
+    "title": "セキュリティ研修【MIXI 25新卒技術研修】",
+    "url": "https://speakerdeck.com/mixi_engineers/2025_new_grad_training_security_day1",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-12T04:04:34.611Z",
-    "summary": "LayerX の SRE マネージャーが、サーバー側とクライアント（ブラウザ）側で「見え\u001b[K\nない障害」が発生したときのデバッグ実践について説明。多くの組織ではアプリケー\u001b[K\nションやサードパーティの API が主な対象だが、サーバー側に多数の環境があり、\u001b[K\nログ収集が難しいと指摘。特にサーバーロードバランサ やファイアウォールで問題\u001b[K\nが発生しやすく、原因究明はクライアント（ブラウザ）側になることが多い。対応策\u001b[K\nとしては、SMTP などのプロトコルをエンコードして SMTPUTF8 を利用する「Relay」\u001b[K\nという仕組みの使い方や、MIME エンコーディングが有効な現状の課題をまとめ、SR\u001b[2D\u001b[K\nSRE がどのようにデバッグするかを具体例で示した。",
-    "bookmarkCount": 71,
-    "audioFile": "../audio/hatebu-it-2-y_shibui-sre.wav"
+    "date": "2026-07-13T04:07:18.620Z",
+    "summary": "ルールに違反する点を示す記事は「セキュリティ室」から、2025年5月14日に行われ\u001b[K\nた新卒向け研修のスライドをもとに公開されたものです。研修では不正アクセス禁止\u001b[K\n法への抵触が原因となる悪用を含む内容が取り上げられ、参加者はこのような脆弱性\u001b[K\nを認識し、対策を理解することが求められます。",
+    "bookmarkCount": 83,
+    "audioFile": "../audio/hatebu-it-28-ecurity_day1.wav"
   }
 ]
