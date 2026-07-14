@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-urce=dlvr.it",
-    "title": "Claude Code、とりあえずこれ読んどけばOKなまとめ（2026年版） - Qiita",
-    "url": "https://qiita.com/fuyunoki/items/5818688d20225aa8088a?utm_campaign=popular_items&utm_medium=twitter&utm_source=dlvr.it",
+    "id": "hatebu-it-14-98c16a0479ba",
+    "title": "AI使いすぎるとプロジェクトマネジメント力が低下する｜すぅ | AI駆動PM",
+    "url": "https://note.com/suh_sunaneko/n/n98c16a0479ba",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-13T04:06:45.782Z",
-    "summary": "Claude Code の導入にあたって、公式ドキュメントだけでは不十分で、現役エンジニ\u001b[K\nアが実際に活用しているブログや Anthropic社内の事例までを集めた「本番運用ガイ\u001b[K\nド」をまとめました。npmインストールが非推奨とされた理由や、Mac・Linux・Wind\u001b[4D\u001b[K\nWindowsでのネイティブインストーラーの使い方など、最新の環境設定も丁寧に解説\u001b[K\n。さらに、チームで共有するコマンド保存先（.claude/commands または ~/.claude\u001b[9D\u001b[K\n~/.claude/commands）や、Claude が提供する Git コミットツールを活用したワーク\u001b[K\nフローを提案しています。頻出のコマンドは 1〜2個から始め、個人用・プロジェク\u001b[K\nト共有用の定型文を作成し、コマンド数が20〜30個を超えたらカテゴリごとにプレフ\u001b[K\nィックスを付けて整理するなど、実践的な育成方法も紹介しています。",
-    "bookmarkCount": 586,
-    "audioFile": "../audio/hatebu-it-0-urce_dlvr_it.wav"
+    "date": "2026-07-14T03:41:58.048Z",
+    "summary": "【AI使いすぎるとプロジェクトマネジメント力が低下する｜すぅ】  \n\n【冒頭】  \n「AIを使いすぎると、プロジェクトマネジメント力が落ちる。」AI漬けの育休生活か\u001b[K\nら現場に戻ってきて実感したことです。この記事では、なぜAI依存でPM力が落ちるの\u001b[K\nかを整理していきます。  \n\n【中盤】  \n「認識のすり合わせ」が大事な理由です。人間相手だと要件やスコープのズレがその\u001b[K\nままプロジェクト全体に反映され、一方AIは後から修正しやすいので、深いヒトマネ\u001b[K\nジメントをスキップすると、後半で「もっと早く言ってほしかった」などの声が出ま\u001b[K\nす。  \n\n【結論付近】  \n「気持ちよく動いてもらえるかどうか」に大きく引っ張られる。AIが進化しても変わ\u001b[K\nらないのは「コト」と「ヒト」の両側面です。良いプロジェクトは人の積み重ねから\u001b[K\n生まれると考え、コトマネジメントを意識して人と会う時間を確保しています。AIを\u001b[K\n使い倒すためには、まず「人はどういう人間か」を知ることが大切だとまとめました\u001b[K\n。",
+    "bookmarkCount": 187,
+    "audioFile": "../audio/hatebu-it-14-98c16a0479ba.wav"
   },
   {
-    "id": "hatebu-it-28-ecurity_day1",
-    "title": "セキュリティ研修【MIXI 25新卒技術研修】",
-    "url": "https://speakerdeck.com/mixi_engineers/2025_new_grad_training_security_day1",
+    "id": "hatebu-it-5-026/07/13/2/",
+    "title": "DevOpsとは何だったのか",
+    "url": "https://mizzy.org/blog/2026/07/13/2/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-13T04:07:18.620Z",
-    "summary": "ルールに違反する点を示す記事は「セキュリティ室」から、2025年5月14日に行われ\u001b[K\nた新卒向け研修のスライドをもとに公開されたものです。研修では不正アクセス禁止\u001b[K\n法への抵触が原因となる悪用を含む内容が取り上げられ、参加者はこのような脆弱性\u001b[K\nを認識し、対策を理解することが求められます。",
-    "bookmarkCount": 83,
-    "audioFile": "../audio/hatebu-it-28-ecurity_day1.wav"
+    "date": "2026-07-14T03:42:49.446Z",
+    "summary": "この記事は、DevOpsという言葉が生まれるまでの経緯と、日本語での表記や理解の難\u001b[K\nしさを中心に解説している。特に、「devops」という小文字表記が元々は開発部門と\u001b[K\n運用部門の関係性（Agile Systems Administrationなどのグループ名からもうかがえ\u001b[K\nる）を指していたことを指摘し、職種やツールの名称としての小さな大文字表記への\u001b[K\n変換が、誤解を招いたことを紹介。DevOpsの原点としては、アジャイルを開発分野に\u001b[K\n広めようとする動きと、アジャイルを運用分野に適用する試み（Agile Infrastruct\u001b[11D\u001b[K\nInfrastructure, Velocity 2009）があったが、それらは当初から開発・運用のコミ\u001b[K\nュニティの距離を示していたと分析。日本語での「devops」の小文字表記も、訳や文\u001b[K\n化的な慣習によるものであり、その意図を正確に伝えるには原文や専門用語（例：P\u001b[1D\u001b[K\nPlatform Engineering）の理解が必要であることを強調。職種やツールへの注目が容\u001b[K\n易で、哲学的・概念的な動きよりも実務的な応用の難しさが浮き彫りになる。また、\u001b[K\n小文字表記の「devops」は、日本語ではその意味を把握するための文脈（例：Effec\u001b[5D\u001b[K\nEffective DevOps）が必要であると結論づけ、英語圏でも同様に誤解が生じやすいこ\u001b[K\nとを指摘。言語の違いだけでなく、実践的な認識の仕組みや文化的背景も影響してい\u001b[K\nるという多層的な問題性を浮き彫りにしている。要するに、DevOpsは単なる技術用語\u001b[K\nではなく、組織文化と職務の境界を再定義しようとする複雑な社会運動であり、その\u001b[K\n「小文字」の選択が意味の誤解を生んだことが重要な示唆である。",
+    "bookmarkCount": 122,
+    "audioFile": "../audio/hatebu-it-5-026_07_13_2_.wav"
   }
 ]
