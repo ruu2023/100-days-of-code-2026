@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-27-le/35250523/",
-    "title": "孫正義氏「人類が頂点の時代終わる」--AIの自己増殖「止めようと思っても止められない」",
-    "url": "https://japan.cnet.com/article/35250523/",
+    "id": "hatebu-it-0-5db702b25061",
+    "title": "AIで資料作成を終わらす、プロンプト＋パワポ420点｜うちた",
+    "url": "https://note.com/uchita_success/n/n5db702b25061",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-15T03:42:46.869Z",
-    "summary": "ソフトバンクグループの孫正義氏が、AIエージェントが「自己増殖」や「自己進化」\u001b[K\nを始めると「止めようとすれば止められない」と警告。人類が地球上で最も知的な生\u001b[K\n命体だった時代は終わる、と予測した。",
-    "bookmarkCount": 238,
-    "audioFile": "../audio/hatebu-it-27-le_35250523_.wav"
+    "date": "2026-07-16T03:44:36.718Z",
+    "summary": "AIで資料作成を大幅に効率化する「うちた」パワポ自動生成ツールが登場。ベンチャ\u001b[K\nー企業のうちた式パワポ変換により、プロンプトとパワーポイントテンプレから画像\u001b[K\n・グラフ・レイアウトを瞬時にリメイク可能。作業時間の半分以下でクオリティの高\u001b[K\nい資料を作成できる。",
+    "bookmarkCount": 356,
+    "audioFile": "../audio/hatebu-it-0-5db702b25061.wav"
   },
   {
-    "id": "hatebu-it-22-2121927.html",
-    "title": "「SCS評価制度」で自社のセキュリティをどう強化する？　中小企業の情シスが今からできる備え方　【IPAに聞く 後編】取得への準備から、経営層・現場の巻き込みまで",
-    "url": "https://internet.watch.impress.co.jp/docs/special/2121927.html",
+    "id": "hatebu-it-24-2125520.html",
+    "title": "Zoom製品に複数の脆弱性 ～アカウント乗っ取りの恐れ、最大深刻度はCritical／全4件の脆弱性を発表。最新版へのアップデートを",
+    "url": "https://forest.watch.impress.co.jp/docs/news/2125520.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-15T03:43:31.648Z",
-    "summary": "中小企業が情報セキュリティ対策評価制度（SCS評価制度）を取得する際には、自己\u001b[K\n評価から始める必要があります。まず中小企業の情報セキュリティ対策ガイドライン\u001b[K\nに沿って自社の状況を点検し、必要な対策を作ります。その後、情報処理安全確保支\u001b[K\n援士やCISSPなどの専門家に依頼して内容を確認してもらいます。取得は一度きりで\u001b[K\nはなく、毎年更新を行うことで、セキュリティの水準を常に維持します。さらに、利\u001b[K\n用するサービスの責任分解点を把握し、クラウドサービスの場合でも自社でやるべき\u001b[K\n対策を押さえておくことが重要です。最後に、第三者評価や技術検証を通じて実効性\u001b[K\nを確認できます。",
-    "bookmarkCount": 6,
-    "audioFile": "../audio/hatebu-it-22-2121927_html.wav"
+    "date": "2026-07-16T03:44:56.264Z",
+    "summary": "米Zoom Video Communicationsは7月14日（現地時間）、オンラインビデオ会議サービ\u001b[K\nスに複数の脆弱性があることを発表した。全4件のうち最大深刻度がCriticalの「CV\u001b[2D\u001b[K\nCVE-2026-53412」は、Windows版Zoom WorkplaceとMeeting SDKで不備があり、リモー\u001b[K\nト乗っ取りの恐れもある。その他3件はHigh/7、CVSS 7.8～9の深刻度で、アカウント\u001b[K\n乗っ取りリスクを示す。最新バージョンへのアップデートが推奨される。",
+    "bookmarkCount": 10,
+    "audioFile": "../audio/hatebu-it-24-2125520_html.wav"
   }
 ]
