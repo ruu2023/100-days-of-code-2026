@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-0-5db702b25061",
-    "title": "AIで資料作成を終わらす、プロンプト＋パワポ420点｜うちた",
-    "url": "https://note.com/uchita_success/n/n5db702b25061",
+    "id": "hatebu-it-12-12598f532b18",
+    "title": "Claude Codeが化けた。今使っている3つのプラグイン+標準機能の活用法",
+    "url": "https://zenn.dev/sonicmoov/articles/8712598f532b18",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-16T03:44:36.718Z",
-    "summary": "AIで資料作成を大幅に効率化する「うちた」パワポ自動生成ツールが登場。ベンチャ\u001b[K\nー企業のうちた式パワポ変換により、プロンプトとパワーポイントテンプレから画像\u001b[K\n・グラフ・レイアウトを瞬時にリメイク可能。作業時間の半分以下でクオリティの高\u001b[K\nい資料を作成できる。",
-    "bookmarkCount": 356,
-    "audioFile": "../audio/hatebu-it-0-5db702b25061.wav"
+    "date": "2026-07-17T03:43:41.701Z",
+    "summary": "Claude Codeは、ソニックムーブ入社3ヶ月で得たAIツールのノウハウをまとめ、業務\u001b[K\nにすぐに使えるように解説する記事です。標準機能「ステータスライン」や「gensh\u001b[5D\u001b[K\ngenshijin」などのプラグインで可視化・時間管理を行い、コスト削減も実現してい\u001b[K\nます。「superpowers」は開発プロセスをClaudeの論理に強制し、計画上の見落とし\u001b[K\nを明らかにします。さらに、Gitの「dig」で隠れた前提条件を検出し、設計の抜け漏\u001b[K\nれを補完。これら3つのツールを使えば、AIだけではカバーできない効率的な開発フ\u001b[K\nローが構築できます。",
+    "bookmarkCount": 419,
+    "audioFile": "../audio/hatebu-it-12-12598f532b18.wav"
   },
   {
-    "id": "hatebu-it-24-2125520.html",
-    "title": "Zoom製品に複数の脆弱性 ～アカウント乗っ取りの恐れ、最大深刻度はCritical／全4件の脆弱性を発表。最新版へのアップデートを",
-    "url": "https://forest.watch.impress.co.jp/docs/news/2125520.html",
+    "id": "hatebu-it-2-ntry/260715/",
+    "title": "JavaScriptの日付処理が変わる！ DateからTemporalへ - ICS MEDIA",
+    "url": "https://ics.media/entry/260715/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-16T03:44:56.264Z",
-    "summary": "米Zoom Video Communicationsは7月14日（現地時間）、オンラインビデオ会議サービ\u001b[K\nスに複数の脆弱性があることを発表した。全4件のうち最大深刻度がCriticalの「CV\u001b[2D\u001b[K\nCVE-2026-53412」は、Windows版Zoom WorkplaceとMeeting SDKで不備があり、リモー\u001b[K\nト乗っ取りの恐れもある。その他3件はHigh/7、CVSS 7.8～9の深刻度で、アカウント\u001b[K\n乗っ取りリスクを示す。最新バージョンへのアップデートが推奨される。",
-    "bookmarkCount": 10,
-    "audioFile": "../audio/hatebu-it-24-2125520_html.wav"
+    "date": "2026-07-17T03:44:03.332Z",
+    "summary": "PlainDateとTemporalの違いは、0始まりなのか1始まりなのかです。これがずれると\u001b[K\n表示が困り、文字列や日付を比較するときも変換が必要になりミスしやすくなります\u001b[K\n。従来のDateクラスでは、0始まりの日付は月だけが0始まりという仕様で、「3月の\u001b[K\nつもり」でも4月に進んでしまうことがあり、オブジェクト自体を変更するsetDateメ\u001b[K\nソッドがあるため同一オブジェクトを共有すると予期せぬ変更につながります。Tem\u001b[3D\u001b[K\nTemporalの標準API「temporalInstant」は、世界共通の時系列の一点で、日付・時刻\u001b[K\nとタイムゾーンが揃ったものを表します。",
+    "bookmarkCount": 87,
+    "audioFile": "../audio/hatebu-it-2-ntry_260715_.wav"
   }
 ]
