@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-9-chives/53462",
-    "title": "世界一わかりみの深いasync/awaitによる非同期処理 | SIOS Tech Lab",
-    "url": "https://tech-lab.sios.jp/archives/53462",
+    "id": "hatebu-it-15-69b54288deb4",
+    "title": "ComfyUI × 動画生成AI × Codex で、ゲーム用スプライトアニメを量産するパイプラインを作った話 - Qiita",
+    "url": "https://qiita.com/archeleeds/items/2efad73069b54288deb4",
     "source": "Hatena:it",
-    "bookmarkCount": 214,
-    "summary": "【世界一わかりみの深いasync/awaitによる非同期処理 | SIOS Tech Lab】\n\nサイオステクノロジーの武井氏が、osカーネルのレイヤーから非同期の動きを追跡す\u001b[K\nる方法でasync/awaitの理解を促す記事です。文章は要点だけを簡潔にまとめ、実例\u001b[K\n（DBへのアクセスとAPI呼び出し）を用いて「待ち」を見張る仕組みやfetch・epoll\u001b[5D\u001b[K\nepollといったOSレベルの概念を解説しています。.then() よりもawait を用いたコ\u001b[K\nードの読みやすさの良さを紹介し、実際のライブラリが .then() を内部でどのよう\u001b[K\nにPromiseとソケットの受信コールバックに置き換えているかを例示します。実装に\u001b[K\nこだわらず「どこを見ればよいか」の判断基準として覚えておくことができるよう説\u001b[K\n明しています。おわりに、async/awaitはイベントループやepollという下層構造から\u001b[K\n説明を始めるべきだと結論付けています。",
+    "bookmarkCount": 129,
+    "summary": "この記事では、ゲームのスプライトアニメを作るために、動画生成AIを経由したポー\u001b[K\nズ生成からドット絵変換までの一連のパイプラインを ComfyUI で構築し、一人で可\u001b[K\n能な実装例を紹介しています。従量課金サービスは高コストで効率が悪いという課題\u001b[K\nに対し、人間がボタン押下と良いフレームを選択するだけで、1キャラあたり7フレー\u001b[K\nムのモーションと58スプライトを納品形式まで生成できる仕組みを作りました。また\u001b[K\n、AI が描いたドット絵風画像を本物の1ドットピクセルに正規化する方法や、一貫性\u001b[K\nの高い結果を得るための「リファレンス方式」および「役割分離プロンプト」の設計\u001b[K\nについても解説しています。",
     "category": "AI",
-    "date": "2026-07-18T03:39:26.759Z"
+    "date": "2026-07-19T04:01:57.566Z"
   },
   {
-    "id": "hatebu-it-28-5250724.html",
-    "title": "トランプ氏が警告、米国の選挙システムは「壊滅的なほど不十分」　過激な表現で脆弱性を指摘",
-    "url": "https://www.cnn.co.jp/usa/35250724.html",
+    "id": "hatebu-it-7-ll_wordpress",
+    "title": "WordPressの深刻度「緊急」脆弱性 wp2shell の概要と対応指針 - GMO Flatt Security Blog",
+    "url": "https://blog.flatt.tech/entry/wp2shell_wordpress",
     "source": "Hatena:it",
-    "bookmarkCount": 9,
-    "summary": "トランプ大統領は16日夜、演説冒頭で米国の選挙が「壊滅的なほど不十分」だと述べ\u001b[K\n、不正や干渉のリスクを警告した。20年の大統領選に虚偽の主張を持ち続け、過去に\u001b[K\n不正があったという証拠を示さなかった。",
+    "bookmarkCount": 187,
+    "summary": "CVE-2026-60137 と CVE-2026-63030 の2つの脆弱性が、WordPress 6.9.0〜7.1.0 お\u001b[K\nよび 7.0.0〜7.1.0 に存在していたことが判明しました。両者の組み合わせにより、\u001b[K\nリモートから認証なしで任意コードを実行できる攻撃チェーン「wp2shell」が成立し\u001b[K\n、WordPress データベースやページの改ざんが可能です。対策としてはバッチルート\u001b[K\n混同を防ぐ設定変更と未認証アクセス遮断のためのプラグイン導入が必要です。",
     "category": "Security",
-    "date": "2026-07-18T03:39:45.325Z"
+    "date": "2026-07-19T04:02:34.244Z"
   }
 ]
