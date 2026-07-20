@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-15-69b54288deb4",
-    "title": "ComfyUI × 動画生成AI × Codex で、ゲーム用スプライトアニメを量産するパイプラインを作った話 - Qiita",
-    "url": "https://qiita.com/archeleeds/items/2efad73069b54288deb4",
+    "id": "hatebu-it-0-07dbb0d5d745",
+    "title": "【海外記事紹介】余ったMacをClaude Code専用の「何でもやらせるマシン」にする — SSH・tmux・LaunchAgentで権限フル解放のエージェント環境を構築",
+    "url": "https://techfeed.io/entries/6a5be90b3d5307dbb0d5d745",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-19T04:01:57.566Z",
-    "summary": "この記事では、ゲームのスプライトアニメを作るために、動画生成AIを経由したポー\u001b[K\nズ生成からドット絵変換までの一連のパイプラインを ComfyUI で構築し、一人で可\u001b[K\n能な実装例を紹介しています。従量課金サービスは高コストで効率が悪いという課題\u001b[K\nに対し、人間がボタン押下と良いフレームを選択するだけで、1キャラあたり7フレー\u001b[K\nムのモーションと58スプライトを納品形式まで生成できる仕組みを作りました。また\u001b[K\n、AI が描いたドット絵風画像を本物の1ドットピクセルに正規化する方法や、一貫性\u001b[K\nの高い結果を得るための「リファレンス方式」および「役割分離プロンプト」の設計\u001b[K\nについても解説しています。",
-    "bookmarkCount": 129,
-    "audioFile": "../audio/hatebu-it-15-69b54288deb4.wav"
+    "date": "2026-07-20T04:10:39.413Z",
+    "summary": "余っているMacをClaude Code専用の「何でもやらせるマシン」にする手順が、ykdoj\u001b[5D\u001b[K\nykdojo.github.ioの記事で紹介された。記事では、不要な個人データを削除し、新規\u001b[K\nローカルアカウントにClaude Codeをインストールしてフル権限で実行する方法を解\u001b[K\n説している。また、コンテナではネットワークリクエストやUnityアプリが動かない\u001b[K\n点を指摘し、マシン全体を使用することでmacOSの機能もフルに活用できると説明。\u001b[K\nセットアップは2台のMac（操作元の「ソース」とエージェントの「ターゲット」）と\u001b[K\n同じWi-Fiネットワークで行い、SSHとパスワードレスsudoを有効化する手順が詳述さ\u001b[K\nれている。さらに、スリープ防止やクリップボード同期のスクリプトも紹介され、ス\u001b[K\nマホからtmuxサーバーを操作して遠隔でClaude Codeを制御できるようにした。この\u001b[K\nガイドは「メインマシンで使うには怖いが、専用マシンなら何でもやらせられる」と\u001b[K\nいう発想をSSH・tmux・LaunchAgentを組み合わせた実用的な方法で示しており、再実\u001b[K\n行可能で元に戻せる構造となっている。詳細はHow to set up your spare Mac for \u001b[K\nClaude Codeにフルコントロールを参照してください。",
+    "bookmarkCount": 125,
+    "audioFile": "../audio/hatebu-it-0-07dbb0d5d745.wav"
   },
   {
-    "id": "hatebu-it-7-ll_wordpress",
-    "title": "WordPressの深刻度「緊急」脆弱性 wp2shell の概要と対応指針 - GMO Flatt Security Blog",
-    "url": "https://blog.flatt.tech/entry/wp2shell_wordpress",
+    "id": "hatebu-it-16-7aa68c152e00",
+    "title": "セキュリティの勉強になるサイト138選(2026年版) - Qiita",
+    "url": "https://qiita.com/Nakanishi_RareTECH/items/16fd0b847aa68c152e00",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-19T04:02:34.244Z",
-    "summary": "CVE-2026-60137 と CVE-2026-63030 の2つの脆弱性が、WordPress 6.9.0〜7.1.0 お\u001b[K\nよび 7.0.0〜7.1.0 に存在していたことが判明しました。両者の組み合わせにより、\u001b[K\nリモートから認証なしで任意コードを実行できる攻撃チェーン「wp2shell」が成立し\u001b[K\n、WordPress データベースやページの改ざんが可能です。対策としてはバッチルート\u001b[K\n混同を防ぐ設定変更と未認証アクセス遮断のためのプラグイン導入が必要です。",
-    "bookmarkCount": 187,
-    "audioFile": "../audio/hatebu-it-7-ll_wordpress.wav"
+    "date": "2026-07-20T04:11:19.571Z",
+    "summary": "この記事では、Webアプリ・クラウド開発者が学習しやすいセキュリティ勉強サイト\u001b[K\n138選（2026年版）を紹介しています。ほとんどが無料でブラウザやDockerだけで試\u001b[K\nせる内容です。中盤からは「安全なウェブサイトの作り方」や「ウェブサイトのセキ\u001b[K\nュリティ」「コンテナとKubernetesのセキュリティ」と、特定分野の教材も掲載され\u001b[K\nています。",
+    "bookmarkCount": 427,
+    "audioFile": "../audio/hatebu-it-16-7aa68c152e00.wav"
   }
 ]
