@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-3-es-external/",
-    "title": "外部記憶と化したWebから生成AIを通じて情報を取り出すとき、何が起こっているのか",
-    "url": "https://ki-to-oku.net/outsourcing-judgment-to-ai-after-memory-goes-external/",
+    "id": "hatebu-it-7-2126733.html",
+    "title": "Gemini 3.6 Flash登場！17%効率化+値下げ。3.5 Flash-Liteも",
+    "url": "https://pc.watch.impress.co.jp/docs/news/2126733.html",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-21T03:53:39.708Z",
-    "summary": "Googleが広く普及し、スマートフォンなどの携帯型端末でインターネットへ常時接続\u001b[K\nできる環境が整ったことで、人々は検索に頼りやすくなっている。こうした状況下で\u001b[K\nは、情報を自分の頭に入れておくよりも調べることに心が向くようになり、これを「\u001b[K\n外部記憶」と呼ぶ。\n\n人間の脳内でも同様の現象は発生している。「認知的オフロード（cognitive offlo\u001b[5D\u001b[K\noffloading）」という概念で説明される。これは、必要な時に先に情報を覚えておく\u001b[K\nことではなく、実際にその場でスマートフォンなどを開いて調べることになる、とい\u001b[K\nう状態だ。記憶を手元の「外部」の情報に預けることで、記憶が頭の中にあるものと\u001b[K\n同じくらい重要なものとして扱われるようになるのである。\n\nこのような認知の委ねる行為は近年広く認識されるようになり、「Google効果」（検\u001b[K\n索エンジン利用者が調べる手間を減らしたために内容そのものを覚えるのが難しくな\u001b[K\nる）も示唆されている。しかし、その先に生成AIが加わったことで、人は自分の考え\u001b[K\n方を変えざるを得なくなっている。\n\n「記憶を保存する場所を外に移したことと、記憶を使う判断そのものを手放すことは\u001b[K\n別の話のはずだ」と言っているように、ここ数年で生成AIは人の代わりに調べ、答え\u001b[K\nをまとめてくれた。しかし、この利用の先で、思考が自分なのかAIなのか区別がつか\u001b[K\nなくなる――それだけではいきなり問題が解決するわけではない。記憶を手元に残した\u001b[K\nまま調べ済みとすることもできるようになったことで負担は減るが、その先で何を調\u001b[K\nべ、何を答えとすることにするかを選ぶ作業もまた、AIに委ねられることになる。",
-    "bookmarkCount": 116,
-    "audioFile": "../audio/hatebu-it-3-es-external_.wav"
+    "date": "2026-07-22T03:53:26.513Z",
+    "summary": "Googleは7月22日、日本時間で大規模言語モデル「Gemini」に、高速・低コストの新\u001b[K\nモデル2種を追加した。Gemini 3.6 Flashは出力の無駄を17%減らすなど、出力コスト\u001b[K\nを下げた上、性能も向上させた。料金は前世代より安く、コード修正の正確さを示す\u001b[K\n「DeepSWE」ではスコアが37%から49%へ大幅に伸びた。一方、文書作成などの知識労\u001b[K\n働を測る「GDPval-AA v2」の伸びは小幅にとどまる。3.5系最速の軽量モデルである\u001b[K\nGemini 3.5 Flash-Liteも順次利用可能となり、高速・安価な処理が求められる用途\u001b[K\nに適している。これらの新モデルの一部は、開発者向けツール「Google Antigravit\u001b[10D\u001b[K\nAntigravity」などにも対応し始めた。",
+    "bookmarkCount": 50,
+    "audioFile": "../audio/hatebu-it-7-2126733_html.wav"
   },
   {
-    "id": "hatebu-it-17-ocker-repro/",
-    "title": "2026年7月報告のnginx脆弱性（CVE-2026-42533）をDockerで再現してみた | DevelopersIO",
-    "url": "https://dev.classmethod.jp/articles/cve-2026-42533-nginx-rce-docker-repro/",
+    "id": "hatebu-it-4-cyberattack/",
+    "title": "ランサムウェア グループ RansomHouse(ランサムハウス)がニチレイへのサイバー攻撃を主張-過去 アスクルにも不正アクセス|セキュリティニュースのセキュリティ対策Lab",
+    "url": "https://rocket-boys.co.jp/security-measures-lab/ransomhouse-nichirei-askul-cyberattack/",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-21T03:54:18.427Z",
-    "summary": "nginxの認証なしでリモートから攻撃でき、ヒープ情報まで漏洩する危険な脆弱性（\u001b[K\nCVE-2026-42533）がDocker環境で再現され、修正版では未然に防げることを確認しま\u001b[K\nした。CVSSスコアは9.2（Critical）で、影響バージョンは0.9.6から1.30.3までです\u001b[K\n。キャプチャクロバリングによる情報漏洩を観測し、バッファサイズの不整合を検出\u001b[K\nして早期に修正版へアップデートすべきと指摘されています。",
-    "bookmarkCount": 26,
-    "audioFile": "../audio/hatebu-it-17-ocker-repro_.wav"
+    "date": "2026-07-22T03:54:12.715Z",
+    "summary": "2026年7月1日、ランサムウェアグループRansomHouse（ランサムハウス）がダークウ\u001b[K\nェブ上のリークサイトでニチレイへのサイバー攻撃について犯行声明を発表しました\u001b[K\n。同グループは攻撃実行日を2026年7月13日に記載し、ニチレイのデータを暗号化し\u001b[K\nたうえで証拠となるデータを保有していると主張していますが、本稿執筆時点ではニ\u001b[K\nチレイからの公式な裏付けや関与・被害の確定はありません。RansomHouseは2025年\u001b[K\n10月、アスクルを攻撃し1.1TBのデータ窃取を報告した恐喝集団で、ニチレイへの同\u001b[K\n様のサイバー攻撃は行っていないとされています。",
+    "bookmarkCount": 24,
+    "audioFile": "../audio/hatebu-it-4-cyberattack_.wav"
   }
 ]
