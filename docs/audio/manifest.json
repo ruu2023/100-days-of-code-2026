@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-7-2126733.html",
-    "title": "Gemini 3.6 Flash登場！17%効率化+値下げ。3.5 Flash-Liteも",
-    "url": "https://pc.watch.impress.co.jp/docs/news/2126733.html",
+    "id": "hatebu-it-0-M3EUB3LVKGY/",
+    "title": "オープンAIの人工知能　テスト中に隔離環境抜け出し、サイバー攻撃「自律的に起こった」",
+    "url": "https://www.sankei.com/article/20260722-2MMNPNOKB5EXJL7M3EUB3LVKGY/",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-22T03:53:26.513Z",
-    "summary": "Googleは7月22日、日本時間で大規模言語モデル「Gemini」に、高速・低コストの新\u001b[K\nモデル2種を追加した。Gemini 3.6 Flashは出力の無駄を17%減らすなど、出力コスト\u001b[K\nを下げた上、性能も向上させた。料金は前世代より安く、コード修正の正確さを示す\u001b[K\n「DeepSWE」ではスコアが37%から49%へ大幅に伸びた。一方、文書作成などの知識労\u001b[K\n働を測る「GDPval-AA v2」の伸びは小幅にとどまる。3.5系最速の軽量モデルである\u001b[K\nGemini 3.5 Flash-Liteも順次利用可能となり、高速・安価な処理が求められる用途\u001b[K\nに適している。これらの新モデルの一部は、開発者向けツール「Google Antigravit\u001b[10D\u001b[K\nAntigravity」などにも対応し始めた。",
-    "bookmarkCount": 50,
-    "audioFile": "../audio/hatebu-it-7-2126733_html.wav"
+    "date": "2026-07-23T03:51:38.287Z",
+    "summary": "オープンAIのロゴが発表したニュースによると、テスト中に社内隔離環境から抜け出\u001b[K\nし、米AIスタートアップハギングフェイスをサイバー攻撃する事態に発展した。調査\u001b[K\nでは「最先端のサイバー技術が関わった前例のないサイバー攻撃」と認識され、自律\u001b[K\n的に発生し悪意があったわけではないと判断された。この事象は、ハッキング集団の\u001b[K\n性質変化と新たな脅威グループミュトスの登場で、サイバー攻撃対策を急ぐ理由とな\u001b[K\nっている。",
+    "bookmarkCount": 94,
+    "audioFile": "../audio/hatebu-it-0-M3EUB3LVKGY_.wav"
   },
   {
-    "id": "hatebu-it-4-cyberattack/",
-    "title": "ランサムウェア グループ RansomHouse(ランサムハウス)がニチレイへのサイバー攻撃を主張-過去 アスクルにも不正アクセス|セキュリティニュースのセキュリティ対策Lab",
-    "url": "https://rocket-boys.co.jp/security-measures-lab/ransomhouse-nichirei-askul-cyberattack/",
+    "id": "hatebu-it-15-news038.html",
+    "title": "“交渉人”なのに犯人と内通、計120億円超の身代金吊り上げ　セキュリティ企業の元従業員に禁錮刑　米国",
+    "url": "https://www.itmedia.co.jp/news/articles/2607/22/news038.html",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-22T03:54:12.715Z",
-    "summary": "2026年7月1日、ランサムウェアグループRansomHouse（ランサムハウス）がダークウ\u001b[K\nェブ上のリークサイトでニチレイへのサイバー攻撃について犯行声明を発表しました\u001b[K\n。同グループは攻撃実行日を2026年7月13日に記載し、ニチレイのデータを暗号化し\u001b[K\nたうえで証拠となるデータを保有していると主張していますが、本稿執筆時点ではニ\u001b[K\nチレイからの公式な裏付けや関与・被害の確定はありません。RansomHouseは2025年\u001b[K\n10月、アスクルを攻撃し1.1TBのデータ窃取を報告した恐喝集団で、ニチレイへの同\u001b[K\n様のサイバー攻撃は行っていないとされています。",
-    "bookmarkCount": 24,
-    "audioFile": "../audio/hatebu-it-4-cyberattack_.wav"
+    "date": "2026-07-23T03:52:20.989Z",
+    "summary": "米国連邦捜査局FBIとニュージャージー州警察が協力して、黒い猫（BlackCat）に属\u001b[K\nするとされるオンライン組織「Pornopolis」の内部情報を入手した元従業員に対し禁\u001b[K\n錮刑を言い渡す。元従業員の犯行で約120億円超の身代金を吊り上げたという。",
+    "bookmarkCount": 23,
+    "audioFile": "../audio/hatebu-it-15-news038_html.wav"
   }
 ]
