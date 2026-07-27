@@ -1,24 +1,24 @@
 [
   {
-    "id": "hatebu-it-13-0faeabae7c09",
-    "title": "【Obsidian】既存のAIサブスクだけでメモを整理する環境を作った",
-    "url": "https://zenn.dev/peishim/articles/a10faeabae7c09",
+    "id": "hatebu-it-4-laude-opus-5",
+    "title": "Claude Opus 5のプロンプティング",
+    "url": "https://platform.claude.com/docs/ja/build-with-claude/prompt-engineering/prompting-claude-opus-5",
     "source": "Hatena:it",
     "category": "AI",
-    "date": "2026-07-26T04:02:00.005Z",
-    "summary": "【Obsidian】既存のAIサブスクだけでメモを整理する環境を作った\n\n技術系エンジニアがNotionからObsidianに移行し、ChatGPT / Claudeのサブスクを利\u001b[K\n用してメモを整理したいと考えていました。管理の破綻とメモの散在化といった問題\u001b[K\nを解決するために、Obsidianを使い始めました。AIは既存のサブスクリプション内に\u001b[K\nありながらも、ローカルでメモを整理する環境を作るのに役立ちます。",
-    "bookmarkCount": 248,
-    "audioFile": "../audio/hatebu-it-13-0faeabae7c09.wav"
+    "date": "2026-07-27T04:08:00.811Z",
+    "summary": "人工知能が「Claude Opus 5」という音楽作品を生成するために、具体的なプロンプ\u001b[K\nトを与えています。プロンプティングはAIの学習と創造性を向上させる効果があり、\u001b[K\n人工知能と芸術性の融合が注目されています。要するに：Claude Opus 5という未完\u001b[K\n成の楽曲に対して、プロンプティングにより人工知能が創作プロセスを開始し、音楽\u001b[K\n分野における研究開発や創造性が進展しています。",
+    "bookmarkCount": 77,
+    "audioFile": "../audio/hatebu-it-4-laude-opus-5.wav"
   },
   {
-    "id": "hatebu-it-6-1pp20190801/",
-    "title": "『読者の横顔』　株式会社はてな　コーポレート本部　経理部長　堀内潤一 氏 | ZEIKEN PRESS",
-    "url": "https://www.zeiken.co.jp/zeikenpress/press/0001pp20190801/",
+    "id": "hatebu-it-7-nderstanding",
+    "title": "理解を手放さない - Shin x Blog",
+    "url": "https://blog.shin1x1.com/entry/dont-let-go-of-understanding",
     "source": "Hatena:it",
     "category": "Security",
-    "date": "2026-07-26T04:02:57.857Z",
-    "summary": "経理部長の堀内潤一氏は『週刊経営財務』購読を決意し、その効果や利用方法を詳し\u001b[K\nく紹介しています。\n\n## 掲載内容と活用例\n**会計改正への迅速な対応**\n- 新しいIFRS基準（日本基準化版収益認識）等の理解が困難な時期でも、記事は「公\u001b[K\n開草案」や審議段階から情報を提供し、制度改正の流れを把握できるようにしていま\u001b[K\nす。\n- 対談や注記例も掲載され、他社の開示事項を知ることで、自社向け注記作成に役立\u001b[K\nてています。\n\n**実務への具体的活用**\n- IFRS15号に準拠した日本の会計基準解説が豊富で、経営財務のチェックポイントを\u001b[K\n書き込みながら読み込む習慣と相性が良いと評価しています。\n- M&A情報や海外の会計動向なども掲載され、M&A判断や国際的な事業展開に必要な知\u001b[K\n識を提供しています。\n\n## 購読の背景と特徴\n堀内氏は「常に新しい情報をキャッチしていく必要がある」と認識し、経理・財務パ\u001b[K\nーソンにとって情報更新が重要な仕事だと考えました。また、「立ち止まってしまう\u001b[K\nとその情報が劣化していつの間にか使い物にならなくなる」と述べており、継続的な\u001b[K\n学び習慣の価値を強調しています。\n\n## 結論\n経理・財務パーソンにとって『週刊経営財務』は、最新の会計基準や実務事例を手軽\u001b[K\nに得られ、業務改善や意思決定に直結する有用な情報源となっています。その豊富な\u001b[K\nコンテンツとタイムリーな更新は、忙しい経理部門でも継続的に活用しやすい環境を\u001b[K\n提供しています。",
-    "bookmarkCount": 154,
-    "audioFile": "../audio/hatebu-it-6-1pp20190801_.wav"
+    "date": "2026-07-27T04:08:37.832Z",
+    "summary": "AI コーディングエージェントへの開発スタイルでは、人間の理解を待たずに進める\u001b[K\nのが合理的だとされています。AI にコードを実装させると、成果物が早く出るため\u001b[K\n、分からないことが出てきたらその時に AI に聞けば良い、という考え方です。一面\u001b[K\nでは真実ですが、理解しないまま進めると違和感が生じ、人間の理解をベースに進め\u001b[K\nるという現在地に戻ったとされています。\n\n要するに：AI が進むと人間の理解を犠牲にする危険性があるので、どこまで理解を\u001b[K\n手放すかはチームのレベルにもよるということです。",
+    "bookmarkCount": 404,
+    "audioFile": "../audio/hatebu-it-7-nderstanding.wav"
   }
 ]
