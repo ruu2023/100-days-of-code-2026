@@ -1,22 +1,22 @@
 [
   {
-    "id": "hatebu-it-4-laude-opus-5",
-    "title": "Claude Opus 5のプロンプティング",
-    "url": "https://platform.claude.com/docs/ja/build-with-claude/prompt-engineering/prompting-claude-opus-5",
+    "id": "hatebu-it-22-/2000000223/",
+    "title": "MIXI、新卒エンジニア向け研修資料＆動画を無料公開　「実践的なAI活用術」を12科目で紹介",
+    "url": "https://www.itmedia.co.jp/aiplus/article/2607/27/2000000223/",
     "source": "Hatena:it",
-    "bookmarkCount": 77,
-    "summary": "人工知能が「Claude Opus 5」という音楽作品を生成するために、具体的なプロンプ\u001b[K\nトを与えています。プロンプティングはAIの学習と創造性を向上させる効果があり、\u001b[K\n人工知能と芸術性の融合が注目されています。要するに：Claude Opus 5という未完\u001b[K\n成の楽曲に対して、プロンプティングにより人工知能が創作プロセスを開始し、音楽\u001b[K\n分野における研究開発や創造性が進展しています。",
+    "bookmarkCount": 265,
+    "summary": "MIXIは新卒エンジニア向けに、AI活用の実践的な研修資料とアーカイブ動画を12科目\u001b[K\nで公開した。対象はデータ分析や計算資源など技術領域を含む。Gitやコンテナ技術\u001b[K\n、セキュリティ、ロボティクスなどの実務スキルも含め、LLMやAIエージェントの活\u001b[K\n用事例などを紹介。AI研修に加え全科目でエンジニアが業務でAIをどう活かすかの具\u001b[K\n体例を提供した。  \n\n要するに：MIXIは新卒エンジニア向けに、コードを書く力だけでなく、AIを活用して\u001b[K\n開発スピードを高め、ユーザー価値の提供や事業成果を考える姿勢が求められる時代\u001b[K\nに対応した研修資料と動画を無料で公開した。これにより、社内外の技術力向上や次\u001b[K\n世代エンジニア育成を期待する。",
     "category": "AI",
-    "date": "2026-07-27T04:08:00.811Z"
+    "date": "2026-07-28T03:42:58.294Z"
   },
   {
-    "id": "hatebu-it-7-nderstanding",
-    "title": "理解を手放さない - Shin x Blog",
-    "url": "https://blog.shin1x1.com/entry/dont-let-go-of-understanding",
+    "id": "hatebu-it-0-ing_security",
+    "title": "セキュリティ研修【MIXI 26新卒技術研修】",
+    "url": "https://speakerdeck.com/mixi_engineers/2026_new_grad_training_security",
     "source": "Hatena:it",
-    "bookmarkCount": 404,
-    "summary": "AI コーディングエージェントへの開発スタイルでは、人間の理解を待たずに進める\u001b[K\nのが合理的だとされています。AI にコードを実装させると、成果物が早く出るため\u001b[K\n、分からないことが出てきたらその時に AI に聞けば良い、という考え方です。一面\u001b[K\nでは真実ですが、理解しないまま進めると違和感が生じ、人間の理解をベースに進め\u001b[K\nるという現在地に戻ったとされています。\n\n要するに：AI が進むと人間の理解を犠牲にする危険性があるので、どこまで理解を\u001b[K\n手放すかはチームのレベルにもよるということです。",
+    "bookmarkCount": 142,
+    "summary": "MIXIは新卒向けにセキュリティ室の研修資料を公開した。情報セキュリティには「機\u001b[K\n密性」「完全性」「可用性」の3つの原則があると説明し、実際に不正アクセスが起\u001b[K\nきた例としてECサイトの購入履歴漏洩やWebサーバのダウンなどを取り上げた。また\u001b[K\n、ランサム攻撃やAI活用時のリスク、サプライチェーンへの標的型攻撃など、最新の\u001b[K\n脅威についても言及した。参加者は「危険を感じたらすぐにCSIRTに連絡し、上司や\u001b[K\nSlackなどの相談窓口を利用する」ことを推奨している。",
     "category": "Security",
-    "date": "2026-07-27T04:08:37.832Z"
+    "date": "2026-07-28T03:43:23.427Z"
   }
 ]
